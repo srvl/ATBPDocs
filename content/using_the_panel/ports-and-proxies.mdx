@@ -20,11 +20,7 @@ For this guide, you must have access to a domain and the ability to alter that d
 
 First, go to your domain's DNS settings panel. In this demo, we use Cloudflare and **example.com** as an example domain.
 
-![console](/using_the_panel/ports_and_proxies/1.png)
-
 The DNS record used for a reverse proxy is a CNAME (canonical name). In most cases, put an `@` in the Name box for a root domain, or the subdomain you want (for example `map`) for **map.example.com**.
-
-![console](/using_the_panel/ports_and_proxies/2.png)
 
 Replace the '**Target**' field with the reverse proxy address shown in the **Ports & Proxies** tab of your server in the [panel](https://panel.atbphosting.com). If you are unsure which address to use, open a ticket on our [Discord](https://discord.atbphosting.com).
 
@@ -46,8 +42,6 @@ If you use Cloudflare for DNS, set the 'Proxy status' to **DNS only**, as it won
 ---
 
 Once you've created your CNAME record, go to the [panel](https://panel.atbphosting.com) and select 'Ports & Proxies' on the left sidebar.
-
-![console](/using_the_panel/ports_and_proxies/3.png)
 
 More than likely, you will have one allocation. To create a reverse proxy you need a new allocation: click '**Create Allocation**' and enter the port you want to use.
 
