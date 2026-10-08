@@ -1,0 +1,20 @@
+---
+title: "Out of Memory Errors"
+description: "What an out of memory crash means and how to fix it."
+---
+
+If your server stops by itself and the console mentions out of memory, or the exit code 137, it ran out of RAM and was shut down.
+
+## Is it really out of memory?
+
+High memory use alone is normal. Java keeps memory it may reuse. Read [Understand RAM Usage](/running_a_server/troubleshooting/understand-ram-usage) before panicking. You only have a problem if the server crashes or lags heavily.
+
+## Fixes
+
+1. **Reduce load.** Lower `view-distance` and `simulation-distance`, see [Common server.properties Settings](/running_a_server/common-server-properties). Cut mob limits, see [Mob Spawn Limits](/running_a_server/mob-spawn-limits).
+2. **Find the heavy part.** Use [Spark](/running_a_server/spark) to see what uses memory. Remove or update any heavy plugin or mod.
+3. **Watch for leaks.** If memory slowly climbs until a crash, a plugin or mod may be leaking. Remove recent additions to find it, see [Binary Search](/running_a_server/binarysearch).
+4. **Check startup settings.** If your Startup page has a memory setting, leave some room for the system, roughly 85 to 95 percent of your plan's RAM.
+5. **Upgrade.** Large modpacks and busy servers need more RAM. See [Choosing a Plan](/general/choosing-a-plan) and [Upgrades and Downgrades](/billing/upgrades-and-downgrades).
+
+Need help? Open a [support ticket](/general/getting-support).

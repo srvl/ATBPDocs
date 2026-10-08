@@ -1,0 +1,40 @@
+---
+title: "7 Days to Die worlds: new, upload and reset"
+description: "Generate a random world, load a map, upload a save, or start over."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server and back up your world before changing anything. See [backups](/plans/backups). Do not stop the server while a new world is generating.
+
+</Callout>
+
+All of these use `serverconfig.xml`, see [settings](/games/7-days-to-die/config).
+
+## Random world
+
+1. Set `GameWorld` to `RWG`.
+2. Set `WorldGenSeed` to any text and `WorldGenSize` to 4096, 6144, 8192 or 10240. The same seed and size always give the same map.
+3. Set `GameName` to a new name.
+4. Save and start. The first start can take a long time for big sizes. Watch the **Console**.
+
+## Pregenerated map
+
+Check the `Data/Worlds` folder for map names, set `GameWorld` to the exact name, set a new `GameName`, and start.
+
+## Upload an existing world
+
+1. On your PC, copy `Saves/[GameWorld]/[GameName]/`. For a random world also copy `GeneratedWorlds/[world name]/`, because the save stores progress and the second folder stores the map.
+2. Upload both to the matching places in **Files** in the [panel](https://panel.atbphosting.com) (use [SFTP](/using_the_panel/sftp) for big folders).
+3. Set `GameWorld` and `GameName` to match the folder names exactly.
+4. Start the server.
+
+Players keep their characters because they are tied to their platform ID.
+
+## Reset
+
+Change `GameName` for a fresh save on the same map. Change `WorldGenSeed` or `WorldGenSize` as well for a different random map.
+
+If a world will not load, check capitalization of the names, that the terrain folder exists, and that the server version matches the save's version. Saves from a major older version may not load.

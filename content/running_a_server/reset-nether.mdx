@@ -1,0 +1,30 @@
+---
+title: "Reset the Nether or End"
+description: "Regenerate the Nether or End without touching your main world."
+---
+
+import { Callout } from 'nextra/components'
+
+Resetting a dimension removes everything built there, such as portals and bases. Your Overworld is not affected, but your portals back may need to be rebuilt.
+
+<Callout type="warning">
+
+Create a [backup](/using_the_panel/backups/guide) and stop the server before deleting anything.
+
+</Callout>
+
+## Paper and Spigot
+
+1. Stop the server and open the **Files** tab.
+2. Delete the `world_nether` folder (Nether) or `world_the_end` folder (End).
+3. Start the server. A fresh dimension is generated.
+
+## Vanilla
+
+1. Stop the server and open your main world folder (usually `world`).
+2. Delete the `DIM-1` folder for the Nether or `DIM1` for the End.
+3. Start the server.
+
+If your world has a different folder name, check `level-name` in `server.properties`. Very new Minecraft releases may store dimensions in a different place inside the world folder, so look through the world folder for a folder named after the dimension if you cannot find these.
+
+To reset everything, see [Resetting your Worlds](/running_a_server/world-reset).

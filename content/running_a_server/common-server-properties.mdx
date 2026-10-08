@@ -1,0 +1,42 @@
+---
+title: "Common server.properties Settings"
+description: "Change difficulty, gamemode, view distance, PvP, flight and more."
+---
+
+import { Callout } from 'nextra/components'
+
+Most basic server options live in `server.properties`. To edit it:
+
+1. Stop the server (changes made while it runs can be overwritten).
+2. Open the **Files** tab and click `server.properties`.
+3. Change the line you need, save, and start the server again.
+
+## Popular settings
+
+| Setting | What it does | Example |
+|---|---|---|
+| `difficulty` | `peaceful`, `easy`, `normal` or `hard` | `difficulty=hard` |
+| `gamemode` | Default mode for new players: `survival`, `creative`, `adventure`, `spectator` | `gamemode=survival` |
+| `force-gamemode` | If `true`, players are set to the default gamemode on every join | `force-gamemode=true` |
+| `pvp` | Whether players can damage each other | `pvp=false` |
+| `allow-flight` | Stops the server from kicking players for flying (needed for some mods and plugins) | `allow-flight=true` |
+| `view-distance` | How many chunks players can see (range 3 to 32, default 10) | `view-distance=8` |
+| `simulation-distance` | How far from a player the world is actively updated | `simulation-distance=6` |
+| `max-players` | Player slot limit | `max-players=20` |
+| `motd` | The text shown in the server list | see [MOTD](/running_a_server/motd) |
+| `white-list` | Only allow listed players | see [Whitelist](/running_a_server/whitelist) |
+| `online-mode` | Verify accounts with Mojang | see [Online Mode](/running_a_server/online-mode) |
+| `level-seed` | Seed for new worlds | see [Change Your World Seed](/running_a_server/change-world-seed) |
+| `enable-command-block` | Allow command blocks on older versions | see [Command Blocks](/running_a_server/enable-command-blocks) |
+
+<Callout type="info">
+
+Lower `view-distance` and `simulation-distance` are the easiest ways to cut lag. Values of 6 to 8 are plenty for most servers.
+
+</Callout>
+
+## Changing things without restarting
+
+Difficulty and gamemode can also be changed in-game with `/difficulty` and `/gamemode`. Changes to `server.properties` itself need a restart.
+
+Allow-flight only matters in survival. Anti-cheats usually need to be told separately that flying is allowed for certain ranks.

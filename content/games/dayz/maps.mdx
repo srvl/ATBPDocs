@@ -1,0 +1,37 @@
+---
+title: "Change the map on your DayZ server"
+description: "Switch between Chernarus, Livonia and Sakhal, or add a Workshop map."
+---
+
+import { Callout } from 'nextra/components'
+
+| Map | Mission folder | Players need |
+| --- | --- | --- |
+| Chernarus | `dayzOffline.chernarusplus` | Nothing extra |
+| Livonia | `dayzOffline.enoch` | Livonia DLC |
+| Sakhal | `dayzOffline.sakhal` | Frostline DLC |
+
+You as the owner do not need the DLC, because the mission files come with the server.
+
+<Callout type="warning">
+
+Each map has its own persistence data (bases, loot, vehicles in the `storage_` folders). It does not carry over between maps, so back up first and expect a fresh start.
+
+</Callout>
+
+## Switch to an official map
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. In **Files**, open `serverDZ.cfg`.
+3. In the `Missions` section, change the `template=` line, for example `template="dayzOffline.enoch";`.
+4. Save and start the server.
+
+## Add a custom Workshop map
+
+1. Find the map's mission folder on its Workshop page or readme. It is usually named like `empty.mapname`.
+2. Stop the server and upload the folder into `mpmissions`.
+3. Install the map's terrain mod the same way as other mods, see [mods](/games/dayz/mods).
+4. Set `template=` to the exact folder name, capitals included.
+5. Save and start.
+
+If the server will not start, check the `template=` spelling and that the folder exists in `mpmissions`. Players also need the map mod installed.

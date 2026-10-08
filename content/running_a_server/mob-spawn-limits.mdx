@@ -1,0 +1,26 @@
+---
+title: "Change Mob Spawn Limits"
+description: "Raise or lower how many mobs can spawn near players."
+---
+
+Mob spawn limits control how many mobs of each type can exist around players at once. Lowering them can reduce lag, and raising them gives busier worlds or bigger farms. This works on Paper and its forks.
+
+1. Stop the server and open the **Files** tab.
+2. Open `bukkit.yml`.
+3. Find the `spawn-limits` section:
+
+```yaml
+spawn-limits:
+  monsters: 70
+  animals: 10
+  water-animals: 5
+  water-ambient: 20
+  ambient: 15
+```
+
+4. Change the numbers. Smaller means fewer mobs.
+5. Save the file and restart the server.
+
+You can also raise the `ticks-per` values in the same file so spawn attempts happen less often, which helps performance. Paper also has per-world spawn settings in `config/paper-world-defaults.yml`.
+
+If your server is laggy, see [Optimization](/running_a_server/optimization) and [Spark](/running_a_server/spark) to find the real cause before changing limits.

@@ -1,0 +1,28 @@
+---
+title: "Join from Xbox, PlayStation or Switch"
+description: "Consoles have no Add Server button. Here is the usual workaround."
+---
+
+import { Callout } from 'nextra/components'
+
+Xbox, PlayStation and Nintendo Switch do not let you type in a custom server address. A common workaround is **BedrockConnect**, a community project that changes your console's DNS so one of the built-in Featured Servers opens a menu where you can type any IP and port.
+
+<Callout type="warning">
+
+BedrockConnect is run by a third party, not by ATBP. You are sending your console's DNS lookups through their servers, so only use the DNS addresses published on the BedrockConnect project's own page, and change your DNS back to automatic if you stop using it.
+
+</Callout>
+
+## Steps
+
+1. On your console, open the network or internet settings for your connection and set DNS to **Manual**. Use the primary and secondary DNS addresses listed by the BedrockConnect project for your console (PlayStation uses a different primary address from Xbox and Switch).
+2. Save, and run the connection test if your console offers one.
+3. Open Minecraft and go to the **Servers** tab.
+4. Join one of the Featured Servers. Instead of that server, the BedrockConnect menu appears.
+5. Choose **Connect to a Server**, type your server's IP and port from the [panel](https://panel.atbphosting.com), and submit.
+
+## Undo it
+
+Set the console's DNS back to **Automatic** and the normal Featured Servers return.
+
+If it does not work, open a ticket on our [Discord](https://discord.atbphosting.com).

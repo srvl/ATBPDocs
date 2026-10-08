@@ -1,0 +1,55 @@
+---
+title: "7 Days to Die admin and console commands"
+description: "Add yourself as admin in serveradmin.xml and the most useful commands."
+---
+
+import { Callout } from 'nextra/components'
+
+## Make someone admin
+
+You need the player's **Steam64 ID** (17 digits, usually starting with 7656) from a Steam ID lookup site.
+
+<Callout type="info">
+
+`serveradmin.xml` only exists after the server has started once. On a new server, start it, let it finish booting, then stop it before editing.
+
+</Callout>
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. In **Files**, open `Saves`, then your world folder, then your save folder (these match `GameWorld` and `GameName`), and open `serveradmin.xml`.
+3. In the `admins` section, remove the comment markers from the example line and put in your ID:
+
+```
+<admins>
+  <admin steamID="YOUR_STEAM64_ID" permission_level="0" />
+</admins>
+```
+
+4. Save and start the server. Join and run `dm` to test.
+
+Without editing files: with the server running and the player connected, run `admin add <id> 0` in the **Console**.
+
+## Permission levels
+
+Lower numbers mean more access. `0` is full admin and `1000` is a normal player. Each command has its own level in the `permissions` section, and a player can run it if their level is equal to or lower. For example, give moderators level 50 and set `kick` and `ban` to 50.
+
+Console players may need `platform` and `userid` attributes instead of `steamID`.
+
+## Handy commands
+
+| Command | Use |
+| --- | --- |
+| `kick` | Remove a player |
+| `ban add`, `ban remove`, `ban list` | Manage bans |
+| `whitelist add`, `whitelist remove` | Manage the whitelist |
+| `admin add`, `admin remove`, `admin list` | Manage admins |
+| `say` | Broadcast a message |
+| `listplayerids` | Players with their IDs |
+| `settime` | Set day or night |
+| `saveworld` | Force a save |
+| `teleport`, `teleportplayer` | Move players |
+| `debugmenu`, `creativemenu` | Toggle debug and creative tools |
+| `shutdown` | Save and stop safely |
+| `help` | List commands |
+
+If a command with a player name fails, use the entity ID from `listplayerids`.

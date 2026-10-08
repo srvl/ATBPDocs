@@ -1,0 +1,30 @@
+---
+title: "Change Your World Seed"
+description: "Use a different seed for your Minecraft world."
+---
+
+import { Callout } from 'nextra/components'
+
+The seed decides how your world is generated. You can only change it for a world that has not been generated yet, so changing it means deleting your current world.
+
+<Callout type="warning">
+
+This permanently removes your current world. Make a [backup](/using_the_panel/backups/guide) first if you want to keep it.
+
+</Callout>
+
+## Steps
+
+1. Stop the server completely.
+2. Open the **Files** tab and delete `world`, `world_nether` and `world_the_end`. If your world has a different name, check `level-name` in `server.properties`.
+3. Open `server.properties`.
+4. Set the seed with no spaces around the equals sign, for example `level-seed=104764939073902` or `level-seed=mycoolseed`.
+5. Save the file and start the server. The first start takes longer while the new world generates.
+
+## If it did not work
+
+- Same terrain as before: the old world folder still exists. Stop the server and delete it.
+- Nether or End look unchanged: delete their folders too.
+- The seed went back to the old one: you edited the file while the server was running. Stop first, then edit.
+
+To keep a world but wipe only the Nether, see [Reset the Nether](/running_a_server/reset-nether).

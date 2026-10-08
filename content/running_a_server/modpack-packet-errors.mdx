@@ -1,0 +1,41 @@
+---
+title: "Fix 'Failed to decode packet' in modpacks"
+description: "What causes packet size errors on modded Minecraft servers and how to fix them."
+---
+
+import { Callout } from 'nextra/components'
+
+Modded servers sometimes kick players with errors about packets being too big. Minecraft limits how large a single packet can be, and some mods push past that limit.
+
+## Errors that point to this problem
+
+- `Tried to read NBT tag that was too big`
+- `Badly compressed packet - size of ... is larger than protocol maximum`
+- `Attempted to send packet over maximum protocol size`
+- `Packet too big (is ..., should be less than 8388608)`
+- `Payload may not be larger than 1048576 bytes`
+- `Chunk Packet trying to allocate too much memory on read`
+- `Internal Exception: io.netty.handler.codec.DecoderException: Failed to decode packet`
+
+## Common causes
+
+- Mods that conflict with each other, or outdated mods.
+- Players using a different modpack version than the server.
+- A single item holding huge data, such as a full backpack or storage drive.
+- Very busy chunks, for example massive redstone or heavy world generation.
+- Plain connection timeouts with no size error are usually the player's own network, not the game.
+
+## Fix it
+
+1. **Reinstall the modpack on your own PC** through your launcher. This clears corrupted local files and is the first thing to try.
+2. **Install Packet Fixer on the server.** Download the version for your Minecraft version and mod loader from Modrinth, upload it to the `mods` folder using **Files**, and restart.
+3. **Install the same Packet Fixer on every player's client.** Put the jar in their `mods` folder. Players without it will not be able to join.
+4. Restart the server and have everyone restart their game.
+
+<Callout type="info">
+
+Make sure the Packet Fixer version matches your Minecraft version and loader exactly. A wrong version is a common reason this fix seems to do nothing.
+
+</Callout>
+
+If the errors continue, open a ticket on our [Discord](https://discord.atbphosting.com) and include the full console log.

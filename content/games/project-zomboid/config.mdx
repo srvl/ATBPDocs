@@ -1,0 +1,37 @@
+---
+title: "Project Zomboid server settings"
+description: "Where the server and sandbox settings files are and the options people change most."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server first. If it is running, your edits are overwritten when it shuts down.
+
+</Callout>
+
+## Where the files are
+
+In the [panel](https://panel.atbphosting.com), open **Files**, then the `.cache` folder and the `Server` folder. You will find two files named after your server:
+
+- `<name>.ini` for general settings
+- `<name>_SandboxVars.lua` for gameplay settings
+
+Open each, edit, and use **Save Content**. Then start the server from the **Console**.
+
+## Common settings in the .ini file
+
+- `MaxPlayers=` how many players at once
+- `Password=` join password, blank for public
+- `PublicName=` name in the public browser
+- `GlobalChat=false` turns the global chat off
+
+## Common settings in the SandboxVars file
+
+- `Zombies =` population: 1 Insane, 2 High, 3 Normal, 4 Low
+- `WaterShutModifier =` and `ElecShutModifier =` days until water and power go off
+- `XPMultiplier =` for example `2.0` is double XP
+- Loot options such as `FoodLoot=` and `WeaponLoot=`: 1 Extremely Rare, 2 Rare, 3 Normal, 4 Common
+
+If the server will not start after an edit, a typo in the file is the usual cause. Ask in a ticket on our [Discord](https://discord.atbphosting.com) if you are stuck.

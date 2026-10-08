@@ -1,0 +1,41 @@
+---
+title: "Bedrock admin, cheats and difficulty"
+description: "Make yourself operator and enable commands on your Bedrock server."
+---
+
+import { Callout } from 'nextra/components'
+
+## Make a player operator
+
+1. Open the **Console** of your server in the [panel](https://panel.atbphosting.com) and make sure it is running.
+2. Type the command below with the player's gamertag. Keep the quotes if the name has spaces.
+
+```
+op "YourGamertag"
+```
+
+3. Join the server and run `/gamemode creative` to test. If it works, you are an operator.
+
+To remove operator status later, use `deop` the same way.
+
+## Enable cheats
+
+Most commands (weather, teleport, gamemode) need cheats on.
+
+1. Stop the server.
+2. Open **Files** and edit `server.properties`.
+3. Set `allow-cheats=true`, save, and start the server.
+
+<Callout type="warning">
+
+Enabling cheats permanently turns off achievements for that world.
+
+</Callout>
+
+## Difficulty and seed
+
+Both live in `server.properties` too: `difficulty` (peaceful, easy, normal, hard) and `level-seed`. The seed only affects a **new** world, so change `level-name` to a new name, or delete the old world, before it applies. Stop the server before editing.
+
+## Not working?
+
+Check the gamertag spelling, and that `allow-cheats=true` is saved. Still stuck? Open a ticket on our [Discord](https://discord.atbphosting.com).

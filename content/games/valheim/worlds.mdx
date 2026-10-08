@@ -1,0 +1,45 @@
+---
+title: "Valheim worlds, saves and restoring"
+description: "Upload an existing world, fix a world that keeps resetting, and roll back to an automatic backup."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Always stop the server before touching world files, and download a copy of your current world first. See [backups](/plans/backups) for panel backups.
+
+</Callout>
+
+Saves live in `.config/unity3d/IronGate/Valheim/worlds_local` in **Files**. Newer worlds are a **folder** (with files like `_main.1.fwl2`, `_main.1.db2`, `.chunk` files and `_main.1.ok`). Older worlds are two loose files, `Name.db` and `Name.fwl`.
+
+## Upload your own world
+
+If your world shows a cloud icon in game, use **Manage Saves** and **Move to Local** first.
+
+1. On Windows, open `%userprofile%\AppData\LocalLow\IronGate\Valheim\worlds_local`.
+2. In the [panel](https://panel.atbphosting.com), stop the server and open `worlds_local`.
+3. Folder worlds: create a folder with the exact world name and upload every file from your folder, including the chunk files and the `.ok` file. Loose-file worlds: upload both the `.db` and `.fwl` into `worlds_local`.
+4. In the server's settings or startup page, set the **World Name** to your exact world name (case-sensitive).
+5. Start the server. Use [SFTP](/using_the_panel/sftp) for large worlds.
+
+If you spawn in a brand-new world, the server could not find your save: re-check the file list and the name.
+
+## New server resets to a blank world
+
+A new server only writes the world after its first autosave, which takes about 20 minutes. Restarting before that makes a new blank world. To force a save, add yourself as admin (see [admin](/games/valheim/admin)), join, and type `/save` in chat. A folder world should then show a `_main.1.ok` file.
+
+## Restore an automatic backup
+
+Valheim keeps a few automatic backups, taken hours apart, named with `backup_auto-` and a timestamp.
+
+1. Stop the server and open `worlds_local`.
+2. Add `_old` to the name of your current world (folder, or both `.db` and `.fwl`).
+3. Rename the backup you want to your exact world name. For loose files, rename both files of the same timestamp.
+4. Start the server and check the world. Delete the `_old` files once you are happy.
+
+Characters are saved on each player's PC, so players restore those themselves under **Manage Saves**, **Characters**.
+
+## Start a new world
+
+Change the **World Name** to a new name and restart. The old files stay in the folder. To reuse the same name, delete the old world files first.

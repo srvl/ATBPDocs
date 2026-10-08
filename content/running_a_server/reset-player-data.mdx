@@ -1,0 +1,19 @@
+---
+title: "Reset Player Data"
+description: "Wipe one player's inventory, location and stats."
+---
+
+Player data holds a player's inventory, location, health and more. Deleting it makes that player start fresh the next time they join.
+
+1. Find the player's UUID with any Minecraft UUID lookup website. Enter their name and copy the UUID.
+2. Stop the server so it does not rewrite the file.
+3. Open the **Files** tab and go into your world folder, then `playerdata`.
+4. Find the `.dat` file that matches the UUID. Download it first as a backup.
+5. Delete the file.
+6. Start the server. A new file is created when the player joins.
+
+For stats and advancements, the `stats` and `advancements` folders next to `playerdata` use the same UUID file names.
+
+Plugins like EssentialsX keep their own player data, for example in `plugins/Essentials/userdata`. Delete the matching file there to reset homes, balance and similar data.
+
+Note that on offline-mode servers the UUID is different from the one on the official account, so check the names in `usercache.json`. See [Online Mode Explained](/running_a_server/online-mode).

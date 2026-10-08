@@ -1,0 +1,25 @@
+---
+title: "Install mods on DayZ"
+description: "Upload Workshop mods, copy their keys, and set the load order."
+---
+
+DayZ servers do not download Workshop mods by themselves, so you add them yourself. Stop the server in the [panel](https://panel.atbphosting.com) before uploading.
+
+## Steps
+
+1. Subscribe to the mods in the DayZ Launcher or Steam Workshop and launch the game once so they download as `@ModName` folders.
+2. In **Files**, upload each `@ModName` folder to the server root.
+3. In each mod folder, copy every `.bikey` from its `keys` folder into the server's `keys` folder.
+4. Add the mods to the server's mod launch parameter, separated by semicolons. If your panel has an **Additional Mods** or startup field, use that.
+5. Start the server.
+
+## Load order and keys
+
+- Put dependencies first. Community Framework (`@CF`) usually goes at the top.
+- A missing `.bikey` makes the server reject every player using that mod, or drop out of the public list.
+- Some mods need extra server-side files, so read each mod's page.
+- If a mod adds items, you may need to merge its entries into `types.xml`, see [loot](/games/dayz/loot).
+
+## Players
+
+Everyone needs the same mods and versions. The DayZ Launcher prompts players to subscribe to missing ones. DayZ does not update Workshop mods automatically, so after a mod update, re-download and re-upload it.

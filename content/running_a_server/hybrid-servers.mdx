@@ -1,0 +1,30 @@
+---
+title: "Hybrid Servers (Mods and Plugins)"
+description: "What hybrid servers are and the risks of running them."
+---
+
+import { Callout } from 'nextra/components'
+
+A hybrid server tries to run both mods and plugins at the same time. It sounds ideal, but mods and plugins are built for different systems, so problems are common.
+
+<Callout type="warning">
+
+Hybrid servers are not officially recommended. Expect crashes, odd behavior, and plugins that do not work with modded content. Some older projects also had serious security flaws, so research any hybrid before using it.
+
+</Callout>
+
+## Better alternatives
+
+- Want plugin features? Use [Paper](/running_a_server/server-software-overview) with plugins.
+- Want mods? Use Fabric, Forge or NeoForge with server-side mods, see [Installing Mods](/plugins_and_modifications/mods-install).
+- Want both for different purposes? Run two servers behind a proxy, see [Velocity](/running_a_server/velocity).
+
+## If you still want a hybrid
+
+1. Pick a hybrid that is actively maintained and supports your Minecraft version. Check recent security reports.
+2. Make a [backup](/using_the_panel/backups/guide) of your server.
+3. Stop the server, rename your current `server.jar` to something else (for example `server-old.jar`), and upload the hybrid jar as `server.jar`. See [File Manager](/using_the_panel/file-manager-controls).
+4. Start the server and check the console for errors.
+5. Put plugins in `plugins` and mods in `mods`. Players need the matching mods on their game.
+
+Keep backups, update everything regularly, and test each new plugin or mod alone before adding more.

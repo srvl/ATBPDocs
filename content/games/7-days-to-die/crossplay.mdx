@@ -1,0 +1,31 @@
+---
+title: "7 Days to Die crossplay"
+description: "Settings needed for PC and console players to share one server."
+---
+
+import { Callout } from 'nextra/components'
+
+Crossplay only works on dedicated servers, with a maximum of 8 players, and **no mods**.
+
+## Settings
+
+Stop the server, edit `serverconfig.xml` in **Files**, and set:
+
+- `ServerAllowCrossplay` to `true`
+- `EACEnabled` to `true`
+- `IgnoreEOSSanctions` to `false`
+- `ServerMaxPlayerCount` to 8 or lower
+- `ServerVisibility` to `2`
+- `WorldGenSize` to 8192 or lower
+
+Save and start the server.
+
+## Extra ports
+
+Console players use your game port plus the next three. With game port 26900 that is 26901, 26902 and 26903. Ask for them in a ticket on our [Discord](https://discord.atbphosting.com) and say you are setting up crossplay.
+
+<Callout type="info">
+
+If the server does not start, check the log for "Server configuration is invalid". It means one of the requirements above is missing. Test with a console player before inviting everyone.
+
+</Callout>

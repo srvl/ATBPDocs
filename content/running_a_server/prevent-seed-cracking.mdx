@@ -1,0 +1,19 @@
+---
+title: "Prevent Seed Cracking"
+description: "Make it harder for players to figure out your world seed."
+---
+
+Tools exist that can work out your world seed from things like ore positions or structure locations. A known seed lets cheaters find bases, loot and structures. These steps make it harder on Paper and Spigot servers.
+
+## Shift structure positions
+
+1. Open `spigot.yml` in the **Files** tab.
+2. In the `seed-` section for structures, change a few of the numbers. Changing one is enough. This moves villages, temples and other structures away from where the real seed would place them.
+
+## Turn on Anti-Xray engine 2
+
+Follow [Enable Anti-Xray](/running_a_server/anti-xray) and set `engine-mode` to `2`. The fake ore blocks also confuse seed-cracking tools.
+
+## Finish
+
+Save your files and restart the server. Structures in chunks that are already generated will not move, so this works best on new or fresh worlds. See [Change Your World Seed](/running_a_server/change-world-seed) if you want to start over.

@@ -1,0 +1,51 @@
+---
+title: "Offline (cracked) mode and how to secure it"
+description: "Turn off Mojang account checks on your Java server, and protect it with a login plugin or mod."
+---
+
+import { Callout } from 'nextra/components'
+
+By default a Minecraft Java server runs in **online mode**: every player is checked against their Minecraft account. Offline mode skips that check. People use it so friends without a purchased account can join, or to get past a "Can't verify username" error.
+
+<Callout type="warning">
+
+In offline mode anyone can join with any username. If someone types the name of an operator, the server treats them as that operator. A whitelist alone does not fix this, because it only checks names. Always install a login plugin or mod (below) before you let players in.
+
+</Callout>
+
+## Turn offline mode on
+
+1. Open your server in the [panel](https://panel.atbphosting.com) and stop it.
+2. Open **Files** and edit `server.properties`.
+3. Set `online-mode=false`.
+4. Set `enforce-secure-profile=false` so players without a signed profile can chat.
+5. Save, then start the server.
+
+## Secure it with a login plugin or mod
+
+Install exactly one login tool that makes every player register a password. Pick the one that matches your server software:
+
+| Server software | Tool | Where to get it |
+| --- | --- | --- |
+| Spigot, Paper, Purpur | AuthMeReloaded | SpigotMC |
+| Fabric, Quilt | EasyAuth (server-side mod) | Modrinth |
+| NeoForge | AuthShield, or Basic Login | Modrinth, or CurseForge |
+| Forge | ServerAuth (server-side mod) | Modrinth |
+
+Upload the file to the `plugins` folder (plugins) or `mods` folder (mods), then restart. See [installing plugins](/plugins_and_modifications/installing-plugins) and [installing mods](/plugins_and_modifications/mods-install).
+
+With AuthMeReloaded and EasyAuth, players run `/register <password> <password>` the first time they join and `/login <password>` on every later visit. Check the tool's own page for commands if you use another one.
+
+<Callout type="info">
+
+Bedrock players joining through Geyser use Floodgate, which is a different setup. See [GeyserMC](/plugins_and_modifications/plugins/geysermc) and [Floodgate](/plugins_and_modifications/plugins/floodgate).
+
+</Callout>
+
+## Go back to online mode
+
+Set `online-mode=true` in `server.properties`, save, and restart.
+
+## Need help?
+
+If players still cannot join or the login tool will not load, open a ticket on our [Discord](https://discord.atbphosting.com).

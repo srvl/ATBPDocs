@@ -1,0 +1,35 @@
+---
+title: "Project Zomboid admin and staff roles"
+description: "Give a player admin or moderator access with SetAccessLevel."
+---
+
+The player must be online while you run the command.
+
+1. Open the **Console** of your server in the [panel](https://panel.atbphosting.com).
+2. Run:
+
+```
+SetAccessLevel SurvivorBob admin
+```
+
+Replace `SurvivorBob` with the exact username (it is case-sensitive). The rank applies immediately.
+
+If you are already an admin in-game, type it in chat with a slash: `/setaccesslevel SurvivorBob admin`.
+
+## Roles
+
+| Role | What it is for |
+| --- | --- |
+| admin | Full control, including server settings |
+| moderator | Kick, ban and manage players |
+| overseer | Monitoring tools |
+| gm | Event tools: spawn items, teleport, control hordes |
+| observer | Read-only staff tools |
+
+To take a rank away, set the level to `user`:
+
+```
+SetAccessLevel SurvivorBob user
+```
+
+The Project Zomboid wiki lists every admin command. If a command errors, check the spelling of the username and that the player is online.

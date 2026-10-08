@@ -1,0 +1,56 @@
+---
+title: "7 Days to Die server settings"
+description: "Edit serverconfig.xml: identity, world size, PvP, land claims and performance."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server before editing. The game rewrites the file when it shuts down and will overwrite your changes if it is still running.
+
+</Callout>
+
+Open `serverconfig.xml` in the server's root directory from **Files** in the [panel](https://panel.atbphosting.com), edit, save, and start the server. Unknown property names are ignored, and broken XML (a missing quote, for example) can stop the server from starting.
+
+## Server and slots
+
+- `ServerName`, `ServerDescription`, `ServerPassword` (blank for public)
+- `ServerVisibility`: 0 unlisted, 1 friends only, 2 public
+- `ServerMaxPlayerCount`: slots, default 8
+- `ServerPort`: default 26900, normally left alone
+
+## New world settings
+
+These only apply to a **new** world, see [worlds](/games/7-days-to-die/worlds).
+
+- `GameWorld`: a map name, or `RWG` for a random world
+- `WorldGenSeed` and `WorldGenSize` (4096, 6144, 8192 or 10240). Bigger worlds take longer and use more RAM.
+- `GameName`: the save name
+
+## Difficulty and rules
+
+Recent versions moved difficulty, day length, Blood Moon, loot, airdrops and XP into a single `SandboxCode` value. To make your own:
+
+1. In the game, open the Sandbox Options menu when creating a world.
+2. Start from a preset and adjust the options.
+3. Copy the generated code into `SandboxCode` in the file.
+4. Save, restart, and check the result in game.
+
+The code is not readable, so keep a note of what you chose. If your server feels easier than expected after an update, check that `SandboxCode` is set.
+
+## PvP and land claims
+
+- `PlayerKillingMode`: 0 no killing, 1 allies only, 2 strangers only, 3 everyone
+- `LandClaimCount`, `LandClaimSize`, `LandClaimDeadZone`
+- `LandClaimExpiryTime`: days offline before a claim expires
+- `LandClaimOnlineDurabilityModifier` and `LandClaimOfflineDurabilityModifier`: block hardness
+
+## Performance
+
+- `MaxSpawnedZombies` (default 64) and `MaxSpawnedAnimals` (default 50)
+- `ServerMaxAllowedViewDistance`: capping it at 8 to 10 helps performance
+- `EACEnabled`: Easy Anti-Cheat
+- `TelnetEnabled`, `TelnetPort`, `TelnetPassword`: always set a password if you turn telnet on
+
+Related: [admin](/games/7-days-to-die/admin), [mods](/games/7-days-to-die/mods), [crossplay](/games/7-days-to-die/crossplay).

@@ -1,0 +1,31 @@
+---
+title: "How to check your Minecraft ping"
+description: "Three simple ways to see how fast your connection to the server is."
+---
+
+Ping is the round-trip time between your computer and the server, in milliseconds (ms). Lower is better. Our servers are in Singapore, so Philippine players usually see low numbers.
+
+## In the game
+
+Open **Multiplayer**, find your server in the list, and hover over the signal bars on the right. A tooltip shows your ping.
+
+## Windows
+
+1. Open the Start Menu, search for `cmd`, and open Command Prompt.
+2. Type `ping` followed by your server's IP address and press Enter.
+3. Read the `time=` value in each reply.
+
+## macOS and Linux
+
+Open Terminal and run `ping` followed by the server IP. Replies keep coming until you press `Ctrl + C`.
+
+## What the numbers mean
+
+| Ping | Meaning |
+| --- | --- |
+| 0 to 50 ms | Excellent |
+| 50 to 100 ms | Good |
+| 100 to 200 ms | Some lag likely |
+| 200 ms and above | Hard to play comfortably |
+
+High ping usually comes from your own internet, Wi-Fi congestion, or distance. If you keep getting disconnected even with good ping, see [ping issues](/extras/ping-issues) to run an MTR and then open a ticket on our [Discord](https://discord.atbphosting.com).

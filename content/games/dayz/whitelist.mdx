@@ -1,0 +1,21 @@
+---
+title: "DayZ whitelist"
+description: "Only let approved players onto your DayZ server."
+---
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. In **Files**, open `serverDZ.cfg` and change `enableWhitelist = 0;` to `enableWhitelist = 1;`.
+3. Save and start the server.
+4. Open `whitelist.txt` in the root directory and add one player ID per line. No spaces, commas or blank lines.
+
+After the whitelist is on, edits to `whitelist.txt` apply as soon as you save, with no restart.
+
+## Which ID?
+
+Players are normally identified by their 17-digit Steam64 ID, but some servers log a different identity ID in the admin log. To be sure, let the player join once with the whitelist off and read their ID from the log, or check the ID logged when the server rejects them.
+
+## Troubleshooting
+
+- Everyone not on the list is locked out, apart from admins.
+- If a listed player is still refused, look for typos, stray spaces and the ID format.
+- To turn it off, set `enableWhitelist` back to `0` and restart.
