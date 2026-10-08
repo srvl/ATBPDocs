@@ -1,0 +1,23 @@
+export default {
+  "updating": "Updating",
+  "jars": "Server Softwares",
+  "optimization": "Server Optimization",
+  "world-reset": "World Reset",
+  "domain": "Using A Domain",
+  "java-version": "Changing Java Version",
+  "datapacks": "Datapacks",
+  "spark": "Spark",
+  "timings": "Taking a Timings Report",
+  "icon": "Icon",
+  "motd": "How to change MOTD",
+  "whitelist": "Setting up Whitelist",
+  "resourcepack": "Serverwide Resource packs",
+  "converting-worlds": "Converting Bukkit Worlds to vanilla",
+  "waterfall": "Setting up a Waterfall/Bungee Server",
+  "velocity": "Setting up a Velocity Proxy",
+  "internal-servers": "Internal Servers",
+  "binarysearch": "Troubleshooting: Binary Search",
+  "worlds": "Managing Worlds",
+  "mcaselector": "MCASelector CLI",
+  "exploitfix": "❗ Exploit Fix ❗"
+}
