@@ -13,7 +13,6 @@ import { Callout } from 'nextra/components'
 
 ### **Please migrate to [Velocity](/running_a_server/velocity) as soon as possible!**
 
-
 </Callout>
 
 <details>
@@ -34,18 +33,12 @@ NOTE: Installing BungeeGuard is strongly recommended to protect your backend ser
 
 To get started with Waterfall, you need to download their latest jar from their [downloads page](https://papermc.io/downloads#Waterfall).
 
-![console](/running_a_server/waterfall/waterfall-dl-page.png)
-
 When you have downloaded their latest jar file, then you can upload it to your waterfall server when it's created on the next step.
 
 ## Server split Waterfall server
 
 You can use the free server split feature (see [Splitting servers](/using_the_panel/split-server)) to create a proxy server.
-You can see in the below image on how you can do so. You need to click on one of your servers to be able to see the server split menu on the left side.
-
-This is how it looks when you're creating your waterfall server in the server split menu.
-
-![console](/running_a_server/waterfall/waterfall-server-split.png)
+You need to click on one of your servers to be able to see the server split menu on the left side, then create the split there and choose the Waterfall server type.
 
 After you've created the waterfall server in your server split, you'll be able to see the server on your server overview in the panel.
 
@@ -53,13 +46,9 @@ After you've created the waterfall server in your server split, you'll be able t
 
 *Before you set up this section, make sure your backend servers are not shared publicly, and secure them with BungeeGuard (see the end of this article).*
 
-![img](/running_a_server/waterfall/waterfall-fs-initial.png)
-
 You need to start it one time and shut it down afterwards to generate all the files needed to be able to configure waterfall.
 
-Afterwards it will look like this:
-
-![console](/running_a_server/waterfall/waterfall-fs.png)
+Afterwards the file manager will show the generated Waterfall files, including `config.yml`.
 
 We'll configure waterfall in the `config.yml` file.
 
@@ -135,7 +124,7 @@ Remember to use your backend server's own IP address and port and replace the ex
 
 Afterwards you'll need to add the survival server to under priorities.
 
-When you're done with adding backend servers it might look like this:
+When you're done with adding backend servers it might look like the following:
 
 ```yaml
 connection_throttle: 4000

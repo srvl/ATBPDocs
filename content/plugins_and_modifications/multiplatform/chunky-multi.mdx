@@ -15,7 +15,7 @@ Chunk generation in Minecraft is slow, which can sometimes cause server lag or s
 
 <Callout type="important">
 
-If you run Chunky on Paper, adding the argument shown below can greatly improve performance. You can add this argument on the "Startup" section of the panel, within the "Startup Flags" field. This flag should be the last one in the startup command. Remember to remove this flag once world generation is complete.
+If you run Chunky on Paper, adding the argument below can greatly improve performance. You can add this argument on the "Startup" section of the panel, within the "Startup Flags" field. This flag should be the last one in the startup command. Remember to remove this flag once world generation is complete.
 
  -DPaper.WorkerThreadCount=# (# = the core count of your plan)
 
@@ -47,11 +47,9 @@ If you wish to pause or cancel pre-generation, you can run `chunky pause` or `ch
 
 If it is paused, you can run `chunky continue` to resume pre-generation.
 
-
 ## File Size
 
 The table below can be used to estimate the file size of your world after you generate it. The values below are for 2k by 2k blocks (1k radius). Note that every time you double the radius, the area (and correspondingly the disk space / time taken) increases by 4x.
-
 
 | World         | File Size |
 |---------------|-----------|
@@ -72,4 +70,3 @@ The table below can be used to estimate the file size of your world after you ge
 [GitHub](https://github.com/pop4959/Chunky)
 
 [Wiki](https://github.com/pop4959/Chunky/wiki)
-

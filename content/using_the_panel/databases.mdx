@@ -10,33 +10,13 @@ Databases can be used by certain plugins to allow for a more efficient, organize
 ### Database Storage
 Please keep your database usage reasonable and in line with the Terms of Service at https://atbphosting.com/terms.
 
-<div style={{ position: 'relative', paddingTop: '56.25%', textAlign: 'center' }}>
-  <iframe
-    src="https://www.youtube.com/embed/X_JCB6NbIEI?si=NHmEau_Za8Yy2_hS"
-    title="YouTube video player"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerPolicy="strict-origin-when-cross-origin"
-    allowFullScreen
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-    }}
-  />
-</div>
-
 ### Adding MySQL Databases
- 
+
 From the [panel](https://panel.atbphosting.com) select the **Databases** tab on the navigation bar.
 
 Click **New Database** to start the process.
 
 In the first box, you assign the database a name. In the second, you can specify what IP addresses can connect to the database. We recommend leaving it as the default wildcard of `%`, which will allow all IP addresses to connect.
-
-![img](/using_the_panel/databases/1.png)
 
 ---
 
@@ -44,16 +24,10 @@ In the first box, you assign the database a name. In the second, you can specify
 
 Once you have created the database, it will appear in your database list. From here you can view basic details, advanced details, import to the database, export from the database, or delete the database.
 
-![img](/using_the_panel/databases/2.png)
-
 ---
 ### Importing MySQL Databases through the panel
 
 To import a database you first have to create a new database in your server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. Keep in mind that database imports are limited to **5GB**.
-
-![img](/using_the_panel/databases/4.png)
-
-![img](/using_the_panel/databases/3.png)
 
 ---
 ### Importing an .SQL database dump through the file manager
@@ -66,8 +40,6 @@ In some cases the encoding, formatting or how the database dump was made isn't c
 
 You can also upload an SQL file to import a database. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database** then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format and this option may not work if it wasn't a database properly dumped from an MySQL server.
 
-![img](/using_the_panel/databases/5.png)
-
 ---
 ### Importing an .SQL database dump through HeidiSQL
 
@@ -78,8 +50,6 @@ Keep in mind that not all .SQL files such as sqlite and others can't be imported
 </Callout>
 
 To import an .SQL database dump through HeidiSQL first connect to your database, select your database then click on the **File** menu option and select **Run SQL file**, this will run your .SQL file in HeidiSQL and should import it into your database.
-
-![img](/using_the_panel/databases/6.png)
 
 ---
 

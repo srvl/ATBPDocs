@@ -29,7 +29,6 @@ To start off here's a list of all the sub-commands under the whitelist command:
 * `/whitelist reload` - Reloads the cached list to match the list that is inside of `whitelist.json`
 * `/whitelist remove [player]` - Removes a player from the list
 
-
 ### In Game
 There is only 3 steps to turn on your whitelist in game:
 * Step 1: `/whitelist on` - Turns the whitelist on.
@@ -54,9 +53,9 @@ Otherwise, it'll look something like this, we will use Notch as a placeholder:
   }
 ]
 ```
-* Step 3: Add someone to your file, to do this you'll need their UUID, an easy way to get this is to goto a website like https://mcuuid.net/ and search their username you will get a result similar to this:
-![](/running_a_server/whitelisting/mcuuid-example.png)
-From this page, we need one thing, the user's Full UUID. Once you have that copied, you can head back to the `whitelist.json` file and add them to the file using this format:
+* Step 3: Add someone to your file, to do this you'll need their UUID, an easy way to get this is to goto a website like https://mcuuid.net/ and search their username you will get a result page listing the player's UUIDs.
+
+From that page, we need one thing, the user's Full UUID. Once you have that copied, you can head back to the `whitelist.json` file and add them to the file using this format:
 ```yaml
 [
   {

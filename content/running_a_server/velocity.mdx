@@ -7,17 +7,13 @@ import { Callout } from 'nextra/components'
 
 <Callout type="important">
 
-
 When running your servers behind a proxy like Velocity or Waterfall, it requires them to be set to offline-mode. Normally hosting companies will not provide support for offline mode servers, but in this case it is required for the proxy to function properly. It will act as the gateway to your servers and handle authentication for you.
-
 
 </Callout>
 
 ## Downloading Velocity
 
 To get started with Velocity, you first need to download the latest version of Velocity from PaperMC [downloads page](https://papermc.io/downloads#Velocity).
-
-![console](/running_a_server/velocity/1.png)
 
 Once you have downloaded Velocity you may proceed to the next step in the setup process: creating a server split to run Velocity off of. Velocity is it’s own server jar file and will require it’s own server to run from.
 
@@ -41,21 +37,13 @@ For most servers hosted with ATBP, 1 GB is a solid baseline, and 1.5 GB is ideal
 
 First you will need to head to your server split section via the server panel sidebar.
 
-Next you need to select the type of server split you want to create, name your split, and allocate the amount of RAM and Storage you want your Velocity Server to have, it will look something like this:
-
-![console](/running_a_server/velocity/velocity-server-split-setups.png)
+Next you need to select the type of server split you want to create, name your split, and allocate the amount of RAM and Storage you want your Velocity Server to have.
 
 After you create your split for Velocity it will appear in that section with all its details, just like your other server splits.
 
-![console](/running_a_server/velocity/2.png)
+Rename your velocity jar that you downloaded in the previous section to `velocity.jar` for simplicity and upload it to your `/home` directory on your new server split. This will be the jar that runs Velocity, much like server jars on your other splits. After you've uploaded the jar file to your server you need to head to the `Startup` section of your server split via the sidebar and make sure that the name of the startup variable for the server jar matches up with what you have uploaded.
 
-Rename your velocity jar that you downloaded in the previous section to `velocity.jar` for simplicity and upload it to your `/home` directory on your new server split. This will be the jar that runs Velocity, much like server jars on your other splits. After you've uploaded the jar file to your server you need to head to the `Startup` section of your server split via the sidebar and make sure that the name of the startup variable for the server jar matches up with what you have uploaded. It should look like this:
-
-![img](/running_a_server/velocity/velocity-startup-options.PNG)
-
-Now you need to start up the Velocity server and then shut it down once it's loaded, this will initialize the filesystem for Velocity and setup Velocity's folders and configuration file. Your `/home` directory should now look something like this.
-
-![img](/running_a_server/velocity/velocity-initial-fs.PNG)
+Now you need to start up the Velocity server and then shut it down once it's loaded, this will initialize the filesystem for Velocity and setup Velocity's folders and configuration file. Your `/home` directory should now contain `velocity.toml`, `forwarding.secret` and the other Velocity folders and files.
 
 The `velocity.toml` file is the config file for Velocity, we will be editing this and more in the following sections.
 
@@ -65,9 +53,7 @@ The first section of the config file you need to edit is the `[servers]` section
 
 <Callout type="info">
 
-
 Your backend servers should not be reachable directly by players, because they run in offline mode behind the proxy. Use modern player information forwarding (see the section below) so that only your Velocity proxy can log players in, and do not share the IP and port of your backend servers.
-
 
 </Callout>
 
@@ -101,9 +87,7 @@ After you configure and save your `server.properties` file along with completing
 
 <Callout type="warning">
 
-
 It is HIGHLY recommended that your Velocity server is set to online-mode, this is the most secure option for running your server and will reduce hackers and exploits by a ton simply by having it turned on. You can also visit [Velocity’s documentation](https://velocitypowered.com/wiki/users/forwarding/) for more setup help, but it highly recommended that you use modern forwarding.
-
 
 </Callout>
 
@@ -115,9 +99,7 @@ This is pretty simple to setup. First turn your proxy server offline, then locat
 
 <Callout type="info">
 
-
 This section also applies to forks based upon Paper such as Purpur or Pufferfish
-
 
 </Callout>
 
@@ -127,19 +109,11 @@ First, turn your backend server offline.
 
 You need to disable BungeeCord forwarding if you had it enabled beforehand. Make sure `bungeecord` is set to `false` in your `spigot.yml`.
 
-![img](/running_a_server/velocity/4.png)
-
 In `config/paper-global.yml`, under the `velocity` section set `enabled: true` and `secret ''` to match the secret in your `forwarding.secret` file.
 
-The `forwarding.secret` is found in the main folder of your Velocity Proxy server, and it will contain a text that you need to paste inside the '' in the secret line in the `paper-global.yml` files of your backend servers. See the screenshots below:
+The `forwarding.secret` is found in the main folder of your Velocity Proxy server, and it will contain a text that you need to paste inside the '' in the secret line in the `paper-global.yml` files of your backend servers.
 
-![img](/running_a_server/velocity/5.png)
-
-![img](/running_a_server/velocity/6.png)
-
-Copy the text found in the `forwarding.secret`, then go into your Paper backend server, navigate to the config folder then open the `paper-global.yml` file, search for the secret line and paste the text inside the '', it should look similar to this screenshot but with your unique secret key.
-
-![img](/running_a_server/velocity/7.png)
+Copy the text found in the `forwarding.secret`, then go into your Paper backend server, navigate to the config folder then open the `paper-global.yml` file, search for the secret line and paste the text inside the '', so the line holds your unique secret key.
 
 You must also set `online-mode` under the `velocity` section in `config/paper-global.yml` to the `online-mode` setting in your `velocity.toml`. Once you're done editing `paper-global.yml`, start your server. Keep in mind that these changes need to be done while the server is offline, otherwise they will not be saved.
 
@@ -192,8 +166,6 @@ If you are interested in installing additional functionality for Velocity, they 
 
 <Callout type="info">
 
-
 The server-icon.png file you upload to your Velocity server is the icon that will show up on the multiplayer menu in Minecraft.
-
 
 </Callout>
