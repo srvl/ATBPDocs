@@ -9,7 +9,12 @@ export const metadata = {
 
 const navbar = (
   <Navbar
-    logo={<b>ATBP Hosting Docs</b>}
+    logo={
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+        <img src="/logo.png" alt="ATBP Hosting logo" width={45} height={32} />
+        <b>ATBP Hosting Docs</b>
+      </span>
+    }
   />
 )
 const footer = <Footer>© {new Date().getFullYear()} ATBP Hosting Ltd.</Footer>
@@ -22,7 +27,7 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/srvl/ATBPDocs/tree/main"
+          docsRepositoryBase="https://github.com/srvl/ATBPDocs/tree/master"
           footer={footer}
         >
           {children}
