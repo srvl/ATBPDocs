@@ -20,11 +20,17 @@ description: "Find useful information, such as known issues, frequently asked qu
 
 ## Recommended Server Limits
 
-Due to at least one memory leak the server requires about 16-32 GB RAM.
-Referring to the [official documentation](https://tech.palworldgame.com/dedicated-server-guide) you can start the server with 8GB but you will run out of memory very quickly.
-The minimum should be 16GB but 32GB are fairly recommended for now.
+Palworld uses more memory the longer it runs, so pick a size with some headroom and restart the server regularly.
 
-As of January 19th 2024 the server requires about 5GB of storage space. This might extend with further content/updates.
+| Players | RAM |
+|---|---|
+| Up to 6 | 8 GB |
+| 8 to 16 | 10 to 12 GB |
+| Up to 32 | 16 GB |
+
+- Set a [schedule](/using_the_panel/schedules) to restart the server every 6 hours (or daily for small groups). This clears the memory build-up before players notice lag.
+- Turning off `bEnableInvaderEnemy` lowers memory use noticeably.
+- The game itself needs about 5 GB of disk; every ATBP Palworld plan has at least 160 GB of NVMe, so worlds and backups have plenty of room.
 
 ---
 
