@@ -15,7 +15,6 @@ export default {
   "converting-worlds": "Converting Bukkit Worlds to vanilla",
   "waterfall": "Setting up a Waterfall/Bungee Server",
   "velocity": "Setting up a Velocity Proxy",
-  "internal-servers": "Internal Servers",
   "binarysearch": "Troubleshooting: Binary Search",
   "worlds": "Managing Worlds",
   "mcaselector": "MCASelector CLI",

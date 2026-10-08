@@ -15,8 +15,8 @@ Yes, NuVotifier is like Vault where it's version independent.
 - [NuVotifier](https://www.spigotmc.org/resources/nuvotifier.13449/)
 - Any plugin that hooks into NuVotifier, [VotingPlugin](https://www.spigotmc.org/resources/votingplugin.15358/) is what will be used for the tutorial.
 - Ability to browse or view server files, a few guides linked below:
-  - [Connect using your favorite program on your computer](https://docs.bloom.host/sftp/)
-  - [Manage and edit your files through the DuckPanel](https://docs.bloom.host/file-manager-controls)
+  - [Connect using your favorite program on your computer](/using_the_panel/sftp)
+  - [Manage and edit your files through the ATBP panel](/using_the_panel/file-manager-controls)
 
 ### Single Server Configuration
 This page continues with the implication you have downloaded the resources above or a vote plugin to hook into NuVotifier of your choosing, and put it in your `plugins` folder.
@@ -26,7 +26,7 @@ Please check your `config.yml`, you'll notice there is a list of configuration o
 
 - `port` option which by default is `8192`
 
-After you have found your port, you need to head to DuckPanel and open Ports & Proxies. It should look something like below.
+After you have found your port, you need to head to ATBP panel and open Ports & Proxies. It should look something like below.
 
 ![console](/plugins_and_modifications/plugins/votifier/1.png)
 
@@ -47,7 +47,7 @@ If you didn't do it already, Please read this guide on how to create and find lo
 
 VotingPlugin has the option to configure what type of `data storage` you would like to use
 - SQLITE (flat file storage, works out of the box)
-- MYSQL (works with Bloom's database which is based on MariaDB, however needs extra configuration)
+- MYSQL (works with a MySQL database from your ATBP panel, however needs extra configuration)
   - A guide on how to create and find logins for your databases, [click here](/using_the_panel/databases)
 
 **Requirements:**
@@ -70,7 +70,7 @@ DataStorage: MYSQL
 # Information for mysql
 # See the end of the config for cache options
 MySQL:
-Host: 'node_name.bloom.host' # -> Grab the database host address you got from the database section above.
+Host: 'your-database-host' # -> Grab the database host address you got from the database section above.
 # Default port is 3306
 Port: 3306
 Database: 'your_database_name' # -> Grab the name of the database you got from the database section above.
@@ -86,7 +86,7 @@ Prefix: '' # -> Do not touch this unless multiple servers.
 #MaxLifeTime: -1  -> Do not touch this
 #Additional info on connection string
 #Line: '' -> Do not touch this
-# Bloom uses MariaDB, so it should be enabled since it's there.
+# If your database uses MariaDB, leave this enabled since it's there.
 # If you notice any issues, please contact VotingPlugin!
 UseMariaDB: true
 ```

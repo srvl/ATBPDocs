@@ -8,8 +8,7 @@ import { Callout } from 'nextra/components'
 Databases can be used by certain plugins to allow for a more efficient, organized method of storing large amounts of data. Common plugins that can utilize MySQL databases are Dynmap, CoreProtect, and LuckPerms.
 
 ### Database Storage
-The data stored by these databases do not affect your servers storage limit. However, you should follow our [Fair Usage Policy](https://bloom.host/terms/#fair-usage-policy-for-bloom-minecraft-and-game-hosting-plans) regarding database usage.
-> This does not apply to dedicated servers and MySQL databases will contribute tp the dedicated server (BM) overall data usage.
+Please keep your database usage reasonable and in line with the Terms of Service at https://atbphosting.com/terms.
 
 <div style={{ position: 'relative', paddingTop: '56.25%', textAlign: 'center' }}>
   <iframe
@@ -31,7 +30,7 @@ The data stored by these databases do not affect your servers storage limit. How
 
 ### Adding MySQL Databases
  
-From the [Duck Panel](https://mc.bloom.host/) select the **Databases** tab on the navigation bar.
+From the [panel](https://panel.atbphosting.com) select the **Databases** tab on the navigation bar.
 
 Click **New Database** to start the process.
 
@@ -50,7 +49,7 @@ Once you have created the database, it will appear in your database list. From h
 ---
 ### Importing MySQL Databases through the panel
 
-To import a database you first have to create a new database in your Bloom server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. Keep in mind that database imports are limited to **5GB**.
+To import a database you first have to create a new database in your server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. Keep in mind that database imports are limited to **5GB**.
 
 ![img](/using_the_panel/databases/4.png)
 
@@ -84,6 +83,8 @@ To import an .SQL database dump through HeidiSQL first connect to your database,
 
 ---
 
+The examples below use placeholders. Copy your real host, port, database name, username and password from the **Databases** tab (the details button) in the panel.
+
 ### Examples of how to configure a database in different plugins
 #### ➤ Luckperms:
 ```YAML
@@ -99,7 +100,7 @@ data:
   # - The standard DB engine port is used by default
   #   (MySQL: 3306, PostgreSQL: 5432, MongoDB: 27017)
   # - Specify as "host:port" if differs
-  address: prophet6.bloom.host:3306
+  address: <your database host>:3306
 
   # The name of the database to store LuckPerms data in.
   # - This must be created already. Don't worry about this setting if you're using MongoDB.
@@ -120,7 +121,7 @@ sql:
   # and most of these settings won't apply.
 
   # Database server address.
-  address: prophet6.bloom.host:3306
+  address: <your database host>:3306
 
   # Database name, username and password.
   database: 's178_test'
@@ -131,7 +132,7 @@ sql:
 ```YAML
 use-mysql: true
 table-prefix: co_
-mysql-host: prophet6.bloom.host
+mysql-host: <your database host>
 mysql-port: 3306
 mysql-database: s178_test
 mysql-username: u178_uIxN5UjEZy
@@ -142,7 +143,7 @@ mysql-password: @CSyH7IV8r4TUnaA3A7lu^2T
 Database:
     Type: MySQL
     MySQL:
-        Host: prophet6.bloom.host
+        Host: <your database host>
         Port: 3306
         User: u178_uIxN5UjEZy
         Password: @CSyH7IV8r4TUnaA3A7lu^2T
@@ -156,7 +157,7 @@ Database:
 UseMySQL: true
 
 MySQL:
-  IP: prophet6.bloom.host
+  IP: <your database host>
   DB-Name: s178_test
   Username: u178_uIxN5UjEZy
   Password: @CSyH7IV8r4TUnaA3A7lu^2T

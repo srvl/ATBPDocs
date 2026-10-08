@@ -26,8 +26,7 @@ VIEW LEGACY DOCUMENTATION
 Configuring BungeeGuard is essential to secure your backend servers. Read until the end of the article to learn how to
 configure BungeeGuard!
 
-NOTE: Although the internal servers provide sufficient coverage, installing BungeeGuard will not cause any harm and may
-serve as an added layer of protection.
+NOTE: Installing BungeeGuard is strongly recommended to protect your backend servers.
 
 </Callout>
 
@@ -41,20 +40,18 @@ When you have downloaded their latest jar file, then you can upload it to your w
 
 ## Server split Waterfall server
 
-You can use the Server Split feature that Bloom has developed to create a proxy server on bloom's panel.
+You can use the free server split feature (see [Splitting servers](/using_the_panel/split-server)) to create a proxy server.
 You can see in the below image on how you can do so. You need to click on one of your servers to be able to see the server split menu on the left side.
 
 This is how it looks when you're creating your waterfall server in the server split menu.
 
 ![console](/running_a_server/waterfall/waterfall-server-split.png)
 
-After you've created the waterfall server in your server split, you'll be able to see the server on your server overview on Bloom's panel.
+After you've created the waterfall server in your server split, you'll be able to see the server on your server overview in the panel.
 
 ## Configure Waterfall
 
-*Before you setup this section, go to each of your backend servers and click the "Make Internal" button under the Ports and Proxies tab.*
-
-If you would like to read more information on our internal servers please see [here](/running_a_server/internal-servers).
+*Before you set up this section, make sure your backend servers are not shared publicly, and secure them with BungeeGuard (see the end of this article).*
 
 ![img](/running_a_server/waterfall/waterfall-fs-initial.png)
 
@@ -130,11 +127,11 @@ If for example, one of your backend servers is a survival server, you'll need to
 ```yaml
 survival:
     motd: '&1Survival Server'
-    address: 0fcfdfda-5d97-46b7-bbee-f8a26381dbd6:25565
+    address: 203.0.113.10:25566
     restricted: false
 ```
 
-Remeber to use your backend server's own serverid and replace the example above
+Remember to use your backend server's own IP address and port and replace the example above
 
 Afterwards you'll need to add the survival server to under priorities.
 
