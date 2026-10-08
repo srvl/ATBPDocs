@@ -1,0 +1,26 @@
+---
+title: "Limit World Size"
+description: "Set a maximum world border radius for your server."
+---
+
+A smaller world keeps file sizes down and stops players from generating endless new chunks, which can hurt performance.
+
+## With server.properties
+
+1. Open `server.properties` in the **Files** tab.
+2. Find `max-world-size`. If it is not there, add it on a new line.
+3. Set the radius in blocks, for example `max-world-size=5000`. The world border cannot be set larger than this.
+4. Save and restart the server.
+
+## With the world border command
+
+You can also set a border while in-game or from the console:
+
+```
+worldborder center 0 0
+worldborder set 10000
+```
+
+`worldborder set 10000` makes the border 10,000 blocks wide, so 5,000 blocks out from the center in each direction.
+
+To avoid lag when players explore, consider [pre-generating chunks with Chunky](/plugins_and_modifications/multiplatform/chunky-multi).

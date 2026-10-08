@@ -1,0 +1,28 @@
+---
+title: "Install mods on Project Zomboid"
+description: "Add Steam Workshop mods using Workshop IDs and Mod IDs."
+---
+
+You need two IDs for each mod:
+
+- **Workshop ID**: the number at the end of the mod's Steam Workshop URL.
+- **Mod ID**: the mod's internal name, usually written in the mod description.
+
+## Steps
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. In **Files**, open `.cache`, then `Server`, and edit the server's `.ini` file.
+3. Add the Workshop IDs to the `WorkshopItems=` line and the Mod IDs to the `Mods=` line. Separate entries with semicolons and no spaces:
+
+```
+WorkshopItems=2619072426;2392709985
+Mods=tsarslib;commonSense
+```
+
+4. Click **Save Content**, then start the server. The mods download on startup.
+
+## Troubleshooting
+
+- A crash or players unable to join usually means the two lines do not match. Check for spaces and keep the mods in the same order on both lines.
+- Players need the same mods on their own game.
+- Some mods need other mods listed before them, so check each mod's page.

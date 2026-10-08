@@ -1,0 +1,29 @@
+---
+title: "Online Mode Explained"
+description: "What online-mode does and how to change it."
+---
+
+import { Callout } from 'nextra/components'
+
+`online-mode` decides whether your server checks every player's Minecraft account with Mojang.
+
+- `true` (default): only players with a legitimate account can join. Usernames and skins are verified.
+- `false`: no verification. Anyone can join with any name, including pretending to be another player.
+
+## Change it
+
+1. Stop the server and open `server.properties` in the **Files** tab.
+2. Set `online-mode=true` or `online-mode=false`.
+3. Save and start the server.
+
+<Callout type="warning">
+
+With `online-mode=false`, a stranger can join as your operator's username and take control. If you must use it, add an authentication plugin and a [whitelist](/running_a_server/whitelist). ATBP does not provide support for running cracked servers.
+
+</Callout>
+
+## Proxies
+
+Servers behind Velocity or BungeeCord must have `online-mode=false`, because the proxy does the checking instead. See [Velocity](/running_a_server/velocity) and [Waterfall](/running_a_server/waterfall). Keep the backend servers private so nobody bypasses the proxy.
+
+Seeing "Failed to verify username"? Read [Failed to Verify Username](/running_a_server/troubleshooting/failed-to-verify-username).

@@ -1,0 +1,26 @@
+---
+title: "Enable Anti-Xray"
+description: "Hide ores from x-ray cheaters on Paper servers."
+---
+
+Paper has a built-in Anti-Xray feature that hides ores and other valuable blocks behind fake blocks, making x-ray texture packs and cheats much less useful. It only works on Paper and forks of Paper. See [Server Jars](/running_a_server/jars) if you need to switch.
+
+## Steps
+
+1. Open the **Files** tab and go to the `config` folder.
+2. Open `paper-world-defaults.yml`.
+3. Find the `anti-xray` section under `anticheat` and set `enabled` to `true`:
+
+```yaml
+anticheat:
+  anti-xray:
+    enabled: true
+    engine-mode: 1
+```
+
+4. Choose an `engine-mode`:
+   - `1`: hidden blocks are swapped for the normal block of that dimension (stone, deepslate, netherrack or end stone). Lighter on players' computers.
+   - `2`: hidden blocks are mixed with randomly placed fake ores. Harder to cheat with, but can lower FPS on weaker devices.
+5. Save the file and restart the server.
+
+Anti-Xray is not perfect. For serious servers, pair it with an anti-cheat plugin.

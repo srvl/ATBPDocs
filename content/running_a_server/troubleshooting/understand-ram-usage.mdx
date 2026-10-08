@@ -1,0 +1,24 @@
+---
+title: "Understand RAM Usage"
+description: "Why your console shows high memory and what to actually check."
+---
+
+Many owners see the memory figure in the panel climb close to the limit and worry. Usually it is nothing.
+
+## Why the number looks high
+
+The panel shows how much memory Java has reserved, not how much is truly needed. Java holds on to memory and clears it later in a process called garbage collection. Some plugins and mods also grab as much as they can. A high number alone does not mean you need a bigger plan.
+
+## What to check instead
+
+- Does the server lag or crash? If not, it is fine.
+- Run `spark health --memory` in the console to see real heap use. Paper includes Spark. See [Spark](/running_a_server/spark).
+- On Purpur, `/rambar` shows a live bar. It fills and empties constantly, which is normal.
+
+## When to worry
+
+If memory stays full and the server crashes, see [Out of Memory Errors](/running_a_server/troubleshooting/out-of-memory).
+
+## Reduce usage
+
+Lower view distance, trim heavy plugins and pre-generate worlds. See [Optimization](/running_a_server/optimization).

@@ -1,0 +1,42 @@
+---
+title: "DayZ server configuration"
+description: "The serverDZ.cfg file and the settings people change most."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server before editing any config file, or your changes can be overwritten.
+
+</Callout>
+
+Core settings live in `serverDZ.cfg` in the server's root directory. Open it from **Files** in the [panel](https://panel.atbphosting.com), edit, save, and start the server.
+
+If your panel shows these as fields on a game settings page, use the fields instead of editing the file by hand.
+
+## Common settings
+
+| Setting | What it does |
+| --- | --- |
+| `hostname` | Server name |
+| `maxPlayers` | Player limit |
+| `password` | Join password, blank for none |
+| `passwordAdmin` | Admin password |
+| `steamQueryPort` | UDP port for the Steam server browser |
+| `verifySignatures` | Mod signature check, accepts 2 |
+| `forceSameBuild` | Only allow clients on the exact same build |
+| `disableVoN` | Turns off proximity voice |
+| `disable3rdPerson` | First person only |
+| `disableCrosshair` | Hides the crosshair |
+| `description` | Longer description, up to 255 characters |
+| `respawnTime` | Seconds before respawn |
+| `serverTimeAcceleration`, `serverNightTimeAcceleration` | Day and night speed |
+| `serverTimePersistent` | Keeps in-game time across restarts |
+| `disableBaseDamage` | Fences and watchtowers cannot be damaged |
+| `disableContainerDamage` | Tents and barrels cannot be damaged |
+| `MaxPing` | Kick players above this ping in ms |
+
+The RCON password belongs to the separate BattlEye config, not this file. For every option, see Bohemia Interactive's server configuration page on their community wiki.
+
+Related: [whitelist](/games/dayz/whitelist), [maps](/games/dayz/maps), [loot](/games/dayz/loot), [mods](/games/dayz/mods).

@@ -1,0 +1,40 @@
+---
+title: "Hytale authentication and private servers"
+description: "Authenticate your server with your Hytale account and limit who can join."
+---
+
+import { Callout } from 'nextra/components'
+
+## Authenticate the server
+
+1. Start the server and watch the **Console** in the [panel](https://panel.atbphosting.com). It prints a link and a code after the text "Please visit the following URL to authenticate".
+2. Open the link in a browser, or go to the Hytale device verification page and type the code.
+3. Sign in with the Hytale account that owns the game and press **Approve**.
+4. The console should say authentication was successful.
+
+If it asks again later, run `/auth login device` in the console and repeat. The code expires after about 10 minutes, so restart the server to get a new one. One account can authenticate many servers, but each must be done separately.
+
+<Callout type="warning">
+
+Do not share the authentication link. It works like a password for your server.
+
+</Callout>
+
+## Add a password
+
+1. Stop the server.
+2. In **Files**, open `config.json` in the main server directory.
+3. Put your password between the quotes of the `"Password"` setting. Leave the quotes empty to remove it.
+4. Save and start.
+
+## Use a whitelist
+
+In the panel console (no slash) or in game as an operator (with a slash):
+
+```
+whitelist on
+whitelist add PlayerName
+whitelist remove PlayerName
+```
+
+Names must match the in-game name exactly, including capitals. Add yourself too.

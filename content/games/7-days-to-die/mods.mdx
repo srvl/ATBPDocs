@@ -1,0 +1,43 @@
+---
+title: "Install mods on 7 Days to Die"
+description: "Upload modlets, avoid common conflicts, and handle Easy Anti-Cheat."
+---
+
+import { Callout } from 'nextra/components'
+
+There are two kinds of mods:
+
+- **Modlets** edit game data (items, loot, recipes). They usually work together and are removed by deleting their folder.
+- **Overhaul mods** change game code and conflict more often. They need the author's own steps and usually need Easy Anti-Cheat (EAC) off.
+
+## Install a modlet
+
+1. Download from a trusted site and extract it.
+2. Find the folder that directly contains `ModInfo.xml`. Upload that folder only, not any wrapper folder.
+3. Stop the server in the [panel](https://panel.atbphosting.com).
+4. In **Files**, create a `Mods` folder in the server root if it is missing, and upload the mod folder inside it:
+
+```
+Mods/YourModName/ModInfo.xml
+```
+
+5. Start the server and look for the mod name in the console.
+
+Every player needs the same mods in the `Mods` folder of their own game, and the mod must match your game version.
+
+## Easy Anti-Cheat
+
+Code-changing mods can make EAC kick players. Set `EACEnabled` to `false` in `serverconfig.xml` and ask players to follow the mod's client instructions.
+
+<Callout type="warning">
+
+EAC must stay on for console and crossplay. Overhaul mods make a server PC and Steam only.
+
+</Callout>
+
+## Troubleshooting
+
+- Mod missing from the console: `ModInfo.xml` is probably nested one folder too deep.
+- Players kicked: usually EAC.
+- Server will not start after an overhaul: usually a version mismatch after a big game update. Check the mod page for the supported version.
+- Two mods clash: remove them one at a time.

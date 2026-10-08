@@ -1,0 +1,46 @@
+---
+title: "Valheim admins and console commands"
+description: "Add yourself to the admin list and use the in-game console."
+---
+
+import { Callout } from 'nextra/components'
+
+## Find the player ID
+
+- **Steam**: a 17-digit Steam64 ID, usually starting with 7656. A Steam ID lookup site can find it from the profile link.
+- **Xbox**: an ID starting with `Xbox_` followed by numbers.
+- **Game Pass or crossplay**: a short PlayFab ID of letters and numbers.
+
+The easiest way is to have the player try to join, then read their name and ID from the server **Console** tab.
+
+## Add the admin
+
+<Callout type="warning">
+
+Stop the server first so your edit is not overwritten.
+
+</Callout>
+
+1. In the [panel](https://panel.atbphosting.com), open **Files**, then `.config`, `unity3d`, `IronGate`, `Valheim`.
+2. Edit `adminlist.txt`. Put one ID per line with no spaces.
+3. Save and start the server.
+
+## Open the in-game console
+
+1. In Steam, right-click Valheim, choose **Properties**, and under **Launch Options** enter `-console`.
+2. Launch the game, join your server, and press `F5`.
+
+## Useful admin commands
+
+| Command | What it does |
+| --- | --- |
+| `help` | Lists commands |
+| `kick [name/ip/userID]` | Removes a player |
+| `ban [name/ip/userID]` | Bans a player |
+| `unban [ip/userID]` | Lifts a ban |
+| `banned` | Lists bans |
+| `ping` | Shows your latency |
+| `lodbias [number]` | Sets draw distance |
+| `info` | Prints system info |
+
+Cheat commands such as `god`, `fly` and `spawn` do not work on a normal dedicated server, even for admins. They need a mod like Server Devcommands installed on both the server and every client, see [mods](/games/valheim/mods).

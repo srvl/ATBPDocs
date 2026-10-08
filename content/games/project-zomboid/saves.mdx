@@ -1,0 +1,33 @@
+---
+title: "Move a co-op save or reset your world"
+description: "Upload your co-op world to the server, or wipe the map to start fresh."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server before uploading or deleting anything. Both tasks below replace or erase your world, so download a backup first. See [backups](/plans/backups).
+
+</Callout>
+
+## Move a co-op save to the server
+
+1. On your PC, open `Zomboid/Saves/Multiplayer`. On Windows that is `C:\Users\YourName\Zomboid\Saves\Multiplayer`. Each world has a folder named after the name you gave it when hosting.
+2. Compress the **contents** of that world folder into one `.zip`. It includes files like `map_*.bin` and `players.db`.
+3. In the [panel](https://panel.atbphosting.com), open **Files**, then `Saves`, `Multiplayer`, and the folder named after your server (it matches the name of the server's `.ini` file).
+4. Delete only the default `map_*.bin` files and `players.db` made on first boot, upload your zip, and extract it so the files sit directly in that folder.
+5. If you used mods, add the same ones to `WorkshopItems=` and `Mods=`, see [mods](/games/project-zomboid/mods).
+6. Start the server and join to check your world and character.
+
+Use [SFTP](/using_the_panel/sftp) for large saves.
+
+Troubleshooting: a brand-new empty world means the folder name does not match the server name. A crash on start usually means mods do not match. Missing character: check `players.db` was included.
+
+## Reset the map
+
+1. Stop the server.
+2. In **Files**, open `.cache`, then `Saves`, and delete the folder named after your server.
+3. Start the server. A fresh world is generated and your mods and settings stay.
+
+For a full reset that also removes settings and mods, open a ticket on our [Discord](https://discord.atbphosting.com) so we can reinstall the server for you.

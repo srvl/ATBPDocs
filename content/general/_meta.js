@@ -4,5 +4,6 @@ export default {
   "getting-support": "How to get support",
   "server-location-and-hardware": "Server location and hardware",
   "server-optimization": "Server optimisation (free)",
-  "terms-and-acceptable-use": "Terms of Service and acceptable use"
+  "terms-and-acceptable-use": "Terms of Service and acceptable use",
+  "minecraft-for-beginners": "Minecraft for Beginners"
 }

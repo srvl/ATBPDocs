@@ -1,0 +1,21 @@
+---
+title: "Out of Date Plugin Errors"
+description: "Find and fix plugins that are too old for your server version."
+---
+
+If the console says a plugin is outdated or fails to enable, that plugin was made for a different Minecraft version than your server.
+
+## Fix it
+
+1. Open the **Console** tab and scroll through the startup messages. Look for a red or warning line naming the plugin.
+2. Update it:
+   - In the **Plugins** tab (if available), search for the plugin and install the newest version. See [Installing Plugins](/plugins_and_modifications/installing-plugins).
+   - Or download the newest `.jar` from the plugin's official page and upload it to `plugins`, replacing the old file.
+3. If no newer version exists, remove the old `.jar` from `plugins` or find an alternative.
+4. Restart the server.
+
+## Tips
+
+- After updating Minecraft, update your plugins too. See [Updating Your Server](/running_a_server/updating).
+- Many plugin errors are caused by one missing dependency. Read the line right before the error.
+- To find a plugin that causes a crash, use the [Binary Search](/running_a_server/binarysearch) method.

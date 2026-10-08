@@ -1,0 +1,26 @@
+---
+title: "Install Hytale mods and plugins"
+description: "Upload mods to the server and install them on your own PC."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info">
+
+Back up before adding anything new, see [backups](/plans/backups). Version mismatches are the top cause of crashes, so every file must match your server's game version.
+
+</Callout>
+
+## On the server
+
+1. Download the mod or plugin, usually a `.jar`, from a trusted source such as CurseForge.
+2. Stop the server in the [panel](https://panel.atbphosting.com).
+3. In **Files**, upload gameplay mods to the `mods` folder and server management plugins to `earlyplugins` (create the folder if it is missing).
+4. Start the server and check the startup log for a message that it loaded.
+
+## On your PC
+
+- **CurseForge app:** choose Hytale, search for the mod, press **Install**, then **Play**.
+- **Manually:** put the `.jar` in `%appdata%\Hytale\UserData\Mods`, creating the `Mods` folder if needed.
+
+If the server crashes on startup, remove the newest mod and check it matches the game version. For a bug in one plugin, contact its author.

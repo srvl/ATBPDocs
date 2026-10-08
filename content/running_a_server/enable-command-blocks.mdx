@@ -1,0 +1,35 @@
+---
+title: "Enable Command Blocks"
+description: "Turn command blocks on or off on your Minecraft server."
+---
+
+import { Callout } from 'nextra/components'
+
+Command blocks let you run commands automatically with redstone or a click. Servers have them switched off by default, so you need to enable them first.
+
+## Newer versions (1.21.11 and up)
+
+Newer versions use a gamerule instead of a setting in the properties file.
+
+1. Open your server in the [panel](https://panel.atbphosting.com) and go to the **Console** tab.
+2. Run the command for your edition:
+   - Java: `gamerule command_blocks_work true`
+   - Bedrock: `gamerule commandblocksenabled true`
+3. To turn them off again, run the same command with `false`.
+
+You can also run it in-game as an operator by adding a `/` in front. If you use Multiverse or a similar world plugin, gamerules may need to be set per world.
+
+## Older versions (1.21.4 and below)
+
+1. Stop the server and open the **Files** tab.
+2. Open `server.properties`.
+3. Find `enable-command-block` and set it to `true`.
+4. Save the file and start the server again.
+
+<Callout type="warning">
+
+Command blocks run commands as the server. Only enable them if you trust everyone with operator status, and anyone who can build in loaded areas. For most needs, a permissions-aware plugin is safer.
+
+</Callout>
+
+To make yourself an operator first, see [Make Yourself an Operator](/running_a_server/op-yourself).

@@ -1,0 +1,40 @@
+---
+title: "Edit loot on your DayZ server"
+description: "How types.xml and the economy files control what spawns."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop the server before editing. One unclosed tag in an XML file can stop the whole economy from loading and leave you with no loot, so run the file through an XML validator.
+
+</Callout>
+
+The economy files are in your active map's folder under `mpmissions` (for example `dayzOffline.chernarusplus`). The server only reads the folder set in `serverDZ.cfg`, so edit that one. In its `db` folder:
+
+- `types.xml`: the loot table
+- `events.xml`: dynamic events like helicopter crashes
+- `globals.xml`: economy-wide settings
+- `cfgeconomycore.xml`: lists which economy files load
+
+## types.xml
+
+Each item has:
+
+- `nominal`: how many should exist on the map
+- `min`: when the count falls below this, more spawn
+- `lifetime`: seconds an untouched item lasts
+- `restock`: seconds before it tops up again
+- `quantmin` and `quantmax`: fill percentage for items like ammo and food
+- `category` and `usage`: where it can spawn
+
+To make an item more common, raise `nominal` and `min` together, keeping `min` lower. To make it rarer or remove it, lower both, or set both to `0`. The economy has a total budget, so do not raise everything at once or performance and other loot suffer.
+
+## events.xml
+
+Each event has `nominal`, `min`, `max`, and `secmin` and `secmax` for the cooldown. Spawn positions are in `cfgeventspawns.xml`.
+
+## Tips
+
+Changes apply as the economy cycles. For an instant effect, wipe the persistence data. Custom extra economy files must be registered in `cfgeconomycore.xml`, and mods that add items may need entries merged into `types.xml`.

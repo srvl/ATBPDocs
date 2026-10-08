@@ -1,0 +1,43 @@
+---
+title: "Bedrock worlds and behavior packs"
+description: "Upload your own Bedrock world and add behavior or resource packs."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Stop your server before changing world files, and keep a copy of anything you replace. See [backups](/plans/backups).
+
+</Callout>
+
+## Upload a world from Windows
+
+1. Press Windows key + R and open this folder: `%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\minecraftWorlds`
+2. World folders have random names. Open `levelname.txt` in each to find the right one.
+3. Compress that world folder into a `.zip`.
+4. In the [panel](https://panel.atbphosting.com), open **Files**, go to the `worlds` folder, and upload the zip. For big files use [SFTP](/using_the_panel/sftp).
+5. Unarchive the zip and note the exact folder name.
+6. Edit `server.properties` and set `level-name` to that folder name. Save.
+7. Start the server.
+
+## Add a behavior or resource pack
+
+1. Download the pack. If it is a `.mcpack`, rename it to `.zip` and extract it. You need the folder that contains `manifest.json`.
+2. Stop the server. In **Files**, upload that whole folder into `behavior_packs` (behavior) or `resource_packs` (textures).
+3. Open the pack's `manifest.json` and copy the `uuid` and `version` from its `header` section.
+4. Open `worlds`, then your world's folder. Create or edit `world_behavior_packs.json` (or `world_resource_packs.json`) and add:
+
+```
+[
+  {
+    "pack_id": "PASTE_THE_UUID_HERE",
+    "version": [1, 0, 0]
+  }
+]
+```
+
+5. For more packs, add more objects separated by commas inside the square brackets.
+6. Save and start the server.
+
+If the server will not start, a missing comma or bracket in that JSON is the usual cause. Make sure the pack supports your current Bedrock version too.

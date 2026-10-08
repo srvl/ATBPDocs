@@ -1,0 +1,35 @@
+---
+title: "Hytale operators and commands"
+description: "Grant OP status and a quick map of the commands you can use."
+---
+
+import { Callout } from 'nextra/components'
+
+By default even the server owner has no admin rights. Grant them from the console.
+
+1. Open the **Console** in the [panel](https://panel.atbphosting.com).
+2. Type, without a leading slash, the exact in-game name:
+
+```
+op add PlayerName
+```
+
+3. Join and run `/gamemode creative` in chat to test.
+
+To remove it: `op remove PlayerName`. If you see "Permission Denied", check the name (it is case-sensitive) and have the player reconnect.
+
+<Callout type="warning">
+
+Operators can ban players, stop the server and change the map permanently. Only give OP to people you trust.
+
+</Callout>
+
+## Commands
+
+Names can change between game versions, so use `/help` in game for the current list.
+
+- **Moderation:** `/op`, `/kick`, `/ban`, `/unban`, `/whitelist`, `/perm`, `/stop`
+- **Players:** `/gamemode`, `/give`, `/tp`, `/heal`, `/sudo`
+- **World:** `/time`, `/weather`, `/world`, `/chunk`, `/fluid`, `/lighting`
+- **Building:** `/pos1`, `/pos2`, `/copy`, `/paste`, `/undo`, `/replace`, `/cut`, `/prefab`
+- **Everyone:** `/help`, `/spawn`, `/ping`, `/warp`, `/emote`, `/whoami`

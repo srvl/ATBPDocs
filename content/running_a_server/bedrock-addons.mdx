@@ -1,0 +1,31 @@
+---
+title: "Install Bedrock Add-ons"
+description: "Add behavior packs and resource packs to a Bedrock server."
+---
+
+Add-ons (behavior packs) and texture packs (resource packs) change how Minecraft Bedrock plays and looks. Players download resource packs automatically when they join.
+
+## If your panel has an add-on installer
+
+If your server page has a Bedrock add-on or content installer, use it, pick the add-on and restart. If you do not see one, use the manual method below.
+
+## Manual method
+
+1. Download the `.mcpack` or `.mcaddon` files from a trusted site.
+2. Open them on a Bedrock device so they import into the game.
+3. Create a new local world, turn on the packs under **Resource Packs** and **Behavior Packs**, then save and exit.
+4. Find the world folder on your device (in the `com.mojang` folder, under `minecraftWorlds`; newest date is yours).
+5. Stop the server in the panel.
+6. Upload these files from that world folder into your server's world folder (see [File Manager](/using_the_panel/file-manager-controls) or [SFTP](/using_the_panel/sftp)):
+   - `world_behavior_packs.json`
+   - `world_resource_packs.json`
+   - `world_behavior_pack_history.json`
+   - `world_resource_pack_history.json`
+7. Upload the pack folders from `behavior_packs` and `resource_packs` into folders with the same names in the main server directory, not inside the world.
+8. Start the server and join to check that the packs load.
+
+## Troubleshooting
+
+- Make sure the server was fully stopped before uploading.
+- Check the JSON files are in the active world folder.
+- Make sure the pack versions match your server version.

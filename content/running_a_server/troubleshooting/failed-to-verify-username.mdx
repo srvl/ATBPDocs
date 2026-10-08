@@ -1,0 +1,28 @@
+---
+title: "Failed to Verify Username"
+description: "Fix the failed to verify username error on Minecraft servers."
+---
+
+import { Callout } from 'nextra/components'
+
+This error appears when the server tries to verify a player with Mojang but cannot. The server and client must agree on authentication.
+
+## Common causes and fixes
+
+1. **Cracked or non-premium launcher.** `online-mode` is `true`, which only allows real accounts. Use a legitimate account, or see [Online Mode Explained](/running_a_server/online-mode).
+2. **Mojang session servers are down or slow.** Wait a few minutes and try again, then restart Minecraft.
+3. **Player was already logged in.** Fully close the game and try again, or rejoin after a minute.
+4. **Behind a proxy.** Proxy setups need the backend server to use `online-mode=false` and the proxy to forward player info. See [Velocity](/running_a_server/velocity).
+5. **Bad connection.** Try a different network or restart your router.
+
+## Quick fix for the server owner
+
+Check the console for any messages when the player joins, then confirm `online-mode` in `server.properties`.
+
+<Callout type="warning">
+
+Setting `online-mode=false` lets anyone join under any name. Use a whitelist or login plugin if you do this.
+
+</Callout>
+
+Still stuck? Share your log (see [Share Your Server Logs](/running_a_server/share-logs)) in a [support ticket](/general/getting-support).

@@ -1,0 +1,31 @@
+---
+title: "Troubleshooting Lag"
+description: "Work out whether lag is the server or your connection."
+---
+
+Lag comes from the server running slowly or from the network between you and it. Find out which before changing anything.
+
+## Step 1: Check server speed
+
+1. Install Spark if it is not there (Paper includes it). See [Spark](/running_a_server/spark).
+2. Run `spark tps`.
+3. TPS of 20 with short tick times (under 50 ms) means the server is healthy.
+
+## Step 2a: Server is slow
+
+1. Run `spark profiler start --timeout 300`, wait for it to finish, and open the link.
+2. Look at which tasks use the most time per tick.
+3. Common fixes:
+   - Lower `simulation-distance` in `server.properties`.
+   - Lower mob caps, see [Mob Spawn Limits](/running_a_server/mob-spawn-limits).
+   - Remove or replace heavy plugins.
+4. For more, see [Optimization](/running_a_server/optimization).
+
+## Step 2b: Server is fine but you still lag
+
+This points to the network.
+
+- Run an MTR test, see [Diagnosing Ping Issues](/extras/ping-issues).
+- Restart your router, turn off downloads and try a different connection.
+
+Need help? Share your Spark link in a [support ticket](/general/getting-support).

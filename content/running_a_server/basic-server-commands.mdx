@@ -1,0 +1,38 @@
+---
+title: "Basic Server Commands"
+description: "Everyday commands every Minecraft server owner should know."
+---
+
+import { Callout } from 'nextra/components'
+
+Run these in-game as an operator (with a `/` in front) or in the panel **Console** tab (without the `/`). Replace names in angle brackets with real values, such as a player name.
+
+| Command | What it does |
+|---|---|
+| `op NAME` / `deop NAME` | Give or remove operator status |
+| `whitelist on` / `whitelist off` | Turn the whitelist on or off |
+| `whitelist add NAME` | Add a player to the whitelist |
+| `whitelist remove NAME` | Remove a player |
+| `whitelist list` | Show whitelisted players |
+| `kick NAME reason` | Remove a player, they can rejoin |
+| `ban NAME reason` | Ban a player |
+| `pardon NAME` | Unban a player (some plugins use `unban`) |
+| `gamemode MODE NAME` | Set gamemode: survival, creative, adventure or spectator |
+| `difficulty LEVEL` | Set difficulty |
+| `time set day` | Set time; also `noon`, `sunset`, `night` or a number such as 6000 |
+| `weather clear` | Set weather; also `rain` and `thunder` |
+| `say MESSAGE` | Broadcast a message |
+| `list` | Show who is online |
+| `save-all` | Force a world save |
+| `stop` | Safely stop the server |
+| `tps` | Show server speed (20 is perfect), on Paper and forks |
+
+<Callout type="info">
+
+Prefer `stop` or the panel Stop button to killing the server, so worlds save properly.
+
+</Callout>
+
+Avoid `/reload` on servers with plugins. It can break plugins and leak memory. Restart instead.
+
+More help: [Whitelist](/running_a_server/whitelist), [Make Yourself an Operator](/running_a_server/op-yourself).
