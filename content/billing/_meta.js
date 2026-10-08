@@ -5,7 +5,6 @@ export default {
   "suspensions_and_terminations": "Suspensions and Terminations",
   "bank": "Bank transfer to GCash or PayMaya",
   "gcash": "GCash",
-  "crypto": "USDT (crypto)",
   "discounts-and-coupons": "Discounts, coupons and promo codes",
   "payment-methods": "Payment methods and account credit",
   "refund-policy": "Refund policy",
