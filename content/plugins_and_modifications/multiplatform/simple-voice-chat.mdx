@@ -57,11 +57,8 @@ In order to run Simple Voice Chat on your server, you need one of the following 
 ### Common
 
 1. Make sure you followed the steps for [Fabric](#fabric), [Forge](#forge), [Bukkit/Spigot/Paper](#bukkitspigotpaper) or [Quilt](#quilt)
-2. Open the **Ports & Proxies** section in your dashboard
-3. Click on **OPEN PORT**
-4. Enter the number `24454` in the port field and click on **OPEN PORT**
-
-5. If your server is already running, you will be prompted to restart your server - If this is the case, click on **RESTART NOW**
-6. Go to the **Console** section of your dashboard
-7. If you didn't get the prompt to restart the server, click on **RESTART**
-8. After the server has restarted, check your logs for the line **Server started at port 24454** - If this line exists, you successfully installed Simple Voice Chat!
+2. Open the **Network** tab in the panel
+3. Under **Add a port**, click **Add port** on the **Voice chat** range (see [Adding Ports](/using_the_panel/adding-ports)) and note the port you get
+4. Start the server once so Simple Voice Chat creates its config, then open `config/voicechat/voicechat-server.properties` and set `port=` to the port you got
+5. Go to the **Console** section of your dashboard and click **RESTART**
+6. After the server has restarted, check your logs for the line **Server started at port** followed by your port. If this line exists, you successfully installed Simple Voice Chat!

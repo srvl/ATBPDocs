@@ -26,11 +26,9 @@ Please check your `config.yml`, you'll notice there is a list of configuration o
 
 - `port` option which by default is `8192`
 
-After you have found your port, you need to head to ATBP panel and open Ports & Proxies.
+Votifier needs a port of its own. Open the **Network** tab in the ATBP panel and add a port from the range whose description fits plugins like Votifier (see [Adding Ports](/using_the_panel/adding-ports)). Then change `port` in Votifier's `config.yml` from `8192` to the port you were given.
 
-You'll already have a batch of allocations most likely, simply need to hit `Open Port` and type in `8192` then hit `open port`
-
-The next step is to restart your server, so the port can be opened.
+The next step is to restart your server, so the port can be opened. Give voting sites your server's IP address and this port.
 
 #### VotingPlugin Requirements
 - [NuVotifier](https://www.spigotmc.org/resources/nuvotifier.13449/)

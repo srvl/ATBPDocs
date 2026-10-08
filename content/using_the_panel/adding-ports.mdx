@@ -1,0 +1,44 @@
+---
+title: "Adding Ports"
+description: "How to add an extra port to your server from the Network tab, and how to pick the right port range."
+---
+
+import { Callout } from 'nextra/components'
+
+Your server comes with one port, its main game port. Some plugins and mods need another one: Geyser for Bedrock players, a voice chat mod, a web map such as BlueMap, Votifier and so on. You add these yourself from the [panel](https://panel.atbphosting.com).
+
+## How to add a port
+
+1. Open your server in the panel and go to the **Network** tab.
+2. Under **Add a port**, you will see the port ranges available on your server's node. Each one says what it is for (for example Java, Bedrock, or voice chat), whether it carries TCP, UDP or both, and how many ports are still free.
+3. Click **Add port** on the range that matches what the port is for. You get a free port from that range straight away, and it appears in your list of ports with the range name in its notes.
+4. Put that port number in the plugin's or mod's config file.
+5. Restart your server so the new port starts working.
+
+<Callout type="info">
+
+You can't type in a port number of your own. Pick the range that fits, then set your plugin to the port you were given.
+
+</Callout>
+
+## Picking the right range
+
+Each range is set up for one kind of traffic, and our firewall and DDoS protection are set up per range. A port taken from the wrong range may not work, for example a voice chat port taken from the Java range, because that range only lets Java connections through.
+
+- **Java**: a second Java game port, such as a backend server behind a proxy.
+- **Bedrock / Geyser**: the port Bedrock players join on.
+- **Voice chat**: Simple Voice Chat and similar mods.
+- **Web**: web maps and stats pages such as BlueMap, squaremap or Plan.
+- **Query / RCON**: server query and remote console. These are meant for tools, not for players to connect to.
+
+If none of the ranges fits what you need, open a ticket on our [Discord](https://discord.atbphosting.com).
+
+## Limits
+
+Every server has a maximum number of ports. The Network tab shows how many you are using. Some ranges also allow only a set number of ports per server. When a limit is reached, the **Add port** button turns grey. To free a port, delete one you no longer need from your list (you can't delete your main port).
+
+<Callout type="warning">
+
+If a range shows **Full**, all of its ports are in use on your node. Pick another range that fits, or open a ticket.
+
+</Callout>
