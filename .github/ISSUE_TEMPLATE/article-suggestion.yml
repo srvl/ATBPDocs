@@ -1,11 +1,11 @@
 name: Article Suggestion
-description: Suggest an article for the Bloom docs
+description: Suggest an article for the ATBP docs
 title: "[Article] "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
-      value: You can suggest new articles to the Bloom docs using this form.
+      value: You can suggest new articles to the ATBP docs using this form.
 
   - type: input
     attributes:

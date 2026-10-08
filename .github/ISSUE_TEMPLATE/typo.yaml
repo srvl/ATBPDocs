@@ -1,11 +1,11 @@
 name: Typo
-description: Create a report to help us improve spelling and grammar on the Bloom docs
+description: Create a report to help us improve spelling and grammar on the ATBP docs
 title: "[Typo] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: You can use this form to have typos found in the Bloom docs corrected.
+      value: You can use this form to have typos found in the ATBP docs corrected.
 
   - type: input
     attributes:
