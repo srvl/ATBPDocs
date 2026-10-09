@@ -13,7 +13,7 @@ This was written before ATBP's one click modpack installer was updated and hence
 
 </Callout>
 
-<Callout type="important">
+<Callout type="info">
 
 Before following this guide, make sure that the appropriate version of Java is installed on your computer and that you have at least 6GB of RAM available for the first time setup on your computer.
 
@@ -21,29 +21,23 @@ You should also familiarize yourself with using SFTP to transfer files using our
 
 </Callout>
 
-<Callout type="info">
-
-This tutorial is written with the Java 17-21 version of Gregtech New Horizons in mind, but the process is the same for the Java 8 version. The only difference being what Java version is selected during configuration of the server on the startup page.
+This tutorial is written with the Java 17-21 version of Gregtech New Horizons in mind, but the process is the same for the Java 8 version. The only difference is which Java version is selected on the Startup page when configuring the server.
 
 The Java 17-21 version is recommended because it offers better performance than the Java 8 version. The Java version of the server does not need to match the Java version of your client.
 
-</Callout>
+## Downloading the server pack
 
-# Downloading the server pack
-
-You'll first need the Gregtech New Horizons server pack you wish to install. This tutorial will assume that you are planning to install the latest version of the pack using the Java 17-21 version. Download the latest pack version from the official repository on the [GTNH website](https://gtnewhorizons.com/). Ensure you have downloaded the latest version ending in "Java_17-21". You can find the server packs in the "Sever Zips" section of "Downloads".
+You'll first need the Gregtech New Horizons server pack you wish to install. This tutorial will assume that you are planning to install the latest version of the pack using the Java 17-21 version. Download the latest pack version from the official repository on the [GTNH website](https://gtnewhorizons.com/). Ensure you have downloaded the latest version ending in "Java_17-21". You can find the server packs in the "Server Zips" section of "Downloads".
 
 Once downloaded extract the server pack zip on your computer to a folder of your choice. This may take a few minutes to complete.
 
 Navigate inside the folder you extracted the server pack into. Inside are the server pack files. If you are on Windows, find the file named "startserver-java9.bat" run it to start the server. If you are running Linux, open a terminal in the folder and run the server using the command `./startserver-java9.sh`. It is important to do this via a terminal rather than launching the file from a file explorer as it will run in the background if launched from the explorer, and the auto restarting feature of the launch script will require more advanced knowledge of Linux to stop.
 
-The server will generate config files, and you must accept the EULA before continuing. Stop the server and edit the file called "eula.txt." Change the line reading "eula=false" to "eula=true" and save the file.  Restart the server using the setups listed above.
+The server will generate config files, and you must accept the EULA before continuing. Stop the server and edit the file called "eula.txt." Change the line reading "eula=false" to "eula=true" and save the file.  Restart the server using the steps listed above.
 
 After starting the server, Gregtech New Horizons will perform its initial setup. This may take a long while, depending on your computer. Wait for the server to complete setup.
 
 Setup is complete when the console window does not produce any output for 30 or so seconds. Alternatively the line "[Server thread/INFO] [FML]: Unloading dimension 1" will be printed to the console. At this point, stop the server by typing "stop" into the command window and pressing enter. Allow the server to come to a complete stop. On Windows, the window will automatically exit when the server stops. On Linux, you will be prompted to press a key within 10 seconds of stopping, or the server will restart. Do this as soon as prompted.
-
-<Callout type="info">
 
 If the default Java version on your system is not Java 17 or 21, you will need to manually specify it by editing the "serverstart-java9.bat" or "serverstart-java9.sh".
 
@@ -51,9 +45,7 @@ For Windows, open "serverstart-java9.bat" and replace "java" on the second line 
 
 For Linux, open the "serverstart-java9.sh" and replace "java" on line 6 with the appropriate command to run Java 17 or 21. Save the file and continue.
 
-</Callout>
-
-# Preparing your ATBP server
+## Preparing your ATBP server
 
 In your ATBP control panel, navigate to the server settings panel. In the "Change Server Type" section, change the server type to "Java - Forge" and the version to "1.7.10". It should automatically select the latest recommended build of Forge. Press the "Change Build" button.
 
@@ -63,7 +55,7 @@ Finally, navigate to the "Startup" section of the panel. Change the "Java Versio
 
 In "File Manager" select and delete all files.
 
-# Uploading your server.
+## Uploading your server
 
 Ensure you have familiarized yourself with using SFTP. You can follow our guide on [how to connect through SFTP](/using_the_panel/sftp).
 

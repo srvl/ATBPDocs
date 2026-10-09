@@ -3,23 +3,22 @@ title: "Converting Bukkit Worlds to Vanilla"
 description: "How to convert a Bukkit/Spigot/Paper world to a vanilla one"
 ---
 
-# Converting Bukkit Worlds to vanilla
 If you upload or generate a world on a Bukkit/Spigot/Paper server, you will notice that when the server loads it splits the world into three folders: `world`, `world_nether` and `world_the_end`, or one for each dimension. This is fine until you want to download the world and run it in singleplayer or switch to a vanilla/Fabric/Forge server. This guide shows you how to convert Bukkit/Spigot/Paper worlds back to ones that can be used on vanilla or other server types. The method works on all platforms.
 
 ## Part 1: Download the world
-**Note:** This is not strictly necessary, you CAN use SFTP or the file manager if you want, but downloading the files makes them much easier to work with.
+This step is not strictly necessary, since you can work on the files over SFTP or in the file manager, but downloading them makes them much easier to work with.
 
-This is most easily done by archiving the files using the Pterodactyl file manager and downloading them using SFTP. For instructions on using the file manager and SFTP, please see [File Manager Controls](/using_the_panel/file-manager-controls) and [How to use SFTP](/using_the_panel/sftp), respectively.
+This is most easily done by archiving the files using the panel's file manager and downloading them using SFTP. For instructions on using the file manager and SFTP, please see [File Manager Controls](/using_the_panel/file-manager-controls) and [How to use SFTP](/using_the_panel/sftp), respectively.
 
 ## Part 2: Converting the world
 
 Once you have downloaded and extracted your archive from the server, you should have three folders: `world`, `world_nether` and `world_the_end`.
 
-In this guide, we will be referring to the folder where these folders are located as the "root" folder
+In this guide, we will be referring to the folder where these folders are located as the "root" folder.
 
 First, go into `world_nether` and copy the `DIM-1` folder. You can safely ignore everything else.
 
-Now, return to the root folder open the `world` folder and paste the `DIM-1` folder.
+Now, return to the root folder, open the `world` folder and paste the `DIM-1` folder.
 
 Return to the root folder once again and go into `world_the_end`. From here, copy the `DIM1` folder and paste it in the `world` folder, as we did with the `DIM-1` folder previously.
 

@@ -6,7 +6,7 @@ description: "NamelessMC is a free, easy to use & powerful website software for 
 import { Callout } from 'nextra/components'
 
 ### What is NamelessMC
-NamelessMC is a Free and Open-Source forum software that you can use to supercharge your Minecraft Server!
+NamelessMC is free and open-source forum software that you can use to supercharge your Minecraft Server!
 
 ## Installation
 <Callout type="info">
@@ -15,17 +15,17 @@ You **will need** a Database to use NamelessMC. See [this guide](/using_the_pane
 
 </Callout>
 
-To begin installing NamelessMC, you will need access to a Web Server - we will use [CaddyServer](/other-servers/caddy-server) for this guide.
+To begin installing NamelessMC, you will need access to a web server. We will use [CaddyServer](/other-servers/caddy-server) for this guide.
 
 After your Caddy server has been set up, [Download](https://github.com/NamelessMC/Nameless/releases) the latest NamelessMC release from GitHub.
-Scroll to the bottom of the "Assets" section of the latest release, and download "nameless-deps-dist.zip"
+Scroll to the bottom of the "Assets" section of the latest release, and download "nameless-deps-dist.zip".
 
-From there, open your File Manager for the webserver you just setup. navigate to `home/public/`, and delete the default file (`index.html`).
+From there, open your File Manager for the web server you just set up, navigate to `home/public/`, and delete the default file (`index.html`).
 After deleting this file, you can upload the zipped folder you just downloaded to this directory.
 
 Right-click your newly uploaded zip, and `Unarchive` it. This will generate a bunch of new files. After this is completed, feel free to delete the zipped folder.
 
-To use your website, you will need a domain, preferably using [ATBP's Reverse Proxy](/using_the_panel/ports-and-proxies)
+To use your website, you will need a domain, preferably using [ATBP's Reverse Proxy](/using_the_panel/ports-and-proxies).
 
 NamelessMC is installed, and you are ready to set it up! Navigate to your domain to begin setting up your website.
 
@@ -35,18 +35,12 @@ After navigating to your website, you should see the NamelessMC installer. Selec
 
 Your Hostname is the website address you specified earlier.
 
-Friendly URLs removes the extra information from the website link, turning `yourwebsite.com/index.php?route=/forum` into `yourwebsite.com/forum`
-
-<Callout type="info">
-
-If you want to use Friendly URLs, see [#Friendly URLs](#friendly-urls)
-
-</Callout>
+Friendly URLs removes the extra information from the website link, turning `yourwebsite.com/index.php?route=/forum` into `yourwebsite.com/forum`. If you want to use Friendly URLs, see [Friendly URLs](#friendly-urls).
 
 You will need to reference the database you created earlier for the next part.
 Fill the appropriate information in, and "Proceed".
 
-Site name is the name the website known as. this will show on the site.
+Site name is the name the website is known as. This will show on the site.
 
 Contact Email should be a valid email address that you can be contacted with.
 
@@ -55,21 +49,21 @@ Outgoing Email will be used to send users emails, for notifications or account i
 This is self-explanatory, you set up the Username, Email Address, and Password for your Administrator account.
 This account will be the "Owner" of the website.
 
-If this is your first time setting up a forum, and you don't have any data to import, select "No", and then "Finish"
+If this is your first time setting up a forum, and you don't have any data to import, select "No", and then "Finish".
 
-Congratulations! Your forum now set up, and ready to go! You will be prompted to sign in to your Admin Control Panel after completion.
+Congratulations! Your forum is now set up and ready to go! You will be prompted to sign in to your Admin Control Panel after completion.
 This is the password you set up for your admin account.
 
-# Additional Information
+## Additional information
 
-## Friendly URLs
-To use Friendly URL's, navigate to your CaddyServer Configuration (`home/caddy/Caddyfile`), and uncomment `# import namelessmc`
+### Friendly URLs
+To use Friendly URLs, navigate to your CaddyServer Configuration (`home/caddy/Caddyfile`), and uncomment `# import namelessmc`:
 ```
     # Uncomment for NamelessMC websites; if Nameless is under a sub directory add route /forum { ... } around the code.
     import namelessmc
 ```
 
-## Links
+### Links
 [GitHub](https://github.com/NamelessMC/Nameless)
 
 [CaddyServer](https://caddyserver.com)

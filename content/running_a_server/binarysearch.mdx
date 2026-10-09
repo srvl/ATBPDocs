@@ -5,7 +5,7 @@ description: "How do I fix an obscure error caused by an unknown plugin?"
 
 import { Callout } from 'nextra/components'
 
-A common problem that server owners encounter is that they have a bug on their server that is not caused by the server JAR or any of its configurations, server settings, and other external factors. When you are certain that it is a plugin causing the issue but not sure which among your plugins are causing the issue, one of the best things to do is conduct a binary search.
+A common problem that server owners encounter is that they have a bug on their server that is not caused by the server JAR or any of its configurations, server settings, and other external factors. When you are certain that it is a plugin causing the issue but not sure which of your plugins is causing it, one of the best things to do is conduct a binary search.
 
 <Callout type="warning">
 
@@ -15,7 +15,7 @@ While it is technically possible to use plugins such as ServerUtils to unload an
 
 ## Step 1
 
-First, you need to be 100% sure that this bug is not caused by the server JAR you are using. If you are using forks of Paper switch back to Paper first or check if you set something in the JAR configuration that you did not mean to. Also check if it is not an issue with your startup flags, database details, ports and proxies, etc.
+First, you need to be 100% sure that this bug is not caused by the server JAR you are using. If you are using a fork of Paper, switch back to Paper first or check if you set something in the JAR configuration that you did not mean to. Also check if it is not an issue with your startup flags, database details, ports and proxies, etc.
 
 ## Step 2
 

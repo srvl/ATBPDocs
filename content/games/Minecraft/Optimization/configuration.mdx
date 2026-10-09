@@ -1,22 +1,28 @@
 ---
-title: "configuration"
+title: "Configuration"
 ---
-
-# **SERVER CONFIGURATION**
 
 Some of the main files that you will want to modify to really optimize your server are Bukkit.yml, Paper-world-defaults.yml, and Spigot.yml. Below we have included which settings you will want to change to get the best performance possible with minimal effect on your gameplay.
 
-To use these settings, stop your server from your control panel then click on the tabs below to show the optimized settings for each file. These files can be found in the File Manager tab on your Control Panel. However, the paper files are located in the “config” directory. You can open them in the online web editor by clicking on the “edit” button to the far right of the file. Once you are done editing be sure to click the green “Save” button, then restart the server for the changes to take effect. [server.properties](http://server.properties) **network-compression-threshold:**
+To use these settings, stop your server from your control panel then click on the tabs below to show the optimized settings for each file. These files can be found in the File Manager tab on your Control Panel. However, the paper files are located in the “config” directory. You can open them in the online web editor by clicking on the “edit” button to the far right of the file. Once you are done editing be sure to click the green “Save” button, then restart the server for the changes to take effect.
+
+**server.properties**
+
+**network-compression-threshold**
 
 `Good starting value: 256`
 
-This allows you to set the cap for the size of a packet before the server attempts to compress it. Setting it higher can save some CPU resources at the cost of bandwidth, and setting it to -1 disables it. Setting this higher may also hurt clients with slower network connections. If your server is in a network with a proxy or on the same machine (with less than 2 ms ping), disabling this (-1) will be beneficial, since internal network speeds can usually handle the additional uncompressed traffic. [purpur.yml](https://purpurmc.org/docs/Configuration/)
+This allows you to set the cap for the size of a packet before the server attempts to compress it. Setting it higher can save some CPU resources at the cost of bandwidth, and setting it to -1 disables it. Setting this higher may also hurt clients with slower network connections. If your server is in a network with a proxy or on the same machine (with less than 2 ms ping), disabling this (-1) will be beneficial, since internal network speeds can usually handle the additional uncompressed traffic.
+
+**[purpur.yml](https://purpurmc.org/docs/Configuration/)**
 
 **use-alternate-keepalive**
 
 `Good starting value: true`
 
-You can enable Purpur's alternate keepalive system so players with bad connection don't get timed out as often. Has known incompatibility with TCPShield. [server.properties](http://server.properties)
+You can enable Purpur's alternate keepalive system so players with bad connection don't get timed out as often. Has known incompatibility with TCPShield.
+
+**server.properties**
 
 **simulation-distance**
 
@@ -38,7 +44,7 @@ The total view distance will be equal to the greatest value between `simulation-
 
 `Good starting value: default`
 
-This value overwrites [server.properties](http://server.properties) one if not set to `default`. You should keep it default to have both simulation and view distance in one place for easier management.
+This value overwrites the `server.properties` one if not set to `default`. You should keep it default to have both simulation and view distance in one place for easier management.
 
 **[paper-world configuration](https://docs.papermc.io/paper/reference/world-configuration)**
 
@@ -66,7 +72,7 @@ When enabled, prevents players from moving into unloaded chunks and causing sync
 
 `Good starting value: default`
 
-This value overwrites [server.properties](http://server.properties) one if not set to `default`. You should keep it default to have both simulation and view distance in one place for easier management.
+This value overwrites the `server.properties` one if not set to `default`. You should keep it default to have both simulation and view distance in one place for easier management.
 
 **[paper-world configuration](https://docs.papermc.io/paper/reference/world-configuration)**
 
@@ -119,7 +125,9 @@ With the help of this entry you can set limits to how many entities of specified
 
 `Good starting value: 8`
 
-Specifies the maximum amount of chunks a projectile can load in its lifetime. Decreasing will reduce chunk loads caused by entity projectiles, but could cause issues with tridents, enderpearls, etc. [bukkit.yml](https://docs.papermc.io/paper/reference/bukkit-configuration)
+Specifies the maximum amount of chunks a projectile can load in its lifetime. Decreasing will reduce chunk loads caused by entity projectiles, but could cause issues with tridents, enderpearls, etc.
+
+**[bukkit.yml](https://docs.papermc.io/paper/reference/bukkit-configuration)**
 
 **spawn-limits**
 
@@ -193,7 +201,7 @@ This allows you to control whether villagers should be ticked outside of the act
 
 `Good starting value: true`
 
-You can make mobs spawned by a monster spawner have no AI. Nerfed mobs will do nothing. You can make them jump while in water by changing `spawner-nerfed-mobs-should-jump` to `true` in [p](https://docs.papermc.io/paper/reference/world-configuration)[aper-world configuration](https://docs.papermc.io/paper/reference/world-configuration).
+You can make mobs spawned by a monster spawner have no AI. Nerfed mobs will do nothing. You can make them jump while in water by changing `spawner-nerfed-mobs-should-jump` to `true` in [paper-world configuration](https://docs.papermc.io/paper/reference/world-configuration).
 
 **[paper-world configuration](https://docs.papermc.io/paper/reference/world-configuration)**
 
@@ -258,7 +266,7 @@ Enabling this will fix entities not being affected by cramming while climbing. T
 
 In most cases you can safely set this to `false`. If you're using armor stands or any plugins that modify their behavior and you experience issues, re-enable it. This will prevent armor stands from being pushed by water or being affected by gravity.
 
-**[armor-stands.do](http://armor-stands.do)-collision-entity-lookups**
+**armor-stands.do-collision-entity-lookups**
 
 `Good starting value: false`
 
@@ -344,7 +352,7 @@ This should only be enabled if villagers are causing lag! Otherwise, the pathfin
 
 Lobotomized villagers are stripped from their AI and only restock their offers every so often. Enabling this will lobotomize villagers that are unable to pathfind to their destination. Freeing them should unlobotomize them.
 
-**[villager.search](http://villager.search)-radius**
+**villager.search-radius**
 
     Good starting values:
 
@@ -419,7 +427,7 @@ This list lets you set alternative time (in ticks) to despawn certain types of d
 
 Replaces the redstone system with faster and alternative versions that reduce redundant block updates, lowering the amount of logic your server has to calculate. Using a non-vanilla implementation may introduce minor inconsistencies with very technical redstone, but the performance gains far outweigh the possible niche issues. A non-vanilla implementation option may additionally fix other redstone inconsistencies caused by CraftBukkit.
 
-The `ALTERNATE_CURRENT`** **implementation is based off of the [Alternate Current](https://modrinth.com/mod/alternate-current) mod. More information on this algorithm can be found on their resource page.
+The `ALTERNATE_CURRENT` implementation is based off of the [Alternate Current](https://modrinth.com/mod/alternate-current) mod. More information on this algorithm can be found on their resource page.
 
 **hopper.disable-move-event**
 
@@ -505,7 +513,7 @@ Prevents dolphins from performing structure search similar to treasure maps
 
 Allows you to teleport the player to the world spawn if they happen to be outside of the world border. Helpful since the vanilla world border is bypassable and the damage it does to the player can be mitigated.
 
-# **HELPERS**
+## Helpers
 
 **[paper-world configuration](https://docs.papermc.io/paper/reference/world-configuration)**
 
@@ -519,10 +527,10 @@ Enable this to hide ores from x-rayers. For detailed configuration of this featu
 
 `Good starting value: 127`
 
-If this option is greater that `0`, players above the set y level will be damaged as if they were in the void. This will prevent players from using the nether roof. Vanilla nether is 128 blocks tall, so you should probably set it to `127`. If you modify the height of the nether in any way you should set this to `[your_nether_height] - 1`.
+If this option is greater than `0`, players above the set y level will be damaged as if they were in the void. This will prevent players from using the nether roof. Vanilla nether is 128 blocks tall, so you should probably set it to `127`. If you modify the height of the nether in any way you should set this to `[your_nether_height] - 1`.
 
-# **STARTUP FLAGS**
+## Startup flags
 
 [Vanilla Minecraft and Minecraft server software in version 1.20.5+ requires Java 21 or higher](https://docs.papermc.io/java-install-update). Oracle has changed their licensing, and there is no longer a compelling reason to get your java from them. Recommended vendors are [Adoptium](https://adoptium.net/) and [Amazon Corretto](https://aws.amazon.com/corretto/). Alternative JVM implementations such as OpenJ9 or GraalVM can work, however they are not supported by Paper and have been known to cause issues, therefore they are not currently recommended.
 
-Your garbage collector can be configured to reduce lag spikes caused by big garbage collector tasks. You can find startup flags optimized for Minecraft servers [here](https://docs.papermc.io/paper/aikars-flags) `SOG`. Keep in mind that this recommendation will not work on alternative JVM implementations. It's recommended to use the [flags.sh](http://flags.sh) startup flags generator to get the correct startup flags for your server
+Your garbage collector can be configured to reduce lag spikes caused by big garbage collector tasks. You can find startup flags optimized for Minecraft servers [here](https://docs.papermc.io/paper/aikars-flags). Keep in mind that this recommendation will not work on alternative JVM implementations. It's recommended to use the [flags.sh](https://flags.sh) startup flags generator to get the correct startup flags for your server.

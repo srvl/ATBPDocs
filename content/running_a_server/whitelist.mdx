@@ -7,21 +7,17 @@ import { Callout } from 'nextra/components'
 
 ## What Is Whitelisting?
 
-Basically a Whitelist is a list of player's usernames that are permitted to join the server while whitelist is on.
+A whitelist is a list of players' usernames that are permitted to join the server while whitelist is on.
 
 Whitelisting is a way to secure your Java/Bedrock server to ensure that only people that you want to connect to your server do.
 
-<Callout type="warning">
-
-Whitelisting can stop unwanted guests from joining your server, however it does not stop them from pinging your server and getting information such as, Online Players and Player Count
-
-</Callout>
+Whitelisting stops unwanted guests from joining your server, but it does not stop them from pinging your server and getting information such as online players and player count.
 
 ---
 
 ## Whitelisting On Java
 
-To start off here's a list of all the sub-commands under the whitelist command:
+To start off, here's a list of all the sub-commands under the whitelist command:
 * `/whitelist add [player]` - Adds a player to the list
 * `/whitelist list` - Shows you the current list of whitelisted players
 * `/whitelist off` - Turns off the whitelist, which allows anyone to join
@@ -30,7 +26,7 @@ To start off here's a list of all the sub-commands under the whitelist command:
 * `/whitelist remove [player]` - Removes a player from the list
 
 ### In Game
-There is only 3 steps to turn on your whitelist in game:
+There are only 3 steps to turn on your whitelist in game:
 * Step 1: `/whitelist on` - Turns the whitelist on.
 * Step 2: `/whitelist add [player]` - Add someone to your whitelist.
 * Step 3: Repeat Step #2 for all of your friends.
@@ -39,12 +35,12 @@ And that's it! Whitelist is now on, and only the people on the list can join you
 
 ### Through The File
 Adding someone to whitelist through the file is a bit more complicated:
-* Step 1 `/whitelist on` - Just like in game this will enable whitelist.
-* Step 2: Open the `whitelist.json` file in your file editor, if you have never added someone before to the whitelist it'll look like this:
+* Step 1: `/whitelist on` - Just like in game this will enable whitelist.
+* Step 2: Open the `whitelist.json` file in your file editor. If you have never added someone before to the whitelist it'll look like this:
 ```yaml
 []
 ```
-Otherwise, it'll look something like this, we will use Notch as a placeholder:
+Otherwise, it'll look something like this (we will use Notch as a placeholder):
 ```yaml
 [
   {
@@ -53,7 +49,7 @@ Otherwise, it'll look something like this, we will use Notch as a placeholder:
   }
 ]
 ```
-* Step 3: Add someone to your file, to do this you'll need their UUID, an easy way to get this is to goto a website like https://mcuuid.net/ and search their username you will get a result page listing the player's UUIDs.
+* Step 3: Add someone to your file. To do this you'll need their UUID. An easy way to get it is to go to a website like https://mcuuid.net/ and search their username. You will get a result page listing the player's UUIDs.
 
 From that page, we need one thing, the user's Full UUID. Once you have that copied, you can head back to the `whitelist.json` file and add them to the file using this format:
 ```yaml
@@ -77,23 +73,21 @@ If you plan on adding multiple users it'll look something like this:
   }
 ]
 ```
-<Callout type="info">
 
-Notice the `,` after the `}` from the first user, you would continue adding this after each player when adding a new player!
+Notice the `,` after the `}` from the first user. Keep adding one after each player whenever you add a new player.
 
-</Callout>
-* Step 4: The final step is to go into the console and type `/whitelist reload` this will make the saved file take effect!
+* Step 4: The final step is to go into the console and type `/whitelist reload`. This will make the saved file take effect!
 * Step 5: Ensure that the list has been updated with `/whitelist list` and check to see that all the players you added are there!
 
 ---
 ## Whitelisting On Bedrock
-<Callout type="important">
+<Callout type="info">
 
-The command for whitelisting on bedrock is `/allowlist` NOT `/whitelist`
+The command for whitelisting on Bedrock is `/allowlist`, not `/whitelist`.
 
 </Callout>
 
-To start off heres a list of all the sub commands under the whitelist command:
+To start off, here's a list of all the sub-commands under the whitelist command:
 * `/allowlist add [player]` - Adds a player to the list
 * `/allowlist list` - Shows you the current list of whitelisted players
 * `/allowlist off` - Turns off the whitelist, which allows anyone to join
@@ -102,7 +96,7 @@ To start off heres a list of all the sub commands under the whitelist command:
 * `/allowlist remove [player]` - Removes a player from the list
 
 ### In Game
-There is only 3 steps to turn on your whitelist in game:
+There are only 3 steps to turn on your whitelist in game:
 * Step 1: `/allowlist on` - Turns the whitelist on.
 * Step 2: `/allowlist add [player]` - Add someone to your whitelist.
 * Step 3: Repeat Step #2 for all of your friends.
@@ -111,12 +105,12 @@ And that's it! Whitelist is now on, and only the people on the list can join you
 
 ### Through The File
 Just like Java, adding someone to the whitelist through the file is a bit more complicated:
-* Step 1 `/allowlist on` - Just like in game this will enable whitelist.
-* Step 2: Open the `allowlist.json` file in your file editor, if you have never added someone to the whitelist before it'll look like this:
+* Step 1: `/allowlist on` - Just like in game this will enable whitelist.
+* Step 2: Open the `allowlist.json` file in your file editor. If you have never added someone to the whitelist before it'll look like this:
 ```yaml
 []
 ```
-Other wise it'll look something like this, we will use Notch as a placeholder:
+Otherwise, it'll look something like this (we will use Notch as a placeholder):
 ```yaml
 [
   {
@@ -125,7 +119,7 @@ Other wise it'll look something like this, we will use Notch as a placeholder:
   }
 ]
 ```
-* Step 3: Unlike java, to add someone all you need is their username
+* Step 3: Unlike Java, to add someone all you need is their username:
 ```yaml
 [
   {
@@ -147,10 +141,8 @@ If you plan on adding multiple users it'll look something like this:
   }
 ]
 ```
-<Callout type="info">
 
-Notice the `,` after the `}` from the first user, you would continue adding this after each player when adding a new player!
+Notice the `,` after the `}` from the first user. Keep adding one after each player whenever you add a new player.
 
-</Callout>
-* Step 4: The final step is to go into the console and type `/allowlist reload` this will make the saved file take effect!
+* Step 4: The final step is to go into the console and type `/allowlist reload`. This will make the saved file take effect!
 * Step 5: Ensure that the list has been updated with `/allowlist list` and check to see that all the players you added are there!

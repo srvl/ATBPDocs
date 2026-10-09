@@ -3,12 +3,10 @@ title: "Datapacks"
 description: "How to install a datapack onto your minecraft server."
 ---
 
-import { Callout } from 'nextra/components'
-
 Datapacks are specially structured folders or ZIP archives that you can use to customize your Minecraft experience
 without using third party mods.
 
-Installing a datapack is quite simple. Once you’ve downloaded the datapack you want to head over to your server
+Installing a datapack is quite simple. Once you’ve downloaded the datapack you want, head over to your server
 management tab.
 
 Open your server in the panel and open the 'File Manager' tab.
@@ -18,13 +16,9 @@ Select the world you want to install the datapack onto.
 Open the `datapacks/` folder and click the 'Upload' button in the top right corner. 
 Select your datapack to upload it. You can also drag and drop the datapack `.zip` file.
 
-<Callout type="important">
+Upload the `.zip` datapack file as it is. You don't need to unzip it.
 
-Remember that you need to upload the `.zip` datapack file, you don't need to unzip it.
-
-</Callout>
-
-Now restart your server, feel free to open a ticket if you need any assistance.
+Now restart your server. Feel free to open a ticket if you need any assistance.
 
 You can verify if the datapack was correctly installed by using the command `/datapack list enabled`.
 
@@ -43,15 +37,9 @@ is running calculation expensive commands.
 
 To further debug which datapack(s) or command(s) are causing the issue, you can use the game's built in `/perf start` profiler command.
 
-<Callout type="warning">
+This command is removed altogether in PurpurMC, so you might have to temporarily switch to PaperMC while doing this.
 
-**HEADS UP**
-
-This command is removed altogether in PurpurMC. You might have to temporarily switch to PaperMC while doing this.
-
-</Callout>
-
-After 10 seconds, it will generate a ZIP archive which you can find in the `debug/profiling/` folder:
+After 10 seconds, it will generate a ZIP archive which you can find in the `debug/profiling/` folder.
 
 Unarchive this file, and you can find the `profiling.txt` in the `server/` directory.
 If you are lucky, the game also created a `deviations/ticktime/` folder with similar contents from the specific TPS drops.
@@ -59,8 +47,7 @@ If you are lucky, the game also created a `deviations/ticktime/` folder with sim
 The easiest way to read this file is using [Misode's report inspector tool](https://misode.github.io/report/) or a modern text editor, for example 
 [Sublime Text](https://www.sublimetext.com/) or [Notepad++](https://notepad-plus-plus.org/downloads/).
 
-Using any of these and find & replacing the following regular expression will allow the text editor to fold each section: `^\[.*?\]|\|`
-Here is an example with Sublime Text:
+Using find and replace with the following regular expression in any of these editors lets you fold each section: `^\[.*?\]|\|`
 
 At the top of the file, you can verify that the server was experiencing tick loss while the profiler was running. 
 If this is not the case, rerun the profiler until you can catch the issue.
@@ -72,7 +59,7 @@ When talking about datapacks, it's crucial to note that most calls at the top of
 but are functions the game uses when processing commonly used commands.
 
 Scrolling further down, you can find `commandFunctions` and each command that takes up any significant amount of processing time.
-As mentioned above, these commands are often responsible for more processing that you can see above, such as `getEntities` calls.
+As mentioned above, these commands are often responsible for more processing than you can see above, such as `getEntities` calls.
 This is especially true for commands that run selectors without any filtering, such as `@e` and nested 
 calls, for example: `execute as @e at @s run <some command> @e` 
 

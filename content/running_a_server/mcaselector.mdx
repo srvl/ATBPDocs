@@ -7,9 +7,9 @@ import { Callout } from 'nextra/components'
 
 [MCASelector](https://github.com/Querz/mcaselector) is an extremely helpful graphical and CLI tool that server administrators can use to modify their worlds, for example, to remove unused chunks to lower disk usage.
 
-<Callout type="error">
+<Callout type="warning">
 
-**WARNING**: Before doing anything else, please head over to the **[backups](/using_the_panel/backups/guide)** guide to create a full backup of your server, and also keep a copy of the world on your computer.
+Before doing anything else, head over to the **[backups](/using_the_panel/backups/guide)** guide to create a full backup of your server, and also keep a copy of the world on your computer.
 
 </Callout>
 
@@ -21,10 +21,6 @@ import { Callout } from 'nextra/components'
 4. Select the chunks you want to delete or filter them, for example by `InhabitedTime` (given in ticks) to remove chunks that players barely visited, then apply the change.
 5. Zip the edited world and upload it back to your server, replacing the old world folder.
 
-<Callout type="info">
-
-If you want to edit The Nether or The End on older server versions, you need to open the `DIM-1` or `DIM1` folder inside those worlds, since the region folder is not located in the root.
-
-</Callout>
+If you want to edit The Nether or The End on older server versions, open the `DIM-1` or `DIM1` folder inside those worlds, since the region folder is not located in the root.
 
 For more advanced use, see the full documentation for the CLI mode: https://github.com/Querz/mcaselector/wiki/CLI-Mode

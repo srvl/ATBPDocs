@@ -2,8 +2,6 @@
 title: "Databases"
 ---
 
-import { Callout } from 'nextra/components'
-
 ### Overview
 Databases can be used by certain plugins to allow for a more efficient, organized method of storing large amounts of data. Common plugins that can utilize MySQL databases are Dynmap, CoreProtect, and LuckPerms.
 
@@ -32,22 +30,12 @@ To import a database you first have to create a new database in your server. Onc
 ---
 ### Importing an .SQL database dump through the file manager
 
-<Callout type="info">
-
-In some cases the encoding, formatting or how the database dump was made isn't compatible with the database importing. If you get an error when importing the database, you can try to import the .SQL dump through HeidiSQL.
-
-</Callout>
-
-You can also upload an SQL file to import a database. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database** then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format and this option may not work if it wasn't a database properly dumped from an MySQL server.
+You can also upload an SQL file to import a database. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database**, then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format, and this option may not work if the file wasn't properly dumped from a MySQL server. If you get an error, try importing the .SQL dump through HeidiSQL instead.
 
 ---
 ### Importing an .SQL database dump through HeidiSQL
 
-<Callout type="important">
-
-Keep in mind that not all .SQL files such as sqlite and others can't be imported into MySQL.
-
-</Callout>
+Not every .SQL file can be imported into MySQL. Files from other database types, such as SQLite, usually will not work.
 
 To import an .SQL database dump through HeidiSQL first connect to your database, select your database then click on the **File** menu option and select **Run SQL file**, this will run your .SQL file in HeidiSQL and should import it into your database.
 
@@ -56,7 +44,7 @@ To import an .SQL database dump through HeidiSQL first connect to your database,
 The examples below use placeholders. Copy your real host, port, database name, username and password from the **Databases** tab (the details button) in the panel.
 
 ### Examples of how to configure a database in different plugins
-#### ➤ Luckperms:
+#### Luckperms:
 ```YAML
 storage-method: MySQL
 
@@ -80,7 +68,7 @@ data:
   username: u178_uIxN5UjEZy
   password: '@CSyH7IV8r4TUnaA3A7lu^2T'
 ```
-#### ➤ LiteBans
+#### LiteBans
 ```YAML
 sql:
   # H2, MySQL, MariaDB, and PostgreSQL are supported database drivers.
@@ -98,7 +86,7 @@ sql:
   username: 'u178_uIxN5UjEZy'
   password: '@CSyH7IV8r4TUnaA3A7lu^2T'
 ```
-#### ➤ CoreProtect
+#### CoreProtect
 ```YAML
 use-mysql: true
 table-prefix: co_
@@ -108,7 +96,7 @@ mysql-database: s178_test
 mysql-username: u178_uIxN5UjEZy
 mysql-password: @CSyH7IV8r4TUnaA3A7lu^2T
 ```
-#### ➤ Plan
+#### Plan
 ```YAML
 Database:
     Type: MySQL
@@ -121,7 +109,7 @@ Database:
         # Launch options to append after mysql driver address
         Launch_options: "?rewriteBatchedStatements=true&useSSL=false&serverTimezone=UTC"
 ```
-#### ➤ AdvancedBan
+#### AdvancedBan
 ```YAML
 # If set to false all bans will be saved locally in a HSQLDB-Database
 UseMySQL: true

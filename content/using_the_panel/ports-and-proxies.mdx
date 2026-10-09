@@ -7,14 +7,11 @@ import { Callout } from 'nextra/components'
 
 <Callout type="warning">
 
-Reverse proxies can only be used for *web connections* (eg. HTTPS). If you want to join your minecraft server using your domain, check [this page](/running_a_server/domain)
+Reverse proxies can only be used for *web connections* (for example HTTPS). If you want to join your Minecraft server using your domain, check [this page](/running_a_server/domain).
 
 </Callout>
-<Callout type="info">
 
-For this guide, you must have access to a domain and the ability to alter that domain's DNS settings. In this guide, we assume you have a domain with Cloudflare, but most registrars will work.
-
-</Callout>
+For this guide, you need a domain and the ability to change that domain's DNS settings. The steps assume your domain is on Cloudflare, but most registrars will work.
 
 ---
 
@@ -26,13 +23,8 @@ Replace the '**Target**' field with the reverse proxy address shown in the **Por
 
 ---
 
-<Callout type="info">
+CNAME records can take some time to propagate, depending on your ISP and other factors. You can check progress with [DNS Checker](https://dnschecker.org/#CNAME).
 
-CNAME records can take some time to propagate, though this depends on your ISP and other factors.
-
-For more information, check out [this page](https://dnschecker.org/#CNAME).
-
-</Callout>
 <Callout type="warning">
 
 If you use Cloudflare for DNS, set the 'Proxy status' to **DNS only**, as it won't work if it's proxied.

@@ -7,7 +7,7 @@ import { Callout } from 'nextra/components'
 
 By default a Minecraft Java server runs in **online mode**: every player is checked against their Minecraft account. Offline mode skips that check. People use it so friends without a purchased account can join, or to get past a "Can't verify username" error.
 
-<Callout type="warning">
+<Callout type="error">
 
 In offline mode anyone can join with any username. If someone types the name of an operator, the server treats them as that operator. A whitelist alone does not fix this, because it only checks names. Always install a login plugin or mod (below) before you let players in.
 
@@ -36,11 +36,7 @@ Upload the file to the `plugins` folder (plugins) or `mods` folder (mods), then 
 
 With AuthMeReloaded and EasyAuth, players run `/register <password> <password>` the first time they join and `/login <password>` on every later visit. Check the tool's own page for commands if you use another one.
 
-<Callout type="info">
-
 Bedrock players joining through Geyser use Floodgate, which is a different setup. See [GeyserMC](/plugins_and_modifications/plugins/geysermc) and [Floodgate](/plugins_and_modifications/plugins/floodgate).
-
-</Callout>
 
 ## Go back to online mode
 

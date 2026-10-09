@@ -19,7 +19,7 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 ---
 
-## Manual Backup Creation
+## Manual backup creation
 
 1. Open your server in the panel and go to the **Backups** tab.
 2. Click **Create Backup**.
@@ -30,7 +30,7 @@ If all your backup slots are used, you need to delete or [unlock](#locking) an o
 
 ---
 
-## Automatic Backup Creation
+## Automatic backup creation
 
 You can use the [schedules feature](/using_the_panel/schedules) to create backups automatically.
 
@@ -38,23 +38,13 @@ You can use the [schedules feature](/using_the_panel/schedules) to create backup
 2. Add a step with the action **Create backup**. Tick **Wait for the backup to finish** if later steps (such as a restart) should wait for it.
 3. Save the schedule and make sure it is turned on.
 
-<Callout type="warning">
-
 Very frequent backup schedules (for example hourly on a big world) can cause lag. Daily is enough for most servers.
-
-</Callout>
 
 ---
 
-## Restoring Backups
+## Restoring backups
 
-<Callout type="warning">
-
-**HEADS UP!**
-
-Restoring will overwrite files on your server with the files from the backup. Make sure you have a recent backup of the current state first if you might need it.
-
-</Callout>
+Restoring overwrites files on your server with the files from the backup, so make a fresh backup of the current state first if you might need it.
 
 To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again.
 
@@ -62,7 +52,7 @@ If you only need a few files, you can [download](#downloading-backups) the backu
 
 ---
 
-## Downloading Backups
+## Downloading backups
 
 Open the **Backups** tab, click the menu on a backup and choose **Download**. Your browser will download the backup as an archive.
 
@@ -78,13 +68,11 @@ Use the menu on the backup and choose **Lock** (or **Unlock** to undo it).
 
 ---
 
-## Deleting Backups
+## Deleting backups
 
 If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot.
 
 <Callout type="warning">
-
-**HEADS UP!**
 
 Deleting is irreversible. Deleted backups cannot be recovered. Backups are also deleted when a server is deleted, for example 7 days after an unpaid due date.
 

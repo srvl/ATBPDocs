@@ -1,73 +1,39 @@
 ---
-title: "spark"
+title: "Spark"
 ---
 
-import { Callout } from 'nextra/components'
-
-# Taking a Spark Profile
-
 What does the plugin do?
-[Spark](https://www.spigotmc.org/resources/spark.57242/) is a performance profiling plugin (with limited availability for Forge and Fabric) that can display server information, such as TPS, memory, tick durations, CPU usage, and disk usage. But more importantly it can create a performance profile that can be viewed on a fully feature web interface. It does not require any configuration and is incredibly easy to install.
+[Spark](https://www.spigotmc.org/resources/spark.57242/) is a performance profiling plugin (with limited availability for Forge and Fabric) that can display server information, such as TPS, memory, tick durations, CPU usage, and disk usage. More importantly, it can create a performance profile that can be viewed on a full-featured web interface. It does not require any configuration and is incredibly easy to install.
 
-# Setup
+## Setup
 
-> [!NOTE]
-> You can ignore this step if you are running Purpur 1.19.1 or above.
-> 
-> Paper 1.21+ includes Spark by default and you do not need to download Spark separately.
->
+You can skip this step if you are running Purpur 1.19.1 or above. Paper 1.21+ also includes Spark by default, so you do not need to download it separately.
 
-Download the latest build from [Spark](https://www.spigotmc.org/resources/spark.57242/) and drop it into your plugins (or mod folder if you are running Forge/Fabric) folder. Turn on or restart the server, and you're done!
+Download the latest build from [Spark](https://spark.lucko.me/download) and drop it into your plugins folder (or mods folder if you are running Forge/Fabric). Turn on or restart the server, and you're done! If you need help installing plugins, check [How to install plugins](/plugins_and_modifications/installing-plugins).
 
-# Using The Profiler
+## Using the profiler
 
-> [!NOTE]
-> Some versions of spark use different command roots, /sparkb for BungeeCord, /sparkv for Velocity, and /sparkc for Fabric/Forge. If you are having trouble running the command try using the corresponding subfix.
+Some versions of Spark use different command roots: `/sparkb` for BungeeCord, `/sparkv` for Velocity, and `/sparkc` for Fabric/Forge. If you are having trouble running the command, try the matching command for your platform.
 
-The most useful tool in terms of diagnostics is the profiler feature which can be run with **/spark profiler start.**
+The most useful tool in terms of diagnostics is the profiler feature, which can be run with `/spark profiler start`.
 
-Usually you'll want to run the profile during a time of stress for your server, to get the most out of the report you should try to leave it running for 10 minutes or more. You can also add additional parameters to the report, for more information check the [Spark Documentation](https://spark.lucko.me/docs/Command-Usage)
+Usually you'll want to run the profiler during a time of stress for your server. To get the most out of the report, leave it running for 10 minutes or more. You can also add additional parameters to the report; for more information check the [Spark Documentation](https://spark.lucko.me/docs/Command-Usage).
 
-Once you are ready to check the results of the profiler you should run /spark profiler stop and copy the link produeced.
+Once you are ready to check the results of the profiler, run `/spark profiler stop` and copy the link produced.
 
 When you open the link you'll find a useful web interface that displays all the data collected.
 
-# Other Useful Commands
-Running **/tps** will display your server's current TPS (ticks per second) and related tick information.
-
-Running **/spark healthreport** will display a summary of your server's health, such as TPS, memory, CPU and disk usage.
-
-The values will depend on your server, newer versions of Spark will contain more useful information, as the utility is in active development.
-:::
-Download the latest build from [Spark](https://spark.lucko.me/download) and drop it into your plugins (or mod folder if you are running Forge/Fabric) folder. Turn on or restart the server, and you're done! If you need help installing plugins, check [How to install plugins](/plugins_and_modifications/installing-plugins).
-
-## Using The Profiler
-
-<Callout type="info">
-
-Some versions of spark use different command roots, /sparkb for BungeeCord, /sparkv for Velocity, and /sparkc for Fabric/Forge. If you are having trouble running the command try using the corresponding subfix. 
-
-</Callout>
-
-The most useful tool in terms of diagnostics is the profiler feature which can be run with `/spark profiler start`.
-
-Usually you'll want to run the profile during a time of stress for your server, to get the most out of the report you should try to leave it running for 10 minutes or more. You can also add additional parameters to the report, for more information check the [Spark Documentation](https://spark.lucko.me/docs/Command-Usage)
-
-Once you are ready to check the results of the profiler you should run `/spark profiler stop` and copy the link produeced.
-
-When you open the link you'll find a useful web interface that displays all the data collected.
-
-## Other Useful Commands
+## Other useful commands
 
 Running `/tps` will display your server's current TPS (ticks per second) and related tick information.
 
 Running `/spark healthreport` will display a summary of your server's health, such as TPS, memory, CPU and disk usage.
 
-The values will depend on your server, newer versions of Spark will contain more useful information, as the utility is in active development.
+The values will depend on your server. Newer versions of Spark will contain more useful information, as the utility is in active development.
 
-For more parameters to use, and other useful commands you can check the [Official Spark Documentation](https://spark.lucko.me/docs/Command-Usage)
+For more parameters and other useful commands, check the [Official Spark Documentation](https://spark.lucko.me/docs/Command-Usage).
 
-## Need Help Reading the Profile?
+## Need help reading the profile?
 
 If you require help with reading your Spark profile, create a ticket in our [Discord](https://discord.atbphosting.com).
 

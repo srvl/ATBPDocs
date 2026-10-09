@@ -7,25 +7,18 @@ import { Callout } from 'nextra/components'
 
 <Callout type="warning">
 
-**END OF LIFE SOFTWARE**
-
-**As of March 26th, 2024, Waterfall has been marked as EOL by the Paper team**. More details are available on [the PaperMC forums](https://forums.papermc.io/threads/announcing-the-end-of-life-of-waterfall.1088/).
-
-### **Please migrate to [Velocity](/running_a_server/velocity) as soon as possible!**
+As of March 26th, 2024, Waterfall has been marked as end of life (EOL) by the Paper team. More details are available on [the PaperMC forums](https://forums.papermc.io/threads/announcing-the-end-of-life-of-waterfall.1088/). Please migrate to [Velocity](/running_a_server/velocity) as soon as possible.
 
 </Callout>
 
 <details>
 <summary>
-VIEW LEGACY DOCUMENTATION
+View legacy documentation
 </summary>
 
-<Callout type="warning">
+<Callout type="error">
 
-Configuring BungeeGuard is essential to secure your backend servers. Read until the end of the article to learn how to
-configure BungeeGuard!
-
-NOTE: Installing BungeeGuard is strongly recommended to protect your backend servers.
+Configuring BungeeGuard is essential to secure your backend servers. Do not skip it: read until the end of the article to learn how to configure BungeeGuard.
 
 </Callout>
 
@@ -33,26 +26,26 @@ NOTE: Installing BungeeGuard is strongly recommended to protect your backend ser
 
 To get started with Waterfall, you need to download their latest jar from their [downloads page](https://papermc.io/downloads#Waterfall).
 
-When you have downloaded their latest jar file, then you can upload it to your waterfall server when it's created on the next step.
+When you have downloaded their latest jar file, then you can upload it to your Waterfall server when it's created in the next step.
 
 ## Server split Waterfall server
 
 You can use the free server split feature (see [Splitting servers](/using_the_panel/split-server)) to create a proxy server.
 You need to click on one of your servers to be able to see the server split menu on the left side, then create the split there and choose the Waterfall server type.
 
-After you've created the waterfall server in your server split, you'll be able to see the server on your server overview in the panel.
+After you've created the Waterfall server in your server split, you'll be able to see the server on your server overview in the panel.
 
 ## Configure Waterfall
 
 *Before you set up this section, make sure your backend servers are not shared publicly, and secure them with BungeeGuard (see the end of this article).*
 
-You need to start it one time and shut it down afterwards to generate all the files needed to be able to configure waterfall.
+You need to start it one time and shut it down afterwards to generate all the files needed to be able to configure Waterfall.
 
 Afterwards the file manager will show the generated Waterfall files, including `config.yml`.
 
-We'll configure waterfall in the `config.yml` file.
+We'll configure Waterfall in the `config.yml` file.
 
-This is how a standard waterfall configuration will look like:
+This is how a standard Waterfall configuration looks:
 
 ```yml
 connection_throttle: 4000
@@ -109,7 +102,7 @@ online_mode: true
 
 You need to have 3 servers in total to be able to use a proxy server. 1 proxy server and 2 backend servers.
 
-We need to add the backend servers to under the servers menu and the priorities list in the `config.yml` file.
+We need to add the backend servers under the servers menu and the priorities list in the `config.yml` file.
 
 If for example, one of your backend servers is a survival server, you'll need to add this under your server section:
 
@@ -120,9 +113,9 @@ survival:
     restricted: false
 ```
 
-Remember to use your backend server's own IP address and port and replace the example above
+Remember to use your backend server's own IP address and port and replace the example above.
 
-Afterwards you'll need to add the survival server to under priorities.
+Afterwards you'll need to add the survival server under priorities.
 
 When you're done with adding backend servers it might look like the following:
 
@@ -189,25 +182,17 @@ listeners:
 online_mode: true
 ```
 
-<Callout type="warning">
-
-Make sure `ip_forward` is set to `true` in Waterfall `config.yml` and `bungeecord` is set to `true` in `spigot.yml` on all your backend servers.
-
-</Callout>
+Make sure `ip_forward` is set to `true` in the Waterfall `config.yml` and `bungeecord` is set to `true` in `spigot.yml` on all your backend servers.
 
 ## Configure backend servers
 
 On the backend server, you'll need to go into `server.properties` and set `online-mode` to `false` and afterwards go into `spigot.yml` and change `bungeecord` to `true`.
 
-When running your servers behind a proxy like Velocity or Waterfall, it requires them to be set to offline-mode.
-Normally hosting companies will not provide support for offline mode servers, but in this case it is required for the
-proxy to function properly. It will act as the gateway to your servers and handle authentication for you.
+When running your servers behind a proxy like Velocity or Waterfall, they need to be set to offline mode.
+Offline mode servers are normally not supported, but in this case it is required for the
+proxy to function properly. The proxy acts as the gateway to your servers and handles authentication for you.
 
-<Callout type="warning">
-
-It is recommended that you do not skip this step and complete your setup by configuring BungueeGuard as well!
-
-</Callout>
+Complete your setup by configuring BungeeGuard as well.
 
 ## Setting Up BungeeGuard
 
@@ -217,11 +202,7 @@ BungeeGuard is a plugin used to protect against BungeeCord's UUID spoof exploit 
 
 ## Usage
 
-<Callout type="important">
-
-Make sure your BungeeCord is on the latest version. Also, make sure to use version 1.2 or later of BungeeGuard as previous versions have an issue.
-
-</Callout>
+Make sure your BungeeCord is on the latest version, and use version 1.2 or later of BungeeGuard, as previous versions have an issue.
 
 [Download the plugin](https://ci.lucko.me/job/BungeeGuard/lastBuild/artifact/bungeeguard-universal/target/BungeeGuard.jar) then upload the jar into both your BungeeCord and Spigot `plugins` folder. Restart the servers. If you need help installing plugins, check out [this guide](/plugins_and_modifications/installing-plugins).  
 
