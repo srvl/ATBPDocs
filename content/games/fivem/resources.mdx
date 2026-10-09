@@ -1,0 +1,27 @@
+---
+title: "Add resources and frameworks"
+description: "Install scripts, cars and maps on your FiveM server and load them in server.cfg."
+---
+
+In FiveM everything you add is a **resource**: scripts, jobs, cars, maps and frameworks such as QBCore or ESX.
+
+## Install a resource
+
+1. Download the resource and unzip it on your computer. Check that the folder has an `fxmanifest.lua` file inside it.
+2. In the [panel](https://panel.atbphosting.com), open **Files**, go into the `txData` folder, then the server folder txAdmin created and its `resources` folder. Upload the resource folder there, or use SFTP for big uploads.
+3. Open `server.cfg` (in txAdmin under **CFG Editor**, or in **Files**) and add a line with the folder name:
+
+```
+ensure my_resource
+```
+
+4. Restart the server from txAdmin.
+
+Resources start in the order they appear in `server.cfg`, so put a framework (for example `qb-core` or `es_extended`) above the scripts that need it.
+
+## Tips
+
+- Avoid spaces and capital letters in resource folder names.
+- Many scripts need a database. Create one on the panel's **Databases** tab and put its details in `server.cfg` (usually as `mysql_connection_string`).
+- If the server stops after you add something, read the console or txAdmin's **Live Console**: the last resource it loaded is usually the cause. Remove its `ensure` line and restart.
+- Only use resources from sources you trust. Leaked or "cracked" paid scripts often contain backdoors.
