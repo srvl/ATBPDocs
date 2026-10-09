@@ -1,35 +1,83 @@
 ---
 title: "File Manager Controls"
+description: "The Files tab in the ATBP panel: simple and advanced views, the editor, the trash bin, share links and other file tools."
 ---
 
-### SFTP
+The **Files** tab of the [panel](https://panel.atbphosting.com) lets you browse, edit, upload and organise your server's files. For big uploads such as worlds or modpacks, [SFTP](/using_the_panel/sftp) is faster.
 
-If you would prefer to use SFTP to manage your files, please see our [guide on SFTP](/using_the_panel/sftp).
+## Simple and advanced view
 
----
+The file manager has two views. Your choice is saved in your browser, so another device or browser starts in the advanced view again.
 
-### Controls Summary
-By default you will be able to see the main/root folder of your server. You can click other folders to view their contents. On the top left corner you can see your current path.
+- **Advanced** (the default): the full file manager with the code editor, search, the trash bin and the other tools on this page.
+- **Simple**: a plain list of files with a search row. It is lighter and easier on a phone.
 
-#### Without selecting any files you can:
-- Open the Recycle Bin to retrieve previously deleted files (up to 24h)
-- Download files from a link (if the link directly leads to a file!)
-- Create new directories or files
-- Upload files directly from your computer
-- Select all files with the checkbox in the top left corner.
+To switch to simple, open **File Manager Settings** (the gear button in the file list), go to **File manager** and pick **Simple**. To go back, press **Switch to advanced** in the bar at the top of the simple view.
 
-You can also select individual files by clicking the checkbox to the left of the filename.
+In the simple view the search row can look in **This folder only** or **All folders**. Searching inside files (**File contents**) shows as greyed out when it is not available.
 
----
+## Browsing and selecting
 
-#### While having file(s) selected you can:
-- Copy or move the file within the current server's directories or even to <u>other split servers</u>! Simply select the server's name and enter the destination directory. You can enter `../`to go up a directory and `/<directory>` to enter one. Here you can also specify whether to overwrite any files or folders with the same name.
-- Archive files/folder into a single compressed file. Selecting this option will create a file named `archive-yyyy-mm-dd.tar.gz`
-- Delete files. By default, this will send files to the Recycle Bin (space permitting) for 24 hours or until manualy purged.
+- Click a folder to open it. Your current path is shown at the top; click any part of it to go back up.
+- In File Manager Settings you can switch between the **Browse** view and a **Tree** view, choose whether folders open on a double click, and turn file checkboxes on or off.
+- Tick the checkboxes to select several files, or use the box at the top to select everything in the folder. **Clear selection** unticks them.
+- Drag and drop files to move them, and drop files from your computer to upload them. You can ask to confirm before files are moved.
+- Right-click a file, or use its menu, for **Rename**, **Duplicate**, **Move**, **Download**, **Archive**, **Unarchive**, **Properties** and **Edit chmod values** (file permissions).
+- Use **New File**, **New Folder**, **Upload Files** or **Upload Folder** to add things. To use an SFTP program instead, press **Open in SFTP client**.
 
----
+## Editing files
 
-#### You can also click `...` next to a file for additional options. Here you can also:
-- Rename a file/folder
-- Duplicate files
-- Download files
+Open a text file to edit it in the built-in code editor. It has syntax colours, tabs for several open files, find and replace, and a **Show changes** view so you can check your edits before you save. Other things it can do:
+
+- **Format** a config file to tidy its layout, and show a **Markdown preview**.
+- **Find in Open Files**, and a **Recent and Modified** list of files you touched.
+- **Pop Out Editor** to edit in its own window.
+- Open Minecraft `.dat` files (player data, level data) in an **NBT editor**.
+- Open small SQLite databases (up to 32 MB) to view and edit rows. Changes are only saved while the server is stopped.
+- Preview images, audio, video and PDFs, and look inside archives to **Extract Selected** files or a whole folder.
+
+Stop the server before editing a plugin or game config, or the server may overwrite your changes when it saves.
+
+## Trash bin
+
+Deleting with **Move to Trash** puts files in the **Trash Bin** instead of removing them for good. Open it to search your deleted files, tick the ones you want and press **Restore**.
+
+- The trash holds up to 500 items. When it is full, the oldest items are removed to make room, and it warns you when it is getting close.
+- **Empty All** clears the trash for good. **Delete Permanently** skips the trash.
+- Deleted files in the trash still use your server's disk until they are emptied.
+- If automatic trash cleanup is offered on your server, File Manager Settings lets you turn it on and pick how old an item must be before it is removed.
+
+## Share download links
+
+Choose **Share download link** on a file to get a link anyone can download it from, without a panel account.
+
+- Pick when it expires (1 hour, 1 day, 7 days, 30 days, a custom time, or never) and whether it allows unlimited or a set number of downloads.
+- **Your active shares** lists your links; press **Revoke** to stop one.
+- A link stops working if you lose access to the server's files or the server is suspended. The server owner can see and revoke every link on the server.
+
+## Pull a file from a URL
+
+**Pull from URL** downloads a file straight to your server, for example a plugin `.jar` or a modpack. Paste a direct link to the file, optionally give it a name and folder, and press **Pull File**. Very large files may be refused; use SFTP for those.
+
+## File history
+
+Where your server's node supports it, a file's history lists earlier saved versions. You can copy, download or **Restore** an older version.
+
+## Long tasks
+
+Archiving, extracting, big uploads and downloads, and backups show in a small task box on the screen with their progress. You can keep working while they run, and press **Cancel task** to stop one.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I edit a file in the panel?
+- Paano mag edit ng file?
+- I deleted a file, can I get it back?
+- Na-delete ko file, paano ibalik?
+- How do I switch to the simple file manager?
+- Where did the file editor go?
+- How do I share a file download link?
+- How do I download a file from a URL to my server?
+- How do I extract a zip?
+
+</details>
