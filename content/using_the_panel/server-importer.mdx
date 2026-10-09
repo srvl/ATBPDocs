@@ -2,13 +2,11 @@
 title: "Server Importer"
 ---
 
-# HOW TO USE IMPORTER
-
-## SFTP Connection Setup
+## SFTP connection setup
 
 This guide explains how to configure and establish a secure file transfer (SFTP) connection to your remote server using the provided interface. SFTP is a network protocol that provides file access, file transfer, and file management functionalities over any reliable data stream. It's crucial for securely managing files on your game server, website, or any other remote host.
 
-## UNDERSTANDING THE INTERFACE
+## Understanding the interface
 
 The interface is divided into two main sections: Saved Profiles and Connection Details.
 
@@ -49,7 +47,7 @@ This is where you input the necessary information to connect to your remote serv
 
     *   Input Field: This specifies the starting directory on your *local machine* (or where you want to import files from). The default `/` usually refers to the root directory from which you will select files to upload.
     *   Description: "The path to import files from."
-    *   Note: If this is an *upload* interface, "Source Path" would be where files are located *locally* before being sent to the remote server. If it's a *download* or *sync* interface, it might refer to the remote starting point. Given the "Destination Path" below, it's highly likely this refers to the *remote* source if you are *pulling* files, or the *local* source if you are *pushing* files. Without more context, assuming this is an "upload" or "transfer from local to remote" context, the "Source Path" would be on your local system. However, considering the general nature of SFTP clients within a panel, it often implies transferring files *from* the remote server *to* the panel's file manager, or *from* your local machine *to* the remote server via the panel. Let's assume it's the *remote* source path for pulling/downloading, or if you're importing INTO the panel's file manager, it's the path ON THE REMOTE SERVER you are connecting to.
+    *   When importing into your ATBP server, this is the path on the remote server you are connecting to.
 
 *   DESTINATION PATH:
 
@@ -65,15 +63,15 @@ This is where you input the necessary information to connect to your remote serv
 
     *   Click this button after filling in all the connection details to attempt to establish an SFTP connection to the remote server.
 
-## HOW TO USE
+## How to use
 
 *   Enter Connection Details: Fill in the HOST, PORT, USERNAME, and PASSWORD fields with the credentials provided by your server host or your server's configuration.
 
 *   Specify Paths:
 
-    *   For uploading files to your server: The SOURCE PATH would be relevant if you're importing from another remote location. However, if you're uploading from your *local computer*, this field might be automatically handled by the subsequent file selection process once connected, or it might be the starting point on the *remote* server for Browse. The DESTINATION PATH is crucial – this is where you want your files to be placed on your server (e.g., `/home/minecraft/server/plugins`).
+    *   For uploading files to your server: The SOURCE PATH would be relevant if you're importing from another remote location. However, if you're uploading from your *local computer*, this field might be automatically handled by the subsequent file selection process once connected, or it might be the starting point on the *remote* server for browsing. The DESTINATION PATH is crucial: this is where you want your files to be placed on your server (e.g., `/home/minecraft/server/plugins`).
     *   For downloading files from your server: The SOURCE PATH would be the directory on your remote server you wish to download from (e.g., `/home/minecraft/server/world`), and the DESTINATION PATH might refer to a location within the panel's file manager or a temporary download folder.
-    *   Important: Pay close attention to these paths to ensure files are transferred to and from the correct locations. The default `/` means the root directory of the connected user.
+    *   Pay close attention to these paths to ensure files are transferred to and from the correct locations. The default `/` means the root directory of the connected user.
 
 *   Save Profile (Optional but Recommended): Once you've successfully connected, or even before, click the "Save" button in the "Saved Profiles" section to store these connection details for future use. Give it a descriptive name like "My Minecraft Server SFTP" or "Website FTP".
 
@@ -81,7 +79,7 @@ This is where you input the necessary information to connect to your remote serv
 
 *   Manage Files: If the connection is successful, you will typically be presented with a file browser interface, allowing you to upload, download, delete, rename, and manage files on your remote server securely.
 
-Troubleshooting Common Issues
+## Troubleshooting common issues
 
 *   "Connection refused" or "Connection timed out":
 

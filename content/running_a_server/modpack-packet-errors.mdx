@@ -3,8 +3,6 @@ title: "Fix 'Failed to decode packet' in modpacks"
 description: "What causes packet size errors on modded Minecraft servers and how to fix them."
 ---
 
-import { Callout } from 'nextra/components'
-
 Modded servers sometimes kick players with errors about packets being too big. Minecraft limits how large a single packet can be, and some mods push past that limit.
 
 ## Errors that point to this problem
@@ -32,10 +30,6 @@ Modded servers sometimes kick players with errors about packets being too big. M
 3. **Install the same Packet Fixer on every player's client.** Put the jar in their `mods` folder. Players without it will not be able to join.
 4. Restart the server and have everyone restart their game.
 
-<Callout type="info">
-
 Make sure the Packet Fixer version matches your Minecraft version and loader exactly. A wrong version is a common reason this fix seems to do nothing.
-
-</Callout>
 
 If the errors continue, open a ticket on our [Discord](https://discord.atbphosting.com) and include the full console log.

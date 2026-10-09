@@ -3,25 +3,11 @@ title: "EssentialsX"
 description: "Plugin offering essential commands to servers"
 ---
 
-import { Callout } from 'nextra/components'
-
-<Callout type="important">
-
-This guide does not cover any of EssentialsX's modules, such as EssentialsX Chat, EssentialsX Discord or EssentialsX Geo (formerly EssentialsX GeoIP). Please check the [EssentialsX wiki](https://essentialsx.net/wiki/Module-Breakdown.html) for information on these modules.
-
-Please note that any EssentialsX modules requires the core EssentialsX plugin jar to function (covered in this guide)
-
-</Callout>
-
-<Callout type="warning">
-
-This guide does not cover all of EssentialsX's features, please check the [EssentialsX wiki](https://essentialsx.net/wiki/Home.html) for more information on its features
-
-</Callout>
+This guide does not cover all of EssentialsX's features; please check the [EssentialsX wiki](https://essentialsx.net/wiki/Home.html) for more information. It also does not cover any of EssentialsX's modules, such as EssentialsX Chat, EssentialsX Discord or EssentialsX Geo (formerly EssentialsX GeoIP). See the [EssentialsX wiki](https://essentialsx.net/wiki/Module-Breakdown.html) for information on these modules. Any EssentialsX module requires the core EssentialsX plugin jar to function (covered in this guide).
 
 ## What does this plugin do?
 
-This is a plugin that offers basic commands and features such as a mail system, request tp system,  economy systems (sign shops, command costs), player nicknames and moderation tools if you don't want to install plugins such as [LiteBans](/plugins_and_modifications/multiplatform/litebans) or [AdvancedBan](/plugins_and_modifications/multiplatform/advancedban).
+This is a plugin that offers basic commands and features such as a mail system, request tp system, economy systems (sign shops, command costs), player nicknames and moderation tools if you don't want to install plugins such as [LiteBans](/plugins_and_modifications/multiplatform/litebans) or [AdvancedBan](/plugins_and_modifications/multiplatform/advancedban).
 
 This plugin also hooks into [Vault](/plugins_and_modifications/plugins/vault) to provide an economy service that other economy plugins on your server can use. It can also get group names from your permission plugin.
 
@@ -45,13 +31,11 @@ There are a lot of features of EssentialsX, here are a few of the simple command
 * `/warp` - sends the player to a warp that you created using `/setwarp`
 * `/kit` - Allows the player to get a pre-defined set of items that you make with `/createkit`. Also supports cooldowns and costs.
 
-There are, of course more commands, refer to [the command reference](https://essinfo.xeya.me/commands.html) for a list of all commands.
+There are, of course, more commands. Refer to [the command reference](https://essinfo.xeya.me/commands.html) for a list of all commands.
 
 ### Essentials signs
 
 EssentialsX also has a number of signs that you can use to allow your players to interact with, for example, buying/selling items or going to a warp by right-clicking a sign.
-
-<Callout type="important">
 
 All EssentialsX signs are **disabled by default**. If you want to use a sign, you will need to enable it in the config. To do this:
 
@@ -89,8 +73,6 @@ enabledSigns:
 
 3. Remove the `#` symbol from each type of sign you want to use.
 4. Save the configuration file and reload Essentials (`/essentials reload`).
-
-</Callout>
 
 There are various right-clickable signs that you can use (and can be enabled in the section above.)
 For example, warp signs can take your player to a warp you defined with `/setwarp` and the mail sign can show the player's mail.

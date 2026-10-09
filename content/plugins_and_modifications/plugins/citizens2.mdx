@@ -1,9 +1,7 @@
 ---
 title: "Citizens 2"
-description: "How do I find you when I cannot solve this problem"
+description: "Install Citizens 2 and create NPCs on your Minecraft server."
 ---
-
-import { Callout } from 'nextra/components'
 
 ## What does the plugin do?
 
@@ -11,30 +9,21 @@ Citizens2 is an advanced NPC plugin for Spigot that allows developers to extend 
 
 ## Installation
 
-1. Download the plugin [directly from the developer](https://wiki.citizensnpcs.co/Versions) or [from the Premium spigot page](https://www.spigotmc.org/resources/citizens.13811/) (The premium version posted as a premium resource to motivate the continued development.  Citizens can be used for free though.).  
+1. Download the plugin [directly from the developer](https://wiki.citizensnpcs.co/Versions) or [from the Premium spigot page](https://www.spigotmc.org/resources/citizens.13811/) (The premium version is posted as a premium resource to motivate continued development. Citizens can be used for free, though.).  
 1. Upload the jar(s) to your `/plugins` folder.
 1. Restart the server. 
 
 If you need help installing plugins, check [How to install plugins](/plugins_and_modifications/installing-plugins).
 
-<Callout type="info">
+You may also want to look at installing the Denizen, Sentinel, and dtlTraders plugins for Citizens.
 
-You may also want to look at installing the Denzien, Sentinel, and dtlTraders plugins for Citizens.
 - [Denizen](/plugins_and_modifications/plugins/denizen) is an extension for Citizens that allows scripting of NPCs to handle tasks, quests, player interaction and more!
 - Sentinel is an extension for Citizens that allows Combat NPCs who can protect players, towns, etc.
 - dtlTraders is an extension for Citizens that allows NPCs as merchants who can buy, sell, and/or trade with players.
 
-</Callout>
-
 ## Configuration
 
-Citizens (and the related plugins) can be tweaked via the config settings.  
-
-<Callout type="info">
-
-Generally, you can probably get started using Citizens (and the related plugins) without having to go a lot of configuration.
-
-</Callout>
+Citizens (and the related plugins) can be tweaked via the config settings. Generally, you can get started using Citizens (and the related plugins) without doing a lot of configuration.
 
 The config files are:
 - Citizens - `/plugins/Citizens/config.yml` - [Docs](https://wiki.citizensnpcs.co/Configuration)
@@ -48,17 +37,13 @@ Rather than go over basic commands, listed below are several examples on how to 
 
 ### Creating an NPC
 
-<Callout type="info">
-
-These examples are assuming you have instaled Citizens as well as Denzien, Sentinel, and dtlTraders plugins.
-
-</Callout>
+These examples assume you have installed Citizens as well as the Denizen, Sentinel, and dtlTraders plugins.
 
 #### Basic Human NPC
 
 In this example, we will create a basic human NPC who says "Hello!":
 
-1. Create the NPC: `/npc2 create Bob` (Note... the NPC skin will be set based on the name.  You can change this later. )
+1. Create the NPC: `/npc2 create Bob` (the NPC skin will be set based on the name; you can change this later)
 1. Make the NPC look at you: `/npc2 look`
 1. Change the skin `/npc2 skin --url https://www.minecraftskins.com/uploads/skins/2020/12/06/farmer-alex-15963302.png?v292`
 1. Open the Text editor: `/npc2 text`
@@ -68,22 +53,14 @@ In this example, we will create a basic human NPC who says "Hello!":
 1. Type `delay 10` to make the NPC wait 10 seconds between each text.
 1. Type `/npc2 text` to exit the text editor.
 
-<Callout type="info">
+For NPC skins, you can go to [Minecraft Skins](https://www.minecraftskins.com/) or a similar website. You will need a direct link to the NPC skin to apply it. For Minecraft Skins, you can click on the "Image Link".
 
-For NPC skins, you can go to [Minecraft Skins](https://www.minecraftskins.com/) or a similar website.  You will need a direct link to the NPC skin to apply it.  For Minecraft Skins, you can click on the "Image Link"
-
-</Callout>
-
-<Callout type="info">
-
-You can add multiple lines by repeating the `add` command while in the text editor.  You can also use placeholders if you have the plugin installed and enabled.  For example `Hello %player_name%!`  YMMV...
-
-</Callout>
+You can add multiple lines by repeating the `add` command while in the text editor. You can also use placeholders if you have the plugin installed and enabled, for example `Hello %player_name%!`.
 
 #### Wolf NPC
 
 In this example, we will create a wolf NPC:
-1. Create the NPC: `/npc2 create Rover --type wolf` (Note... the NPC skin will be set based on the name.  You can change this later. )
+1. Create the NPC: `/npc2 create Rover --type wolf` (the NPC skin will be set based on the name; you can change this later)
 1. Make the NPC look at you: `/npc2 look`
 
 ### Selecting an NPC
@@ -98,10 +75,10 @@ To rename an NPC, do the following:
 1. Make sure you have the NPC selected (see above)
 1. Type `/npc2 rename [name]` (For example, to rename Bob above to Jill, type `/npc2 rename Jill`).
 
-### Deleting or despawing
+### Deleting or despawning
 
 - To delete an NPC, make sure you have the NPC selected and then type `/npc2 remove`.  Note that there is no undo!
-- To despawn an NPC without deleting them, make sure you have the NPC selected and then type `/npc2 despawn`.  To repawn them, type `/npc2 spawn [name]` (e.g. `/npc2 spawn Jill`)
+- To despawn an NPC without deleting them, make sure you have the NPC selected and then type `/npc2 despawn`.  To respawn them, type `/npc2 spawn [name]` (e.g. `/npc2 spawn Jill`)
 
 ### Creating a Shop NPC
 
@@ -115,7 +92,7 @@ In this example, we will create a basic shop
 1. Select `Create Shop`
 1. Name the Shop
 1. Select `Edit Shop Pages`
-1. Select the default page (usually something like `Page 71122`).  You can in the next screen by choosing `Change title`.
+1. Select the default page (usually something like `Page 71122`). You can rename it in the next screen by choosing `Change title`.
 1. Select `Change Contents`
 1. In the bottom right corner there is a stone block.  This block lets you toggle between the Buy, Sell, and Trade functions.  We will be using `Buy` to allow players to buy items (so don't change it).  You can create shops for players to sell items to the trader or trade `X item` for `Y item` (for example in Skyblock, trade 10xRedstone for 1 dirt).
 1. Drag the stone block into the box above, then click `Exit`.
@@ -132,8 +109,6 @@ In this example, we will create a basic shop
 - To edit existing shops, type `/dtltraders edit` and select the shop you want to edit.
 - To delete a shop, type `/dtltraders delete [shopname]`
 
-<Callout type="info">
-
 Notes:
 - Sometimes it is easier to delete an item or shop and start over if things are behaving oddly.
 - You can use the NPC commands above on shop NPCs (e.g. `/npc2 look`, `/npc2 skin`, etc.).  You can also make non-human NPC shops (like a wolf that buys bones!)
@@ -142,8 +117,6 @@ Notes:
 - You can enable or disable the buy, sell, and/or trade functions in the shop independently.
 - You can set permissions on individual shop items
 - You can limit the number of items a player can buy, sell, or trade to a shop.
-
-</Callout>
 
 ## Additional Information
 
@@ -155,8 +128,8 @@ Notes:
 - [Citizens Docs](https://wiki.citizensnpcs.co/Configuration)
 - [Sentinel Docs](https://github.com/mcmonkeyprojects/Sentinel/blob/master/README.md)
 - [dtlTraders Docs](https://www.spigotmc.org/resources/dtltraders.35890/)
-- [dtlTradersPlus (Premium Version) Docs](https://www.spigotmc.org/resources/dtltradersplus.63690/) – Requires Spigot account!
+- [dtlTradersPlus (Premium Version) Docs](https://www.spigotmc.org/resources/dtltradersplus.63690/) (requires a Spigot account)
 
-### Need Help
+### Need help
 
-Check the docs for details.  Asking nicely on ATBP's discord and/or other Minecraft related discord servers may also work.
+Check the docs for details.  Asking nicely on [ATBP's Discord](https://discord.atbphosting.com) and/or other Minecraft related Discord servers may also work.

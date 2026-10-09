@@ -13,13 +13,9 @@ Chunk generation in Minecraft is slow, which can sometimes cause server lag or s
 
 ## How to install
 
-<Callout type="important">
+If you run Chunky on Paper, adding the argument below can greatly improve performance. You can add this argument in the "Startup" section of the panel, within the "Startup Flags" field. This flag should be the last one in the startup command. Remember to remove this flag once world generation is complete.
 
-If you run Chunky on Paper, adding the argument below can greatly improve performance. You can add this argument on the "Startup" section of the panel, within the "Startup Flags" field. This flag should be the last one in the startup command. Remember to remove this flag once world generation is complete.
-
- -DPaper.WorkerThreadCount=# (# = the core count of your plan)
-
-</Callout>
+`-DPaper.WorkerThreadCount=#` (# = the core count of your plan)
 
 For Bukkit/Spigot/Paper servers, check out the [Installing Bukkit/Spigot/Paper plugins](/plugins_and_modifications/installing-plugins) page.
 
@@ -37,11 +33,7 @@ To start generation, you should first select a world by using `chunky world <wor
 
 After that, you can run `chunky start` to start generating.
 
-<Callout type="important">
-
 It's a good idea to reinforce the pre-generated area by using a world border so that players don't explore too far in your world and generate new chunks. When doing this, you can also increase the radius by ~200 blocks (10 chunks) so that there is some buffer when players are right next to the border.
-
-</Callout>
 
 If you wish to pause or cancel pre-generation, you can run `chunky pause` or `chunky cancel`.
 

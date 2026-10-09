@@ -1,42 +1,35 @@
 ---
-title: "world-reset"
+title: "Resetting your worlds"
 ---
 
 import { Callout } from 'nextra/components'
 
-# Resetting your World(s)
-
-You'll need a way to access your server files. This tutorial references the [web panel](https://panel.atbphosting.com/), but you can also use SFTP. Shutdown your server before proceeding!
-
-# Step 1: Go to your "Files" Tab on your Panel
-Opening it shows the files and folders of your server.
-
-# Step 2: Find you worlds to delete.
-There are three types of worlds: Overworld (world), Nether (nether_world), and The End (world_the_end). If you want to delete all of them, simply check the box on the left side of each file.
-
-# Step 3:
-After selecting your worlds, click the Delete button that appears and confirm.
+You'll need a way to access your server files. This tutorial references the [web panel](https://panel.atbphosting.com/), but you can also use SFTP. Shut down your server before proceeding.
 
 <Callout type="warning">
 
-# CAUTION
-We recommend backing up your old world before resetting, so you can restore it later if needed. But if you’re sure you don’t need it, you can skip the backup.
+Deleting a world cannot be undone. We recommend taking a backup of your old world before resetting, so you can restore it later if needed. Follow this [guide](/using_the_panel/backups/guide) to learn how to make and schedule backups. If you're sure you don't need the old world, you can skip the backup.
 
 </Callout>
 
-# Optional Step:
-You can archive your world by selecting the world folders first and clicking the Archive button at the bottom right of the file manager, before deleting them.
+## Step 1: Go to the "Files" tab on your panel
 
-> [!IMPORTANT]
-> Once you've completed these steps, you can now start your server again with a fresh new world!
+Opening it shows the files and folders of your server.
 
-If you wish to have multiple worlds on your server at once, add a prefix to the end of each world (such as `_old`), OR use a plugin such as [Multiverse](https://dev.bukkit.org/projects/multiverse-core).
+## Step 2: Find the worlds to delete
 
-We recommend you take a backup before deleting any worlds in your server. Follow this [guide](/using_the_panel/backups/guide) to learn how to make and schedule backups.
-:::
+On *most* Minecraft servers there are three world folders: Overworld (`world`), Nether (`world_nether`), and The End (`world_the_end`). If yours are named differently, check `level-name` in `server.properties`. Select the world(s) you want to delete with the checkbox on the left side of each folder.
 
-You now have to locate your world files, on *most* Minecraft servers these folders will be `world`, `world_nether`, and `world_the_end` - if not, check your `level-name` in `server.properties`.
+## Step 3: Delete them
 
-Select the world(s) you want to delete with the checkboxes on the side, then drop down the "Mass Actions" menu and select "Delete Files" - then confirm the deletion. Deleting these files should only take a few seconds at most.
+After selecting your worlds, click the Delete button that appears and confirm. Deleting these files should only take a few seconds at most.
 
-Then, go ahead and start back up your server. This will take longer than usual as it generates the spawn area.
+## Optional step
+
+Before deleting, you can archive your world by selecting the world folders first and clicking the Archive button at the bottom right of the file manager.
+
+## Start the server
+
+Once you've completed these steps, start your server again. The first start will take longer than usual as it generates a fresh world and spawn area.
+
+If you wish to have multiple worlds on your server at once, add a suffix to the end of each world name (such as `_old`), or use a plugin such as [Multiverse](https://dev.bukkit.org/projects/multiverse-core).

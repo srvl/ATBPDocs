@@ -1,25 +1,20 @@
 ---
 title: "Using SFTP"
-description: "This guide will help you use SFTP (WinSCP/Cyberduck/MobaXTerm/FileZilla/Visual Studio COde) to transfer files."
+description: "This guide will help you use SFTP (WinSCP/Cyberduck/MobaXTerm/FileZilla/Visual Studio Code) to transfer files."
 ---
 
-import { Callout } from 'nextra/components'
 
 ### What is SFTP? 
 **S**SH **F**ile **T**ransfer **P**rotocol is one of the most popular methods of securely transferring files to remote servers.
 
-<Callout type="important">
-
-We recommend you zip the files you want to upload to your server, uploading individual files through SFTP can take a long time. Once you have uploaded the .zip file to your server, you can go to the file manager in the panel, click on the three dots `...` to the right of the .zip and click on `Extract`.  
-
-</Callout>
+We recommend you zip the files you want to upload to your server, because uploading many individual files through SFTP can take a long time. Once you have uploaded the .zip file, go to the file manager in the panel, click on the three dots `...` to the right of the .zip and click on `Extract`.
 
 ### More Actions like compress, extract, rename, and others
-If you wish to archive, unarchive or mass delete files, please check out or [guide](/using_the_panel/file-manager-controls) on file management through the panel.
+If you wish to archive, unarchive or mass delete files, please check out our [guide](/using_the_panel/file-manager-controls) on file management through the panel.
 
 ### Using SFTP
 
-There are several so called *SFTP Clients* few of the more popular ones being [WinSCP](https://winscp.net/), [MobaXTerm](https://mobaxterm.mobatek.net/) or [FileZilla](https://filezilla-project.org/). 
+There are several so-called *SFTP clients*. A few of the more popular ones are [WinSCP](https://winscp.net/), [MobaXTerm](https://mobaxterm.mobatek.net/) or [FileZilla](https://filezilla-project.org/). 
 
 To find the login details, navigate to the sidebar of the server, then open the 'Settings' section.
 
@@ -28,7 +23,7 @@ Here you will be able to see your server's SFTP host IP address and port as well
 *If you have WinSCP installed, you can launch straight away by clicking `Launch SFTP`.*
 
 ### Using WinSCP (Recommended, available only on Windows)
-Firstly, you'll have to download [WinSCP](https://winscp.net/eng/download.php) to your computer. - This should be simple with their installation wizard.
+Firstly, you'll have to download [WinSCP](https://winscp.net/eng/download.php) to your computer. Their installation wizard makes this simple.
 
 With our new panel, you can simply head over to the [panel](https://panel.atbphosting.com) and click 'Launch SFTP' under 'Settings' on the left side of the screen. You'll simply need to enter your panel password and you are good to go!
 

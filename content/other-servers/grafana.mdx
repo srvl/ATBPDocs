@@ -3,22 +3,16 @@ title: "Grafana"
 description: "This guide will walk you through how to setup Grafana to monitor your Minecraft server using UnifiedMetrics and Prometheus."
 ---
 
-import { Callout } from 'nextra/components'
+This guide walks you through setting up Grafana, Prometheus, and UnifiedMetrics so you can have more stats about your Minecraft server(s), using our server splitter.
+This guide is more complex than others as it's an advanced setup, but it will allow you to see tons of cool stats about your server(s).
 
-This guide will walk you through how to setup Grafana, Prometheus, and UnifiedMetrics so you can have more stats about your minecraft server(s), which couldn't be done without our lovely server splitter :)
-This guide is more complex than others as it's an advance setup, but it will allow you to see tons of cool stats about your server(s).
+We'll be using 3 different pieces of software that each have their purpose.
 
-We'll be using 3 different software that all have their purpose.
+- UnifiedMetrics: a plugin installed on your Minecraft server that gathers the data and constantly publishes it in a Prometheus-readable format.
+- Prometheus: the database that stores all your data and reads UnifiedMetrics.
+- Grafana: an open source tool that lets you interact with and explore all your data.
 
-UnifiedMetrics - Plugin that's installed on your Minecraft server that gathers the data and constantly publishes it in a Prometheus readable format.
-Prometheus - The database that stores all your fancy data and reads UnifiedMetrics.
-Grafana - A beautiful open source tool that allows you to interact and explore with all your data.
-
-<Callout type="important">
-
-If you want to connect multiple servers to your Grafana dashboard you can do so by adding multiple jobs to the Prometheus server. See explanation under Multiple servers. 
-
-</Callout>
+If you want to connect multiple servers to your Grafana dashboard, you can do so by adding multiple jobs to the Prometheus server. See [Multiple servers](#multiple-servers).
 
 ## UnifiedMetrics
 
@@ -27,40 +21,40 @@ For assistance on how to install plugins, please refer to the [plugin installati
 
 Now add a port for UnifiedMetrics: open the **Network** tab, add a port from the **Bots and websites** range (see [Adding Ports](/using_the_panel/adding-ports)), and use it instead of the default 9100 in the plugin's config.
 
-We're now done with UnifiedMetrics, onto Prometheus :)
+We're now done with UnifiedMetrics. On to Prometheus.
 
 ## Prometheus
 
-Now we're going to setup a Prometheus server, you're gonna want to split a Prometheus instance which is located under the "NO SUPPORT SERVERS" category with 150MB of RAM and 10GB of Storage (may need to be adjusted to your needs).
+Now we're going to set up a Prometheus server. You'll want to split a Prometheus instance which is located under the "NO SUPPORT SERVERS" category with 150MB of RAM and 10GB of Storage (may need to be adjusted to your needs).
 For assistance on how the server splitter works, please refer to the [server splitter page](/using_the_panel/split-server).
 
 Once the server is created, head to it under the Server Split tab.
 
 Now we're going to edit prometheus.yml and add UnifiedMetrics in the Prometheus server.
 
-To do this, we're simply going to change `localhost:9090` to your server's IP address and UnifiedMetrics port (9100), then start up prometheus.
+To do this, we're simply going to change `localhost:9090` to your server's IP address and UnifiedMetrics port (9100), then start up Prometheus.
 
 ## Grafana
 
-Now you can use Grafana Cloud, or a self hosted instance of Grafana but in this guide we're gonna use a self hosted Grafana instance using ATBP's server splitter :)
+You can use Grafana Cloud or a self-hosted instance of Grafana. In this guide we'll use a self-hosted Grafana instance using ATBP's server splitter.
 
 Time to split a Grafana instance using the server splitter with 150MB of RAM and 1GB of storage (may need to be adjusted to your needs).
 
 Once the server is created, change it to the default Grafana port (3000) under the Server Split tab.
 
-At this point you may want to setup a reverse proxy for Grafana so it gets HTTPS and so users don't need to specify a port.
+At this point you may want to set up a reverse proxy for Grafana so it gets HTTPS and so users don't need to specify a port.
 
 Simply follow this guide [here](/using_the_panel/ports-and-proxies).
 
-Now, head to your Grafana's IP & Port (or subdomain if you setup the reverse proxy) and login.
+Now, head to your Grafana's IP & Port (or subdomain if you set up the reverse proxy) and log in.
 
-Default credentials
-User - admin
-Password - admin
+The default credentials are:
+- User: admin
+- Password: admin
 
 Once logged in, hover over the settings icon on the left and head to Data Sources.
 
-Now we're going to add a new Prometheus data source, the only thing you need to modify is the URL which will be `http://<SERVERIP>:<PORT>` (with the port being the port of your Prometheus server).
+Now we're going to add a new Prometheus data source. The only thing you need to modify is the URL which will be `http://<SERVERIP>:<PORT>` (with the port being the port of your Prometheus server).
 
 Now, Grafana has access to all the data, but where can you view all the fancy graphs?
 
@@ -68,17 +62,17 @@ Time to add a Dashboard made by the UnifiedMetrics team. Simply hover over the +
 
 Then select your Prometheus data source and click Import.
 
-And there you have it, now you can have a ton of fancy statistics for your Minecraft Server :)
+And there you have it, now you can have a ton of fancy statistics for your Minecraft server.
 
 ## Multiple servers
 
-You can add multiple servers to your Grafana dashboard and to get this done is quite easy. 
+Adding multiple servers to your Grafana dashboard is quite easy.
 If you have followed the guide above, we can assume you have everything working.
 
-First we gotta install UnifiedMetrics on all other servers. Download the plugin off the [Github](https://github.com/Cubxity/UnifiedMetrics/releases) and install it in the `plugins` folder. Restart your server.
+First, install UnifiedMetrics on all other servers. Download the plugin off the [Github](https://github.com/Cubxity/UnifiedMetrics/releases) and install it in the `plugins` folder. Restart your server.
 
-After installing the plugin, you open up a port on the server. For example, `9101`, `9102`, etc.
-Then you change the port in the `plugins/UnifiedMetrics/diver/prometheus.yml` file and restart your server.
+After installing the plugin, open up a port on the server. For example, `9101`, `9102`, etc.
+Then change the port in the `plugins/UnifiedMetrics/driver/prometheus.yml` file and restart your server.
 
 After installing UnifiedMetrics for all your servers and configuring the plugin, it is time to add the server to the Prometheus server.
 You do this by editing the `prometheus.yml` file on the Prometheus server.
@@ -94,7 +88,7 @@ Open the `prometheus.yml` file and add an extra job under scrape_configs.
       - targets: ["yourip:port"] #set your server ip and port
 ```
 
-After adding your servers the `prometheus.yml` file, it then looks like the following.
+After adding your servers, the `prometheus.yml` file looks like the following.
 
 ```yaml
 # my global config
@@ -152,5 +146,4 @@ scrape_configs:
       - targets: ["ip:9104"]
 ```
 
-Restart the Prometheus server and you will see the servers in your Grafana dashboard! 
-Happy analyzing ;)
+Restart the Prometheus server and you will see the servers in your Grafana dashboard!

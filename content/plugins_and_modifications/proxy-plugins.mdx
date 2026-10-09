@@ -4,15 +4,11 @@ title: "Installing Proxy Plugins (BungeeCord/Velocity)"
 
 import { Callout } from 'nextra/components'
 
-<Callout type="important">
+This guide is for BungeeCord/Velocity proxies. If you are looking for instructions on how to install plugins on a Bukkit/Spigot/Paper server, please see [this guide](/plugins_and_modifications/installing-plugins).
 
-This guide is for BungeeCord/Velocity proxies. If you are looking for instructions on how to install plugins on a Bukkit/Spigot/Paper server, please see [this guide](/plugins_and_modifications/installing-plugins)
+<Callout type="info">
 
-</Callout>
-
-<Callout type="warning">
-
-**Waterfall is End of Life**
+**Waterfall is end of life**
 
 Waterfall is considered end of life by the PaperMC team and is no longer maintained.
 The PaperMC group recommends that all users should migrate to [Velocity](/running_a_server/velocity).
@@ -25,7 +21,7 @@ More information is available at: https://forums.papermc.io/threads/announcing-t
 
 > #### Requirements
 > 
-> In order to run plugins on your proxy, you must be using BungeeCord (or a fork such as [Waterfall](/running_a_server/waterfall))) or [Velocity](/running_a_server/velocity).
+> In order to run plugins on your proxy, you must be using BungeeCord (or a fork such as [Waterfall](/running_a_server/waterfall)) or [Velocity](/running_a_server/velocity).
 
 > #### What are plugins?
 >
@@ -45,22 +41,16 @@ Make sure you trust the source of your plugin. Plugins have high-level access to
 2. In any case, save the plugin to your local machine. Plugins can either be uploaded via the [web panel](https://panel.atbphosting.com) or through [SFTP](/using_the_panel/sftp). If you're uploading in bulk, go with the latter.
 3. In your server's root directory, locate the `plugins` folder, if it's not there then create a new directory named `plugins`. Navigate into this folder, and upload your plugin's file there!
 4. Most plugins will require you to restart your server before they take effect.
-### Note:
+
 If you install your plugin using [Plugin Installer](https://panel.atbphosting.com) you can skip step 2 & 3 and proceed to step 4.
 
-<Callout type="warning">
-
-BungeeCord and Velocity plugins are usually not cross-compatible, i.e. BungeeCord plugins do not work on Velocity unless it is stated to do so otherwise and vice versa (Velocity plugins can not be used on BungeeCord unless stated overwise).
-
-Sometimes the BungeeCord and Velocity versions of a plugin might be two seperate jar files, other times plugins have one jar which works on both.
-
-</Callout>
+BungeeCord and Velocity plugins are usually not cross-compatible: BungeeCord plugins do not work on Velocity unless stated otherwise, and Velocity plugins cannot be used on BungeeCord unless stated otherwise. Sometimes the BungeeCord and Velocity versions of a plugin are two separate jar files; other times a plugin has one jar which works on both.
 
 Once the server is online, if using Velocity type `/velocity plugins` in your console. If you are able to see the freshly installed plugin's name, you're good to go! If not, see what to do below.
 
 ---
 
-### What To Do If A Plugin Doesn't Load
+### What to do if a plugin doesn't load
 
 In case you can't seem to be able to install a plugin properly, be sure to do these steps before asking for help.
 

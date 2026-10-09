@@ -3,26 +3,20 @@ title: "BlueMap"
 description: "BlueMap is a program which shows a fully 3D map of your Minecraft worlds in a webpage that can be easily accessed by a player."
 ---
 
-import { Callout } from 'nextra/components'
-
 ## What does BlueMap do?
 BlueMap is a program that reads your Minecraft world files and generates not only a map, but also full 3D-models of the whole surface.
-With the web-app you then can look at those in your browser and basically view the world as if you were ingame!
+With the web-app you then can look at those in your browser and basically view the world as if you were in-game!
 Or just look at it from far away to get an overview.
 
 It's an alternative to Dynmap or Squaremap, but unlike those, it is _fully_ 3D. You can orbit around everywhere, and fly through the world like spectator mode.
 
-# Usage
+## Usage
 Download BlueMap for your platform and install it like any other plugin/mod.
 Config files for it will be generated in the `plugins/BlueMap` (plugin) directory or the `config/BlueMap` (modded) directory, depending on your platform.
 
 Once it's installed, go to the `core.conf` file, and accept the EULA by setting the `accept-download` option to `true`.
 
-<Callout type="info">
-
 By default, BlueMap will use an internal web server. It is recommended you don't change that unless you know what you are doing.
-
-</Callout>
 
 First, get a port for the map: open the **Network** tab in the panel and add a port from the **Bots and websites** range (see [Adding Ports](/using_the_panel/adding-ports)).
 
@@ -32,12 +26,8 @@ Then set BlueMap to use it. In the `webserver.conf` file, change the port (it is
 port: 8100
 ```
 
-<Callout type="info">
+Restart your server after you change the port.
 
-Your server needs to be restarted after you change the port.
+You can also create a proxy for your BlueMap link, to remove the need to type `:8100` after your IP address. See [Ports and proxies](/using_the_panel/ports-and-proxies).
 
-</Callout>
-
-You can also create a Proxy for your BlueMap link, to remove the need to type `:8100` after your IP address: /ports-and-proxies/
-
-For more information, the download link, their support Discord, the wiki and a demo! you can go to the [BlueMap website](https://bluemap.bluecolored.de/)
+For more information, the download link, their support Discord, the wiki and a demo, go to the [BlueMap website](https://bluemap.bluecolored.de/).

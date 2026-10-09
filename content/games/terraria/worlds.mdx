@@ -3,21 +3,13 @@ title: "Worlds"
 description: "Learn how you can manage worlds for your Terraria server!"
 ---
 
-import { Callout } from 'nextra/components'
 
 ## Importing An Existing World
 
 In case you have an existing world on another server or in single player, you can import it to your ATBP Terraria
 server with all your structures and progress.
 
-<Callout type="warning">
-
-**HEADS UP!**
-
-Terraria stores player profiles (items, perks, and so on) locally.
-Each player has to make sure their profile is stored safely.
-
-</Callout>
+Terraria stores player profiles (items, perks, and so on) locally, so each player has to make sure their own profile is stored safely.
 
 First, you will need to find the world file. If the world is from a server, you can find it in the `saves/Worlds/`
 directory with the `.wld` extension.
@@ -26,7 +18,7 @@ You can find your single player worlds by pressing Windows Key + R and entering:
 Once you have found the file, you can use the panel's [File Manager](/using_the_panel/file-manager-controls)
 or [SFTP](/using_the_panel/sftp) to access your server's files.
 
-Here, find for the `saves/Worlds/` directory and upload your `.wld` into it.
+Here, find the `saves/Worlds/` directory and upload your `.wld` into it.
 
 Once the file is uploaded, head over to the 'Startup' tab and ensure the 'World Name' matches with the file you
 uploaded. As an example, if the file is called `my_world.wld`, set this field as `my_world`.
@@ -60,21 +52,11 @@ server. Then, head to the 'Startup' tab.
 
 Here, you can adjust the size of the world, the difficulty and the seed as well.
 
-<Callout type="warning">
+Journey player profiles can only connect to worlds using the Journey difficulty, and regular characters cannot
+connect when it is selected.
 
-**HEADS UP!**
-
-Journey player profiles can only connected to worlds using the Journey difficulty, and regular characters cannot
-connect when this is selected.
-
-</Callout>
-
-<Callout type="info">
-
-Terraria has several special seeds as easter-eggs. You can find a full list of them on
-the [Terraria Wiki](https://terraria.fandom.com/wiki/Secret_world_seeds)!
-
-</Callout>
+Terraria has several special seeds as easter eggs. You can find a full list of them on
+the [Terraria Wiki](https://terraria.fandom.com/wiki/Secret_world_seeds).
 
 Once you are done, there are two ways to proceed:
 

@@ -7,54 +7,41 @@ import { Callout } from 'nextra/components'
 
 This guide gives you a step by step method on creating your own server-pack for a custom modpack, or a modpack that doesn't have a useable server-pack yet.
 
-<Callout type="warning">
+While ServerPackCreator can make server packs, it's not perfect and there is no guarantee the server pack will work. Test it to be sure.
 
-While Server-pack Creator can make serverpacks it's not perfect and doesn't have a 100% guarantee in making the serverpack functional. Test to be sure it works.
+<Callout type="info">
 
-</Callout>
-
-<Callout type="important">
-
-__Requirements!__
+Requirements:
 * Java 21+
-* Download [Serverpackcreator](https://github.com/Griefed/ServerPackCreator/releases)
-
-__Terminology__
-* Server Pack Creator -> SPC (to make it easier to type out)
+* Download [ServerPackCreator](https://github.com/Griefed/ServerPackCreator/releases)
 
 </Callout>
 
-1. Open SPC and select your custom modpacks folder. IT CANNOT BE A ZIP/TAR.GZ OR ANY OTHER COMPRESSED FILE.
-2. When selected, SPC should automatically locate the Minecraft version, Modloader, and Modloader version. If it does not you might have not selected the right folder. 
-  For For *prism launcher* specifically. You need to select the **\YOURMODPACK** folder FIRST to get the modloader, minecraft version, and mod loader version information, **then** go to **\YOURMODPACK\minecraft** for the mods and configs. Ignore the Yellow Warning Symbol at the top left.
-  :::tip
-  Prism launcher -> prismlauncher\instances\YOURMODPACK\minecraft
+In this guide, ServerPackCreator is shortened to SPC.
 
-  AT-Launcher -> ATLauncher\instances\YOURMODPACK 
+1. Open SPC and select your custom modpack's folder. It cannot be a ZIP, TAR.GZ or any other compressed file.
+2. When selected, SPC should automatically locate the Minecraft version, Modloader, and Modloader version. If it does not, you might not have selected the right folder.
+   For *Prism Launcher* specifically, you need to select the **\YOURMODPACK** folder first to get the modloader, Minecraft version, and mod loader version information, **then** go to **\YOURMODPACK\minecraft** for the mods and configs. Ignore the yellow warning symbol at the top left.
 
-  Curseforge Launcher -> Curseforge\instances\YOURMODPACK
-  :::
+   Default modpack folders:
+   - Prism Launcher: `prismlauncher\instances\YOURMODPACK\minecraft`
+   - ATLauncher: `ATLauncher\instances\YOURMODPACK`
+   - CurseForge Launcher: `Curseforge\instances\YOURMODPACK`
 
-3. Press the generate button! Then press the button under generate to find the serverpack! BE SURE TO CHECK THE SERVERPACK BEFORE ZIPPING AND UPLOADING.
+3. Press the generate button! Then press the button under generate to find the server pack. Be sure to check the server pack before zipping and uploading it.
 
 <Callout type="warning">
 
-The serverpack should NOT have a double folder inside of it. Instead it should have the Mods, Configs, Default configs, (Optional folders) Kubejs, Tacz, Etc. and start files. 
-
-Feel free to ask for help in our [Discord server](https://discord.atbphosting.com).
+The server pack should not have a double folder inside of it. Instead it should directly contain the mods, configs and default configs folders, any optional folders (KubeJS, TaCZ, etc.) and the start files.
 
 </Callout>
 
 4. Install the correct server information via the settings tab on your panel. If you are new, follow our [server jars guide](/running_a_server/jars).
 
-<Callout type="info">
+You can use the information from SPC's server pack generator to install the server from the settings tab.
 
-You can use SPC's serverpack generator information to install the server from the settings tab, for more information see the [server jars guide](/running_a_server/jars).
-
-</Callout>
-
-5. Zip the folder and Upload the zip with an SFTP client from the [SFTP guide](/using_the_panel/sftp)
+5. Zip the folder and upload the zip with an SFTP client, see the [SFTP guide](/using_the_panel/sftp).
 6. Unzip the file via the panel, and make sure the folders of mods, configs, etc are in the /HOME/ directory, and not inside a sub folder such as home/mods/mods. The /HOME/ directory should directly contain the mods and config folders plus the start files.
-7. Start the server! Congrats, you made it to the end and now are hoping the server launches!
+7. Start the server! Congrats, you made it to the end.
 
 If you need more help, join our [Discord server](https://discord.atbphosting.com).

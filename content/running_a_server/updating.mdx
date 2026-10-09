@@ -1,69 +1,44 @@
 ---
-title: "updating"
+title: "Updating or Changing Versions"
 ---
 
 import { Callout } from 'nextra/components'
 
-# Updating or Changing Versions
-
-# How to update or change version
+## How to update or change version
 
 Go to the [panel](https://panel.atbphosting.com), select your server and open the **Settings** tab. There you will find the **Change Server Type** box. Read the precautions below before you continue.
 
-# Precautions
-<Callout type="info">
-
-# Take Note
-Before updating or changing Minecraft versions be sure to create and test a backup of your entire server. Downgrading a world without causing corruption is near impossible.
-
-</Callout>
-<Callout type="info">
-
-# Take Note
-Moreover, if you aren't utilizing our completely free and automatic backup feature, we would highly suggest you set that up before updating.
-Once you update to a new version you can't go back to any previous version, unless you reset your worlds or restore a backup that was made when the server was on the previous version.
-
-</Callout>
-
-After you have selected the server type, you will be able to see the available versions of Minecraft and builds, here you can also select the type of server you want to run: Vanilla, Paper, Forge and others.
+## Precautions
 
 <Callout type="warning">
 
-# Warning
-Keep in mind that you can upgrade Minecraft servers, but you can't downgrade versions unless you reset your Minecraft worlds. Minecraft worlds don't support downgrading to older versions.
+Before updating or changing Minecraft versions, create and test a backup of your entire server. You can upgrade Minecraft servers, but you can't go back to a previous version unless you reset your worlds or restore a backup that was made when the server was on the previous version. Downgrading a world without causing corruption is near impossible.
 
 </Callout>
 
-After this, you can click on the version you want to change, version or build your server runs on.
+If you aren't using our completely free and automatic backup feature yet, we highly suggest you set it up before updating.
 
-For example upgrading your server into Paper 1.21.8. Click the version 1.21.8 and the install panel will pop up. Don't forget to click the button accept EULA, and kindly click the install
+## Updating or changing versions and jars through the panel
 
-<Callout type="info">
+After you have selected the server type, you will be able to see the available versions of Minecraft and builds. Here you can also select the type of server you want to run: Vanilla, Paper, Forge and others.
 
-# INFO
-If you're going to wipe your server files you can click the "Wipe Server Files" button. If not do not click it!
+After this, you can click on the version you want to change to. For example, to upgrade your server to Paper 1.21.8, click the version 1.21.8 and the install panel will pop up. Don't forget to click the button to accept the EULA, then click install.
 
-</Callout>
-
-After you have followed the steps above, you can now run your server and test out your new Updated Version or Upgraded version.- Once you update to a new version you can't go back to any previous version, unless you reset your worlds or restore a backup that was made when the server was on the previous version.
-
-### Updating or changing versions and jars through the panel
-
-To update or change the version of your server, go to the panel, select your server and click on the **Settings** tab. There you will find a box that says **Change Server Type**.
-
-After you have selected the server type, you will be able to see the available versions of Minecraft and builds, here you can also select the type of server you want to run: Vanilla, Paper, Forge and others. After this, you can click on the "Change Server Type" button to change the jar, version or build your server runs on. Make sure to hit "Reinstall now" if you want the upgrade to proceed.
+You can also click the "Change Server Type" button to change the jar, version or build your server runs on. Make sure to hit "Reinstall now" if you want the upgrade to proceed.
 
 <Callout type="warning">
 
-Keep in mind that you can upgrade Minecraft servers, but you can't downgrade versions unless you reset your Minecraft worlds. Minecraft worlds don't support downgrading to older versions.
+Only click the "Wipe Server Files" button if you want to wipe your server files.
 
 </Callout>
 
-After you have followed the steps above, you can periodically check the **Settings** tab and you will see a **New build available! We recommend to update to the latest build.** message if a new build of the server jar is available.
+After you have followed the steps above, you can run your server and test out your new version.
 
-### Updating the server manually
-- Make sure that your server is backed up completely.
-- [Create full backup](/using_the_panel/backups/guide) of your server. (As an additional step, we would suggest testing this backup on a local or a split test server)
+You can periodically check the **Settings** tab, and you will see a **New build available! We recommend to update to the latest build.** message if a new build of the server jar is available.
+
+## Updating the server manually
+
+- [Create a full backup](/using_the_panel/backups/guide) of your server. As an additional step, we suggest testing this backup on a local or a split test server.
 - Remove your current server jar through [SFTP](/using_the_panel/sftp) or the [File Manager](/using_the_panel/file-manager-controls).
 - Download the new version of your server software. If you are unsure which one to use, check out our guide on server jars [here](/running_a_server/jars).
-- Upload it using SFTP or the File Manager and make sure to define the full name (such as `paper-1.18-023` in the 'Startup' tab on the panel)
+- Upload it using SFTP or the File Manager and make sure to define the full name (such as `paper-1.18-023`) in the 'Startup' tab on the panel.

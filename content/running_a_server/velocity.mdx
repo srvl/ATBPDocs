@@ -5,9 +5,9 @@ description: "How to setup a Velocity Proxy Server"
 
 import { Callout } from 'nextra/components'
 
-<Callout type="important">
+<Callout type="info">
 
-When running your servers behind a proxy like Velocity or Waterfall, it requires them to be set to offline-mode. Normally hosting companies will not provide support for offline mode servers, but in this case it is required for the proxy to function properly. It will act as the gateway to your servers and handle authentication for you.
+When running your servers behind a proxy like Velocity or Waterfall, they need to be set to offline mode. Offline mode servers are normally not supported, but in this case it is required for the proxy to function properly. The proxy acts as the gateway to your servers and handles authentication for you.
 
 </Callout>
 
@@ -15,7 +15,7 @@ When running your servers behind a proxy like Velocity or Waterfall, it requires
 
 To get started with Velocity, you first need to download the latest version of Velocity from PaperMC [downloads page](https://papermc.io/downloads#Velocity).
 
-Once you have downloaded Velocity you may proceed to the next step in the setup process: creating a server split to run Velocity off of. Velocity is it’s own server jar file and will require it’s own server to run from.
+Once you have downloaded Velocity you may proceed to the next step in the setup process: creating a server split to run Velocity off of. Velocity is its own server jar file and requires its own server to run from.
 
 ## Recommended RAM Allocation for Velocity
 
@@ -51,12 +51,6 @@ The `velocity.toml` file is the config file for Velocity, we will be editing thi
 
 The first section of the config file you need to edit is the `[servers]` section, this will contain the aliases you want to use for your different servers in the config as well as the IP Addresses/Ports of the servers so that Velocity knows how to connect players to servers running behind the proxy. Here is an example `[servers]` section provided from Velocity's documentation.
 
-<Callout type="info">
-
-Your backend servers should not be reachable directly by players, because they run in offline mode behind the proxy. Use modern player information forwarding (see the section below) so that only your Velocity proxy can log players in, and do not share the IP and port of your backend servers.
-
-</Callout>
-
 ```
 [servers]
 # Configure your servers here. Each key represents the server's name, and the value
@@ -73,7 +67,7 @@ try = [
 
 Make sure to replace the example addresses with the IP address and port of each of your own backend servers, which you can find on the Console tab of each server in the panel.
 
-The `try` section you see in the above example is extremely important, essentially this is the order of servers in which Velocity will try to connect incoming players to. If you have it setup like `try = ["survival", "creative", "minigames"]` then players will connect to `survival` by default, then `creative` if `survival` is down, and then `minigames` if the first two are down. Setup your preferred order and then we will continue our editing.
+The `try` section you see in the above example is extremely important, essentially this is the order of servers in which Velocity will try to connect incoming players to. If you have it set up like `try = ["survival", "creative", "minigames"]` then players will connect to `survival` by default, then `creative` if `survival` is down, and then `minigames` if the first two are down. Set up your preferred order and then we will continue our editing.
 
 ## Configuring server.properties on your backend servers
 
@@ -85,23 +79,19 @@ After you configure and save your `server.properties` file along with completing
 
 ## Configuring Player Information Forwarding
 
-<Callout type="warning">
+<Callout type="error">
 
-It is HIGHLY recommended that your Velocity server is set to online-mode, this is the most secure option for running your server and will reduce hackers and exploits by a ton simply by having it turned on. You can also visit [Velocity’s documentation](https://velocitypowered.com/wiki/users/forwarding/) for more setup help, but it highly recommended that you use modern forwarding.
+Set your Velocity proxy itself to online mode and use modern forwarding. This is the most secure option and cuts down hackers and exploits a lot. Your backend servers run in offline mode, so they must not be reachable directly by players: only your Velocity proxy should log players in, and do not share the IP and port of your backend servers. See [Velocity’s documentation](https://velocitypowered.com/wiki/users/forwarding/) for more setup help.
 
 </Callout>
 
-Part of what makes Velocity more secure than Bungee would be it's modern player information forwarding mode, it is much more secure than Bungee and doesn't require an additional plugin such as BungeeGuard to secure connections between your front-end and back-end servers.
+Part of what makes Velocity more secure than Bungee is its modern player information forwarding mode. It is much more secure than Bungee and doesn't require an additional plugin such as BungeeGuard to secure connections between your front-end and back-end servers.
 
-This is pretty simple to setup. First turn your proxy server offline, then locate the option for `player-info-forwarding` inside `velocity.toml` and set it to `modern`. Next you need to perform additional steps depending on the type of server jar that you're running behind Velocity.
+This is pretty simple to set up. First turn your proxy server offline, then locate the option for `player-info-forwarding` inside `velocity.toml` and set it to `modern`. Next you need to perform additional steps depending on the type of server jar that you're running behind Velocity.
 
 ### Modern Forwarding for Paper
 
-<Callout type="info">
-
-This section also applies to forks based upon Paper such as Purpur or Pufferfish
-
-</Callout>
+This section also applies to forks based on Paper, such as Purpur or Pufferfish.
 
 `Paper 1.14+` and above, along with `Paper 1.13.1/1.13.2 build 377` and above support Velocity modern forwarding natively.
 
@@ -117,7 +107,7 @@ Copy the text found in the `forwarding.secret`, then go into your Paper backend 
 
 You must also set `online-mode` under the `velocity` section in `config/paper-global.yml` to the `online-mode` setting in your `velocity.toml`. Once you're done editing `paper-global.yml`, start your server. Keep in mind that these changes need to be done while the server is offline, otherwise they will not be saved.
 
-Keep in mind that this steps have to be repeated for every Paper/Backend server you have connected to the Velocity proxy.
+Keep in mind that these steps have to be repeated for every Paper/Backend server you have connected to the Velocity proxy.
 
 ### Modern Forwarding for Fabric
 
@@ -125,33 +115,21 @@ A mod called [FabricProxy-Lite](https://modrinth.com/mod/fabricproxy-lite) allow
 
 ### BungeeGuard Forwarding for Spigot/Paper
 
-<Callout type="warning">
+This section also applies to forks based on Paper, such as Purpur or Pufferfish.
 
-Legacy BungeeCord forwarding mode is less secure than modern Velocity forwarding mode and may result in security issues if not setup properly.
-
-If you need to use legacy BungeeCord forwarding mode, make sure you setup BungeeGuard to ensure people do not connect directly to your backend servers.
-
-Note that the `bungeeguard` forwarding mode uses legacy BungeeCord forwarding with the `forwarding-secret` as the BungeeGuard token.
-
-</Callout>
-
-<Callout type="info">
-
-This section also applies to forks based upon Paper such as Purpur or Pufferfish
-
-</Callout>
+Legacy BungeeCord forwarding mode is less secure than modern Velocity forwarding mode and may result in security issues if not set up properly. If you need to use it, make sure you set up BungeeGuard so people cannot connect directly to your backend servers. The `bungeeguard` forwarding mode uses legacy BungeeCord forwarding with the `forwarding-secret` as the BungeeGuard token.
 
 If you cannot use modern forwarding (for example, your server jar doesn't support Velocity modern forwarding), you might be able to use BungeeGuard instead.
 
 To set this up, see the guide [on how to set up BungeeGuard](/running_a_server/waterfall#setting-up-bungeeguard).
 
-## Additional configuation options for velocity.toml
+## Additional configuration options for velocity.toml
 
 The following table contains additional noteworthy configuration options for `velocity.toml`
 
 | Option | Description | Example    |
 | -------- | --------- | ---------- |
-| **[forced-hosts]**  | This lets you setup your custom domain with velocity, set the right side up to match your **try** section from earlier | `"host.name" = ["lobby", "survival", "creative"]` |
+| **[forced-hosts]**  | This lets you set up your custom domain with velocity, set the right side up to match your **try** section from earlier | `"host.name" = ["lobby", "survival", "creative"]` |
 | **show-max-players** | The max player count that displays in the multiplayer menu | `show-max-players: 100` |
 | **forwarding-secret**| Do not change this. This is the secret you need to insert into configuration files on your backend servers | `forwarding-secret: "someRandomStringHere"` |
 | **bind** | This is the default IP address that players will connect to when connecting to Velocity, it's recommended to set it like the example here so that it uses Minecraft’s default port | `bind: "0.0.0.0:25565"`|
@@ -164,8 +142,4 @@ Now that you have configured your backend servers to communicate with Velocity c
 
 If you are interested in installing additional functionality for Velocity, they have a `Plugins` section [on their website](https://forums.velocitypowered.com/c/plugins/5) where you can go to find Velocity compatible plugins!
 
-<Callout type="info">
-
 The server-icon.png file you upload to your Velocity server is the icon that will show up on the multiplayer menu in Minecraft.
-
-</Callout>
