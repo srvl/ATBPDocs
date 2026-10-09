@@ -1,68 +1,47 @@
 ---
 title: "Adding Ports"
-description: "How to add an extra port to your server from the Network tab, how port ranges work, and how to move to a port from a range."
+description: "How to add an extra port to your server from the Network tab."
 ---
 
-import { Callout } from 'nextra/components'
-
-Your server comes with one port, its main game port. Some plugins and mods need another one: Geyser for Bedrock players, a voice chat mod, a web map such as BlueMap, Votifier and so on. You add these yourself from the [panel](https://panel.atbphosting.com).
-
-We are moving our nodes to **port ranges**: blocks of ports set aside for one kind of traffic, such as Java, Bedrock or voice chat. Our firewall and DDoS protection are set up per range, so a port from the right range is better protected. Your Network tab shows which way your server works.
+Your server comes with one port. Some plugins, mods and bots need another one, for example Geyser, a voice chat mod, a web map or a Discord bot dashboard. You add these yourself on the **Network** tab of the [panel](https://panel.atbphosting.com).
 
 ## How to add a port
 
-1. Open your server in the panel and go to the **Network** tab.
-2. If you see an **Add port** button, your node uses port ranges. Click it, pick the range that matches what the port is for from the dropdown (each shows its protocol, ports and how many are free), and click **Add port**. You get a free port from that range straight away; the dialog shows the new address, and the range name is saved in the port's notes.
-3. If you see a **Create Allocation** button instead, your node does not use port ranges yet. Click it to get a free port.
-4. Put the new port number in the plugin's or mod's config file.
-5. Restart your server so the new port starts working.
+1. Open your server and go to the **Network** tab.
+2. Click **Add port**.
+3. Choose what the port is for from the dropdown, then click **Add port**.
+4. Use the port you get in your plugin, mod or bot config, then restart your server.
 
-<Callout type="info">
+If you see **Create Allocation** instead of **Add port**, click it to get a free port.
 
-You can't type in a port number of your own. Get a port first, then set your plugin to the port you were given.
+## Which one to choose
 
-</Callout>
-
-## Picking the right range
-
-A port taken from the wrong range may not work. For example, a voice chat port taken from the Minecraft Java range can fail, because that range only lets Java connections through.
-
-Premium+ nodes have these ranges, each matching one of our DDoS protection filters:
-
-| Range | Ports | Use it for |
+| Choose | Ports | For |
 |---|---|---|
-| **Minecraft Java** | 25600-25699 (TCP) | A second Java game port, such as a backend server behind a Velocity proxy |
-| **Minecraft Bedrock / Geyser** | 19200-19299 (UDP) | The port Bedrock players join on, for Geyser or a Bedrock server |
-| **Simple Voice Chat** | 24500-24599 (UDP) | The Simple Voice Chat mod or plugin |
-| **Votifier** | 8200-8299 (TCP) | Votifier and NuVotifier |
+| **Minecraft Java** | 25600-25699 | Extra Java servers, for example behind Velocity |
+| **Minecraft Bedrock / Geyser** | 19200-19299 | Bedrock players and Geyser |
+| **Simple Voice Chat** | 24500-24599 | The Simple Voice Chat mod or plugin |
+| **Votifier** | 8200-8299 | Server list voting |
 | **FiveM** | 30200-30299 | FiveM servers |
-| **Rust** | 28100-28199 | Rust game, RCON and Rust+ ports |
-| **ARK: Survival Evolved** | 7800-7899 (UDP) | ARK game and query ports |
-| **Counter-Strike** | 27100-27199 | Counter-Strike 2 game and RCON ports |
-| **Valheim** | 2500-2599 (UDP) | Valheim game and query ports |
+| **Rust** | 28100-28199 | Rust game, RCON and Rust+ |
+| **ARK: Survival Evolved** | 7800-7899 | ARK game and query |
+| **Counter-Strike** | 27100-27199 | Counter-Strike 2 |
+| **Valheim** | 2500-2599 | Valheim game and query |
 | **TeamSpeak** | 10000-10099 | TeamSpeak voice, query and file transfer |
-| **Generic TCP** | 40000-40099 (TCP) | Anything else on TCP: web maps (BlueMap, Dynmap, squaremap), Plan, bot dashboards, APIs |
-| **Generic UDP** | 41000-41099 (UDP) | Anything else on UDP, such as other games' ports |
+| **Bots and websites** | 40000-40099 | Discord and Telegram bots, web maps (BlueMap, Dynmap, squaremap), Plan, dashboards |
+| **Other games** | 41000-41099 | Any other game or service |
 
-Budget+ nodes use **Create Allocation** for now.
+These are on Premium+. Not sure which one? Open a ticket on our [Discord](https://discord.atbphosting.com).
 
-If none of the ranges fits what you need, open a ticket on our [Discord](https://discord.atbphosting.com).
+## Moving an existing port
 
-## Moving an existing port to a range
+Ports you already have keep working. To move one:
 
-Ports you already have keep working. To move one into the right range, for example your Geyser port:
-
-1. Add a new port from the matching range, as above.
-2. Change the plugin's or mod's config to the new port. For your main game port, click **Make Primary** on the new port instead.
-3. Restart your server and check that players can connect on the new port. Update anything that points at the old port: your server address, a domain's SRV record, or your TCPShield settings.
-4. Delete the old port from your list.
+1. Add a new port, as above.
+2. Put the new port in your config. For your main game port, click **Make Primary** on the new port instead.
+3. Restart and check it works, then update anything that points at the old port (your server address or a domain's SRV record).
+4. Delete the old port.
 
 ## Limits
 
-Every server has a maximum number of ports. The Network tab shows how many you are using. Some ranges also allow only a set number of ports per server. When your server is at its limit the **Add port** button turns grey, and a range that is full or at its per-server limit is greyed out in the dropdown. To free a port, delete one you no longer need from your list (you can't delete your main port).
-
-<Callout type="warning">
-
-If a range shows **Full**, all of its ports are in use on your node. Pick another range that fits, or open a ticket.
-
-</Callout>
+Each server has a maximum number of ports, shown on the Network tab. When you reach it, **Add port** turns grey. Choices that are full are greyed out in the dropdown. Delete a port you no longer need to free one (you can't delete your main port).
