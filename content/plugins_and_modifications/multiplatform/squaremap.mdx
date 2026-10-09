@@ -26,20 +26,11 @@ open the config.yml file and search for the following lines:
     port: 8080
 ```
 
-Here, you can set the port you wish to use for your Squaremap . By default it is set to `8080` but you need to change to something higher of your choice!
-
-<Callout type="important">
-
-Your port must be between 8100-25600 in order to open it on the ATBP panel!
-
-</Callout>
-
-After saving your `config.yml` proceed to the Ports & Proxies tab on the panel. Here you will see all your open ports, click `Create Allocation` on the bottom right to open a new one.
-Enter the port number you specified earlier in `config.yml` and save.
+Here, you set the port squaremap uses. It is `8080` by default, which won't work on our servers. Instead, open the **Network** tab in the panel, add a port from the **Web** range (see [Adding Ports](/using_the_panel/adding-ports)), and put the port you were given in `port`.
 
 <Callout type="info">
 
-Your server needs to be restarted after the port has been allocated.
+Your server needs to be restarted after you change the port.
 
 </Callout>
 
