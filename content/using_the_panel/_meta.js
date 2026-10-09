@@ -5,6 +5,7 @@ export default {
   "schedules": "Scheduling Actions",
   "users": "Adding Sub-Users",
   "databases": "MySQL Databases",
+  "adding-ports": "Adding Ports",
   "ports-and-proxies": "Creating a Reverse Proxy",
   "sftp": "Using SFTP For Files",
   "split-server": "Splitting servers",
