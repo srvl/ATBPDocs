@@ -1,0 +1,38 @@
+---
+title: "Set up your FiveM server"
+description: "What you need before your first start: a free Cfx.re license key, and where to change it later."
+---
+
+import { Callout } from 'nextra/components'
+
+FiveM lets you run your own GTA V multiplayer server, most often for roleplay. Your server comes with txAdmin turned on and two ports: one for players and one for txAdmin.
+
+## Get a Cfx.re license key
+
+Every FiveM server needs a license key. It is free.
+
+1. Go to [portal.cfx.re](https://portal.cfx.re) and sign in with your Cfx.re account (the same account you use for the FiveM forums).
+2. Open **Server Registration Keys** and create a new key. Give it any name.
+3. Copy the key. It starts with `cfxk_`.
+
+You paste the key in the **Cfx.re License Key** field when you order. A free key allows up to 48 players.
+
+## Change the key later
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. Open the **Startup** tab and paste the new key into the license key variable (`FIVEM_LICENSE`).
+3. Start the server.
+
+<Callout type="warning">
+
+Treat the key like a password. Anyone who has it can run a server under your Cfx.re account.
+
+</Callout>
+
+## Other settings on the Startup tab
+
+- `MAX_PLAYERS`: up to 48 with a free key.
+- `SERVER_HOSTNAME`: the name shown in the server list.
+- `FIVEM_VERSION`: `recommended` is the safe choice. Change it only if a resource asks for a newer build.
+
+Most server settings, such as the server name, tags and resources, are managed in txAdmin once it is set up. See [Open txAdmin](/games/fivem/txadmin).

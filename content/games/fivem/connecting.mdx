@@ -1,0 +1,26 @@
+---
+title: "Connect to your FiveM server"
+description: "Join your server from the FiveM client, by IP or from the server list."
+---
+
+## Join by IP
+
+1. Open the [panel](https://panel.atbphosting.com) and copy your server's address from the **Network** tab. Use the main port, not the txAdmin port.
+2. Start FiveM, press **F8** to open the console and type:
+
+```
+connect 123.45.67.89:30120
+```
+
+Replace the address with your own.
+
+## Find it in the server list
+
+Your server shows in the FiveM server list once it has a valid license key and is running. Search for the `SERVER_HOSTNAME` you set. It can take a few minutes to appear after a restart.
+
+## If you cannot join
+
+- Check that the server shows as running in txAdmin, not only in the panel.
+- Make sure you used the main port. The txAdmin port opens a web page, not the game.
+- "Server is full" means you reached `MAX_PLAYERS` (48 with a free key).
+- If the console says the license key is invalid, create a new key and paste it on the **Startup** tab. See [Set up your FiveM server](/games/fivem/getting-started).
