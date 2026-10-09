@@ -3,7 +3,7 @@ export default {
   "cancellations": "How to request a cancellation",
   "refunds": "How to request a refund",
   "suspensions_and_terminations": "Suspensions and Terminations",
-  "bank": "Bank transfer to GCash or PayMaya",
+  "bank": "Bank transfer",
   "gcash": "GCash",
   "discounts-and-coupons": "Discounts, coupons and promo codes",
   "payment-methods": "Payment methods and account credit",
