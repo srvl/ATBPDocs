@@ -24,7 +24,7 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 1. Open your server in the panel and go to the **Backups** tab.
 2. Click **Create Backup**.
 3. Optionally give it a name, and optionally list files or folders to ignore.
-4. Confirm. The backup runs in the background and may take a while on large servers.
+4. Confirm. The backup runs in the background with a progress bar and may take a while on large servers.
 
 If all your backup slots are used, you need to delete or [unlock](#locking) an old backup before creating a new one. If you need more slots, you can add **Extra Backups** from billing, see [Backups](/plans/backups).
 
@@ -35,8 +35,8 @@ If all your backup slots are used, you need to delete or [unlock](#locking) an o
 You can use the [schedules feature](/using_the_panel/schedules) to create backups automatically.
 
 1. Open the **Schedules** tab and create a new schedule (for example, daily).
-2. Add a task with the action **Create backup**.
-3. Save the schedule and make sure it is enabled.
+2. Add a step with the action **Create backup**. Tick **Wait for the backup to finish** if later steps (such as a restart) should wait for it.
+3. Save the schedule and make sure it is turned on.
 
 <Callout type="warning">
 

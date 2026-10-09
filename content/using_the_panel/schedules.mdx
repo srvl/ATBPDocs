@@ -1,19 +1,57 @@
 ---
 title: "Scheduling Actions"
+description: "Automate restarts, commands, backups and file jobs with schedules and the visual workflow builder in the ATBP panel."
 ---
 
-# Scheduling Actions
+Schedules run tasks for you at set times: restart the server, send a command, make a backup, clean up files or post to Discord. Open your server in the [panel](https://panel.atbphosting.com) and go to the **Schedules** tab.
 
-# What Are Schedules?
-Schedules are ways to automate certain tasks through the panel such as starting/stopping/restarting the server, executing commands or even creating a backup.
+## Create a schedule
 
-# Creating A Schedule
-First, go to your [Game Panel](https://panel.atbphosting.com/) and select Schedules on the navigation bar.
+1. Press **Create Schedule** and give it a name.
+2. Pick when it runs. Choose a common time from the picker (for example every day at 4 AM) or type the cron fields yourself. Times use the panel's time zone.
+3. Save, then open the schedule from the list and press **Add step** to add what it should do.
+4. Make sure the schedule is turned on.
 
-The main page will list all of our current schedules. To add a schedule, click the Create Schedule. Enter a name for your schedule and select when and how often you would like it to run.
+When presets are offered, **Start from a preset** gives you a ready-made schedule that you can change after adding it.
 
-Once created, click the schedule on the main list to view the tasks. Then, click New Task to add your first schedule action.
+## What a step can do
 
-The final section is what will be sent as a command or as a power action. Commands should be used without the /. 
+- **Send command**: a console command, typed without the `/` (for example `say Restarting in 5 minutes`).
+- **Power action**: start, stop, restart or kill the server.
+- **Create backup**: tick **Wait for the backup to finish** so the next step only runs once the backup is done.
+- **Delete files**, **Write to file**, **Copy files** and **Move or rename**: tidy up logs, reset a config, rotate a world.
+- **Discord webhook**: post a message to your Discord channel through a webhook link.
 
-Here you can also specify a delay. This is useful if you would like to send a timed warning to your players before a restart for example.
+Each step can have a delay, which is how you space out restart warnings (for example warn, wait 4 minutes, warn again, wait 1 minute, restart). Each step can also either stop the schedule or carry on if it fails.
+
+## Workflows with conditions
+
+Press **Turn into a workflow** to use the visual builder. Steps stack from top to bottom, and you can drag a step by its handle to reorder it or click a gap between steps to add one there.
+
+- **Add condition** splits the workflow into a "true" lane and a "false" lane. A condition can check whether the server is running, whether a file exists or how big it is, CPU, memory or disk use, how many backups you have, whether the previous step worked, the time of day, or the day of the week.
+- **Run only when** checks happen before anything runs. Pick **Every check must pass** or **Any one check must pass**. When they fail, the run is recorded as skipped.
+- **Run history** shows every run and the result of each step. **Cancel this run** stops a workflow that is running.
+- **Back to a plain schedule** removes the conditions and keeps the steps in their order.
+
+## Copy a schedule
+
+**Duplicate this schedule** makes a copy, and **Download this workflow as a file** saves it so you can **Import** it on another server. Copied and imported schedules start turned off, so check them before you turn them on.
+
+## Tips
+
+- A daily restart helps games that use more memory the longer they run, such as Palworld.
+- Back up before a restart, not during busy hours. Daily backups are enough for most servers; very frequent backups on a big world can cause lag.
+- A schedule can hold a limited number of steps. If you hit the limit, split the job into two schedules.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I schedule an automatic restart?
+- Paano mag auto restart?
+- How do I make automatic backups?
+- Can I warn players before a restart?
+- How do I post to Discord from a schedule?
+- What is a workflow in schedules?
+- Why did my schedule skip?
+
+</details>
