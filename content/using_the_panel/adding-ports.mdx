@@ -25,14 +25,26 @@ You can't type in a port number of your own. Get a port first, then set your plu
 
 ## Picking the right range
 
-A port taken from the wrong range may not work. For example, a voice chat port taken from the Java range can fail, because that range only lets Java connections through.
+A port taken from the wrong range may not work. For example, a voice chat port taken from the Minecraft Java range can fail, because that range only lets Java connections through.
 
-- **Java**: a second Java game port, such as a backend server behind a proxy.
-- **Bedrock / Geyser**: the port Bedrock players join on.
-- **Voice chat**: Simple Voice Chat, Plasmo Voice and similar mods.
-- **Web**: web maps and stats pages such as BlueMap, squaremap, Dynmap or Plan.
-- **Query / RCON**: server query and remote console. These are meant for tools, not for players to connect to.
-- **Other**: anything else, such as Votifier.
+Premium+ nodes have these ranges, each matching one of our DDoS protection filters:
+
+| Range | Ports | Use it for |
+|---|---|---|
+| **Minecraft Java** | 25600-25699 (TCP) | A second Java game port, such as a backend server behind a Velocity proxy |
+| **Minecraft Bedrock / Geyser** | 19200-19299 (UDP) | The port Bedrock players join on, for Geyser or a Bedrock server |
+| **Simple Voice Chat** | 24500-24599 (UDP) | The Simple Voice Chat mod or plugin |
+| **Votifier** | 8200-8299 (TCP) | Votifier and NuVotifier |
+| **FiveM** | 30200-30299 | FiveM servers |
+| **Rust** | 28100-28199 | Rust game, RCON and Rust+ ports |
+| **ARK: Survival Evolved** | 7800-7899 (UDP) | ARK game and query ports |
+| **Counter-Strike** | 27100-27199 | Counter-Strike 2 game and RCON ports |
+| **Valheim** | 2500-2599 (UDP) | Valheim game and query ports |
+| **TeamSpeak** | 10000-10099 | TeamSpeak voice, query and file transfer |
+| **Generic TCP** | 40000-40099 (TCP) | Anything else on TCP: web maps (BlueMap, Dynmap, squaremap), Plan, bot dashboards, APIs |
+| **Generic UDP** | 41000-41099 (UDP) | Anything else on UDP, such as other games' ports |
+
+Budget+ nodes use **Create Allocation** for now.
 
 If none of the ranges fits what you need, open a ticket on our [Discord](https://discord.atbphosting.com).
 
