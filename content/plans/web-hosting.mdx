@@ -1,0 +1,38 @@
+---
+title: "Web hosting"
+description: "Website, database and email hosting on our Singapore web server: Web Starter, Plus and Pro."
+---
+
+We host websites, databases and email on our AMD EPYC 7B13 web server in Singapore, with the HestiaCP control panel. Order at https://billing.atbphosting.com under **Web Hosting**.
+
+| Plan | Disk | Websites | Databases | Mailboxes | Cron jobs | Backups kept | Monthly |
+|---|---|---|---|---|---|---|---|
+| Web Starter | 5 GB | no cap | no cap | no cap | 5 | 1 | ₱49 |
+| Web Plus | 20 GB | no cap | no cap | no cap | 20 | 3 | ₱129 |
+| Web Pro | 50 GB | no cap | no cap | no cap | 50 | 7 | ₱249 |
+
+- Disk space is the plan's limit. Websites, databases and mailboxes have no cap of their own, as long as they fit in your disk space and follow the acceptable use policy.
+- At checkout you type the domain for your first website. Point the domain's DNS (an A record) to the web server and a free Let's Encrypt SSL certificate is issued for it. If the domain isn't pointed yet, issue the certificate later in the panel: **Web**, edit the domain, **SSL**.
+- A domain is not included. Bring your own or register one with us.
+- Open the control panel with the **Open control panel** button on your service page in billing. It signs you in once, without a password. You can set a panel password inside the panel if you also want to log in directly.
+- Each site runs on nginx with Apache and PHP-FPM, with MariaDB databases, so .htaccess files and common apps like WordPress work.
+- Email: create mailboxes for your domain in the panel and read mail in webmail or any mail app. The panel shows the DNS records (MX, SPF, DKIM, DMARC) to add at your DNS host so your mail is delivered.
+- Change plan any time from your service page. Moving to a smaller plan never deletes anything; the panel only stops new items (files, cron jobs, backups) until you are under the new plan's limits.
+- If a service is suspended for an unpaid invoice, your sites show a suspended page until it is paid. Nothing is deleted while suspended.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Do you have web hosting?
+- Web hosting magkano?
+- How much is website hosting?
+- Can I host WordPress?
+- Is email included with web hosting?
+- How many websites can I host?
+- Is SSL free?
+- Is a domain included?
+- How do I log in to the web hosting panel?
+- Can I upgrade or downgrade my web hosting plan?
+- Where is the web server?
+
+</details>
