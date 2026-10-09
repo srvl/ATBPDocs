@@ -17,7 +17,17 @@ const navbar = (
     }
   />
 )
-const footer = <Footer>© {new Date().getFullYear()} ATBP Hosting Ltd.</Footer>
+// Mojang's usage guidelines ask non-official services to say so.
+const footer = (
+  <Footer>
+    <div>
+      <div>© {new Date().getFullYear()} ATBP Hosting Ltd.</div>
+      <div style={{ fontSize: '0.75rem', opacity: 0.7, marginTop: '0.4rem' }}>
+        NOT AN OFFICIAL MINECRAFT SERVICE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+      </div>
+    </div>
+  </Footer>
+)
 
 export default async function RootLayout({ children }) {
   return (
