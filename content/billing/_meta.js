@@ -1,6 +1,7 @@
 export default {
   "payment-methods": "Payment methods and account credit",
   "gcash": "GCash",
+  "crypto": "Litecoin (crypto)",
   "bank": "Bank transfer",
   "email_change": "How to change your account email address",
   "cancellations": "How to request a cancellation",
