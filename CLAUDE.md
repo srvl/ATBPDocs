@@ -10,7 +10,7 @@ Customer-facing docs for ATBP Hosting, live at https://docs.atbphosting.com. Nex
 
 - `content/**/*.mdx`: pages. Front matter needs `title` and `description`. Navigation order and labels are each folder's `_meta.js`; a new page or folder must be added there.
 - `app/`: Nextra shell, `sitemap.js`, `robots.js`. `next.config.mjs` exports a static site to `out/`; `npm run build` also builds the Pagefind search index.
-- No `public/` images or videos: ATBP has no screenshots that match its panel yet. Describe steps in words. Do not add third-party screenshots or embeds.
+- Screenshots: only ATBP's own, taken from the docs-demo account (kit `docs-accounts-20261009` in the owner's Beelink Ser8 folder), saved as `.webp` in `public/screenshots/` and used as `![alt](/screenshots/name.webp)` with a descriptive alt text. Never third-party screenshots, videos or embeds. Retake a screenshot when the screen it shows changes.
 
 ## Source of truth to page map
 
