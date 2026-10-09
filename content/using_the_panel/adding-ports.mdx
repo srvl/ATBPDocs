@@ -12,7 +12,7 @@ We are moving our nodes to **port ranges**: blocks of ports set aside for one ki
 ## How to add a port
 
 1. Open your server in the panel and go to the **Network** tab.
-2. If you see an **Add a port** section, your node uses port ranges. Each range says what it is for (for example Java, Bedrock, or voice chat), whether it carries TCP, UDP or both, and how many ports are still free. Click **Add port** on the range that matches what the port is for. You get a free port from that range straight away, with the range name in its notes.
+2. If you see an **Add port** button, your node uses port ranges. Click it, pick the range that matches what the port is for from the dropdown (each shows its protocol, ports and how many are free), and click **Add port**. You get a free port from that range straight away; the dialog shows the new address, and the range name is saved in the port's notes.
 3. If you see a **Create Allocation** button instead, your node does not use port ranges yet. Click it to get a free port.
 4. Put the new port number in the plugin's or mod's config file.
 5. Restart your server so the new port starts working.
@@ -59,7 +59,7 @@ Ports you already have keep working. To move one into the right range, for examp
 
 ## Limits
 
-Every server has a maximum number of ports. The Network tab shows how many you are using. Some ranges also allow only a set number of ports per server. When a limit is reached, the **Add port** button turns grey. To free a port, delete one you no longer need from your list (you can't delete your main port).
+Every server has a maximum number of ports. The Network tab shows how many you are using. Some ranges also allow only a set number of ports per server. When your server is at its limit the **Add port** button turns grey, and a range that is full or at its per-server limit is greyed out in the dropdown. To free a port, delete one you no longer need from your list (you can't delete your main port).
 
 <Callout type="warning">
 
