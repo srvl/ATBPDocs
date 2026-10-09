@@ -1,0 +1,151 @@
+/* ATBP look on top of the Nextra docs theme. */
+
+.atbp-nav-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.7;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.atbp-nav-link:hover { opacity: 1; }
+
+.atbp-nav-store {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.45rem;
+  color: #fff;
+  background: linear-gradient(135deg, #f7931e, #e8455a);
+  transition: filter 0.15s;
+}
+.atbp-nav-store:hover { filter: brightness(1.08); }
+
+@media (max-width: 640px) {
+  .atbp-nav-link { display: none; }
+}
+
+/* Two-row navbar on desktop: logo and links on top, section tabs below. */
+@media (min-width: 768px) {
+  :root { --nextra-navbar-height: 6.75rem; }
+  .nextra-navbar nav {
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 0;
+  }
+  .nextra-navbar nav > a:first-child { height: 4rem; }
+  .nextra-navbar nav > .nextra-scrollbar {
+    order: 99;
+    flex-basis: 100%;
+    gap: 1.5rem;
+    height: 2.75rem;
+    padding: 0;
+    align-items: stretch;
+  }
+  .nextra-navbar nav > .nextra-scrollbar > a,
+  .nextra-navbar nav > .nextra-scrollbar > button {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+  }
+  .nextra-navbar nav > .nextra-scrollbar > a[aria-current='true'] {
+    border-bottom-color: #f7931e;
+    font-weight: 600;
+  }
+  /* These sections live under the Guides menu instead of their own tabs. */
+  .nextra-navbar nav > .nextra-scrollbar > a:is(
+    [href^='/running_a_server/'], [href^='/plugins_and_modifications/'],
+    [href^='/other-servers/'], [href^='/extras/']) {
+    display: none;
+  }
+  .nextra-navbar nav > .nextra-scrollbar:has(> a[aria-current='true']:is(
+    [href^='/running_a_server/'], [href^='/plugins_and_modifications/'],
+    [href^='/other-servers/'], [href^='/extras/'])) > button {
+    border-bottom-color: #f7931e;
+    font-weight: 600;
+    color: inherit;
+  }
+}
+
+/* Landing page */
+.atbp-landing {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3.5rem 0 2rem;
+}
+.atbp-hero { text-align: center; }
+.atbp-hero-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.atbp-hero-title span {
+  background: linear-gradient(90deg, #f7931e, #e8455a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.atbp-hero-sub {
+  margin-top: 0.75rem;
+  opacity: 0.65;
+}
+.atbp-hero-search {
+  max-width: 30rem;
+  margin: 1.75rem auto 0;
+}
+.atbp-hero-search .nextra-search input {
+  width: 100% !important;
+  height: 3rem;
+  font-size: 1rem;
+  padding-inline-start: 1rem;
+}
+
+.atbp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+@media (max-width: 640px) {
+  .atbp-grid { grid-template-columns: 1fr; }
+}
+.atbp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(127, 127, 127, 0.22);
+  background: rgba(127, 127, 127, 0.05);
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.atbp-card:hover {
+  border-color: #f7931e;
+  background: rgba(247, 147, 30, 0.07);
+  transform: translateY(-1px);
+}
+.atbp-card-icon { color: #f7931e; margin-bottom: 0.25rem; }
+.atbp-card-title { font-weight: 700; font-size: 1rem; }
+.atbp-card-desc { font-size: 0.85rem; opacity: 0.65; line-height: 1.45; }
+
+.atbp-help {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+.atbp-help a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Footer */
+.atbp-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+.atbp-footer-links { display: flex; gap: 1rem; font-size: 0.85rem; }
+.atbp-footer-links a { opacity: 0.6; transition: opacity 0.15s; }
+.atbp-footer-links a:hover { opacity: 1; }
