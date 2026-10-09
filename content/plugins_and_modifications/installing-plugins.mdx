@@ -17,9 +17,19 @@ This guide is for Bukkit/Spigot/Paper servers. If you are looking for instructio
 
 ---
 
-### Warning
+### Plugin safety
 
-Make sure you trust the source of your plugin. Plugins have high-level access to your server. Do not attempt to use plugins from leak websites or similar. In some cases malicious plugins may even corrupt other plugins installed on your server or your world. 
+Make sure you trust the source of your plugin. Plugins have full access to your server, so only download them from the official page of the plugin or its author. Do not use plugins from leak websites or "cracked" and "patched" re-uploads: these are the most common way a server gets a backdoor, and some of them copy themselves into every other plugin in your `plugins` folder.
+
+#### Automatic backdoor removal
+
+We check every server's plugins for a known backdoor that hides inside normal-looking plugins. If your server has it:
+
+- **It is removed while your server starts.** Your plugins, their settings and your worlds are kept; only the hidden code is taken out. Your console shows a line like `CPU Guardian: removed a backdoor from 3 plugin(s); 1 infected file(s) quarantined.`
+- **If nobody is online, we restart the server for you** so the cleanup can run. We only do this when the server has 0 players, and at most once a day. If players are online, the cleanup waits for your next restart; you can restart it yourself at any time.
+- **A plugin that cannot be cleaned safely is removed** from your `plugins` folder. Download a fresh copy from the plugin's official page and upload it again.
+
+If you see that console line, a plugin you installed came from an unsafe source. Replace your plugins with copies from their official pages, and check your server's operator list (`ops.json`) and permissions for anyone you do not recognise.
 
 ---
 
