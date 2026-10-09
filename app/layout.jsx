@@ -2,6 +2,7 @@ import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
+import { Search } from '../components/Search'
 import './atbp.css'
 
 export const metadata = {
@@ -53,6 +54,7 @@ export default async function RootLayout({ children }) {
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/srvl/ATBPDocs/tree/master"
           footer={footer}
+          search={<Search />}
           nextThemes={{ defaultTheme: 'dark' }}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
         >
