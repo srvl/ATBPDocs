@@ -1,4 +1,4 @@
-import { Search } from 'nextra/components'
+import { Search } from './Search'
 
 const icon = (d) => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
