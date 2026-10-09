@@ -27,7 +27,8 @@
 
 /* Two-row navbar on desktop: logo and links on top, section tabs below. */
 @media (min-width: 768px) {
-  :root { --nextra-navbar-height: 6.75rem; }
+  /* Must be in px: Nextra passes it to IntersectionObserver as rootMargin. */
+  :root { --nextra-navbar-height: 108px; }
   .nextra-navbar nav {
     flex-wrap: wrap;
     align-content: flex-start;
