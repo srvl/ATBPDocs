@@ -4,5 +4,6 @@ export default {
   "server-splits": "Server splits (one plan, several servers)",
   "backups": "Backups",
   "dedicated-plans": "Dedicated plans",
-  "discord-bot-hosting": "Discord bot hosting"
+  "discord-bot-hosting": "Discord bot hosting",
+  "web-hosting": "Web hosting"
 }
