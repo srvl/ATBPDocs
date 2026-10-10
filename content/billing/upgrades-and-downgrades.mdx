@@ -4,28 +4,51 @@ title: "Upgrading or downgrading a server"
 
 Your service page on https://billing.atbphosting.com (Services > your server) has two buttons:
 
-- **Upgrade** shows only bigger plans. On the next step, Splits and Extra Backups can stay the same or go up.
-- **Downgrade** shows only smaller plans. On the next step, Splits and Extra Backups can stay the same or go down.
+- **Upgrade** shows bigger plans in your line, plus plans on another line that cost more (for example Budget+ to Premium+). On the next step, Splits and Extra Backups can stay the same or go up.
+- **Downgrade** shows smaller plans in your line, plus plans on another line that cost less (for example Premium+ to Budget+). On the next step, Splits and Extra Backups can stay the same or go down.
 
-A button only appears when there is somewhere to go: a server on the biggest size of its line sees no bigger plans (it can still add Splits or Extra Backups through Upgrade), and a server on the smallest size with nothing extra has no Downgrade button.
+A button only appears when there is somewhere to go. Plans on another line are marked with that line's name and "Moves your server to ... nodes".
 
 To upgrade:
 
 1. Go to Services > your server > **Upgrade**.
-2. Pick the bigger plan, then choose your Splits and Extra Backups.
+2. Pick the plan, then choose your Splits and Extra Backups.
 3. Pay the invoice with your preferred [payment method](/billing/payment-methods). The server upgrades once the invoice is marked paid.
 4. Restart the server in the panel so the new resources apply.
 
 To downgrade:
 
 1. Make sure your files fit the smaller storage first.
-2. Go to Services > your server > **Downgrade**, pick the smaller plan and confirm.
+2. Go to Services > your server > **Downgrade**, pick the plan and confirm.
 3. The change applies right away and the unused difference goes to your account credit. Restart the server in the panel.
 
-- **Upgrades** are charged pro rata for the days left in your current cycle. Your due date stays the same; the next renewal is at the new plan's price.
-- **Downgrades** return the difference as account credit (at the discounted rate you paid), used on your next invoice.
-- You can only move between sizes in the same line (Budget+ to Budget+, Premium+ to Premium+). To move from Budget+ to Premium+, open a Sales Inquiry ticket; staff move your files to the Premium+ machine. The server IP changes when it moves.
-- Some sizes (especially 48 and 64 GB) can be out of stock; the Upgrade page only shows sizes that are available.
+## Moving between Budget+ and Premium+
+
+Budget+ and Premium+ run on different machines. When you pick a plan on the other line, your server moves there by itself: after the invoice is paid for an upgrade, or straight away for a downgrade.
+
+- Your files, worlds and settings come with it.
+- It gets a new address and port. The new ones show in the panel once the move is done.
+- It is offline for a few minutes while the files are copied, longer for very large servers.
+- The new plan's limits apply as soon as it lands. Start it again from the panel if it does not come back on its own.
+
+Old Budget plans can move up to Budget+ or Premium+, but no plan can move back to old Budget.
+
+## How the price is worked out
+
+The summary on the Upgrade or Downgrade page shows two lines before the total:
+
+- **New setup**: what the new plan and options cost per day, times the days left until your due date.
+- **Unused time on current plan**: what you are billed per day today, times the same days. This counts your term discount, any coupon and any paid Splits or Extra Backups, including ones the new plan does not have.
+
+The total is the first line minus the second. Days are counted on the real length of your billing cycle (31 days for a 31-day month), so a day costs the same whichever month you are in.
+
+Example: a Budget+ 4 GB server at ₱140 a month, due on 31 October, moves to Premium+ 4 GB (₱300) on 10 October. 21 of the cycle's 31 days are left. New setup is ₱300 / 31 x 21 = ₱203.23, unused time is ₱140 / 31 x 21 = ₱94.84, so the upgrade invoice is ₱108.39. Moving straight back the same day returns ₱108.39 as account credit.
+
+- Your due date stays the same; the next renewal is at the new plan's price.
+- **Downgrades** return the difference as account credit, used on your next invoice. If you renewed several months ahead at a discount, the credit is at the discounted rate you paid.
+- A change made on your due date costs nothing today; the new price starts with the next invoice.
+- An unpaid upgrade invoice is re-priced every day, so it always matches the days still left when you pay.
+- Some sizes (especially 48 and 64 GB) can be out of stock; the pages only show sizes that are available.
 - While an upgrade invoice is unpaid you cannot start another change. Pay or cancel that invoice first.
 
 <details>
@@ -42,6 +65,10 @@ To downgrade:
 - Bakit ganito presyo ng upgrade?
 - Does upgrading change my due date?
 - Upgrade from budget to premium
+- Pwede ba lumipat from Budget+ to Premium+?
+- Will my IP change if I move to Premium+?
+- Mawawala ba files ko pag lumipat ng plan?
+- How is the upgrade price calculated?
 - I upgraded but nothing changed
 
 </details>
