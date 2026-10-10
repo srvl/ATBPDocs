@@ -1,0 +1,36 @@
+---
+title: "Spark Analyzer"
+description: "Free tool that reads a spark profile and tells you what is lagging your Minecraft server and which settings to change."
+---
+
+The [Spark Analyzer](https://atbphosting.com/tools/spark-analyzer/) reads a spark profile and turns it into a list of problems and fixes. It is free and works for any server, not just ones hosted with us.
+
+## How to use it
+
+1. While the lag is happening, run `/spark profiler start --timeout 300` in your console.
+2. Wait the 5 minutes. Spark prints a link when it stops.
+3. Paste that link into the [Spark Analyzer](https://atbphosting.com/tools/spark-analyzer/) and press **Analyze**. You can also drop a `.sparkprofile` file you exported from the spark viewer.
+
+If your server software ticks worlds on separate threads (Leaf and similar forks), start the profiler with `--thread *` so those threads are included.
+
+The profile is read in your browser. It is not uploaded to ATBP Hosting.
+
+## What it checks
+
+- **TPS and tick time (MSPT).** Whether the server keeps up with 20 ticks per second, how often ticks go over 50 ms, which minutes were the worst, and what grew during those minutes.
+- **Where tick time goes.** Entities, block entities (hoppers, furnaces, spawners), chunk loading, mob spawning, redstone, random ticks, player packets, plugin events and scheduler tasks, world saving and garbage collection.
+- **Known hotspots.** Dropped items, XP orbs, villagers, pathfinding, collisions, hoppers, pistons, explosions, armor stands, minecarts, map items and more. Each one comes with the settings that reduce it and the value your server uses now.
+- **Plugins.** How much main thread time each plugin uses and from which part of the plugin, plugins doing file, database or network work on the main thread, plugins that are not needed on Paper or Purpur, and plugins that do the same job twice (for example two anticheats).
+- **Waiting.** Time the main thread spent waiting on locks, futures or chunk loads during a tick, and which plugin caused it.
+- **Java and memory.** Java version for your Minecraft version, heap size, garbage collector, [Aikar's flags](https://docs.papermc.io/paper/aikars-flags), GC pause length and frequency, full GCs and how full the heap stays after a collection.
+- **Server settings.** `server.properties`, `bukkit.yml`, `spigot.yml`, Paper, Purpur and Pufferfish settings, including per-world overrides. Suggestions are shown only when your current value is on the costly side, and settings that change gameplay are marked.
+- **World.** Entity counts, the busiest chunks with block coordinates you can teleport to, game rules such as `randomTickSpeed` and `maxEntityCramming`, and datapacks.
+- **Version.** Old Minecraft versions, Spigot or CraftBukkit instead of Paper, and abandoned forks.
+
+## Reading the results
+
+Results are grouped as **Fix these first**, **Worth fixing**, **Tips and details** and **Looks good**. Start at the top. When a suggestion is marked as changing gameplay, check that you are happy with the change before applying it.
+
+The **Copy as Markdown** button copies the whole report so you can paste it into a [Discord](https://discord.atbphosting.com) ticket.
+
+To change the settings it suggests, see [Server Optimization](/running_a_server/optimization) and [Mob Spawn Limits](/running_a_server/mob-spawn-limits). For help with a profile, open a ticket in our [Discord](https://discord.atbphosting.com) with the spark link.

@@ -7,6 +7,7 @@ export default {
   "java-version": "Changing Java Version",
   "datapacks": "Datapacks",
   "spark": "Spark",
+  "spark-analyzer": "Spark Analyzer",
   "timings": "Taking a Timings Report",
   "icon": "Icon",
   "motd": "How to change MOTD",
