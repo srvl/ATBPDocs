@@ -42,8 +42,8 @@ Ports you already have keep working. To move one:
 1. Add a new port, as above.
 2. Put the new port in your config. For your main game port, click **Make Primary** on the new port instead.
 3. Restart and check it works, then update anything that points at the old port (your server address or a domain's SRV record).
-4. Delete the old port.
+4. Stop the server, then delete the old port and start it again.
 
 ## Limits
 
-Each server has a maximum number of ports, shown on the Network tab. When you reach it, **Add port** turns grey. Choices that are full are greyed out in the dropdown. Delete a port you no longer need to free one (you can't delete your main port).
+Each server has a maximum number of ports, shown on the Network tab. When you reach it, **Add port** turns grey. Choices that are full are greyed out in the dropdown. Delete a port you no longer need to free one (you can't delete your main port). Stop the server before deleting a port: a running server keeps using its ports until it stops, so the panel won't remove one while it runs.
