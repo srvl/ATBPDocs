@@ -1,0 +1,64 @@
+---
+title: "Valheim world modifiers"
+description: "Change combat difficulty, death penalty, resources, raids and portal rules with presets, modifiers and world keys."
+---
+
+World modifiers let you make Valheim easier, harder or more relaxed. They are saved inside the world, so the simplest time to set them is before a new world is made.
+
+## Set them on the server
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. On the **Startup** tab, find the modifier, preset or extra launch arguments field.
+3. Enter the options using the startup format, for example:
+
+```
+-preset hard -modifier raids none -modifier portals casual -setkey nomap
+```
+
+4. Start the server. In game, press `F2` to see which modifiers are active.
+
+Names and values are case-sensitive and must stay in English. If your Startup tab has no field for them, open a ticket and we will tell you where they go for your server.
+
+## Presets
+
+A preset sets several modifiers at once. It is applied first, and any `-modifier` you add after it overrides that part.
+
+| Preset | What you get |
+| --- | --- |
+| `normal` | Standard Valheim |
+| `casual` | Easier fights, light death penalty, more resources, fewer raids, ores through portals |
+| `easy` | A bit easier across the board |
+| `hard` | Harder fights and death penalty |
+| `hardcore` | Very hard, and you lose items for good on death |
+| `immersive` | No map, harder portals, fewer raids |
+| `hammer` | Building costs nothing |
+
+## Modifiers
+
+| Modifier | Values (default in bold) | What it changes |
+| --- | --- | --- |
+| `combat` | veryeasy, easy, **normal**, hard, veryhard | Enemy damage and toughness |
+| `deathpenalty` | casual, veryeasy, easy, **normal**, hard, hardcore | Items and skills lost on death. `casual` keeps your gear; `hardcore` deletes everything carried |
+| `resources` | muchless, less, **normal**, more, muchmore, most | How much you get from mining, chopping and picking |
+| `raids` | none, muchless, less, **normal**, more, muchmore | How often bases are raided |
+| `portals` | casual, **hard**, veryhard | `casual` lets ore through portals; `veryhard` blocks all items |
+
+## World keys
+
+On or off rules, added with `-setkey`:
+
+| Key | Effect |
+| --- | --- |
+| `nomap` | No map |
+| `nobuildcost` | Building is free (you still need to discover recipes) |
+| `passivemobs` | Enemies only attack when attacked |
+| `playerevents` | Raids are based on each player's progress instead of the whole world |
+
+## Change an existing world
+
+Startup modifiers are reliable on a new world. On a world that already exists, the values saved in its `.fwl` or `.fwl2` file can win. Two ways to change them:
+
+- **In game:** with the Server Devcommands mod on the server and your PC (see [mods](/games/valheim/mods)) and admin rights (see [admin](/games/valheim/admin)), press `F5` and run `setworldmodifier combat hard` or `setworldpreset casual`. `setworldpreset default` puts everything back to normal.
+- **From single player:** download the world, change its modifiers in the game's world settings, and upload it again as shown in [Valheim worlds](/games/valheim/worlds).
+
+Back up the world before either.

@@ -1,0 +1,37 @@
+---
+title: "Join your Palworld server"
+description: "Connect by IP and port, set a server password, and let console players join."
+---
+
+## Join by IP
+
+1. In the [panel](https://panel.atbphosting.com), copy your server's IP address and port from the **Console** or **Network** tab, for example `123.45.67.89:8211`.
+2. Start Palworld and choose **Join Multiplayer Game**.
+3. Paste the address in the box at the bottom of the server list and press **Connect**.
+
+Joining by IP is the most reliable way. The in-game community list is slow and often does not show every server, so do not rely on searching for your name there.
+
+## Set a server password
+
+1. Stop the server.
+2. Set `ServerPassword="yourpassword"` in your settings (see [Palworld server settings](/games/palworld/config)).
+3. Start the server. Players now get a password prompt when they join.
+
+**"Incorrect password" without a prompt:** some game versions skip the password box when you join by IP. Open the **Community Servers** list, click any server with a lock icon, type your server's password in the box that appears, then cancel and join your own server by IP again. The game remembers the password you typed.
+
+## Crossplay (Xbox, PlayStation, Mac)
+
+Palworld dedicated servers can accept players from Steam, Xbox, PS5 and Mac. In your settings, make sure this line lists every platform you want:
+
+```
+CrossplayPlatforms=(Steam,Xbox,PS5,Mac)
+```
+
+Restart after changing it. Console players join from the in-game server list or with an invite code, not by IP, and everyone must be on the same game version.
+
+## Cannot join
+
+- Check the server shows as running and has finished starting (the Console stops scrolling).
+- Use the main game port from the panel, not an extra port.
+- After a Palworld update, players and server must both be updated. Restart the server to update it; see [Updating your server](/games/palworld/update).
+- If the server never finishes starting, see [Server stuck starting, stopping or installing](/using_the_panel/stuck-server).

@@ -1,14 +1,19 @@
 ---
-title: "Updating server"
-description: "Learn how to update your server to the latest version of Palworld"
+title: "Updating your Palworld server"
+description: "Restart to update, and what to do when the update does not take."
 ---
 
-## Method 1
+When Palworld updates, players cannot join until the server is on the same version.
 
-Restart the server. The server should update automatically when it restarts. If it doesn't, follow Method 2.
+## Restart to update
 
-## Method 2
+Restart the server from the **Console** tab in the [panel](https://panel.atbphosting.com). It checks for a new version while starting and downloads it.
 
-First, stop your server. Then go to the [Backups](/using_the_panel/backups/guide) tab and make a backup in case something goes wrong. After that, go to the Settings tab and click Reinstall.
+## If it stays on the old version
 
-Server should now start up with the latest version!
+1. Stop the server and make a backup in the **Backups** tab.
+2. In **Files**, delete the `steamapps` folder in the main folder. This only clears the download cache; your world is in `Pal/Saved` and stays.
+3. Open **Settings** and press **Reinstall Server**.
+4. Start the server once the reinstall finishes.
+
+If the server freezes after an update, see [Palworld performance and common issues](/games/palworld/info#common-issues).

@@ -1,0 +1,52 @@
+---
+title: "Install mods on Palworld"
+description: "Add Steam Workshop mods to your server, turn them on in PalModSettings.ini, and remove them again."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Mods can crash the server or damage a save. Make a backup first, and add mods a few at a time so you know which one caused a problem.
+
+</Callout>
+
+Only mods made to run on a dedicated server work. Open the mod's `Info.json`: if its install rules do not include `"IsServer": true`, it will not load on a server. Some mods also have to be installed by every player, so read the mod page.
+
+## Upload Workshop mods
+
+1. Subscribe to the mods on the Palworld Steam Workshop and launch the game once so Steam downloads them.
+2. On your PC, open `Steam\steamapps\workshop\content\1623730`. Each numbered folder is one mod and has an `Info.json` inside.
+3. Select those folders and zip them together.
+4. In the [panel](https://panel.atbphosting.com), stop the server, open **Files**, and create the folders `Mods/Workshop` in the main folder.
+5. Upload the zip into `Mods/Workshop` and choose **Unarchive**. Each mod should end up as `Mods/Workshop/<folder>/Info.json`.
+
+## Turn them on
+
+The server loads nothing until mods are listed in its settings file.
+
+1. Start the server once so it creates `Mods/PalModSettings.ini`, then stop it.
+2. Edit `Mods/PalModSettings.ini`:
+
+```ini
+[PalModSettings]
+bGlobalEnableMod=true
+ActiveModList=FirstModPackageName
+ActiveModList=SecondModPackageName
+```
+
+Use the `PackageName` from each mod's `Info.json`, not the folder name. Add one `ActiveModList=` line per mod.
+
+3. Start the server. Loaded mods appear under `Mods/ManagedMods`.
+
+## Update or remove
+
+- **Update:** upload the new version over the old folder and restart.
+- **Remove:** delete its `ActiveModList=` line (and its folder if you like) and restart.
+- **Start without any mods:** set `bGlobalEnableMod=false`.
+
+## Not loading?
+
+- Check the mod supports dedicated servers (`"IsServer": true`).
+- Check the `PackageName` is spelled exactly as in `Info.json`.
+- Mods that need the UE4SS loader are built for Windows servers and usually do not run on our Linux servers. Ask in a ticket if a mod you need depends on it.

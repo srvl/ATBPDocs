@@ -1,6 +1,7 @@
 export default {
   "connection-timed-out": "Connection Timed Out",
   "failed-to-verify-username": "Failed to Verify Username",
+  "kick-messages": "Kick and Disconnect Messages",
   "lag-troubleshooting": "Troubleshooting Lag",
   "out-of-date-plugins": "Out of Date Plugin Errors",
   "out-of-memory": "Out of Memory Errors",

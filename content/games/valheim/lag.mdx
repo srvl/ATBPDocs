@@ -1,0 +1,34 @@
+---
+title: "Valheim lag and desync"
+description: "Why Valheim lags even on a big server, how to tell server load from one player's PC, and what actually helps."
+---
+
+Valheim lag is often not the server. The server holds the world and passes traffic along, but enemies, physics and boats in an area are worked out on the PC of the **first player who arrived there** (the zone owner). If that PC or connection struggles, everyone nearby sees enemies teleport, hits miss and boats jitter. This happens on every host, including a server at home.
+
+## Which kind of lag is it?
+
+| What you see | Likely cause |
+| --- | --- |
+| Everyone lags everywhere, all session | Server memory. Check the memory graph on the **Console** tab in the [panel](https://panel.atbphosting.com) |
+| Everyone freezes briefly about every 20 minutes | The world saving. Big old worlds take longer |
+| Fine until one friend arrives, and only near them | That friend's PC or internet (zone owner) |
+| One player lags no matter who else is on | That player's connection to the server |
+| Nobody can join, but the files are fine | With crossplay on, joins go through Microsoft PlayFab; if PlayFab is down, joins fail everywhere |
+
+In game, press `F2` to see ping and who owns your zone. If lag always matches the same name, that player is the bottleneck.
+
+## What helps
+
+- **Wired internet** for whoever plays most. One player on weak Wi-Fi, a VPN, or a PC running at 100% CPU slows the whole area.
+- **Let a stronger PC take the zone.** Have the struggling player leave the area and come back after someone else is there.
+- **Clean up the world.** Piles of dropped items, huge farms and big herds of tamed animals all cost work every second. Burn loot piles and thin out herds.
+- **Restart between long sessions,** or set a daily restart [schedule](/using_the_panel/schedules).
+- **Stay near 10 players.** Valheim is built for up to 10. Bigger groups in one busy area push the zone owner hard.
+- **Test without mods** if the lag started after adding one.
+- **Turn off crossplay** if your group is PC only. Direct connections skip the PlayFab hop and are a little quicker.
+
+## When a bigger plan helps
+
+Move up a plan ([upgrades](/billing/upgrades-and-downgrades)) when the memory graph sits at your limit, or when world saves freeze everyone for a long time. More RAM does not fix one player's PC or Wi-Fi.
+
+If the whole group lags all the time with sensible bases and good connections, open a ticket with your panel link, your usual player count, whether it started after an update or a mod, and a screenshot of the memory graph during the lag.

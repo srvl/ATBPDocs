@@ -1,0 +1,62 @@
+---
+title: "Server list name, tags, logo and banner"
+description: "Make your FiveM server look good in the server list, and what to check when it does not show up."
+---
+
+Most of what players see in the FiveM server list comes from `server.cfg`. Edit it in txAdmin's **CFG Editor** (see [Open txAdmin](/games/fivem/txadmin)) or in **Files** in the [panel](https://panel.atbphosting.com), then restart the server.
+
+## Name
+
+Set the name in the `SERVER_HOSTNAME` field on the **Startup** tab, or with `sv_hostname "My Server"` in `server.cfg`. Colour codes such as `^1` work. Keep it readable; very long names or unusual symbols can stop the server from listing.
+
+The short description under the name uses:
+
+```
+sets sv_projectName "My Roleplay City"
+sets sv_projectDesc "Serious RP, whitelisted jobs, Filipino community"
+```
+
+## Tags and language
+
+```
+sets tags "roleplay, serious, economy"
+sets locale "en-US"
+```
+
+Tags are comma-separated words players can filter by. `locale` is a language code such as `en-US` or `fil-PH`; the default `root-AQ` means no language is set.
+
+## Logo
+
+1. Make a **96x96** PNG.
+2. Upload it to the main folder of your server, next to `server.cfg`.
+3. Add `load_server_icon myLogo.png` to `server.cfg` (use your file name) and restart.
+
+## Banner
+
+1. Make a **1865x250** PNG or JPG and host it anywhere that gives a direct image link.
+2. Add these lines with your link:
+
+```
+sets banner_detail "https://example.com/banner.png"
+sets banner_connecting "https://example.com/banner.png"
+```
+
+`banner_detail` shows on your server's page in the list, `banner_connecting` on the loading screen.
+
+## Steam Web API key
+
+Some frameworks and resources check players' Steam accounts and need a Steam Web API key.
+
+1. Get one at [steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey), signed in with Steam. Any domain name will do.
+2. Add `set steam_webApiKey "YOURKEY"` to `server.cfg` and restart.
+
+Keep it private, like a password.
+
+## Not in the server list
+
+- **License key:** the key must be valid and used by this server only. One key on two servers makes both glitch in the list. Keys bought from resellers are often stolen or revoked; make your own for free (see [Set up your FiveM server](/games/fivem/getting-started)).
+- **sv_master1:** in `server.cfg`, the line `#sv_master1 ""` must stay commented out with the `#`. Removing the `#` hides your server from the list on purpose.
+- **Name:** shorten it and remove odd symbols.
+- **Time:** after a restart, give it a few minutes to appear.
+
+Players can always join directly with `connect <ip>:<port>` in the F8 console. See [Connect to your FiveM server](/games/fivem/connecting).

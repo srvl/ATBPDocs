@@ -1,0 +1,59 @@
+---
+title: "7 Days to Die whitelist, remote admin and errors"
+description: "Lock the server to approved players, connect admin tools over telnet, and fix the most common join and world errors."
+---
+
+## Whitelist
+
+A password keeps strangers out until someone shares it. A whitelist only lets in the Steam IDs you approve. You can use both.
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. In **Files**, open `serverconfig.xml` and set:
+
+```
+<property name="WhitelistEnabled" value="true"/>
+```
+
+3. Start the server and add players from the **Console**:
+
+| Command | What it does |
+| --- | --- |
+| `whitelist add <name or steam id>` | Approves a player |
+| `whitelist remove <name or steam id>` | Removes a player |
+| `whitelist list` | Shows who is approved |
+
+The list is saved in `serveradmin.xml` in your save folder, next to the admin list. See [Find your Steam ID](/extras/steam-id) and [admins and commands](/games/7-days-to-die/admin).
+
+## Remote admin tools (telnet)
+
+Tools such as server managers and bots connect to 7 Days to Die over telnet.
+
+1. Stop the server and open `serverconfig.xml`.
+2. Set a strong `TelnetPassword` first. A telnet port with no password lets anyone run commands.
+3. Set `TelnetEnabled` to `true` and `TelnetPort` to an extra port your server owns (add one on the **Network** tab, see [Adding Ports](/using_the_panel/adding-ports)).
+4. Start the server. The tool connects with your server IP, the telnet port and the password.
+
+If a value is also on the **Startup** tab, change it there; Startup values are applied when the server starts.
+
+## Cannot join or kicked straight away
+
+1. Wait for the server to finish booting. Watch the **Console** until it stops loading.
+2. Use the IP and port from the panel. See [Join your server](/games/7-days-to-die/connecting).
+3. Make sure the game and the server are on the same version. Restart the server to update it; players update through Steam.
+4. With mods, every player needs exactly the same mods as the server.
+
+**"ZLIB: invalid stream" or similar right after connecting** usually means the server turned the player away: mods differ between server and player, mods were removed but the old world kept, or the world named on the server is missing or damaged.
+
+**Only one player has the problem:** close the game and Steam, delete `%appdata%\7DaysToDie` on their PC (local cache only), verify the game files in Steam, reinstall the server's mods, and try again.
+
+## World will not load after removing mods
+
+A world made with world-changing mods (new biomes, buildings, decay) often will not load without them. Put the mods back, or set a new `GameName` so the server starts a fresh save. The old save stays in the `Saves` folder in case you want it later. See [worlds](/games/7-days-to-die/worlds).
+
+## Kicked by Easy Anti-Cheat
+
+Code-changing mods need EAC off, but console and crossplay need EAC on. See [mods](/games/7-days-to-die/mods) and [crossplay](/games/7-days-to-die/crossplay).
+
+## Still stuck
+
+Open a ticket with your panel link and a screenshot of the panel **Console** showing the red `ERR` or `EXC` lines from startup or from the moment the player joined. The panel console is more useful to us than the in-game F1 console.

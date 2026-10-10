@@ -1,0 +1,63 @@
+---
+title: "Project Zomboid builds and common errors"
+description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, and the Port Closed warning."
+---
+
+All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
+
+## Build 41 or Build 42
+
+Build 42 is the current version and what new servers run. Build 41 is still available on Steam as the `legacy41` branch.
+
+| Your situation | Run |
+| --- | --- |
+| New server or new world | Build 42 |
+| Keeping an old Build 41 world | Build 41 |
+| Mods that only support Build 41 | Build 41 |
+
+- Server and every player must be on the same build. Players switch in Steam: right-click Project Zomboid, **Properties**, **Betas**.
+- Build 41 and Build 42 worlds are not compatible. Back up before switching.
+- To run Build 41, set the Steam beta branch to `legacy41` on the **Startup** tab if your server shows that field, then press **Reinstall Server** under **Settings**. If there is no such field, open a ticket and we will set it.
+
+## Make the server private
+
+- **Password:** set `Password=` in the settings file. Players type it in the server password box when they add the server.
+- **Whitelist:** set `Open=false`. Only players with an account on the server can join. Add them from the **Console**:
+
+| Command | What it does |
+| --- | --- |
+| `adduser <username> <password>` | Creates an account for a player |
+| `addusertowhitelist <username>` | Whitelists a player who is online now |
+| `addalltowhitelist` | Whitelists everyone online |
+| `removeuserfromwhitelist <username>` | Removes a player |
+
+Other related settings: `AutoCreateUserInWhiteList=true` adds new joiners automatically, `DropOffWhiteListAfterDeath=true` removes players when they die, and `Public=false` hides the server from the public list.
+
+## "Workshop version mismatch" when joining
+
+The server has an older copy of a mod than the player, or the reverse.
+
+1. Stop the server.
+2. In **Files**, open `steamapps/workshop` and delete `appworkshop_108600.acf`.
+3. Start the server. It checks every Workshop mod for updates, which can take a few minutes with many mods.
+
+If one player still gets the error, they unsubscribe from all Project Zomboid Workshop items in Steam and join again; the game downloads the right versions.
+
+## "No space left on device" on startup
+
+If the Console shows `java.io.IOException: No space left on device` right after `Start making backup`, the startup backup is opening too many files at once (big saves have tens of thousands of files). It is usually not your disk.
+
+1. Stop the server and open the settings file.
+2. Change `BackupsOnStart=true` to `BackupsOnStart=false`.
+3. Save and start the server.
+
+Keep regular backups with the panel's **Backups** tab instead. If your disk really is full, see [disk full](/using_the_panel/stuck-server#disk-full).
+
+## "Port Closed" warning
+
+This warning means the player is connected through Steam Relay instead of directly. The server still works, but play can be laggier.
+
+- Join from **Multiplayer**, **Favorites** with the IP and port from the panel, with **Use Steam Relay** unticked. Joining from a Steam invite always uses the relay.
+- If you uploaded your own `.ini`, its `DefaultPort=` and `UDPPort=` must match the ports your server has in the panel, not the game's defaults of 16261 and 16262. Fix them and restart.
+
+There is no router setup to do on our side; your server's ports are already open.

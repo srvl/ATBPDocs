@@ -1,40 +1,65 @@
 ---
-title: "Admin Privileges"
-description: "Learn how you can manage admin privileges on your Rust server!"
+title: "Rust admins, bans and commands"
+description: "Make yourself owner or moderator, ban and unban players, run a whitelist, and the commands admins use most."
 ---
 
-### Adding Admin Privileges
+## Make someone owner or moderator
 
-In order to access certain administrator-only features and commands, you will need to mark the account as an admin or
-moderator.
+You need the player's Steam64 ID; see [Find your Steam ID](/extras/steam-id).
 
-First, we must find out the Steam ID of the account. The easiest way is to click your profile in Steam and select the
-'Account details' option.
+1. Open the **Console** tab of your server in the [panel](https://panel.atbphosting.com).
+2. Run one of these:
 
-Here, copy the number from 'Steam ID'.
+| Command | Access |
+| --- | --- |
+| `ownerid 76561198000000000 "Name"` | Full admin, can add other admins |
+| `moderatorid 76561198000000000 "Name"` | Admin commands, cannot add admins |
 
-Alternatively, you can use a website such as this to determine your Steam ID: https://steamid.io/
+3. Run `server.writecfg` so the list is saved and survives restarts.
+4. Rejoin the server. Press `F1` in game to open the console.
 
-Once that's done, head over to the 'Console' tab of your server in the [ATBP panel](https://panel.atbphosting.com)
+To take it away, use `removeowner <id>` or `removemoderator <id>`, then `server.writecfg`.
 
-There are two levels of privileges, and each has a different command to use:
+## Ban and unban
 
-1. `ownerid <id>`: Full privileges; can make other players administrators as well
-2. `moderatorid <id>`: Full privileges; can't make other players administrators
+Run these in the panel **Console**, or in the `F1` console in game as an admin.
 
-In the text box below the console, enter your desired command.
+| Command | What it does |
+| --- | --- |
+| `kick <name or id> "reason"` | Removes a player |
+| `kickall "reason"` | Removes everyone |
+| `ban <name> "reason"` | Bans an online player |
+| `banid <steamid> "name" "reason"` | Bans by Steam ID, online or not |
+| `unban <steamid>` | Lifts a ban. Only works with the Steam ID |
+| `banlistex` | Lists bans with reasons |
 
-As an example, to make the account with Steam ID `76561198827590261` a full privileged admin, we would
-enter: `ownerid 76561198827590261`
+Bans are saved with `server.writecfg`.
 
-And that's it! The player can now access commands through the `F1` in-game console, and can use admin tools such as noclip, and more!
+## Other useful commands
 
----
+| Command | What it does |
+| --- | --- |
+| `status` | Online players with IDs and ping |
+| `say "message"` | Message in chat to everyone |
+| `server.save` | Save the world now |
+| `restart 300 "reason"` | Restart with a 5 minute countdown in chat |
+| `env.time 12` | Set the time of day (0 to 24) |
+| `weather.rain 0` | Stop rain |
+| `teleport <player>`, `teleport2me <player>` | Move to a player, or bring them to you (in game) |
+| `noclip`, `god true` | Fly and take no damage (in game, admins only) |
+| `server.writecfg` | Save admin, ban and settings changes |
 
-### Removing Admin Privileges
+## Private server with a whitelist
 
-If you wish to remove the admin privileges of an account, simply enter one of the following commands in the console as
-before:
+Rust has no built-in whitelist. Use the free **Whitelist** plugin from uMod:
 
-- `removeowner <id>`: in case they had full admin permissions
-- `removemoderator <id>`: in case they only had moderator permissions 
+1. Turn on Oxide and learn how to add plugins in [Using plugins](/games/rust/plugins).
+2. Upload `Whitelist.cs` to `oxide/plugins` and restart. From now on only allowed players can join.
+3. Allow a player: `oxide.grant user <steamid> whitelist.allow`
+4. Remove a player: `oxide.revoke user <steamid> whitelist.allow`
+
+For many players, make an Oxide group, grant the group `whitelist.allow`, and add players to the group with `oxide.usergroup add <steamid> <group>`.
+
+## Remote console tools
+
+Desktop tools such as RustAdmin connect over Rust's WebRCON so staff can run commands without the panel. They need your server IP, the RCON port and the RCON password, which you set on the **Startup** tab. Use a long password; anyone with it controls the server.

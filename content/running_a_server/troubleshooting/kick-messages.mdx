@@ -1,0 +1,47 @@
+---
+title: "Minecraft kick and disconnect messages"
+description: "What the common Minecraft kick, ban and disconnect messages mean and what to do about each."
+---
+
+When a player is kicked or cannot stay connected, Minecraft shows a short message. Find yours below. For anything not listed, check the server **Console** in the [panel](https://panel.atbphosting.com) at the moment the player was kicked; the real reason is usually printed there.
+
+## Connection
+
+| Message | What it means | What to do |
+| --- | --- | --- |
+| Connection timed out | The client could not reach the server at all | See [Connection Timed Out](/running_a_server/troubleshooting/connection-timed-out) |
+| Connection refused | Nothing is answering on that address and port | Check the server is running and the port is right |
+| End of stream | The server stopped sending data, often because it crashed or restarted | Read the Console for a crash |
+| Read timed out | The server stopped hearing from the player | Usually the player's internet; see [ping issues](/extras/ping-issues) |
+| Internal Exception: java.io.IOException | The connection dropped or a packet failed | Often a plugin or mod; on modpacks see [packet errors](/running_a_server/modpack-packet-errors) |
+| Internal server error | The server hit an error handling the player | The Console shows the plugin or mod at fault |
+
+## Login and version
+
+| Message | What it means | What to do |
+| --- | --- | --- |
+| Outdated client / Outdated server | Game and server versions differ | See [Outdated Server or Outdated Client](/running_a_server/troubleshooting/outdated-server-client) or [join from any version](/running_a_server/join-from-any-version) |
+| Failed to verify username | Mojang login check failed | See [Failed to Verify Username](/running_a_server/troubleshooting/failed-to-verify-username) |
+| You are not whitelisted on this server | Whitelist is on and the player is not on it | Add them; see [whitelist](/running_a_server/whitelist) |
+| The server is full | `max-players` reached | Raise it in `server.properties` |
+| You logged in from another location | The same account joined again | Close the other session |
+
+## Bans and kicks
+
+| Message | What it means |
+| --- | --- |
+| You are banned from this server | The account is banned. It may show a reason and an end date. An admin removes it with `pardon <name>` |
+| Your IP address is banned | The IP is banned. Removed with `pardon-ip <ip>` |
+| Kicked by an operator | Someone ran `/kick` |
+| You have been idle for too long | `player-idle-timeout` in `server.properties` kicked an AFK player. Set it to `0` to turn this off |
+
+## Chat and movement
+
+| Message | What it means |
+| --- | --- |
+| disconnect.spam / Kicked for spamming | Chat messages sent too fast |
+| Illegal characters in chat | The message had a blocked character such as `§` |
+| Flying is not enabled on this server | The server thinks the player is flying in Survival. Set `allow-flight=true` if you use flight plugins or mods |
+| Invalid move / moved too quickly | The anti-cheat thought the movement was impossible, often from lag or a mod |
+
+Plugins such as anti-cheats and ban managers add their own messages. If a message names a plugin, look at that plugin's config or its page under Plugins and Mods.

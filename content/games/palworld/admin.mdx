@@ -1,0 +1,36 @@
+---
+title: "Palworld admins and commands"
+description: "Log in as admin with the admin password, then kick, ban, teleport and save with server commands."
+---
+
+## Become an admin
+
+1. Stop the server and set `AdminPassword="something-long"` in your [server settings](/games/palworld/config). Use a password nobody can guess; anyone with it gets full control.
+2. Start the server and join.
+3. Open chat and type `/AdminPassword something-long`.
+
+You stay admin until you leave. Type the command again each time you join.
+
+## Commands
+
+Type these in the in-game chat after logging in as admin. Players are picked by their Steam ID; `/ShowPlayers` lists everyone online with their IDs.
+
+| Command | What it does |
+| --- | --- |
+| `/ShowPlayers` | Lists online players with their IDs |
+| `/Info` | Shows the server version |
+| `/Save` | Saves the world now |
+| `/Broadcast Hello_everyone` | Message to all players. Use underscores instead of spaces |
+| `/KickPlayer <SteamID>` | Removes a player |
+| `/BanPlayer <SteamID>` | Bans a player |
+| `/UnBanPlayer <SteamID>` | Lifts a ban |
+| `/TeleportToPlayer <SteamID>` | Moves you to a player |
+| `/TeleportToMe <SteamID>` | Moves a player to you |
+| `/Shutdown 60 Restarting_soon` | Saves and stops the server after 60 seconds, with a message |
+| `/DoExit` | Stops at once without the countdown. Prefer `/Shutdown` |
+
+See [Find your Steam ID](/extras/steam-id) if you need a player's ID.
+
+## Restart warnings
+
+To warn players before an automatic restart, add a **Send command** step to your restart [schedule](/using_the_panel/schedules) that runs `Broadcast Server_restarting_in_5_minutes` a few minutes before the restart step. Commands sent from the panel need your server to accept console commands; if nothing shows in game, warn players with `/Broadcast` yourself instead.

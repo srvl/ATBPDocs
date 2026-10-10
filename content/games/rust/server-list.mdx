@@ -1,19 +1,24 @@
 ---
-title: "Editing Server List Entry"
-description: "Learn how you can edit the server list entry for your Rust server!"
+title: "Server list entry and visibility"
+description: "Set your Rust server's name, description and header image, and what to check when it does not show in the list."
 ---
 
+## Name, description and image
 
-In order to customize the server list entry of your Rust server, head over to the 'Startup' tab of your server in the
-[ATBP panel](https://panel.atbphosting.com).
+1. Open the **Startup** tab of your server in the [panel](https://panel.atbphosting.com).
+2. Set the server name, description, website URL, header image and max players.
+3. Restart the server from the **Console** tab.
 
-Here you can adjust all related settings, such as the maximum number of players, the server's name, description, website
-URL and header image.
+The header image must be a direct link to a PNG or JPG of exactly **512x256** or **1024x512** pixels. Host it anywhere that gives a direct image link (the link should end in `.png` or `.jpg`).
 
-Due to in-game limitations, the header image field must contain a direct link to a **512x256** or **1024x512** sized PNG or JPEG
-image. We recommend hosting the image on [Imgur](https://imgur.com) and using the direct link.
+## Not showing in the server list
 
-Once you are done tweaking the settings, head back to the 'Console' tab of the panel and restart the server to apply the
-changes.
+Rust lists your server in **Community** (or **Modded** if it runs Oxide plugins). If you cannot find it:
 
-After the restart, the updated name, description and header image will show on your server's entry in the in-game server list.
+1. **Wait a few minutes** after a restart. The list takes time to pick up new or restarted servers.
+2. **Update the server.** An out-of-date server is hidden. Restart it to download updates, especially after the monthly update ([wipes](/games/rust/wipes)).
+3. **Update Oxide and plugins** after every Rust update. Oxide usually follows within a few hours.
+4. **Check the name.** Very long names or unusual symbols can stop the server from listing. Try a short name with letters, numbers and spaces only.
+5. **Check your filters.** In the list, allow empty servers and search the exact name. Modded servers only show under **Modded**.
+
+The in-game list shows a limited number of servers and puts low-ping servers first, so it is never a guarantee. The reliable way in is direct connect: press `F1` and type `client.connect <ip>:<port>`, or add the server to your favourites. See [Connecting to a server](/games/rust/connecting).

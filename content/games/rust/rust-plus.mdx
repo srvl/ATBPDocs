@@ -1,4 +1,26 @@
 ---
-title: "rust-plus"
+title: "Rust+ companion app"
+description: "Let players pair the Rust+ phone app with your server for map, team chat and smart alarms."
 ---
 
+The Rust+ app shows the map, team chat and smart alarms on a phone. It talks to your server through its own port, so the server needs one set aside for it.
+
+## Set it up
+
+1. In the [panel](https://panel.atbphosting.com), open the **Network** tab and add an extra port. See [Adding Ports](/using_the_panel/adding-ports).
+2. Put that port in the Rust+ app port field on the **Startup** tab. If your server has no such field, add `app.port <port>` to `server/rust/cfg/server.cfg` instead.
+3. Restart the server. The Console shows the companion server starting on that port.
+
+## Pair a phone
+
+1. Install Rust+ on the phone and sign in with Steam.
+2. Join the server on PC, press `Esc`, and choose **Rust+**, then **Pair with server**.
+3. Accept the notification on the phone.
+
+Smart devices (alarms, switches) pair the same way: hold `E` on the device in game and choose **Pair**.
+
+## Not working?
+
+- Check the app port is a port that belongs to your server, and that nothing else uses it.
+- `app.port -1` in `server.cfg` turns Rust+ off, so remove that line if it is there.
+- After the monthly wipe players need to pair again.
