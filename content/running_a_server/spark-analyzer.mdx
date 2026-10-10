@@ -9,11 +9,11 @@ The [Spark Analyzer](https://atbphosting.com/tools/spark-analyzer/) reads a spar
 
 1. While the lag is happening, run `/spark profiler start --timeout 300` in your console.
 2. Wait the 5 minutes. Spark prints a link when it stops.
-3. Paste that link into the [Spark Analyzer](https://atbphosting.com/tools/spark-analyzer/) and press **Analyze**. You can also drop a `.sparkprofile` file you exported from the spark viewer.
+3. Paste that link into the [Spark Analyzer](https://atbphosting.com/tools/spark-analyzer/) and press **Analyze**. You can also drop a `.sparkprofile` file you exported from the spark viewer (up to 200 MB).
 
 If your server software ticks worlds on separate threads (Leaf and similar forks), start the profiler with `--thread *` so those threads are included.
 
-The profile is read in your browser. It is not uploaded to ATBP Hosting.
+The profile is read in your browser and is not uploaded to ATBP Hosting. The page only reads spark's own data format: other files are refused, files over 200 MB are refused, and a profile that takes longer than 60 seconds to read is stopped. Nothing in a profile is ever run or shown as a link.
 
 ## What it checks
 
@@ -29,8 +29,13 @@ The profile is read in your browser. It is not uploaded to ATBP Hosting.
 
 ## Reading the results
 
-Results are grouped as **Fix these first**, **Worth fixing**, **Tips and details** and **Looks good**. Start at the top. When a suggestion is marked as changing gameplay, check that you are happy with the change before applying it.
+Results are split into four tabs:
 
-The **Copy as Markdown** button copies the whole report so you can paste it into a [Discord](https://discord.atbphosting.com) ticket.
+- **Summary.** One sentence on how your server is doing, its TPS, tick time and load, and the three changes that help most.
+- **Fixes.** Every change to make, one per line and grouped by file, such as "Turn on hopper.disable-move-event" or "Lower spawn-limits.monsters from 70 to 20". Lines marked **players notice** change gameplay a little; skip them if you prefer. Tap **?** on a line to see why it is suggested.
+- **What's lagging.** Where each tick's time goes, the plugins and entities that use the most, and the detailed findings.
+- **Server info.** Java version, memory, CPU, garbage collection and startup flags.
+
+The **Copy as text** button copies the whole report so you can paste it into a [Discord](https://discord.atbphosting.com) ticket.
 
 To change the settings it suggests, see [Server Optimization](/running_a_server/optimization) and [Mob Spawn Limits](/running_a_server/mob-spawn-limits). For help with a profile, open a ticket in our [Discord](https://discord.atbphosting.com) with the spark link.
