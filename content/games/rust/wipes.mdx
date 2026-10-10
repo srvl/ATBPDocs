@@ -1,0 +1,59 @@
+---
+title: "Rust wipes, saving and decay"
+description: "How forced wipes work, how to wipe the map or blueprints, and how to change save interval, decay and game mode."
+---
+
+import { Callout } from 'nextra/components'
+
+## Forced wipe day
+
+Facepunch releases a Rust update on the **first Thursday of every month at 19:00 UTC** (3:00 AM Friday Philippine time). Every server must update, and the update forces a **map wipe**: the old map and bases cannot load on the new version. Blueprints only wipe when Facepunch says so.
+
+After the update is out, restart your server from the [panel](https://panel.atbphosting.com) so it downloads the new version, then update Oxide and your plugins. Players cannot join until the server matches their game.
+
+## Wipe it yourself
+
+<Callout type="warning">
+
+Wipes cannot be undone. Make a backup in the **Backups** tab first.
+
+</Callout>
+
+1. Stop the server.
+2. In **Files**, open `server/rust` (the folder name matches your server identity).
+3. Delete what you want to wipe:
+   - **Map only:** files ending in `.map` and `.sav` (including `.sav.1`, `.sav.2` and so on).
+   - **Map and blueprints:** the above plus `player.blueprints.*.db`.
+   - **Everything players have:** also delete the other `player.*.db` files.
+4. Start the server. It builds a fresh map from your seed and size.
+
+To get a different map at the same time, change the seed or size first; see [Managing worlds](/games/rust/worlds). Keep `cfg` (your admins, bans and settings) and the `oxide` folder unless you want those gone too.
+
+## Server settings file
+
+Settings that are not on the **Startup** tab go in `server/rust/cfg/server.cfg`, one per line. Create the file if it does not exist. The server reads it every time it starts.
+
+```
+decay.scale 0.5
+server.saveinterval 600
+```
+
+## Save interval
+
+`server.saveinterval` is how often the world saves, in seconds. The default is `600` (10 minutes). Saving more often loses less on a crash but can cause a short hitch on big maps.
+
+## Building decay
+
+`decay.scale` multiplies how fast unprotected buildings fall apart. `1` is normal, `0.5` is half speed, `2` is double, and `0` turns decay off. Buildings inside a stocked Tool Cupboard do not decay in any case.
+
+## Game mode
+
+Rust has three official modes, set with `server.gamemode` in `server.cfg` or on the **Startup** tab if your server lists it:
+
+| Mode | What changes |
+| --- | --- |
+| `vanilla` | Standard Rust |
+| `softcore` | You keep part of your gear on death and can recover the rest at a reclaim terminal |
+| `hardcore` | Fewer helpers such as map markers and some interface aids, for a harsher game |
+
+Changing the mode on an existing world is safest with a wipe. Restart after any change.

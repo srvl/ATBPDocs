@@ -1,8 +1,10 @@
 export default {
   "connecting": "Connecting To A Server",
-  "admin": "Admin Privileges",
-  "server-list": "Editing Server List Entry",
+  "admin": "Admins, bans and commands",
+  "server-list": "Server list entry and visibility",
   "plugins": "Using Plugins",
   "worlds": "Managing Worlds",
-  "rust-plus": "Rust Plus"
+  "wipes": "Wipes, saving and decay",
+  "ram": "How much RAM do I need?",
+  "rust-plus": "Rust+ companion app"
 }

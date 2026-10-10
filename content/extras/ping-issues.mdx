@@ -1,36 +1,52 @@
 ---
 title: "How to diagnose and fix ping issues"
-description: "This guide will help you diagnose and potentially fix ping issues."
+description: "Run a traceroute or MTR to find where lag or packet loss starts, and what to send support."
 ---
 
-This guide shows how to run an MTR, diagnose ping issues and potentially fix them.
+Our servers are in Singapore. Players in the Philippines usually see low ping, so steady high ping, packet loss or random disconnects mean something along the route is struggling. These tests show where it starts: on your Wi-Fi, at your internet provider, somewhere in between, or at the server. Run one before opening a ticket and attach the result; it saves a lot of back and forth.
 
----
+In every command below, use only your server's IP address, without the `:port` part.
 
-## How to run an MTR
+## Quick check: traceroute
 
-MTR probes routers on the route path by limiting the number of hops individual packets may traverse, and listening to responses of their expiry.
+A traceroute lists every hop between you and the server and how long each one takes to answer.
 
-On Windows you can use software such as [WinMTR](https://sourceforge.net/projects/winmtr/).
-1. Click the link and download the application.
-2. Extract the downloaded archive and open the folder.
-3. Start the WinMTR.exe file and enter your server's IP address in the 'host' field.
-4. Click start and let it run for at least a minute.
-5. Take a screenshot of the full results so we can analyze your route.
-6. You can open a ticket on our [Discord server](https://discord.atbphosting.com) and attach the screenshot so we can analyze it.
+- **Windows**: open Command Prompt and run `tracert 123.45.67.89`
+- **macOS or Linux**: open Terminal and run `traceroute 123.45.67.89`
 
-If you want to learn how to read MTR results, you can read [this article](https://www.exavault.com/blog/reading-mtr-output) as well as [this doc](https://www.cloudflare.com/learning/network-layer/what-is-mtr/).
+Replace the address with your server's IP. It takes a minute to finish.
 
-Assuming your issue isn't network related, you can try the steps outlined below.
+## Better check: MTR
 
----
+A traceroute is a single snapshot. MTR keeps pinging every hop, so it catches loss that comes and goes.
 
-## Paper Anti-Xray engine mode 2
+**Windows**
 
-Paper Anti-Xray engine mode 2 can cause ping issues for people with unstable connections or servers with high player counts. You can read more about the different engines of the anti-xray [here](https://gist.github.com/stonar96/ba18568bd91e5afd590e8038d14e245e).
+1. Download [WinMTR](https://sourceforge.net/projects/winmtr/), extract it and open `WinMTR.exe`.
+2. Enter your server's IP in the **Host** field and press **Start**.
+3. Let it run for at least a minute (100 packets or more), then press **Stop**.
+4. Take a screenshot, or press **Copy Text to clipboard** and paste it in your ticket.
 
-We recommend you try changing to engine mode 1, then restart the server and see if the ping issues persist. If they don't, then you know you can safely switch to engine mode 1.
+**Linux**: install `mtr` from your package manager and run `mtr 123.45.67.89`. **macOS**: install it with Homebrew (`brew install mtr`).
 
-You can find this setting (`anti-xray`, `engine-mode`) in `config/paper-world-defaults.yml`. See [Anti-Xray](/running_a_server/anti-xray).
+## Reading the result
 
----
+- **Loss on one hop and every hop after it** points to a problem at that hop.
+- **Loss on one hop only, with the hops after it at 0%** is usually fine. Many routers simply do not answer test packets.
+- **Loss on your first hop or two** is your own router or Wi-Fi. Try a cable, restart the router, or move closer.
+- **A big jump in time that stays high on later hops** is a slow or busy link at that point.
+- Run the test two or three times, ideally while the lag is happening. One run can mislead.
+
+## Sending it to us
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with:
+
+- a full screenshot of the MTR or traceroute, not a summary
+- the time the lag happened
+- whether it happens all the time or only sometimes, and whether other players see it too
+
+If only one player lags while everyone else is fine, the problem is almost always on that player's connection.
+
+## Minecraft: Paper Anti-Xray
+
+On Paper servers, Anti-Xray engine mode 2 can cause lag for players on unstable connections or on busy servers. Try engine mode 1, restart, and see if the lag goes away. The setting (`anti-xray`, `engine-mode`) is in `config/paper-world-defaults.yml`. See [Anti-Xray](/running_a_server/anti-xray).

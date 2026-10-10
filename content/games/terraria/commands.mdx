@@ -1,0 +1,49 @@
+---
+title: "Terraria server commands"
+description: "Console commands for vanilla Terraria servers, and how to keep the server up to date."
+---
+
+Type these in the **Console** tab of your server in the [panel](https://panel.atbphosting.com), without a slash. They work on vanilla and tModLoader servers. TShock has its own, larger set; see [TShock admin](/games/terraria/tshock/admin).
+
+| Command | What it does |
+| --- | --- |
+| `help` | Lists commands |
+| `playing` | Lists online players (players can type `/playing` in chat too) |
+| `say <message>` | Message to everyone, shown in yellow |
+| `kick <player>` | Removes a player |
+| `ban <player>` | Bans a player |
+| `password` | Shows the current password |
+| `password <new>` | Changes the password until the next restart |
+| `motd` / `motd <message>` | Shows or changes the message of the day |
+| `save` | Saves the world now |
+| `exit` | Saves and stops the server |
+| `exit-nosave` | Stops without saving |
+| `dawn`, `noon`, `dusk`, `midnight` | Sets the time |
+| `time` | Shows the in-game time |
+| `settle` | Settles all liquids |
+| `maxplayers` | Shows the player limit |
+| `version` | Shows the server version |
+
+Bans are saved in `banlist.txt` in the server folder. To unban someone on vanilla, remove their line from that file while the server is stopped. See [Banning / Unbanning](/games/terraria/banning).
+
+A password set with the `password` command is lost on restart. To keep one, use the **Startup** tab; see [Using a server password](/games/terraria/password).
+
+## Keep the server updated
+
+When Terraria or tModLoader updates, players on the new version cannot join an old server.
+
+1. Stop the server and make a backup in the **Backups** tab.
+2. Open **Settings** and press **Reinstall Server**. This replaces the game files only; worlds in `saves/Worlds` and your mods stay.
+3. Start the server and check the version in the Console.
+
+If players are still on an older version, they need to update their game too. Server and players must match.
+
+## Vanilla, tModLoader or TShock
+
+| Server type | Use it for |
+| --- | --- |
+| Vanilla | The normal game with no changes |
+| [tModLoader](/games/terraria/tmodloader/overview) | Playing with mods. Every player also needs tModLoader and the same mods |
+| [TShock](/games/terraria/tshock/overview) | Vanilla gameplay with admin tools: permissions, region protection, server-side characters and plugins |
+
+Worlds made on vanilla also load on TShock and tModLoader. A world played with mods may not load correctly on vanilla again, so back it up before switching. If you cannot change the server type yourself in the panel, open a ticket.

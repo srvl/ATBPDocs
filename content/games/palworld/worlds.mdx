@@ -1,0 +1,44 @@
+---
+title: "Upload or move a Palworld world"
+description: "Bring a single-player, co-op or other host's world to your server and point the server at it."
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+
+Make a backup in the **Backups** tab first, and keep a copy of the world on your PC until everything works.
+
+</Callout>
+
+## 1. Find the world on your PC or old host
+
+- **Single player or co-op (Windows):** press Windows + R, paste `%LOCALAPPDATA%\Pal\Saved\SaveGames` and open the folder named with your Steam ID. Each world is a folder with a long name of letters and numbers, such as `FC327F2C4EE8AA9858F0CAAFA06E40A4`. The game does not show which folder is which world, so use the **Date modified** column to find the one you played last.
+- **Another dedicated server:** download the world folder from `Pal/Saved/SaveGames/0/`, and the `PalWorldSettings.ini` from `Pal/Saved/Config/` so you can copy your settings across.
+
+Zip the world folder (right-click, **Compress to ZIP file**).
+
+## 2. Upload it
+
+1. Start your server once and let it finish starting, then stop it. This creates the save folders.
+2. In the [panel](https://panel.atbphosting.com), open **Files** and go to `Pal/Saved/SaveGames/0/`.
+3. Upload your zip there and choose **Unarchive**. For big worlds use [SFTP](/using_the_panel/sftp) instead.
+4. Note the name of your world folder exactly. You can delete the empty world folder the server made in step 1.
+
+## 3. Point the server at it
+
+1. Open `Pal/Saved/Config/LinuxServer/GameUserSettings.ini`.
+2. Set `DedicatedServerName=` to your world folder's name, for example `DedicatedServerName=FC327F2C4EE8AA9858F0CAAFA06E40A4`.
+3. Save and start the server.
+
+If the world loads but your settings or passwords are ignored, the world brought a `WorldOption.sav` with it. See [settings not applying](/games/palworld/config#settings-not-applying-after-a-world-upload).
+
+## Co-op worlds and the host's character
+
+In a co-op world the host's character is saved under a special ID that a dedicated server does not use. After uploading, the host usually gets asked to make a new character, while friends who joined keep theirs.
+
+To keep the host's character, convert the save before you upload it with a community Palworld host save fix tool, following its instructions, then upload the converted folder. Keep your original zip in case the conversion goes wrong. If you get stuck, open a ticket before you overwrite anything on the server.
+
+## World folder is empty after a wipe
+
+A new world is often only written to disk after someone joins. Start the server, join once, run `/Save` as admin (see [admins and commands](/games/palworld/admin)), and the folder appears.

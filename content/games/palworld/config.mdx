@@ -1,22 +1,66 @@
 ---
-title: "Modifying Settings"
-description: "Learn how you can change the settings of your Palworld server!"
+title: "Palworld server settings"
+description: "Change rates, difficulty, player count and other options in PalWorldSettings.ini, and why a world upload can override them."
 ---
 
+import { Callout } from 'nextra/components'
 
-First, stop your server. Then, using the [File Manager](/using_the_panel/file-manager-controls), 
-copy the contents of the `DefaultPalWorldSettings.ini` file to the 
-`Pal/Saved/Config/LinuxServer/PalWorldSettings.ini` file.
-Lastly, remove the first 3 lines of the file.
+Palworld reads its options from one long `OptionSettings=` line in `PalWorldSettings.ini`.
 
-It should look something like this when you are finished:
-```ini
-[/Script/Pal.PalGameWorldSettings]
-OptionSettings=(Difficulty=None,DayTimeSpeedRate=1.000000,NightTimeSpeedRate=1.000000,ExpRate=1.000000,PalCaptureRate=1.000000,PalSpawnNumRate=1.000000,PalDamageRateAttack=1.000000,PalDamageRateDefense=1.000000,PlayerDamageRateAttack=1.000000,PlayerDamageRateDefense=1.000000,PlayerStomachDecreaceRate=1.000000,PlayerStaminaDecreaceRate=1.000000,PlayerAutoHPRegeneRate=1.000000,PlayerAutoHpRegeneRateInSleep=1.000000,PalStomachDecreaceRate=1.000000,PalStaminaDecreaceRate=1.000000,PalAutoHPRegeneRate=1.000000,PalAutoHpRegeneRateInSleep=1.000000,BuildObjectDamageRate=1.000000,BuildObjectDeteriorationDamageRate=1.000000,CollectionDropRate=1.000000,CollectionObjectHpRate=1.000000,CollectionObjectRespawnSpeedRate=1.000000,EnemyDropItemRate=1.000000,DeathPenalty=All,bEnablePlayerToPlayerDamage=False,bEnableFriendlyFire=False,bEnableInvaderEnemy=True,bActiveUNKO=False,bEnableAimAssistPad=True,bEnableAimAssistKeyboard=False,DropItemMaxNum=3000,DropItemMaxNum_UNKO=100,BaseCampMaxNum=128,BaseCampWorkerMaxNum=15,DropItemAliveMaxHours=1.000000,bAutoResetGuildNoOnlinePlayers=False,AutoResetGuildTimeNoOnlinePlayers=72.000000,GuildPlayerMaxNum=20,PalEggDefaultHatchingTime=72.000000,WorkSpeedRate=1.000000,bIsMultiplay=False,bIsPvP=False,bCanPickupOtherGuildDeathPenaltyDrop=False,bEnableNonLoginPenalty=True,bEnableFastTravel=True,bIsStartLocationSelectByMap=True,bExistPlayerAfterLogout=False,bEnableDefenseOtherGuildPlayer=False,CoopPlayerMaxNum=4,ServerPlayerMaxNum=32,ServerName="Default Palworld Server",ServerDescription="",AdminPassword="",ServerPassword="",PublicPort=8211,PublicIP="",RCONEnabled=False,RCONPort=25575,Region="",bUseAuth=True,BanListURL="https://api.palworldgame.com/api/banlist.txt")
-```
+<Callout type="warning">
 
-Now you can change it to your heart's content!
+Always stop the server before editing. Palworld rewrites the file when it shuts down, so changes made while it runs are lost.
 
-Optionally, use this [configuration generator](https://pal-conf.bluefissure.com/).
+</Callout>
 
-Make sure to restart your server to apply the changes.
+## Edit the settings file
+
+1. Stop the server in the [panel](https://panel.atbphosting.com).
+2. If the setting you want is listed on the **Startup** tab, change it there instead. Startup values are applied when the server starts, so a hand edit of the same setting would be replaced.
+3. For everything else, open **Files** and go to `Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`.
+4. If the file is empty, copy everything from `DefaultPalWorldSettings.ini` in the main folder into it, then delete the lines above `[/Script/Pal.PalGameWorldSettings]`.
+5. Change the values you want, save, and start the server.
+
+Use decimals for rates, for example `ExpRate=2.000000`, not `ExpRate=2`. Text values go in quotes, for example `ServerName="My Server"`.
+
+A community generator such as [pal-conf](https://pal-conf.bluefissure.com/) can build the whole line for you to paste in.
+
+## Settings people change most
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| `ServerName`, `ServerDescription` | | Name and description in the server list |
+| `ServerPassword` | empty | Join password |
+| `AdminPassword` | empty | Password for `/AdminPassword` (see [admins and commands](/games/palworld/admin)) |
+| `ServerPlayerMaxNum` | 32 | Maximum players |
+| `ExpRate` | 1.0 | Experience gained |
+| `PalCaptureRate` | 1.0 | How easy Pals are to catch |
+| `PalSpawnNumRate` | 1.0 | How many Pals spawn. Higher uses more CPU and RAM |
+| `DayTimeSpeedRate`, `NightTimeSpeedRate` | 1.0 | Length of day and night |
+| `PalEggDefaultHatchingTime` | 72.0 | Hours to hatch an egg |
+| `WorkSpeedRate` | 1.0 | How fast Pals work at bases |
+| `DeathPenalty` | All | `None`, `Item`, `ItemAndEquipment` or `All` dropped on death |
+| `bIsPvP`, `bEnablePlayerToPlayerDamage` | False | Player versus player |
+| `bEnableInvaderEnemy` | True | Raids on bases. Turning it off saves memory |
+| `DropItemMaxNum` | 3000 | Items allowed on the ground at once |
+| `DropItemAliveMaxHours` | 1.0 | Hours before dropped items vanish |
+| `BaseCampMaxNum`, `BaseCampWorkerMaxNum` | 128, 15 | Bases in the world, worker Pals per base |
+| `GuildPlayerMaxNum` | 20 | Players per guild |
+| `bEnableFastTravel` | True | Fast travel points |
+| `bHardcore`, `bPalLost` | False | Permadeath for players, and Pals lost for good on death |
+| `CrossplayPlatforms` | (Steam,Xbox,PS5,Mac) | Which platforms can join |
+
+Some options exist in the file but do nothing in the current game version. If a change has no effect after a restart, that is usually why.
+
+## Settings not applying after a world upload
+
+If you uploaded a world from single player, co-op or another host, its folder may contain a `WorldOption.sav`. When that file is there, Palworld uses the settings saved inside it and ignores `PalWorldSettings.ini`, including the passwords.
+
+To go back to the settings file:
+
+1. Stop the server.
+2. In **Files**, open `Pal/Saved/SaveGames/0/` and then your world folder (the long letters-and-numbers name).
+3. Download `WorldOption.sav` as a backup, then rename it to `WorldOption.sav.old`.
+4. Check your values in `PalWorldSettings.ini` and start the server.
+
+Hardcore and randomizer options are the exception: some game versions only read them from `WorldOption.sav`. If you need those, keep the file and replace it whenever you change settings.

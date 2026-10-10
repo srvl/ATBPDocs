@@ -5,7 +5,8 @@ description: "Automate restarts, commands, backups and file jobs with schedules 
 
 Schedules run tasks for you at set times: restart the server, send a command, make a backup, clean up files or post to Discord. Open your server in the [panel](https://panel.atbphosting.com) and go to the **Schedules** tab.
 
-## Create a schedule
+## Create a schedule
+
 
 ![The Schedules page with Presets, Import and Create schedule buttons](/screenshots/panel-schedules.webp)
 
@@ -40,6 +41,17 @@ Press **Turn into a workflow** to use the visual builder. Steps stack from top t
 **Duplicate this schedule** makes a copy, and **Download this workflow as a file** saves it so you can **Import** it on another server. Copied and imported schedules start turned off, so check them before you turn them on.
 
 ## Tips
+
+- The command to warn players differs by game:
+
+| Game | Warning command |
+| --- | --- |
+| Minecraft | `say Restarting in 5 minutes` |
+| Terraria | `say Restarting in 5 minutes` |
+| Rust | `say "Restarting in 5 minutes"` |
+| Project Zomboid | `servermsg "Restarting in 5 minutes"` |
+| 7 Days to Die | `say "Restarting in 5 minutes"` |
+| Palworld | `Broadcast Restarting_in_5_minutes` |
 
 - A daily restart helps games that use more memory the longer they run, such as Palworld.
 - Back up before a restart, not during busy hours. Daily backups are enough for most servers; very frequent backups on a big world can cause lag.

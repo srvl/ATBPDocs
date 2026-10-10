@@ -1,0 +1,22 @@
+---
+title: "How much RAM does a Rust server need?"
+description: "Starting points by map size, and what plugins and players add."
+---
+
+Map size has the biggest effect on Rust's memory use, then plugins, then players. These are starting points for a vanilla server with a small group:
+
+| Map size | RAM to start with |
+| --- | --- |
+| 1000 to 2000 | 8 GB |
+| 3000 | 8 to 10 GB |
+| 4000 (the default) | 10 to 12 GB |
+| 5000 to 6000 | 12 to 16 GB |
+
+## What adds to it
+
+- **Plugins:** most use 50 to 200 MB each. A typical set of 10 to 20 plugins adds 1 to 3 GB.
+- **Players:** roughly 50 to 100 MB per player online, more on busy servers with big bases.
+- **Time since wipe:** memory grows as players build. Usage near the end of a wipe cycle is the number to plan for.
+- **Custom maps** with many prefabs use more than a procedural map of the same size.
+
+Watch the memory graph on the **Console** tab in the [panel](https://panel.atbphosting.com) late in a wipe. If it sits at your limit or the server crashes, move to a bigger plan ([upgrades](/billing/upgrades-and-downgrades)) or pick a smaller map on the next wipe.

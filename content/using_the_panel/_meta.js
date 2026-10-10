@@ -10,5 +10,6 @@ export default {
   "sftp": "Using SFTP For Files",
   "split-server": "Splitting servers",
   "2fa": "2-Factor Authentication",
-  "backups": "Backups"
+  "backups": "Backups",
+  "stuck-server": "Stuck starting, stopping or installing"
 }

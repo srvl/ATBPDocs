@@ -44,3 +44,12 @@ Stop the server first so your edit is not overwritten.
 | `info` | Prints system info |
 
 Cheat commands such as `god`, `fly` and `spawn` do not work on a normal dedicated server, even for admins. They need a mod like Server Devcommands installed on both the server and every client, see [mods](/games/valheim/mods).
+
+## Whitelist and ban list
+
+The same folder as `adminlist.txt` holds two more lists, one ID per line:
+
+- `permittedlist.txt`: when it has at least one ID, only those players can join. Leave it empty to let everyone in.
+- `bannedlist.txt`: players who cannot join. The `ban` and `unban` commands edit it for you.
+
+Edit them with the server stopped, then start it again. See [Find your Steam ID](/extras/steam-id) for Steam players.

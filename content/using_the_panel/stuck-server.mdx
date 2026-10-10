@@ -1,0 +1,67 @@
+---
+title: "Server stuck starting, stopping or installing"
+description: "What to do when a server will not stop, will not start, shows empty files, or stays on installing."
+---
+
+Most stuck servers come back with one of the steps below. Work through the section that matches what you see in the [panel](https://panel.atbphosting.com).
+
+## Stuck on stopping
+
+Some games, Palworld in particular, do not always react to the normal stop signal and sit on "stopping".
+
+1. Press **Stop** and give it a full minute. Many games save the world before they close, and big worlds take a while.
+2. If it is still stopping, press the stop button again. It now acts as **Kill** and ends the server straight away.
+3. Start the server and watch the **Console** for errors.
+
+Kill is like pulling the power cord. Anything not saved yet is lost, and in rare cases a save file is damaged. Use it only after a normal stop has had its chance. If you know you are about to stop, run the game's save command first (for example `save-all` in Minecraft, `save` in Palworld or Terraria, `saveworld` in 7 Days to Die).
+
+If progress is missing after a kill, restore the latest copy from the **Backups** tab. See [Backups](/using_the_panel/backups/guide).
+
+## Will not start and Files looks empty
+
+If the **Files** tab is missing the usual game folders, the game install was deleted or never finished.
+
+1. Stop the server (kill it if it hangs).
+2. Open **Settings** and press **Reinstall Server**.
+3. Wait for the install to finish, then start the server.
+
+A reinstall puts the game files back. It does not bring back a deleted world, so afterwards restore a backup from the **Backups** tab or upload your own copy of the world.
+
+## Stuck on installing
+
+A new server or a reinstall usually finishes in a few minutes; big games can take longer the first time.
+
+- Leave it alone. Pressing Start or Reinstall again while it installs only makes it take longer.
+- Refresh the page after waiting.
+- If it still says installing after 30 minutes, open a ticket with your panel link. Staff can clear a stuck install.
+
+## Game update broke the server
+
+Steam games (Palworld, Rust, Valheim, 7 Days to Die, Project Zomboid, DayZ and others) download updates through SteamCMD. If an update fails or the server keeps starting an old version:
+
+1. Stop the server and make a backup.
+2. In **Files**, delete the `steamapps` folder in the main folder of your server. This clears the update cache only, not your world.
+3. Open **Settings** and press **Reinstall Server**, then start the server.
+
+## Disk full
+
+If the console says there is no space left, or uploads fail with a disk error, your server is out of disk.
+
+- Delete old logs, old backups you downloaded to the server, and unused worlds.
+- Empty the **Trash Bin** in the file manager. Files in the trash still count against your disk.
+- If you still need room, move to a bigger plan. See [Upgrades and downgrades](/billing/upgrades-and-downgrades).
+
+## Wipe everything and start over
+
+To start from nothing (a new modpack, a broken world, or just a fresh start):
+
+1. Make a backup of anything you want to keep, or download it.
+2. Stop the server.
+3. In **Files**, tick the box at the top to select everything and delete it.
+4. Open **Settings** and press **Reinstall Server**.
+
+Deleted files that went to the trash can be restored from the **Trash Bin** until it is emptied. **Delete Permanently** cannot be undone.
+
+## Still stuck
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link, what you already tried, and a screenshot of the **Console**. See [How to get support](/general/getting-support).

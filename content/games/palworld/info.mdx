@@ -1,26 +1,11 @@
 ---
-title: "Frequent Issues & FAQ"
-description: "Find useful information, such as known issues, frequently asked questions, and more, for Palworld"
+title: "Palworld performance and common issues"
+description: "RAM sizing, settings that cut lag and memory use, and fixes for hangs and servers missing from the list."
 ---
 
-## Known Issues / FAQ
+Palworld is one of the heaviest games to host. Memory use climbs the longer it runs, and much of the game runs on a single CPU core, so a few settings and a restart schedule matter more than raw size.
 
-1. **The server won't show up in the Community-Server tab**:
-   - This is a known problem that the developers will hopefully fix soon. The best choice is to connect by IP and password.
-2. **The server has a memory leak**:
-   - The developers are aware of this issue too.
-   - The `bEnableInvaderEnemy` option seems to have a huge impact on RAM usage. Disabling it can help.
-   - Schedule a server restart every 6 hours, and adjust the interval to suit your server.
-3. **The server does not show up in the steam server list**:
-   - This is not supported right now and might never be.
-4. **The config file gets deleted / reset on server restart**:
-   - Before editing the config file always make sure to fully stop the server first. Otherwise your changes will not be saved.
-
----
-
-## Recommended Server Limits
-
-Palworld uses more memory the longer it runs, so pick a size with some headroom and restart the server regularly.
+## How much RAM
 
 | Players | RAM |
 |---|---|
@@ -28,11 +13,30 @@ Palworld uses more memory the longer it runs, so pick a size with some headroom 
 | 8 to 16 | 10 to 12 GB |
 | Up to 32 | 16 GB |
 
-- Set a [schedule](/using_the_panel/schedules) to restart the server every 6 hours (or daily for small groups). This clears the memory build-up before players notice lag.
-- Turning off `bEnableInvaderEnemy` lowers memory use noticeably.
-- The game itself needs about 5 GB of disk; every ATBP Palworld plan has at least 48 GB of NVMe (8 GB per 1 GB of RAM on Premium+, 6 on Budget+), so worlds and backups have plenty of room.
+The game itself needs about 5 GB of disk; every ATBP Palworld plan has at least 48 GB of NVMe (8 GB per 1 GB of RAM on Premium+, 6 on Budget+), so worlds and backups have plenty of room.
 
----
+## Keep it smooth
+
+- **Restart on a schedule.** Set a [schedule](/using_the_panel/schedules) to restart every 6 hours (or daily for small groups). This clears the memory build-up before players notice lag.
+- **Turn off raids** with `bEnableInvaderEnemy=False` if your group does not need them. It lowers memory use noticeably.
+- **Fewer items on the ground:** set `DropItemMaxNum` below `1000` and `DropItemAliveMaxHours` to `0.5`.
+- **Fewer Pals:** keep `PalSpawnNumRate` at `1.0` or lower, and keep bases and worker counts sensible.
+- **Test without mods** if lag started after adding one.
+
+All of these are in your [server settings](/games/palworld/config). Restart after changing them.
+
+A bigger plan helps when the memory graph sits at your limit or the server crashes and rolls back. It does not fix lag that comes from one busy CPU core. If memory looks fine and the server still rubber-bands with only a few players, open a ticket with your panel link so we can look at the node.
+
+## Common issues
+
+**Server is not in the community list.** The list is unreliable. Join by IP instead; see [Join your Palworld server](/games/palworld/connecting).
+
+**Settings or passwords reset after a restart.** Stop the server fully before editing, or the game overwrites your changes. If you uploaded a world, check for `WorldOption.sav` (see [settings](/games/palworld/config#settings-not-applying-after-a-world-upload)).
+
+**Server freezes without crashing.** After some updates the game files are only partly updated. Stop the server, delete the `Pal/Binaries` folder in **Files**, then press **Reinstall Server** under **Settings** and start it. Your world is in `Pal/Saved` and is not touched, but make a backup first anyway.
+
+**Stuck on "stopping".** Palworld sometimes ignores the stop signal. See [Server stuck starting, stopping or installing](/using_the_panel/stuck-server).
 
 ## Credits
+
 - [parkervcp's Pterodactyl Eggs Repository](https://github.com/parkervcp/eggs/tree/master/game_eggs/steamcmd_servers/palworld)
