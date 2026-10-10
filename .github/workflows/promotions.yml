@@ -1,0 +1,35 @@
+# Keeps content/billing/current-promotions.mdx in step with the coupons marked "Announce publicly" in billing.
+# Commits only when the list changes; the bridge VPS republishes the site and the support bot's knowledge base
+# picks the page up from master on their own.
+name: Current promotions
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: current-promotions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Write the page from billing
+        run: node scripts/promotions.mjs
+      - name: Commit when it changed
+        run: |
+          if git diff --quiet -- content/billing/current-promotions.mdx; then echo "no change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/billing/current-promotions.mdx
+          git commit -m "Current promotions: update from billing"
+          git push
