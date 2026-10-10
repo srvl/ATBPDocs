@@ -18,3 +18,7 @@ High memory use alone is normal. Java keeps memory it may reuse. Read [Understan
 5. **Upgrade.** Large modpacks and busy servers need more RAM. See [Choosing a Plan](/general/choosing-a-plan) and [Upgrades and Downgrades](/billing/upgrades-and-downgrades).
 
 Need help? Open a [support ticket](/general/getting-support).
+
+## "pthread_create failed" or thread errors
+
+This is not a RAM problem. A plugin or mod is starting too many threads. Use [Spark](/running_a_server/spark) to see which one spawns hundreds of tasks, remove duplicate plugin jars, and roll back recent plugin updates. If it keeps happening, open a ticket with your Spark report.

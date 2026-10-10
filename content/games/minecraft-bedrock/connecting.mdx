@@ -22,3 +22,11 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 - Look for typos or extra spaces in the address and port.
 - Make sure the port is in its own box, not typed into the address.
 - Consoles cannot add servers directly, see [joining from console](/games/minecraft-bedrock/consoles).
+
+## Bedrock players suddenly cannot join
+
+- Check https://status.atbphosting.com first. A network incident can stop players from joining even though your server is fine.
+- **Console mentions NetherNet?** Open **Files**, edit `server.properties` (for Geyser, the Geyser `config.yml`) and set the network transport to `raknet` instead of `nethernet`. Save and restart. NetherNet is new and not supported everywhere yet.
+- **Stuck on the loading screen?** Remove addons one by one to find the one causing it, see [Bedrock Addons](/running_a_server/bedrock-addons).
+- **After changing or deleting a port?** Any subdomain still points at the old port. Delete the subdomain and create it again for the new port.
+- **Java and Bedrock on the same server?** Bedrock players join with the Bedrock port, which can differ from the Java port.
