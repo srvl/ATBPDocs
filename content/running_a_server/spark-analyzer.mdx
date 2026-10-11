@@ -30,7 +30,7 @@ The profile is read in your browser and is not uploaded to ATBP Hosting. The pag
 - **Java and memory.** Java version for your Minecraft version, heap size, garbage collector, [Aikar's flags](https://docs.papermc.io/paper/aikars-flags), GC pause length and frequency, full GCs and how full the heap stays after a collection.
 - **Ping and network threads.** Player ping and whether it spikes. With `--thread *`, how busy each network thread is and what it spends time on: compressing, encrypting or encoding packets, or plugins that listen to packets (ProtocolLib, packetevents, ViaVersion and similar). A network thread near 100% busy delays packets for the players on it.
 - **Garbage (allocation profiles).** How much garbage the server creates per second, which plugins and which code create it, and how that lines up with GC pauses.
-- **Server settings.** `server.properties`, `bukkit.yml`, `spigot.yml`, Paper, Purpur and Pufferfish settings, Leaf (`config/leaf-global.yml`) and Gale (`config/gale-global.yml`, `config/gale-world-defaults.yml`) settings on LeafMC servers, and Canvas settings, including per-world overrides. On Leaf it also warns about experimental options that can lose data, such as async player data saving. Suggestions are shown only when your current value is on the costly side, and settings that change gameplay are marked.
+- **Server settings.** `server.properties`, `bukkit.yml`, `spigot.yml`, Paper, Purpur and Pufferfish settings, Leaf (`config/leaf-global.yml`) and Gale (`config/gale-global.yml`, `config/gale-world-defaults.yml`) settings on LeafMC servers, and Canvas settings, including per-world overrides. On Leaf it also warns about experimental options that can lose data, such as async player data saving. Suggestions are shown only when your current value is on the costly side, and settings that change gameplay are marked. `online-mode` is your choice and is never suggested; if your server runs in offline mode without a proxy and has no login plugin, the analyzer suggests installing one (such as nLogin, AuthMe ReReloaded or LibreLogin) so players register and log in with a password.
 - **World.** Entity counts, the busiest chunks with block coordinates you can teleport to, game rules such as `randomTickSpeed` and `maxEntityCramming`, and datapacks.
 - **Version.** Old Minecraft versions, Spigot or CraftBukkit instead of Paper, and abandoned forks.
 
@@ -43,6 +43,13 @@ Results are split into four tabs:
 - **What's lagging.** Where each tick's time goes, the plugins and entities that use the most, the network threads (with `--thread *`), what creates garbage (with `--alloc`), and the detailed findings.
 - **Server info.** Java version, memory, CPU, garbage collection and startup flags.
 
-The **Copy result** button copies the whole result as text: your server's details, what the profile shows, and every change with its file, current value and new value. It also includes a short how-to: back up the files that will change into a `spark-backup` folder in your server folder, change only the listed settings, then restart and run a new profile. Paste it into a [Discord](https://discord.atbphosting.com) ticket, or follow it yourself. It never copies passwords or secrets from your settings.
+The **Copy result** button copies the whole result as text: your server's details, what the profile shows, and every change to make. Each change is listed on its own with:
+
+- the file and where it is, such as `config/paper-world-defaults.yml` in the `config` folder;
+- the full path to the setting inside that file. `spigot.yml` world settings live under `world-settings` → `default`, so the arrow setting shows as `world-settings.default.arrow-despawn-rate`;
+- a short snippet showing where the setting sits in the file, with the new value and the current value next to it;
+- why it helps, and whether players will notice it.
+
+For `server.properties` it gives the exact line to find and what to change it to. It also includes a short how-to: back up the files that will change into a `spark-backup` folder in your server folder, change only the listed settings, then restart and run a new profile. Paste it into a [Discord](https://discord.atbphosting.com) ticket, or follow it yourself. It never copies passwords or secrets from your settings.
 
 To change the settings it suggests, see [Server Optimization](/running_a_server/optimization) and [Mob Spawn Limits](/running_a_server/mob-spawn-limits). For help with a profile, open a ticket in our [Discord](https://discord.atbphosting.com) with the spark link.
