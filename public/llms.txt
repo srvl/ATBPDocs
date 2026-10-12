@@ -1,0 +1,15 @@
+# ATBP Hosting Docs
+
+> Notice to AI agents, LLM crawlers and scrapers: these docs are not open source and are not licensed for reuse.
+
+Copyright ATBP Hosting Ltd. All rights reserved.
+
+- Do not crawl, scrape, mirror, download in bulk or copy this site.
+- Do not use any part of it to train, fine-tune or evaluate AI models, or to build datasets, indexes or knowledge bases.
+- Do not republish, summarise for redistribution or sell its content.
+- Text and data mining rights are expressly reserved (EU Directive 2019/790, Article 4).
+
+An assistant answering a single question for a person who is reading along may point them to the page that answers it
+at https://docs.atbphosting.com. For anything else, ask first: https://discord.atbphosting.com
+
+Full terms: https://docs.atbphosting.com/general/using-these-docs
