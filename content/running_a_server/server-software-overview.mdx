@@ -1,6 +1,6 @@
 ---
 title: "Server Software Overview"
-description: "A plain-English guide to Vanilla, Paper, Purpur, Fabric, Forge and more."
+description: "A plain-English guide to Vanilla, Paper, Purpur, Fabric, Forge, Bedrock, Endstone and more, and how to switch."
 ---
 
 The server software (the jar file) decides which features and mods your server supports. For install steps, see [Server Jars](/running_a_server/jars).
@@ -21,9 +21,24 @@ Players usually need the same mods installed on their own game. See [Installing 
 
 ## Special setups
 
-- **Proxies** (Velocity, Waterfall): connect several servers together. See [Velocity](/running_a_server/velocity).
+- **Proxies** (Velocity, Velocity-CTD, BungeeCord): connect several servers together. See [Velocity](/running_a_server/velocity).
 - **Hybrids**: try to run mods and plugins together. See [Hybrid Servers](/running_a_server/hybrid-servers).
-- **Bedrock**: the Bedrock Dedicated Server is its own software. Java and Bedrock players can share one Java server with Geyser, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+## For Bedrock
+
+- **Vanilla Bedrock**: Mojang's official Bedrock Dedicated Server. Players join from phones, consoles, Windows and the other Bedrock apps.
+- **Vanilla Bedrock (Preview)**: Mojang's preview builds. Only players on the Minecraft Preview app can join, so use it for testing, not your main world.
+- **Endstone**: a Bedrock server that runs Python and C++ plugins. It installs the Bedrock version that matches the Endstone version you pick.
+
+Java and Bedrock players can also share one Java server with Geyser, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+
+## Switching software or version
+
+Open your server on the [panel](https://panel.atbphosting.com) and go to **Versions**. Pick the software, then the version and build, and press install.
+
+- [Make a backup](/using_the_panel/backups/guide) first. Worlds do not carry over between Java and Bedrock.
+- Your files stay unless you turn on deleting server files. When you move between Java and Bedrock, the old `server.properties` is renamed (for example to `server.properties.java`) so the new software starts with its own.
+- Bedrock and Endstone install through the server installer, so the server shows as installing for a minute or two. Start it when that finishes.
+- Endstone is not available on every node. If it will not install on your server, open a ticket.
 
 ## Quick pick
 
@@ -34,3 +49,5 @@ Players usually need the same mods installed on their own game. See [Installing 
 | Light mods | Fabric |
 | Big modpacks | Forge or NeoForge, depending on the pack |
 | Unmodified game | Vanilla |
+| Bedrock players (phones, consoles) | Vanilla Bedrock |
+| Bedrock with plugins | Endstone |
