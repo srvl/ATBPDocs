@@ -7,7 +7,10 @@ import './atbp.css'
 
 export const metadata = {
   title: { default: 'ATBP Hosting Docs', template: '%s – ATBP Docs' },
-  description: 'Guides, tips and policies for ATBP Hosting game servers.'
+  description: 'Guides, tips and policies for ATBP Hosting game servers.',
+  // Not open source: search engines may index, AI crawlers and scrapers may not (robots.js, /llms.txt, /general/using-these-docs).
+  robots: 'index, follow, noai, noimageai',
+  other: { 'tdm-reservation': '1', 'tdm-policy': 'https://docs.atbphosting.com/general/using-these-docs' }
 }
 
 const navbar = (
@@ -29,7 +32,7 @@ const footer = (
   <Footer>
     <div className="atbp-footer">
       <div>
-        <div>© {new Date().getFullYear()} ATBP Hosting Ltd.</div>
+        <div>© {new Date().getFullYear()} ATBP Hosting Ltd. All rights reserved. Not open source: no scraping, copying or AI training. <a href="/general/using-these-docs">Using these docs</a></div>
         <div style={{ fontSize: '0.75rem', opacity: 0.7, marginTop: '0.4rem' }}>
           NOT AN OFFICIAL MINECRAFT SERVICE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
         </div>
@@ -52,7 +55,8 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/srvl/ATBPDocs/tree/master"
+          editLink={null}
+          feedback={{ content: null }}
           footer={footer}
           search={<Search />}
           nextThemes={{ defaultTheme: 'dark' }}
