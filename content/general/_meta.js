@@ -7,6 +7,5 @@ export default {
   "server-location-and-hardware": "Server location and hardware",
   "server-optimization": "Server optimisation (free)",
   "terms-and-acceptable-use": "Terms of Service and acceptable use",
-  "using-these-docs": "Using these docs",
   "minecraft-for-beginners": "Minecraft for Beginners"
 }
