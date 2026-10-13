@@ -1,5 +1,6 @@
 ---
 title: "Simple Voice Chat"
+description: "Install Simple Voice Chat, give it a port, and fix voice chat that doesn't connect."
 ---
 
 import { Callout } from 'nextra/components'
@@ -58,6 +59,18 @@ In order to run Simple Voice Chat on your server, you need one of the following 
 1. Make sure you followed the steps for [Fabric](#fabric), [Forge](#forge), [Bukkit/Spigot/Paper](#bukkitspigotpaper) or [Quilt](#quilt)
 2. Open the **Network** tab in the panel
 3. Click **Add port**, choose **Simple Voice Chat** in the dropdown (see [Adding Ports](/using_the_panel/adding-ports)), click **Add port** again and note the port you get
-4. Start the server once so Simple Voice Chat creates its config, then open `config/voicechat/voicechat-server.properties` and set `port=` to the port you got
+4. Start the server once so Simple Voice Chat creates its config, then open `voicechat-server.properties` and set `port=` to the port you got. On Fabric, Forge and Quilt the file is in `config/voicechat/`; on Bukkit, Spigot and Paper it is in `plugins/voicechat/`
 5. Go to the **Console** section of your dashboard and click **RESTART**
-6. After the server has restarted, check your logs for the line **Server started at port** followed by your port. If this line exists, you successfully installed Simple Voice Chat!
+6. After the server has restarted, check your logs for the line **Voice chat server started at port** followed by your port. If this line exists, you successfully installed Simple Voice Chat!
+
+<Callout type="info">
+
+**About `voice_host`:** a few minutes after the config is created, we fill in `voice_host=` with your server's IP address for you. It takes effect on the next restart. This sends voice traffic straight to your server, so voice chat works even when players join through your protected domain. Leave it as it is. If you type your own value, we never change it.
+
+</Callout>
+
+## Voice chat doesn't connect
+
+- Check that `port=` matches a port listed in your **Network** tab. The default port `24454` only works if it was added to your server
+- Make sure `voice_host=` is empty or holds your server's IP address, not an old address from a different server. Restart after any change
+- Every player needs the Simple Voice Chat mod on their game client
