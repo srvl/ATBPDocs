@@ -40,6 +40,17 @@ After you have followed the steps above, you can run your server and test out yo
 
 You can periodically check the **Settings** tab, and you will see a **New build available! We recommend to update to the latest build.** message if a new build of the server jar is available.
 
+## Turning a modpack server into a normal server
+
+The modpack source box only changes the modpack. Setting it to nothing does not turn the server into a plain Fabric, Forge or Paper server. To do that:
+
+1. Make a [backup](/using_the_panel/backups/guide) first.
+2. Open the change server type screen described above, pick the software (for example Fabric or Paper) and an exact version, and install it.
+3. Turn on **Wipe Server Files** if you want a clean start without the old modpack files. This deletes everything, including worlds, so only do it with a backup you can restore.
+4. Start the server. Re-upload the world and any plugins or mods you want to keep.
+
+Paper does not run mods. If you need a mod loader, pick Fabric, Forge or NeoForge instead.
+
 ## Updating the server manually
 
 - [Create a full backup](/using_the_panel/backups/guide) of your server. As an additional step, we suggest testing this backup on a local or a split test server.

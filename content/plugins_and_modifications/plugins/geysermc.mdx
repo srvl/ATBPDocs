@@ -35,6 +35,8 @@ After that, restart the server. Bedrock players join with your server's IP addre
 
 - **Console mentions NetherNet**: in the Geyser `config.yml`, set the Bedrock transport to `raknet`. NetherNet is new and not supported everywhere yet.
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
+- **Port mix-up**: keep your Java port as the **primary** port in the **Network** tab. The Bedrock port is a separate port (do not make it primary) and must match the `port` in the Geyser `config.yml`. After changing it, restart the server.
+- **Voice chat stopped working for Bedrock players after a port change**: check that the voice chat port in its config is still listed in your **Network** tab, then restart. See [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat).
 - **Joining with the Java port**: Bedrock players must use the Bedrock port from the **Network** tab, not the Java one.
 - **Whitelist**: Bedrock names start with a `.` (for example `.Steve`). Add them with `fwhitelist add Steve` (Floodgate) or `whitelist add .Steve`, and op them with `op .Steve`.
 
