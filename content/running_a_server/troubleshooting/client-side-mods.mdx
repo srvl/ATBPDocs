@@ -1,0 +1,28 @@
+---
+title: "Server Crashes Because of Client-Side Mods"
+description: "Why a modded server crashes on start when client-only mods are in the mods folder, and how to find and remove them."
+---
+
+Many mods only work on the player's computer: shaders, minimaps, menu themes, texture tweaks and similar. If one of these is in your server's `mods` folder, the server usually crashes while starting, or keeps restarting in a loop.
+
+## Signs
+
+- The server starts, prints a long error and stops, then crashes again each time you start it.
+- The log or crash report mentions a missing client class, `Dist.CLIENT`, `net.minecraft.client`, or a mod that "cannot be loaded on a dedicated server".
+
+## How to fix it
+
+1. Stop the server.
+2. Open `logs/latest.log` (and the `crash-reports` folder) in the **Files** tab. The first mod named near the error is the one to remove.
+3. Move that mod out of the `mods` folder, or delete it, then start the server again.
+4. If it crashes again with a different mod, repeat. A full modpack for players can contain a dozen or more client-only mods, so this can take a few rounds.
+
+Common client-only mods include Sodium, Iris or Oculus, Entity Texture Features, FancyMenu, Xaero's Minimap and World Map, Controlling, Skin Layers 3D and other shader, HUD, menu and texture mods. Some mods that look client-only also have a server version, so check the mod's page on [Modrinth](https://modrinth.com/mods) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods), which lists whether it runs on the client, the server or both.
+
+## Tips
+
+- Start from a modpack's **server pack** when one exists. It already leaves out client-only mods. See [Installing Modpacks](/plugins_and_modifications/modpacks).
+- Automatic "client mod remover" tools can miss mods. If the server still crashes, read the log again instead of assuming the list is clean.
+- If the log says the server jar file is missing, reinstall the server from the **Settings** tab, then re-add your mods. Back up your world first.
+- To find a bad mod faster when the log is not clear, use [Binary Search](/running_a_server/binarysearch): remove half of the mods, test, and narrow down.
+- Players must have the same mods as the server only for mods that need to be installed on both sides. See [Server Mods](/plugins_and_modifications/mods-install).
