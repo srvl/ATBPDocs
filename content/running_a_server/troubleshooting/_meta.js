@@ -1,4 +1,5 @@
 export default {
+  "client-side-mods": "Client-Side Mods Crash the Server",
   "connection-timed-out": "Connection Timed Out",
   "failed-to-verify-username": "Failed to Verify Username",
   "kick-messages": "Kick and Disconnect Messages",
