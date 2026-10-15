@@ -1,7 +1,8 @@
-# Keeps content/billing/current-promotions.mdx in step with the coupons marked "Announce publicly" in billing.
-# Commits only when the list changes; the bridge VPS republishes the site and the support bot's knowledge base
+# Keeps content/billing/current-promotions.mdx in step with the coupons marked "Announce publicly" in billing,
+# and the stock, specs and price blocks on the plan pages in step with billing's /atbp/stock.json (scripts/stock.mjs).
+# Commits only when something changed (a new "checked" time alone is not a change); the bridge VPS republishes the site and the support bot's knowledge base
 # picks the page up from master on their own.
-name: Current promotions
+name: Current promotions and stock
 
 on:
   schedule:
@@ -25,11 +26,17 @@ jobs:
           node-version: 20
       - name: Write the page from billing
         run: node scripts/promotions.mjs
+      - name: Write the stock blocks from billing
+        if: ${{ !cancelled() }}
+        run: node scripts/stock.mjs
+        env:
+          STOCK_KEEP_TIME: '1'
       - name: Commit when it changed
+        if: ${{ !cancelled() }}
         run: |
-          if git diff --quiet -- content/billing/current-promotions.mdx; then echo "no change"; exit 0; fi
+          if git diff --quiet -- content; then echo "no change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/billing/current-promotions.mdx
-          git commit -m "Current promotions: update from billing"
+          git add content
+          git commit -m "Promotions and stock: update from billing"
           git push
