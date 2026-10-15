@@ -1,40 +1,40 @@
 ---
-title: "Creating a Reverse Proxy"
-description: "This guide will help you to create a reverse proxy."
+title: "Web addresses for maps and websites (HTTPS)"
+description: "Give a web map, dashboard or other website on your server its own https address with a free Web App subdomain."
 ---
 
 import { Callout } from 'nextra/components'
 
 <Callout type="warning">
 
-Reverse proxies can only be used for *web connections* (for example HTTPS). If you want to join your Minecraft server using your domain, check [this page](/running_a_server/domain).
+This is for *web* connections only (a web map, a dashboard or a website). To let players join your Minecraft server with a name instead of an IP, see [Custom domains and free subdomains](/general/custom-domains-and-subdomains) or [Using a domain](/running_a_server/domain).
 
 </Callout>
 
-For this guide, you need a domain and the ability to change that domain's DNS settings. The steps assume your domain is on Cloudflare, but most registrars will work.
+Anything on your server that opens in a browser, such as BlueMap, Dynmap, squaremap, Plan or a bot dashboard, can get its own `https://` address. You set this up yourself in the [panel](https://panel.atbphosting.com).
 
----
+## 1. Give the web plugin its own port
 
-First, go to your domain's DNS settings panel. In this demo, we use Cloudflare and **example.com** as an example domain.
+1. Open your server and go to the **Network** tab.
+2. Add a port for it. For web maps, dashboards and websites choose **Bots and websites**. If the plugin's guide on this site names another port type, use that one. See [Adding Ports](/using_the_panel/adding-ports).
+3. Put that port in the plugin's config and restart the server.
+4. Check it works by opening `http://<your server IP>:<port>` in a browser.
 
-The DNS record used for a reverse proxy is a CNAME (canonical name). In most cases, put an `@` in the Name box for a root domain, or the subdomain you want (for example `map`) for **map.example.com**.
+## 2. Create a Web App subdomain
 
-Replace the '**Target**' field with the reverse proxy address shown in the **Ports & Proxies** tab of your server in the [panel](https://panel.atbphosting.com). If you are unsure which address to use, open a ticket on our [Discord](https://discord.atbphosting.com).
+1. Go to **More > Subdomain**.
+2. Type the name you want.
+3. In **Type**, choose **Web App**. **Game Servers** is for players joining your server and does not give you https.
+4. Choose the port you added in step 1, then create the subdomain.
+5. Restart the server, then open `https://<your subdomain>` in a browser.
 
----
+## If it still opens as http or does not load
 
-CNAME records can take some time to propagate, depending on your ISP and other factors. You can check progress with [DNS Checker](https://dnschecker.org/#CNAME).
+- **Wrong type**: a subdomain made with **Game Servers** only points players at the server. Delete it and create it again with **Web App**.
+- **Wrong port**: the subdomain must use the port of the web plugin, not your main game port. Delete it and create it again on the right port.
+- **Changed the port later**: a subdomain keeps pointing at the old port. Delete it and create it again.
+- **The plugin is not listening**: if `http://<IP>:<port>` does not open either, the plugin's config does not use that port yet. Fix the config and restart first.
 
-<Callout type="warning">
+## Using your own domain
 
-If you use Cloudflare for DNS, set the 'Proxy status' to **DNS only**, as it won't work if it's proxied.
-
-</Callout>
-
----
-
-Once you've created your CNAME record, go to the [panel](https://panel.atbphosting.com) and select 'Ports & Proxies' on the left sidebar.
-
-More than likely, you will have one port. To create a reverse proxy you need another one: add a port from the **Bots and websites** range (see [Adding Ports](/using_the_panel/adding-ports)) and set your web plugin to use it.
-
-After creating the allocation and the DNS record, write the domain or subdomain you want to use for the reverse proxy in the "**Reverse Proxy Domain**" field in the **Ports & Proxies** section of the panel.
+To put a web plugin on a domain you own instead of the free subdomain, open a Hosting Support ticket on our [Discord](https://discord.atbphosting.com) with your panel link, the domain and the port.

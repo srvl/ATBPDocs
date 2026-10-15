@@ -6,7 +6,7 @@ export default {
   "users": "Adding Sub-Users",
   "databases": "MySQL Databases",
   "adding-ports": "Adding Ports",
-  "ports-and-proxies": "Creating a Reverse Proxy",
+  "ports-and-proxies": "Web addresses (HTTPS)",
   "sftp": "Using SFTP For Files",
   "split-server": "Splitting servers",
   "2fa": "2-Factor Authentication",

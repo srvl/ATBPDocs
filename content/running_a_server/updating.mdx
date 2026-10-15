@@ -1,12 +1,24 @@
 ---
 title: "Updating or Changing Versions"
+description: "Change your Minecraft software or version with More > Software, and what to check before and after."
 ---
 
 import { Callout } from 'nextra/components'
 
 ## How to update or change version
 
-Go to the [panel](https://panel.atbphosting.com), select your server and open the **Settings** tab. There you will find the **Change Server Type** box. Read the precautions below before you continue.
+Read the precautions below first, then make a backup.
+
+1. In the [panel](https://panel.atbphosting.com), open your server and stop it.
+2. Go to **More > Software**.
+3. Pick the software (for example Paper, Purpur, Leaf, Fabric, Forge or NeoForge) and an exact version, then install it.
+4. Start the server and check the **Console**.
+
+Using crossplay? After a version change, set the same version in the **Startup** tab and press **Reinstall Server** in **Settings** so Geyser is set up for it. See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+
+On a **Vanilla Bedrock** server, if **Software** is not listed, set the version in the **Startup** tab and press **Reinstall Server** in **Settings**.
+
+The **Change Server Type** box in the **Settings** tab does the same and also switches the server type (egg); it is described further down.
 
 ## Precautions
 
@@ -18,9 +30,9 @@ Before updating or changing Minecraft versions, create and test a backup of your
 
 If you aren't using our completely free and automatic backup feature yet, we highly suggest you set it up before updating.
 
-## Updating or changing versions and jars through the panel
+## Changing server type, versions and jars in Settings
 
-After you have selected the server type, you will be able to see the available versions of Minecraft and builds. Here you can also select the type of server you want to run: Vanilla, Paper, Forge and others.
+In **Settings**, the **Change Server Type** box lets you pick the server type. After you have selected it, you will be able to see the available versions of Minecraft and builds. Here you can also select the type of server you want to run: Vanilla, Paper, Forge and others.
 
 After this, you can click on the version you want to change to. For example, to upgrade your server to Paper 1.21.8, click the version 1.21.8 and the install panel will pop up. Don't forget to click the button to accept the EULA, then click install.
 
