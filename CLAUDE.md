@@ -10,13 +10,14 @@ Customer-facing docs for ATBP Hosting, live at https://docs.atbphosting.com. Nex
 
 - `content/**/*.mdx`: pages. Front matter needs `title` and `description`. Navigation order and labels are each folder's `_meta.js`; a new page or folder must be added there.
 - `app/`: Nextra shell, `sitemap.js`, `robots.js`. `next.config.mjs` exports a static site to `out/`; `npm run build` also builds the Pagefind search index.
+- Generated blocks: text between `{/* atbp-stock:start ... */}` and `{/* atbp-stock:end */}` (plan tables with stock, `plans/stock`) is rewritten from billing's `/atbp/stock.json` by `scripts/stock.mjs`, like `billing/current-promotions` by `scripts/promotions.mjs`. Change specs and prices in Paymenter, not inside those blocks; hand-written text goes outside them.
 - Screenshots: only ATBP's own, taken from the docs-demo account (kit `docs-accounts-20261009` in the owner's Beelink Ser8 folder), saved as `.webp` in `public/screenshots/` and used as `![alt](/screenshots/name.webp)` with a descriptive alt text. Never third-party screenshots, videos or embeds. Retake a screenshot when the screen it shows changes.
 
 ## Source of truth to page map
 
 | Fact | Source of truth | Pages |
 |---|---|---|
-| Plans, specs, prices, splits, backups, bot hosting | Paymenter products, project notes | `content/plans/*` |
+| Plans, specs, prices, splits, backups, bot hosting, stock | Paymenter products (`/atbp/stock.json`), project notes | `content/plans/*` |
 | Invoice, suspension and deletion timing | Paymenter cron settings | `content/billing/renewals-suspension-and-deletion`, `billing/suspensions_and_terminations` |
 | Refunds | Live refund policy on atbphosting.com | `content/billing/refund-policy`, `billing/refunds`, `billing/cancellations` |
 | Payment methods, credit, GCash/bank steps | Paymenter gateways | `content/billing/payment-methods`, `gcash`, `bank` |
