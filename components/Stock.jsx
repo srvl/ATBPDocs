@@ -9,7 +9,7 @@ let pending = null
 
 function feed() {
   if (!pending) {
-    pending = fetch(FEED, { cache: 'no-store' })
+    pending = fetch(FEED)
       .then((r) => (r.ok ? r.json() : null))
       .then((f) => {
         if (!f || !Array.isArray(f.groups)) return null

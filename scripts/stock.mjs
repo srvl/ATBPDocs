@@ -106,7 +106,8 @@ const render = {
   },
   status(slug) {
     const g = groups.get(slug);
-    if (g && g.plans?.length && plansFor(slug)) return table(g) + '\n\n' + footer();
+    // On sale but a plan is not fully set up yet: leave the block as it is rather than say "not on sale".
+    if (g && g.plans?.length) return plansFor(slug) ? table(g) + '\n\n' + footer() : null;
     // The line is not in the store: say so, without a date nobody promised.
     return `**Right now:** the plans on this page cannot be ordered yet. This note changes by itself when they go on sale (checked ${time()}).`;
   },
