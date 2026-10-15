@@ -19,13 +19,22 @@ Geyser follows the newest Minecraft versions. Right after a new Minecraft releas
 
 ## Easiest way: Auto-Crossplay
 
-On Paper or Leaf, open the **Startup** tab, turn on **Enable Auto-Crossplay**, then go to **Settings** and press **Reinstall Server**. Geyser and Floodgate are installed for you. Make a backup first. Then add a Bedrock port as described below.
+Auto-Crossplay is a switch on our Paper, Purpur and Leaf server type (**Paper/Purpur & Leaf by ATBP**, marked Recommended), not a separate server type. If your server runs something else, change to that server type in **Settings** first (make a backup).
+
+1. Open the **Startup** tab and set **Minecraft Version** to the exact version you run.
+2. Turn on **Enable Auto-Crossplay** (and **Auto Update ViaVersion** if you want it).
+3. Go to **Settings** and press **Reinstall Server**. Geyser and Floodgate are installed for you.
+4. Add a Bedrock port as described below.
+
+After you change Minecraft version (for example with **More > Software**), Geyser is not set up again by itself: set the new version in **Startup**, check Auto-Crossplay is still on, and press **Reinstall Server** again.
 
 ## Manual install
 
 [Download the plugin](https://geysermc.org/download) and upload the jar into your `plugins` folder. Restart or turn on the server. If you need help installing plugins, check out [this guide](/plugins_and_modifications/installing-plugins).  
 
 Once you've installed it, open the **Network** tab in the panel and add a port from the **Minecraft Bedrock / Geyser** range (see [Adding Ports](/using_the_panel/adding-ports)). Then open `plugins/Geyser-Spigot/config.yml` (or your Geyser config) and, under `bedrock`, set `port` to the port you were given and `clone-remote-port` to `false`. With `clone-remote-port: true`, Geyser ignores your port and listens on the Java port, which Bedrock players usually can't reach.
+
+**Fabric:** use the Fabric builds of Geyser and Floodgate and put both jars in the `mods` folder (Fabric API is needed too). The config is `config/Geyser-Fabric/config.yml`. Set the Bedrock `port` and `clone-remote-port: false` there exactly as above.
 
 With **Enable Auto-Crossplay** on in the server's **Startup** tab, the Geyser config starts with `clone-remote-port: false`, and reinstalling the server keeps the Geyser config you set.
 
@@ -37,6 +46,7 @@ After that, restart the server. Bedrock players join with your server's IP addre
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
 - **Port mix-up**: keep your Java port as the **primary** port in the **Network** tab. The Bedrock port is a separate port (do not make it primary) and must match the `port` in the Geyser `config.yml`. After changing it, restart the server.
 - **Voice chat stopped working for Bedrock players after a port change**: check that the voice chat port in its config is still listed in your **Network** tab, then restart. See [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat).
+- **Console says Geyser started on your Java port**: Geyser has no Bedrock port of its own. Add a **Minecraft Bedrock / Geyser** port in the **Network** tab, put it in the Geyser config with `clone-remote-port: false`, and restart.
 - **Joining with the Java port**: Bedrock players must use the Bedrock port from the **Network** tab, not the Java one.
 - **Whitelist**: Bedrock names start with a `.` (for example `.Steve`). Add them with `fwhitelist add Steve` (Floodgate) or `whitelist add .Steve`, and op them with `op .Steve`.
 

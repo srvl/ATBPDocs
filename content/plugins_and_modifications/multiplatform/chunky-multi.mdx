@@ -29,6 +29,12 @@ While you will normally notice a significant boost in server performance after y
 
 </Callout>
 
+<Callout type="warning">
+
+Do not leave Chunky running unattended with a big radius. It keeps going until the radius is done, and if it fills your disk the server can no longer save, stop or delete files. Use the table below to check the radius fits your plan's disk, and watch the disk use in the panel while it runs. If the disk does fill up, see [Disk full](/using_the_panel/stuck-server#disk-full).
+
+</Callout>
+
 To start generation, you should first select a world by using `chunky world <world>`, and then the radius with `chunky radius <blocks>`.
 
 After that, you can run `chunky start` to start generating.

@@ -57,6 +57,15 @@ If the console says there is no space left, or uploads fail with a disk error, y
 - Check the world size. A world pre-generated far bigger than you need takes a lot of disk; set a world border, see [Limit world size](/running_a_server/limit-world-size).
 - If you still need room, move to a bigger plan. See [Upgrades and downgrades](/billing/upgrades-and-downgrades).
 
+### Disk completely full and the server is locked
+
+When the disk is at 100%, the server cannot save, so it may hang on stopping, and the file manager may refuse to delete files.
+
+1. If Chunky or another task is still running, run `chunky cancel` (or stop the task) in the **Console**.
+2. Press **Stop**, then press it again to **Kill** the server.
+3. Delete what you can from the file manager, then empty the **Trash Bin**.
+4. If the panel still will not let you delete anything, open a Hosting Support ticket with your panel link and say the disk is full. Staff can free the space for you. Do not start a new pre-generation afterwards until you have checked it fits your disk.
+
 ## Wipe everything and start over
 
 To start from nothing (a new modpack, a broken world, or just a fresh start):
