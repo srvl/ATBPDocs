@@ -1,6 +1,6 @@
 ---
 title: "Simple Voice Chat"
-description: "Install Simple Voice Chat, give it a port, and fix voice chat that doesn't connect."
+description: "Install Simple Voice Chat (and VCMC phone voice), give it a port, and fix voice chat that doesn't connect."
 ---
 
 import { Callout } from 'nextra/components'
@@ -66,6 +66,20 @@ In order to run Simple Voice Chat on your server, you need one of the following 
 <Callout type="info">
 
 **About `voice_host`:** a few minutes after the config is created, we fill in `voice_host=` with your server's IP address for you. It takes effect on the next restart. This sends voice traffic straight to your server, so voice chat works even when players join through your protected domain. Leave it as it is. If you type your own value, we never change it.
+
+</Callout>
+
+## Phone voice (VCMC)
+
+The VCMC plugin (VoiceChatMobileClient) lets players on a phone join Simple Voice Chat. Its direct voice needs its own port, separate from the Simple Voice Chat port:
+
+1. In the **Network** tab click **Add port** and choose **Simple Voice Chat** in the dropdown again, so you get a second voice port
+2. Start the server once so VCMC creates `plugins/VCMC/config.yml`, then under `direct-voice:` set `port:` to that second port. A port that isn't listed in your Network tab won't carry voice
+3. Restart the server
+
+<Callout type="info">
+
+**About `advertised-host`:** like `voice_host`, a few minutes after the config is created we fill in an empty `direct-voice.advertised-host` with your server's IP address. It takes effect on the next restart. Leave it as it is. If you type your own value, we never change it.
 
 </Callout>
 
