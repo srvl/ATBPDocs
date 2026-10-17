@@ -54,6 +54,13 @@ const when = (iso) =>
   new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Manila', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })
     .format(new Date(iso)) + ' (Philippine time)';
 const checked = feed.stock_checked_at || feed.generated_at;
+// A longer term that costs less than the monthly price times its months shows that regular price struck through
+// next to it (display only, from the same feed): "~~₱2,700~~ ₱2,565".
+const term = (p, months) => {
+  const price = p.prices[String(months)];
+  const regular = Math.round(p.prices['1'] * months * 100) / 100;
+  return regular - price >= 0.005 ? `~~${peso(regular)}~~ ${peso(price)}` : peso(price);
+};
 const stock = (p) => `<Stock plan="${p.slug}">${p.stock === 'in_stock' ? 'In stock' : 'Sold out'}</Stock>`;
 const time = () => (checked ? `<StockTime>${when(checked)}</StockTime>` : 'just now');
 const footer = () =>
@@ -74,10 +81,10 @@ const render = {
     if (!g) return null;
     const rows = g.plans.map((p) => {
       const ram = p.ram_mb / 1024;
-      return `| ${gb(p.ram_mb)} | ${num(p.vcpu)} | ${disk(p.disk_mb)} | ${p.backups ?? '–'} | ${p.included_splits > 0 ? p.included_splits : '–'} | ${peso(Math.round((p.prices['1'] / ram) * 100) / 100)} | ${peso(p.prices['1'])} | ${peso(p.prices['3'])} | ${peso(p.prices['6'])} | ${peso(p.prices['12'])} | ${stock(p)} |`;
+      return `| ${gb(p.ram_mb)} | ${num(p.vcpu)} | ${disk(p.disk_mb)} | ${p.backups ?? '–'} | ${p.included_splits > 0 ? p.included_splits : '–'} | ${peso(Math.round((p.prices['1'] / ram) * 100) / 100)} | ${peso(p.prices['1'])} | ${term(p, 3)} | ${term(p, 6)} | ${term(p, 12)} | ${stock(p)} |`;
     });
     return [
-      '| RAM | vCPU | NVMe disk | Backups | Free splits | ₱/GB | Monthly | 3 months | 6 months | 12 months | Stock |',
+      '| RAM | vCPU | Storage | Backups | Free splits | ₱/GB | Monthly | 3 months | 6 months | 12 months | Stock |',
       '|---|---|---|---|---|---|---|---|---|---|---|',
       ...rows,
       '',
@@ -89,10 +96,10 @@ const render = {
     if (!g || g.plans.some((p) => p.databases == null || p.extra_ports == null)) return null;
     const rows = g.plans.map(
       (p) =>
-        `| ${esc(p.name)} | ${num(p.vcpu)} vCPU | ${gb(p.ram_mb)} | ${disk(p.disk_mb)} | ${p.backups ?? '–'} | ${p.databases} | ${p.extra_ports} | ${peso(p.prices['1'])} | ${peso(p.prices['3'])} | ${peso(p.prices['6'])} | ${peso(p.prices['12'])} | ${stock(p)} |`
+        `| ${esc(p.name)} | ${num(p.vcpu)} vCPU | ${gb(p.ram_mb)} | ${disk(p.disk_mb)} | ${p.backups ?? '–'} | ${p.databases} | ${p.extra_ports} | ${peso(p.prices['1'])} | ${term(p, 3)} | ${term(p, 6)} | ${term(p, 12)} | ${stock(p)} |`
     );
     return [
-      '| Plan | CPU | RAM | NVMe disk | Backups | Databases | Extra ports | Monthly | 3 months | 6 months | 12 months | Stock |',
+      '| Plan | CPU | RAM | Storage | Backups | Databases | Extra ports | Monthly | 3 months | 6 months | 12 months | Stock |',
       '|---|---|---|---|---|---|---|---|---|---|---|---|',
       ...rows,
       '',
@@ -131,7 +138,7 @@ const render = {
 
 function table(g) {
   return [
-    '| Plan | RAM | vCPU | NVMe disk | Monthly | Stock |',
+    '| Plan | RAM | vCPU | Storage | Monthly | Stock |',
     '|---|---|---|---|---|---|',
     ...g.plans.map((p) => `| ${esc(p.name)} | ${gb(p.ram_mb)} | ${num(p.vcpu)} | ${disk(p.disk_mb)} | ${peso(p.prices['1'])} | ${stock(p)} |`),
   ].join('\n');

@@ -2,7 +2,11 @@
 title: "Upgrading or downgrading a server"
 ---
 
-Your service page on https://billing.atbphosting.com (Services > your server) has two buttons:
+Your service page on https://billing.atbphosting.com (Services > your server) groups its buttons in rows: **Server** (Manage Server), **Plan** (Upgrade and Downgrade), **Billing** (Renew, and Refund when you can still ask for one) and a red **Cancel service** button at the bottom.
+
+![A billing service page with the Server, Plan and Billing rows: Manage Server, Upgrade, Downgrade, Renew and Cancel service](/screenshots/billing-service.webp)
+
+The **Plan** row has two buttons:
 
 - **Upgrade** shows bigger plans in your line, plus plans on another line that cost more (for example Budget+ to Premium+). On the next step, Splits and Extra Backups can stay the same or go up.
 - **Downgrade** shows smaller plans in your line, plus plans on another line that cost less (for example Premium+ to Budget+). On the next step, Splits and Extra Backups can stay the same or go down.
@@ -12,14 +16,24 @@ A button only appears when there is somewhere to go. Plans on another line are m
 To upgrade:
 
 1. Go to Services > your server > **Upgrade**.
-2. Pick the plan, then choose your Splits and Extra Backups.
-3. Pay the invoice with your preferred [payment method](/billing/payment-methods). The server upgrades once the invoice is marked paid.
-4. Restart the server in the panel so the new resources apply.
+2. Pick the plan and press **Next Step**.
+
+   ![The Upgrade page listing bigger Premium+ plans next to the current plan, with the upgrade summary on the right](/screenshots/billing-upgrade.webp)
+
+3. Choose your Splits and Extra Backups. The summary shows what you pay today; press **Upgrade**.
+
+   ![The second Upgrade step with the Extra Backups and Splits choices and a summary of New setup, Unused time on current plan and Total Today](/screenshots/billing-upgrade-summary.webp)
+
+4. Pay the invoice with your preferred [payment method](/billing/payment-methods). The server upgrades once the invoice is marked paid.
+5. Restart the server in the panel so the new resources apply.
 
 To downgrade:
 
 1. Make sure your files fit the smaller storage first.
-2. Go to Services > your server > **Downgrade**, pick the plan and confirm.
+2. Go to Services > your server > **Downgrade**, pick the plan, press **Next Step** and confirm.
+
+   ![The Downgrade page listing a smaller Premium+ plan next to the current plan, with the downgrade summary showing the credit back](/screenshots/billing-downgrade.webp)
+
 3. The change applies right away and the unused difference goes to your account credit. Restart the server in the panel.
 
 ## Moving between Budget+ and Premium+
@@ -62,7 +76,7 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 - If you renewed several months ahead at a discount, the days you prepaid keep that discount on both sides: unused time is credited at the rate you paid, and the new plan runs on those days at the same discount.
 - A change made on your due date costs nothing today; the new price starts with the next invoice.
 - An unpaid upgrade invoice is re-priced every day, so it always matches the days still left when you pay.
-- Upgrades normally need the bigger plan to be in stock; sold-out sizes are not shown. Larger servers can sometimes still move up to a sold-out size on the same machines, so check the Upgrade page even when the plan shows sold out for new orders. A smaller plan on the same machines is always offered on the Downgrade page.
+- Upgrades normally need the bigger plan to be in stock; sold-out sizes are not shown. Some servers can still move up to a sold-out size on the same machines, depending on what the server really uses and how much room its machine has (for example, a bigger plan with the same vCPU), so check the Upgrade page even when the plan shows sold out for new orders. What it offers can change from day to day. A smaller plan on the same machines is always offered on the Downgrade page.
 - While an upgrade invoice is unpaid you cannot start another change. Pay or cancel that invoice first.
 
 <details>
@@ -70,6 +84,7 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 
 - How do I upgrade my server?
 - Where is the downgrade button?
+- Where is the upgrade button on the service page?
 - Paano mag upgrade ng RAM?
 - Can I add more RAM?
 - Dagdag RAM
@@ -90,5 +105,7 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 - Why can't I change my RAM or CPU anymore?
 - Lumang Premium+ plan, paano mag upgrade?
 - Why is there no Upgrade option for my plan right now?
+- Sold out but I want to upgrade
+- Bakit wala yung bigger plan sa Upgrade page?
 
 </details>

@@ -25,6 +25,17 @@ Run these in-game as an operator (with a `/` in front) or in the panel **Console
 | `stop` | Safely stop the server |
 | `tps` | Show server speed (20 is perfect), on Paper and forks |
 
+## Game rules
+
+Game rules switch things like keep inventory or mob griefing on and off. Run them the same way: in the **Console** without a `/`, or in-game as an operator with one. Java 1.21.11 and newer renamed the rules to lowercase words with underscores, so the old names no longer work there.
+
+| Setting | Java 1.21.11 and newer | Older Java | Bedrock |
+|---|---|---|---|
+| Keep items when you die | `gamerule keep_inventory true` | `gamerule keepInventory true` | `gamerule keepinventory true` |
+| Mobs break blocks | `gamerule mob_griefing false` | `gamerule mobGriefing false` | `gamerule mobgriefing false` |
+
+On a crossplay server (Java with Geyser), use the Java command; Bedrock players follow it too. Not sure of a rule's name? Type `gamerule ` in the in-game chat and press Tab to see the list. If you use Multiverse or a similar world plugin, set the rule in each world.
+
 Use `stop` or the panel Stop button instead of killing the server, so worlds save properly. Avoid `/reload` on servers with plugins. It can break plugins and leak memory. Restart instead.
 
-More help: [Whitelist](/running_a_server/whitelist), [Make Yourself an Operator](/running_a_server/op-yourself).
+More help: [Whitelist](/running_a_server/whitelist), [Make Yourself an Operator](/running_a_server/op-yourself), [Enable Command Blocks](/running_a_server/enable-command-blocks).
