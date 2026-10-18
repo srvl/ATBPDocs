@@ -1,6 +1,6 @@
 ---
 title: "Minecraft kick and disconnect messages"
-description: "What the common Minecraft kick, ban and disconnect messages mean and what to do about each."
+description: "What the common Minecraft kick, ban and disconnect messages mean, what to do about each, and what to check when the game crashes instead."
 ---
 
 When a player is kicked or cannot stay connected, Minecraft shows a short message. Find yours below. For anything not listed, check the server **Console** in the [panel](https://panel.atbphosting.com) at the moment the player was kicked; the real reason is usually printed there.
@@ -45,3 +45,12 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 | Invalid move / moved too quickly | The anti-cheat thought the movement was impossible, often from lag or a mod |
 
 Plugins such as anti-cheats and ban managers add their own messages. If a message names a plugin, look at that plugin's config or its page under Plugins and Mods.
+
+## The game crashes instead of kicking
+
+A kick shows a message and leaves the game open. A crash closes the game or freezes it, and that happens on the player's device, not on the server.
+
+- **Only some players crash**, or only on one kind of device: the cause is on their side. Ask them to lower render and simulation distance and graphics settings, remove client mods, shaders and resource packs, and read their own crash log for the mod or setting at fault.
+- **Players also get kicked with a message**: look the message up in the tables above. Lowering `view-distance` and `simulation-distance` in `server.properties` (for example to 6 and 3) also means less for every client to load.
+- **Everyone crashes on one world, on every device, and other worlds are fine**: the world may be damaged. Stop the server and restore a backup from before the crashes started in the **Backups** tab (see [Backups](/using_the_panel/backups/guide)). Make a fresh backup first so you can go back if needed.
+
