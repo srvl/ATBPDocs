@@ -19,6 +19,14 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 ---
 
+## What a backup includes
+
+A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore when creating it are left out. Backups are stored apart from your server's files, so resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
+
+Databases from the **Databases** tab are not part of a backup; export them separately if your plugins use one.
+
+---
+
 ## Manual backup creation
 
 ![The Backups page with the Create Backup button](/screenshots/panel-backups.webp)
@@ -48,7 +56,7 @@ Very frequent backup schedules (for example hourly on a big world) can cause lag
 
 Restoring overwrites files on your server with the files from the backup, so make a fresh backup of the current state first if you might need it.
 
-To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again.
+To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again. Press **Restore** once: restores are queued, and pressing the button repeatedly causes a "too many attempts" error.
 
 If you only need a few files, you can [download](#downloading-backups) the backup, extract it on your computer, and upload just those files back with the [File Manager](/using_the_panel/file-manager-controls) or [SFTP](/using_the_panel/sftp).
 
@@ -56,7 +64,7 @@ If you only need a few files, you can [download](#downloading-backups) the backu
 
 ## Downloading backups
 
-Open the **Backups** tab, click the menu on a backup and choose **Download**. Your browser will download the backup as an archive.
+Open the **Backups** tab, click the menu on a backup and choose **Download**. Your browser will download the backup as an archive. If a backup will not download, the archive may be very large; create a fresh backup that ignores folders you do not need, or download the files you need with [SFTP](/using_the_panel/sftp).
 
 Download links are private to your account and expire after a short time, so keep them to yourself.
 
@@ -79,7 +87,3 @@ If you no longer need a backup, use the menu on it and choose **Delete**. This f
 Deleting is irreversible. Deleted backups cannot be recovered. Backups are also deleted when a server is deleted, for example 3 days after an unpaid due date. Only the saved backup taken at suspension stays downloadable from billing for 30 days; see [suspensions and terminations](/billing/suspensions_and_terminations).
 
 </Callout>
-
-## Restoring a backup
-
-Press **Restore** once and wait. Restores are queued, and pressing the button repeatedly causes a "too many attempts" error. If a backup will not download, the archive may be very large or all backup slots may be full; delete an old backup and create a fresh one.
