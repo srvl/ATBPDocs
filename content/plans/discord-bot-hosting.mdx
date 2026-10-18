@@ -19,6 +19,7 @@ Stock checked <StockTime>October 17, 2026 at 9:31 AM (Philippine time)</StockTim
 - At checkout pick the bot type: **Python Bot**, **NodeJS Bot**, **Red Bot**, **Drako Bot** (needs your own licence) or **Lavalink**.
 - Your bot runs in the game panel (panel.atbphosting.com) with its own console, files and SFTP, like a game server. Upload your files, set the start file on the Startup tab, put your bot token in your own config, and start the server.
 - If your bot or web app listens on a port (a dashboard, a webhook, Lavalink), use the port shown on the **Network** tab. Other ports are not reachable.
+- Websites: there is no separate web hosting plan. Pick the **NodeJS Bot** type and serve your site with Node.js (for example Express serving your HTML files) on the port from the **Network** tab.
 - Domains: a bot itself needs no domain. For a dashboard or web page your bot serves, create a free **Web App** subdomain in the panel (More > Subdomain) on that port, or use your own domain by pointing it at your server's IP in your domain's DNS. See [Custom domains and free subdomains](/general/custom-domains-and-subdomains).
 - Python bots that read a `.env` file need `python-dotenv` in `requirements.txt`, and the `.env` file uploaded next to your start file.
 - To run a bot and a Lavalink node, or several bots, on one plan, add server splits at checkout or later (₱20 per split per month). More backup slots are available as **Extra Backups**.
@@ -42,6 +43,7 @@ Stock checked <StockTime>October 17, 2026 at 9:31 AM (Philippine time)</StockTim
 - Can I run more than one bot on one plan?
 - Which port does my bot use?
 - Can I use my own domain for my bot?
+- Do you have website hosting? Can I host HTML?
 - Meron bang custom domain sa Starter Bot?
 - My Python bot cannot read .env
 - My bot cannot connect to MongoDB (queryTxt ESERVFAIL)
