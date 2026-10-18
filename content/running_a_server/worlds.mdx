@@ -78,5 +78,15 @@ That's it! Make sure to restart your server to apply the changes.
 
 ---
 
+## When the world does not load
+
+Make a backup in the **Backups** tab before you move or delete world files. If something goes wrong, restore it and try again.
+
+- **The ZIP is still there after Unarchive.** That is normal. Unarchive copies the files out of the ZIP and keeps the ZIP itself, just like on your computer. Look for the new folder next to it. Once the world works, you can delete the ZIP to free up disk space.
+- **The server made a fresh world instead.** The folder name and `level-name=` in `server.properties` must match exactly, and `level.dat` must sit directly inside that folder. A common mistake is a world folder inside another world folder (for example `world/world/level.dat`). Move the files up one level so `level.dat` is at `world/level.dat`.
+- **The server crashes or the world will not open.** Check which Minecraft version the world was last played on. A world from a newer version cannot be opened by an older server, so a 1.21.1 world needs a 1.21.1 or newer server. Change the version in **More > Software** (see [Updating or Changing Versions](/running_a_server/updating)), then restart. Going the other way works: an older world opens on a newer server, but take a backup first because it cannot be moved back down afterwards.
+- **The upload in the File Manager stops or restarts at 0%.** Big worlds upload far more reliably over [SFTP](/using_the_panel/sftp). There is no world size limit other than your plan's disk space. In your SFTP program, use the SFTP host and port shown in the panel's **Settings** tab. This is not your game port. Your SFTP password is your game panel password.
+- **SFTP will not connect.** Check that the protocol is set to **SFTP** (not FTP), and that you copied the host, port and username exactly from the **Settings** tab.
+
 ## Resetting worlds
 You can find our full guide on resetting your world [here](/running_a_server/world-reset)!

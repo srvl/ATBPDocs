@@ -87,6 +87,17 @@ This is where you configure how your Minecraft server starts up. You can:
 *   Set Java arguments (e.g., memory allocation `-Xmx` and `-Xms`).
 *   Configure specific startup parameters for your Minecraft server (e.g., `nogui`, `online-mode`).
 
+### Console time in your own time zone
+
+The console shows times in UTC by default, so in the Philippines it is 8 hours behind. On a Minecraft Java server you can change this with a Java flag in the startup command:
+
+1. Stop the server and open **Startup**.
+2. In the startup command, add `-Duser.timezone=Asia/Manila` right after `java` or `-Xms128M`, and before `-jar`. Use your own time zone name if you are elsewhere, such as `Asia/Singapore`.
+3. Keep a space on each side of the flag, and leave `-jar {{SERVER_JARFILE}}` exactly as it was, with its space. If the console says the jar cannot be found after the change, a space or character went missing.
+4. Start the server. New console lines and logs use the new time zone.
+
+Type the flag in by hand rather than copying it from a photo, since text scanned from a picture can add stray characters like `|`.
+
 ## Settings
 
 
