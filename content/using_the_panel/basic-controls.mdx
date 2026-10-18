@@ -84,7 +84,7 @@ The Network tab lists your server's IP address and ports. From here you can:
 This is where you configure how your Minecraft server starts up. You can:
 
 *   Select the Minecraft version or server JAR file to use.
-*   Set Java arguments (e.g., memory allocation `-Xmx` and `-Xms`).
+*   Add Java flags to the startup command. Memory follows your plan's RAM: `-Xms` is fixed, and flags that hold all RAM from the start, such as `-XX:+AlwaysPreTouch`, are blocked on our shared machines.
 *   Configure specific startup parameters for your Minecraft server (e.g., `nogui`, `online-mode`).
 
 ### Console time in your own time zone
