@@ -19,6 +19,7 @@ Stock checked <StockTime>October 17, 2026 at 9:31 AM (Philippine time)</StockTim
 - At checkout pick the bot type: **Python Bot**, **NodeJS Bot**, **Red Bot**, **Drako Bot** (needs your own licence) or **Lavalink**.
 - Your bot runs in the game panel (panel.atbphosting.com) with its own console, files and SFTP, like a game server. Upload your files, set the start file on the Startup tab, put your bot token in your own config, and start the server.
 - If your bot or web app listens on a port (a dashboard, a webhook, Lavalink), use the port shown on the **Network** tab. Other ports are not reachable.
+- Domains: a bot itself needs no domain. For a dashboard or web page your bot serves, create a free **Web App** subdomain in the panel (More > Subdomain) on that port, or use your own domain by pointing it at your server's IP in your domain's DNS. See [Custom domains and free subdomains](/general/custom-domains-and-subdomains).
 - Python bots that read a `.env` file need `python-dotenv` in `requirements.txt`, and the `.env` file uploaded next to your start file.
 - To run a bot and a Lavalink node, or several bots, on one plan, add server splits at checkout or later (₱20 per split per month). More backup slots are available as **Extra Backups**.
 - MongoDB Atlas `mongodb+srv://` addresses work on every node. If your bot still fails with `queryTxt ESERVFAIL` or another DNS error, restart the server once, check that your Atlas network access list allows the connection, and open a ticket if it continues. The standard `mongodb://` connection string from Atlas (the one that lists every shard host and port) also works. You can also use the free MySQL database from the **Databases** tab if your bot supports it, see [MySQL Databases](/using_the_panel/databases).
@@ -40,6 +41,8 @@ Stock checked <StockTime>October 17, 2026 at 9:31 AM (Philippine time)</StockTim
 - Can I host Lavalink or Red bot?
 - Can I run more than one bot on one plan?
 - Which port does my bot use?
+- Can I use my own domain for my bot?
+- Meron bang custom domain sa Starter Bot?
 - My Python bot cannot read .env
 - My bot cannot connect to MongoDB (queryTxt ESERVFAIL)
 
