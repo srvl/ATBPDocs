@@ -68,12 +68,15 @@ When the disk is at 100%, the server cannot save, so it may hang on stopping, an
 
 ## Wipe everything and start over
 
-To start from nothing (a new modpack, a broken world, or just a fresh start):
+To start from nothing (a new modpack, a broken world, or just a fresh start), you can do it yourself in a few minutes. Staff do not need to do it for you.
 
 1. Make a backup of anything you want to keep, or download it.
 2. Stop the server.
-3. In **Files**, tick the box at the top to select everything and delete it.
-4. Open **Settings** and press **Reinstall Server**.
+3. In **Settings**, open the **Change Server Type** box, pick your software (for example Paper or Purpur) and an **exact version**, turn on **Wipe Server Files**, and install. This deletes every file and installs a clean server in one step.
+
+Or do it by hand: in **Files**, tick the box at the top to select everything and delete it, then open **Settings** and press **Reinstall Server**.
+
+A fresh install uses the version set in **Startup** or picked in **Change Server Type**. If that is "latest", you get the newest Minecraft version, which your plugins may not support yet. Set the version you want before you start the server, and before you upload an old world. A world that was opened on a newer version will not load on an older one; the server crashes or nobody can join. In that case restore a backup made before the change, or start with a new world. See [Updating or Changing Versions](/running_a_server/updating).
 
 Deleted files that went to the trash can be restored from the **Trash Bin** until it is emptied. **Delete Permanently** cannot be undone.
 

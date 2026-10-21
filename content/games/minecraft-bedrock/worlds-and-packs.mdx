@@ -21,6 +21,15 @@ Stop your server before changing world files, and keep a copy of anything you re
 6. Edit `server.properties` and set `level-name` to that folder name. Save.
 7. Start the server.
 
+## Upload a .mcworld file (phone, tablet or exported world)
+
+A `.mcworld` file is a world exported from Bedrock (world list > edit > **Export World**). It is a zip file with a different ending.
+
+1. Rename the file so it ends in `.zip` instead of `.mcworld`.
+2. Stop the server. In **Files**, open the `worlds` folder, create a new folder (for example `my-world`) and upload the zip into it.
+3. Unarchive the zip. `level.dat` and the `db` folder must sit directly in your new folder, not in another folder inside it.
+4. Edit `server.properties` and set `level-name` to the name of your new folder. Save and start the server.
+
 ## Add a behavior or resource pack
 
 1. Download the pack. If it is a `.mcpack`, rename it to `.zip` and extract it. You need the folder that contains `manifest.json`.
