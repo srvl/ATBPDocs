@@ -1,0 +1,55 @@
+---
+title: "ItemsAdder"
+description: "Set up ItemsAdder's self-hosted resource pack on an ATBP server: which port to use, which address, and how to fix 'Address already in use'."
+---
+
+## What does the plugin do?
+
+ItemsAdder adds custom items, blocks, furniture, emojis and GUIs to a Paper server, and builds a resource pack that shows them to players. Nexo and [Oraxen](/plugins_and_modifications/plugins/oraxen) do the same job; pick one, not several.
+
+## Hosting the resource pack on your server (self-host)
+
+ItemsAdder can send its resource pack to players from a small web server that runs inside your Minecraft server. That web server needs **its own port**. It cannot share your main game port, because Minecraft is already using it.
+
+1. In the [game panel](https://panel.atbphosting.com), open the **Network** tab and click **Add port**. Any extra port works; **Bots and websites** (40000-40099) is the usual choice. See [Adding Ports](/using_the_panel/adding-ports).
+2. Note the new port number and the IP address shown next to it.
+3. Open `plugins/ItemsAdder/config.yml` in **Files** and set the `self-host` section:
+
+```yaml
+resource-pack:
+  hosting:
+    self-host:
+      enabled: true
+      server-ip: 104.234.6.135   # the IP shown next to your port on the Network tab
+      pack-port: 40012           # your extra port, never your main game port
+      append-port: true
+```
+
+4. Make sure only one hosting method is on: `no-host`, `simple_self_host`, `lobfile` and `external-host` should all have `enabled: false`.
+5. Restart the server. The console should say `Started self-host webserver on port: 40012` and print a download link such as `http://104.234.6.135:40012/generated.zip`. Open that link in your browser; if a file downloads, players will get the pack too.
+
+Use the IP address from the Network tab for `server-ip`, not `0.0.0.0` and not your subdomain. The pack link is a normal web address, so it must point straight at the IP and port.
+
+## "Error running self-host: Address already in use"
+
+This means `pack-port` is set to a port something else is already using, almost always your **main game port** (the one marked Primary on the Network tab). Change `pack-port` to an extra port you added for the pack, then restart.
+
+If you have no free port left, delete a port you no longer use (stop the server first), or open a **Hosting Support** ticket on [Discord](https://discord.atbphosting.com).
+
+## Players are kicked or don't get the pack
+
+- Check that the download link from the console works in a browser.
+- If you changed the port, run `/iazip` in the console and restart so the new link is used.
+- `kick-player-on-decline: true` kicks players who press **No** on the pack prompt. Set it to `false` if you don't want that.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Which port should ItemsAdder use?
+- How do I set up the ItemsAdder self-host resource pack?
+- ItemsAdder says "Address already in use", how do I fix it?
+- What do I put in server-ip and pack-port for ItemsAdder?
+- Anong port gagamitin sa ItemsAdder?
+- Bakit "Address already in use" sa ItemsAdder?
+
+</details>

@@ -80,6 +80,15 @@ Use the menu on the backup and choose **Lock** (or **Unlock** to undo it).
 
 ---
 
+## A backup is stuck on "creating backup"
+
+Backups of big servers take a while, because every file is copied and compressed. There is no button to cancel a backup while it runs. While you wait:
+
+- Check **Schedules** for a backup task that runs often. A schedule that starts a new backup every few minutes keeps one running all the time.
+- Don't press restore or start another backup on top of it.
+
+If the same backup still says "creating" after 30 minutes, open a **Hosting Support** ticket on [Discord](https://discord.atbphosting.com) with your panel link.
+
 ## Deleting backups
 
 If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot.
@@ -89,3 +98,13 @@ If you no longer need a backup, use the menu on it and choose **Delete**. This f
 Deleting is irreversible. Deleted backups cannot be recovered. Backups are also deleted when a server is deleted, for example 3 days after an unpaid due date. Only the saved backup taken at suspension stays downloadable from billing for 30 days; see [suspensions and terminations](/billing/suspensions_and_terminations).
 
 </Callout>
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I make a backup?
+- How do I restore a backup?
+- My backup says "creating backup" for a long time, how do I stop it?
+- Paano i-restore ang backup?
+
+</details>

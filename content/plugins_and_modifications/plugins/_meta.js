@@ -24,6 +24,7 @@ export default {
   "vulcan": "Vulcan Anticheat",
   "worldguard": "WorldGuard",
   "oraxen": "Oraxen",
+  "itemsadder": "ItemsAdder",
   "denizen": "Denizen",
   "ajLeaderboards": "ajLeaderboards",
   "AdvancedEnchantments": "AdvancedEnchantments",
