@@ -5,7 +5,7 @@ export default {
   "custom-domains-and-subdomains": "Custom domains and free subdomains",
   "domains": "Buying, transferring and managing domains",
   "server-location-and-hardware": "Server location and hardware",
-  "server-optimization": "Server optimisation (free)",
+  "server-optimization": "Server optimisation",
   "terms-and-acceptable-use": "Terms of Service and acceptable use",
   "minecraft-for-beginners": "Minecraft for Beginners"
 }
