@@ -29,7 +29,7 @@ Once you have created the database, it will appear in your database list. From h
 ---
 ### Importing MySQL Databases through the panel
 
-To import a database you first have to create a new database in your server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. Keep in mind that database imports are limited to **5GB**.
+To import a database you first have to create a new database in your server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. An import from another server copies at most 2 million rows or 512 MB and stops after 4 minutes; for anything bigger, export it to a .sql file and import that in parts. You can run 3 imports from another server and 10 file imports per server every 10 minutes. Importing needs the permission to see the database password, and replacing existing tables also needs the permission to delete databases.
 
 ---
 ### Importing an .SQL database dump through the file manager
