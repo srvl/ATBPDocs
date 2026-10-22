@@ -5,6 +5,8 @@ description: "Run a traceroute or MTR to find where lag or packet loss starts, a
 
 Our servers are in Singapore. Players in the Philippines usually see low ping, so steady high ping, packet loss or random disconnects mean something along the route is struggling. These tests show where it starts: on your Wi-Fi, at your internet provider, somewhere in between, or at the server. Run one before opening a ticket and attach the result; it saves a lot of back and forth.
 
+**First, open https://atbphosting.com/network/.** It checks the whole path live: your ISP (PLDT, Globe, Converge, Smart, DITO), our DDoS protection, the data centre and our servers, and shows each ISP's typical ping right now. If it shows your ISP as slow, the problem is inside your ISP's network; another connection (mobile data or a different ISP) or a VPN usually works around it until they fix the route. If everything there is normal and only you lag, run the tests below.
+
 In every command below, use only your server's IP address, without the `:port` part.
 
 ## Quick check: traceroute
