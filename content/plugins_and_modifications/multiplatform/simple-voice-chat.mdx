@@ -58,14 +58,14 @@ In order to run Simple Voice Chat on your server, you need one of the following 
 
 1. Make sure you followed the steps for [Fabric](#fabric), [Forge](#forge), [Bukkit/Spigot/Paper](#bukkitspigotpaper) or [Quilt](#quilt)
 2. Open the **Network** tab in the panel
-3. Click **Add port**, choose **Simple Voice Chat** in the dropdown (see [Adding Ports](/using_the_panel/adding-ports)), click **Add port** again and note the port you get
-4. Start the server once so Simple Voice Chat creates its config (`voicechat-server.properties`, in `config/voicechat/` on Fabric, Forge and Quilt, in `plugins/voicechat/` on Bukkit, Spigot and Paper)
-5. Go to the **Console** section of your dashboard and click **RESTART**. While the server starts, the console shows a line saying `port` was set to your voice port
-6. Check your logs for the line **Voice chat server started at port** followed by your port. If this line exists, you successfully installed Simple Voice Chat!
+3. Click **Add port**, choose **Simple Voice Chat (UDP)** in the dropdown (see [Adding Ports](/using_the_panel/adding-ports)), click **Add port** again and note the port you get
+4. Start the server once so Simple Voice Chat creates its config, then stop it. The file is `voicechat-server.properties`, in `config/voicechat/` on Fabric, Forge and Quilt, and in `plugins/voicechat/` on Bukkit, Spigot and Paper
+5. Open that file in the [file manager](/using_the_panel/file-manager-controls) and set `port=` to the port you added in step 3, for example `port=24561`. Leave `voice_host=` empty
+6. Start the server and check the console for **Voice chat server started at port** followed by your port. If you see it, Simple Voice Chat is installed
 
 <Callout type="info">
 
-**What we fill in for you:** every time the server starts, an empty `voice_host=` gets your server's IP address, and `port=` still on the default `24454` gets a free voice port from your **Network** tab. This sends voice traffic straight to your server, so voice chat works even when players join through your protected domain. Values you type yourself are never changed; if one of them can't work (for example a port that isn't yours), the console tells you what to change when the server starts.
+Set `port=` yourself: adding a port in the panel does not put it in your config, and the default `24454` is not one of your ports. Keep `voice_host=` empty, or set it to your server's IP address, so voice goes straight to your server even when players join through a domain.
 
 </Callout>
 
@@ -73,18 +73,25 @@ In order to run Simple Voice Chat on your server, you need one of the following 
 
 The VCMC plugin (VoiceChatMobileClient) lets players on a phone join Simple Voice Chat. Its direct voice needs its own port, separate from the Simple Voice Chat port:
 
-1. In the **Network** tab click **Add port** and choose **Simple Voice Chat** in the dropdown again, so you get a second voice port
-2. Start the server once so VCMC creates `plugins/VCMC/config.yml`
-3. Restart the server. If `direct-voice:` `port:` is still the default `24455`, it is set to that second port while the server starts. If you set your own port, it must be one listed in your Network tab, or phone voice won't connect
-
-<Callout type="info">
-
-**About `advertised-host`:** like `voice_host`, an empty `direct-voice.advertised-host` gets your server's IP address every time the server starts. Leave it as it is. If you type your own value, we never change it.
-
-</Callout>
+1. In the **Network** tab click **Add port** and choose **Simple Voice Chat (UDP)** in the dropdown again, so you get a second voice port
+2. Start the server once so VCMC creates `plugins/VCMC/config.yml`, then stop it
+3. Under `direct-voice:`, set `port:` to that second port (the default `24455` won't connect). Leave `advertised-host:` empty or set it to your server's IP address
+4. Start the server again
 
 ## Voice chat doesn't connect
 
-- Check that `port=` matches a port listed in your **Network** tab. If it is still `24454`, add a port with **Add port** > **Simple Voice Chat** and restart: it is filled in for you
-- Make sure `voice_host=` is empty or holds your server's IP address, not an old address from a different server. Restart after any change
+- Check that `port=` in `voicechat-server.properties` is a port listed in your **Network** tab, added with **Simple Voice Chat**. Not `24454`, and not your main game port. Restart after any change
+- Make sure `voice_host=` is empty or holds your server's IP address, not an old address from a different server
 - Every player needs the Simple Voice Chat mod on their game client
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Do you support voice chat?
+- Do I need to set the voice chat port myself?
+- Does the panel set the Simple Voice Chat port for me?
+- Which port do I use for Simple Voice Chat?
+- Is voice chat UDP?
+- Voice chat says connecting but never connects
+
+</details>
