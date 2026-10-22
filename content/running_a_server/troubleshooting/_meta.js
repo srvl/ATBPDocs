@@ -1,6 +1,6 @@
 export default {
   "client-side-mods": "Client-Side Mods Crash the Server",
-  "connection-timed-out": "Connection Timed Out",
+  "connection-timed-out": "Connection Timed Out or Refused",
   "failed-to-verify-username": "Failed to Verify Username",
   "kick-messages": "Kick and Disconnect Messages",
   "lag-troubleshooting": "Troubleshooting Lag",

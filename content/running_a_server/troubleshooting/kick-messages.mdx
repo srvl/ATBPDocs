@@ -9,8 +9,8 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 
 | Message | What it means | What to do |
 | --- | --- | --- |
-| Connection timed out | The client could not reach the server at all | See [Connection Timed Out](/running_a_server/troubleshooting/connection-timed-out) |
-| Connection refused | Nothing is answering on that address and port | Check the server is running and the port is right |
+| Connection timed out | The client could not reach the server at all | See [Connection Timed Out or Refused](/running_a_server/troubleshooting/connection-timed-out) |
+| Connection refused (getsockopt) | Nothing is answering on that address and port | Check the server is running and the address includes the right port, see [Connection Timed Out or Refused](/running_a_server/troubleshooting/connection-timed-out) |
 | End of stream | The server stopped sending data, often because it crashed or restarted | Read the Console for a crash |
 | Read timed out | The server stopped hearing from the player | Usually the player's internet; see [ping issues](/extras/ping-issues) |
 | Internal Exception: java.io.IOException | The connection dropped or a packet failed | Often a plugin or mod; on modpacks see [packet errors](/running_a_server/modpack-packet-errors) |

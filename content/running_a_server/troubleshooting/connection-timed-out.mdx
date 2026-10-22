@@ -1,22 +1,29 @@
 ---
-title: "Connection Timed Out"
-description: "Fix the Connection timed out error when joining your server."
+title: "Connection Timed Out or Refused"
+description: "Fix Connection timed out, Connection refused and getsockopt errors when joining your server."
 ---
 
-This means your game could not reach the server in time.
+These errors all mean your game could not reach the server:
+
+- **Connection refused** (often shown as `Connection refused: getsockopt`): your game reached the address, but nothing answered on that port. Usually the port is missing or wrong, or the server is not running.
+- **Connection timed out**: your game got no answer at all in time. Usually the server is offline, or the route between the player and the server is the problem.
 
 ## Check the basics
 
-1. **Is the server online?** Open the [panel](https://panel.atbphosting.com) and confirm the status is running. If it is stopped or still starting, wait for it to finish.
-2. **Restart the server** from the panel and try again after it fully starts.
-3. **Check the address.** Copy the IP and port exactly from the panel. If the port is not 25565, add it, for example `address:25566`.
-4. **Use Direct Connection.** In Minecraft, choose **Direct Connection** instead of saving the server and paste the address.
-5. **Check your version.** See [Outdated Server or Client](/running_a_server/troubleshooting/outdated-server-client).
+1. **Is the server online?** Open the [panel](https://panel.atbphosting.com) and confirm the status is running and the console shows the server has finished starting (for Minecraft Java, the `Done` line). If it is stopped, crashed or still starting, fix that first.
+2. **Use the full address with the port.** ATBP servers do not use the default port 25565, so the port is needed. Copy the IP and port exactly from the **Network** tab, in the form `IP:port`. An address without `:port` gives **Connection refused**. A subdomain from the panel already includes the port.
+3. **Use Direct Connection.** In Minecraft, choose **Direct Connection** instead of a saved server and paste the address. Saved entries keep an old port.
+4. **Did you change ports?** If you deleted your main port or made another port primary, the old address stops working. Players need the new one, and a subdomain must be made again on the new port, see [Adding Ports](/using_the_panel/adding-ports). For Geyser, Java and Bedrock players use different ports, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+5. **Restart the server** from the panel and try again after it fully starts.
+6. **Check your version.** See [Outdated Server or Client](/running_a_server/troubleshooting/outdated-server-client).
+
+If the console shows players connecting and then being kicked with a message, the connection works and the problem is the kick reason, see [Kick and Disconnect Messages](/running_a_server/troubleshooting/kick-messages) and [Failed to Verify Username](/running_a_server/troubleshooting/failed-to-verify-username).
 
 ## If it works for others but not you
 
 Your own internet or route may be the problem.
 
+- Open https://atbphosting.com/network/ to see live whether your ISP's route to our servers is slow or down.
 - Restart your router or try mobile data.
 - Turn off VPNs, or try a different one.
 - Run a latency test, see [Diagnosing Ping Issues](/extras/ping-issues).
@@ -28,15 +35,16 @@ Try the numeric address and port from the **Network** tab. If that works, the pr
 - Check the domain's record, see [Custom Domain](/running_a_server/domain) and [Custom Domains and Subdomains](/general/custom-domains-and-subdomains).
 - Try another DNS or a free VPN for a few minutes. If the player can join through a VPN, their provider's route is the cause, and the VPN is a workaround until it clears.
 
+## If only some players cannot join
+
+- If they share one ISP, check https://atbphosting.com/network/ for that ISP. A routing problem inside an ISP has to be fixed by the ISP; a VPN or another connection usually works around it meanwhile.
+- Our network protection can block individual IP addresses. Ask an affected player for their public IPv4 address (from any "what is my IP" site) and a few minutes of MTR results, see [Diagnosing Ping Issues](/extras/ping-issues), then open a ticket with both so we can check.
+- Ask them to test on mobile data or another network. If it works there, their ISP route is the cause.
+- Check https://status.atbphosting.com for regional network incidents.
+
 ## If nobody can join
 
 - Look at the console for crashes or errors.
 - Make sure a custom domain points to the right address, see [Custom Domain](/running_a_server/domain).
 
-Still timing out? Open a [support ticket](/general/getting-support) with your log, see [Share Your Server Logs](/running_a_server/share-logs).
-
-## If only some players cannot join
-
-- Our network protection can block individual IP addresses. Ask an affected player for their public IPv4 address (from any "what is my IP" site) and a few minutes of MTR results, see [Diagnosing Ping Issues](/extras/ping-issues), then open a ticket with both so we can check.
-- Ask them to test on mobile data or another network. If it works there, their ISP route is the cause.
-- Check https://status.atbphosting.com for regional network incidents.
+Still cannot connect? Open a [support ticket](/general/getting-support) with your panel link, the exact address players use and your log, see [Share Your Server Logs](/running_a_server/share-logs).
