@@ -75,3 +75,5 @@ Paper does not run mods. If you need a mod loader, pick Fabric, Forge or NeoForg
 ## After a new Minecraft release
 
 Right after a new Minecraft release many plugins and mods are not ready. Stay on the previous version until your plugins say they support the new one, and make a backup first. Run `ver` in the console to see which version you are on. Going back is only safe with a backup made before the upgrade: a world that was already opened on the newer version may not load on the older one. Never set a played world back to an older version to "undo" an update; restore the backup from before the upgrade instead.
+
+If you already switched to an older version and your world now looks empty or brand new, or the server crashes on start, your world is usually still there: the older version just cannot read it. Stop the server, switch back to the exact version the world was last played on (the server's `version_history.json` file shows it), and start again. Don't delete or rename the world folder, and don't restore an old backup over it, until you have tried that.
