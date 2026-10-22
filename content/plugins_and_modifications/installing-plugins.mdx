@@ -36,14 +36,21 @@ If you see that console line, a plugin you installed came from an unsafe source.
 
 ### Installing Plugins
 
-1. You'll first need to find the plugin you wish to install. Downloads can be found on a variety of sites. Common places are [spigotmc.org](https://spigotmc.org/resources), [bukkit.org](https://dev.bukkit.org), [Modrinth](https://modrinth.com/plugins), [Hangar](https://hangar.papermc.io/) or you can use our [Plugin Installer](https://panel.atbphosting.com/) in Panel.
-2. In any case, save the plugin to your local machine. Plugins can either be uploaded via the [web panel](https://panel.atbphosting.com) or through [SFTP](/using_the_panel/sftp). If you're uploading in bulk, go with the latter.
-3. In your server's root directory, locate the `plugins` folder, if it's not there then create a new directory named `plugins`. Navigate into this folder, and upload your plugin's file there!
-4. Most plugins will require you to restart your server before they take effect.
+The quickest way is the panel's own plugin installer:
 
-Once the server is online, type `plugins` in your console. If you are able to see the freshly installed plugin's name in green, you're good to go! If not, see what to do below.
+1. In the [panel](https://panel.atbphosting.com), open your server and go to **More > Plugins**.
+2. Search for the plugin. The filters at the top pick the source (such as Modrinth), your Minecraft version and your server software.
+3. Install it, then restart your server. The **Installed** tab lists what you have.
 
-If you install your plugin using [Plugin Installer](https://panel.atbphosting.com/) you can skip step 2 & 3 and proceed to step 4.
+![The panel's More > Plugins page: search, version and software filters, and a grid of Modrinth plugins to install](/screenshots/panel-more-plugins.webp)
+
+To install a plugin by hand instead:
+
+1. Download it from its official page, such as [Modrinth](https://modrinth.com/plugins), [Hangar](https://hangar.papermc.io/), [spigotmc.org](https://spigotmc.org/resources) or [bukkit.org](https://dev.bukkit.org).
+2. Upload it to the `plugins` folder in your server's root directory, in the panel's **Files** tab or over [SFTP](/using_the_panel/sftp) (better for many files). If there is no `plugins` folder, create one.
+3. Restart your server.
+
+Once the server is online, type `plugins` in your console. If the new plugin's name shows in green, you're good to go. If not, see what to do below.
 
 ---
 
