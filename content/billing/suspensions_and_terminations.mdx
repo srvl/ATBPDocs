@@ -20,7 +20,7 @@ When the server is suspended it is stopped and we save a backup of its files. Pa
 
 ## Termination
 
-An unpaid server is deleted 3 days after its due date. Because suspension happens on the due date, that is also 3 days after it was suspended. You get an email when the server is suspended and a reminder about a day before it is deleted. Deleting removes the server, its databases and the backups you made in the panel. A server that was already suspended when the 3-day rule started keeps the 7-day deadline its suspension email gave it.
+An unpaid server is deleted 3 days after its due date. Because suspension happens on the due date, that is also 3 days after it was suspended. We only delete it once its saved backup is safely stored off-site; if that copy is not there yet, the server stays suspended a little longer until it is. You get an email when the server is suspended and a reminder about a day before it is deleted. Deleting removes the server, its databases and the backups you made in the panel. A server that was already suspended when the 3-day rule started keeps the 7-day deadline its suspension email gave it.
 
 ## Your saved backup
 
@@ -30,7 +30,7 @@ The backup saved at suspension stays downloadable for **30 days after the server
 2. In the **Saved backup of your files** box, press **Download your files**. The suspension and deletion emails have the same button.
 3. You get a `.tar` file of the server's files (worlds, configs, plugins). Open it with 7-Zip, WinRAR or any archive tool. Databases are not included.
 
-If the box says the backup is being saved or prepared, check back in a few minutes. If it says the backup could not be saved, open a ticket in our [Discord server](https://discord.atbphosting.com) before the deletion date and staff will help. A server with splits gets a saved backup for each split too.
+If the box says the backup is being saved or prepared, check back in a few minutes. If it says the backup could not be saved or is not available to download, open a ticket in our [Discord server](https://discord.atbphosting.com) before the deletion date and staff will help. A server with splits gets a saved backup for each split too.
 
 The same saved backup is kept when you cancel a server or it ends at the end of its term.
 
