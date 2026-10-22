@@ -1,95 +1,53 @@
 ---
 title: "Server Importer"
+description: "Copy your files from another host or another ATBP server into your server with the panel's SFTP importer."
 ---
 
-## SFTP connection setup
+The Server Importer copies files from another server straight into your ATBP server over SFTP. Use it when you move from another host, or from one ATBP server to another (for example after changing plans), without downloading and uploading everything yourself.
 
-This guide explains how to configure and establish a secure file transfer (SFTP) connection to your remote server using the provided interface. SFTP is a network protocol that provides file access, file transfer, and file management functionalities over any reliable data stream. It's crucial for securely managing files on your game server, website, or any other remote host.
+## Before you import
 
-## Understanding the interface
+1. [Make a backup](/using_the_panel/backups/guide) of the server you are importing into, and stop it.
+2. Read the notice at the top of the importer and do what it asks before you connect.
+3. Get the SFTP details of the server you are copying **from**:
+   - **From another host:** their panel or support shows the SFTP host, port, username and password.
+   - **From another ATBP server:** open that server on the [panel](https://panel.atbphosting.com) and go to **Settings**. The SFTP host, port and username are listed there, see [Using SFTP](/using_the_panel/sftp).
 
-The interface is divided into two main sections: Saved Profiles and Connection Details.
+## The fields
 
-**Saved Profiles**
+| Field | What to enter |
+|---|---|
+| **Host** | The SFTP address of the old server, without `sftp://` and without the port. |
+| **Port** | The SFTP port of the old server. It is often `22`, but many game hosts use another port such as `2022`. Use the one you were given. |
+| **Username** | The full SFTP username. On ATBP it is your panel username followed by a dot and the server ID, copied from **Settings**. |
+| **Password** | The password for that SFTP login. For an ATBP server this is your **game panel** password, not your email password and not your billing password. |
+| **Source path** | The folder on the old server to copy from. `/` copies the whole server. |
+| **Destination path** | The folder on this server to copy into. `/` is the top of your server's files. |
 
-This section allows you to manage pre-configured connection settings for different servers or purposes.
+**Saved Profiles** keeps these details so you don't have to type them again. Fill in the fields, then click **Save**.
 
-*   Select a profile:
+## Running the import
 
-    *   Dropdown Menu: Use this to choose from a list of previously saved connection profiles. This is convenient if you frequently connect to the same server or different servers.
-    *   "Save" Button: After entering your connection details, click this button to save the current configuration as a new profile or update an existing one. This will prevent you from having to re-enter credentials every time you want to connect.
+1. Fill in the fields and click **Connect**.
+2. Start the import and wait. Large worlds and modpacks can take a while.
+3. Open **Files** and check that your world, configs and `plugins` or `mods` folders arrived where you expected.
 
-**Connection Details**
+## After the import
 
-This is where you input the necessary information to connect to your remote server.
+The importer copies files only, not the server's settings. Before you start the server:
 
-*   HOST:
+- In **Startup** or **Software**, pick the same software and Minecraft version the old server used (Paper, Fabric, NeoForge and so on). Starting the files on different software can remove or ignore your mods and plugins. See [Server Software Overview](/running_a_server/server-software-overview).
+- Pick the Java version that matches that Minecraft version, see [Java Version](/running_a_server/java-version).
+- If mods or plugins still do not load, check the console for the first error and see [Installing Mods](/plugins_and_modifications/mods-install).
 
-    *   Input Field: Enter the hostname or IP address of your remote server. This is the unique identifier for the server you want to connect to.
-    *   Description: "The host address of the remote server."
+## Troubleshooting
 
-*   PORT:
+- **It cannot connect to the remote server, or says connection refused or timed out:**
+  - Check the host has no `sftp://` and no `:port` in it, and that the port is the SFTP port, not the game port.
+  - Use the full SFTP username, including the part after the dot.
+  - Set **Source path** to `/`. A folder that does not exist on the old server makes the import fail.
+  - Some hosts only allow SFTP from certain places or turn it off for expired servers. If it still fails, download your files from the old server as a `.zip` or `.tar.gz` (or a backup), upload the archive in **Files** (or with [SFTP](/using_the_panel/sftp) for big files), then click **...** next to it and **Unarchive**.
+- **Authentication failed:** the username or password is wrong. Passwords are case-sensitive. For an ATBP server, reset your game panel password if you are not sure of it.
+- **Files went to the wrong place:** if everything ended up inside an extra folder, move the files up to the top level in **Files**, or run the import again with a different **Destination path**.
 
-    *   Input Field: Enter the port number for the SFTP service on your remote server. The default SFTP port is `22`, but it can sometimes be changed for security reasons. A non-standard port such as `2022` is possible, so use the port your remote host gave you.
-    *   Description: "The port number of the remote server."
-
-*   USERNAME:
-
-    *   Input Field: Enter the username required to authenticate with the remote server. This is typically provided by your hosting provider or set up when you configure user accounts on your server.
-    *   Description: "The username to authenticate with."
-
-*   PASSWORD:
-
-    *   Input Field: Enter the password associated with the provided username for authentication.
-    *   Description: "The password to authenticate with."
-
-*   SOURCE PATH:
-
-    *   Input Field: This specifies the starting directory on your *local machine* (or where you want to import files from). The default `/` usually refers to the root directory from which you will select files to upload.
-    *   Description: "The path to import files from."
-    *   When importing into your ATBP server, this is the path on the remote server you are connecting to.
-
-*   DESTINATION PATH:
-
-    *   Input Field: This specifies the target directory on the *remote server* where files will be transferred to. The default `/` typically refers to the root directory of the connected user.
-    *   Description: "The path where files will be imported to."
-    *   Note: For a typical SFTP upload, this is the folder on the *remote server* where you want your files to end up.
-
-*   SFTP Protocol Selection:
-
-    *   Dropdown Menu: This confirms that the connection method is SFTP (SSH File Transfer Protocol). While sometimes other protocols like FTP or FTPS might be offered, SFTP is generally preferred for its enhanced security as it encrypts both data and commands.
-
-*   "Connect" Button:
-
-    *   Click this button after filling in all the connection details to attempt to establish an SFTP connection to the remote server.
-
-## How to use
-
-*   Enter Connection Details: Fill in the HOST, PORT, USERNAME, and PASSWORD fields with the credentials provided by your server host or your server's configuration.
-
-*   Specify Paths:
-
-    *   For uploading files to your server: The SOURCE PATH would be relevant if you're importing from another remote location. However, if you're uploading from your *local computer*, this field might be automatically handled by the subsequent file selection process once connected, or it might be the starting point on the *remote* server for browsing. The DESTINATION PATH is crucial: this is where you want your files to be placed on your server (e.g., `/home/minecraft/server/plugins`).
-    *   For downloading files from your server: The SOURCE PATH would be the directory on your remote server you wish to download from (e.g., `/home/minecraft/server/world`), and the DESTINATION PATH might refer to a location within the panel's file manager or a temporary download folder.
-    *   Pay close attention to these paths to ensure files are transferred to and from the correct locations. The default `/` means the root directory of the connected user.
-
-*   Save Profile (Optional but Recommended): Once you've successfully connected, or even before, click the "Save" button in the "Saved Profiles" section to store these connection details for future use. Give it a descriptive name like "My Minecraft Server SFTP" or "Website FTP".
-
-*   Connect: Click the "Connect" button.
-
-*   Manage Files: If the connection is successful, you will typically be presented with a file browser interface, allowing you to upload, download, delete, rename, and manage files on your remote server securely.
-
-## Troubleshooting common issues
-
-*   "Connection refused" or "Connection timed out":
-
-    *   Double-check the HOST and PORT.
-    *   Ensure your server is running and accessible from the internet.
-    *   Check for firewall issues on your server or your local network that might be blocking the connection.
-
-*   "Authentication failed":
-
-    *   Verify your USERNAME and PASSWORD carefully. Passwords are case-sensitive.
-    *   Ensure the user has SFTP access enabled on the server.
-
-*   Incorrect Paths: If you connect but can't find your files, or files don't appear where expected, double-check your SOURCE PATH and DESTINATION PATH.
+Still stuck? Open a [support ticket](/general/getting-support) with the panel link of the server you are importing into.
