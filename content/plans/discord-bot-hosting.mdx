@@ -18,6 +18,7 @@ Stock checked <StockTime>October 17, 2026 at 9:31 AM (Philippine time)</StockTim
 - There is no setup fee. Longer terms are cheaper: 5% off for 6 months and 10% off for 12 months, the same as game servers (3 months is the monthly price times three).
 - At checkout pick the bot type: **Python Bot**, **NodeJS Bot**, **Red Bot**, **Drako Bot** (needs your own licence) or **Lavalink**.
 - Your bot runs in the game panel (panel.atbphosting.com) with its own console, files and SFTP, like a game server. Upload your files, set the start file on the Startup tab, put your bot token in your own config, and start the server.
+- Node.js bots: pick **Nodejs 22** or **Nodejs 24** as the Docker image on the Startup tab. These two get the current Node.js security updates. Node.js 20 and 25 and older versions are end-of-life and no longer get fixes, so move your bot to 22 or 24.
 - If your bot or web app listens on a port (a dashboard, a webhook, Lavalink), use the port shown on the **Network** tab. Other ports are not reachable.
 - Websites: there is no separate web hosting plan. Pick the **NodeJS Bot** type and serve your site with Node.js (for example Express serving your HTML files) on the port from the **Network** tab.
 - Domains: a bot itself needs no domain. For a dashboard or web page your bot serves, create a free **Web App** subdomain in the panel (More > Subdomain) on that port, or use your own domain by pointing it at your server's IP in your domain's DNS. See [Custom domains and free subdomains](/general/custom-domains-and-subdomains).
