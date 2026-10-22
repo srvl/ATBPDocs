@@ -25,7 +25,10 @@ const KEEP_TIME = process.env.STOCK_KEEP_TIME === '1';
 // Lines billing still shows but the docs do not describe (the retired Budget Micro).
 const SKIP = new Set(['mc-sgp-budget']);
 // Order on the Stock right now page; lines not listed follow in billing's order.
-const ORDER = ['mc-sgp-premium+', 'hytale-sgp-premium+', 'palworld-sgp-premium+', 'fivem-sgp-premium+', 'terraria-sgp-premium+', 'discord-bots'];
+const ORDER = [
+  'mc-sgp-premium+', 'sgp-budget', 'hytale-sgp-premium+', 'hytale-sgp-budget+', 'palworld-sgp-premium+', 'palworld-sgp-budget+',
+  'fivem-sgp-premium+', 'fivem-sgp-budget+', 'terraria-sgp-premium+', 'terraria-sgp-budget+', 'discord-bots',
+];
 
 async function load() {
   if (!/^https?:/.test(FEED)) return JSON.parse(readFileSync(FEED, 'utf8'));

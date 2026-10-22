@@ -11,7 +11,7 @@ const sections = [
   {
     href: '/plans/budget-plus-plans-and-prices',
     title: 'Plans',
-    desc: 'Budget+ and Premium+ plans, RAM sizes, server splits, backups and Discord bot hosting.',
+    desc: 'Budget+ (₱35 per GB, EPYC 7B13, from 4 GB) or Premium+ (₱75 per GB, Ryzen 9 9950X, from 6 GB), splits, backups and Discord bots.',
     icon: icon(<><rect x="3" y="4" width="18" height="6" rx="1.5" /><rect x="3" y="14" width="18" height="6" rx="1.5" /><path d="M7 7h.01M7 17h.01" /></>)
   },
   {
