@@ -1,6 +1,6 @@
 ---
 title: "Server stuck starting, stopping or installing"
-description: "What to do when a server will not stop, will not start, shows empty files, or stays on installing."
+description: "What to do when a server will not stop, will not start, shows empty files or a missing server.jar, or stays on installing."
 ---
 
 Most stuck servers come back with one of the steps below. Work through the section that matches what you see in the [panel](https://panel.atbphosting.com).
@@ -21,9 +21,9 @@ If progress is missing after a kill, restore the latest copy from the **Backups*
 
 The panel is still working on your last start, stop or restart. Wait a few minutes (large worlds take longer to save), then refresh the page. Do not keep pressing buttons. If the message is still there after 10 minutes, open a ticket with your panel link.
 
-## Will not start and Files looks empty
+## Will not start: files missing or server.jar not found
 
-If the **Files** tab is missing the usual game folders, the game install was deleted or never finished.
+If the **Files** tab is missing the usual game folders, or the console says the server jar (for Minecraft, `server.jar`) cannot be found, the game install was deleted or never finished.
 
 1. Stop the server (kill it if it hangs).
 2. Open **Settings** and press **Reinstall Server**.
