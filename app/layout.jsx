@@ -6,7 +6,7 @@ import { Search } from '../components/Search'
 import './atbp.css'
 
 export const metadata = {
-  title: { default: 'ATBP Hosting Docs', template: '%s – ATBP Docs' },
+  title: { default: 'ATBP Hosting Docs', template: '%s | ATBP Hosting Docs' },
   description: 'Guides, tips and policies for ATBP Hosting game servers.'
 }
 
