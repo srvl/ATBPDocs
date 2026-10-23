@@ -2,6 +2,8 @@
 title: "Renewals, overdue invoices, suspension and deletion"
 ---
 
+import { Callout } from 'nextra/components'
+
 - A renewal invoice is created 7 days before your due date. If you link your Discord with `/billing link`, the bot also reminds you.
 - If you have enough account credit, or a saved PayPal/Stripe payment method, the invoice is paid automatically.
 - **Renew early or in advance:** open billing > Services > your server and press **Renew**. Pick how long to renew for (one billing period, or several months at once with the same term discounts as new orders), enter a coupon code if you have one, and press **Create renewal invoice**. Your due date moves forward as soon as that invoice is paid.
@@ -14,6 +16,12 @@ title: "Renewals, overdue invoices, suspension and deletion"
 - **Want the deleted server itself back?** Within the same 30 days, open a ticket in our [Discord server](https://discord.atbphosting.com) and staff can restore the server from its saved backup (files only, no databases).
 - Your billing account is not deleted when a server expires; only that server is.
 - **Retired plans cannot be renewed.** Right now that is the old Budget Nano and Budget Micro. Their service page shows a notice instead of **Renew**, no renewal invoice is created, and the status reads **Cancellation pending** even though you did not cancel. The server runs until its due date, then it is suspended and deleted as above. To keep it, **Upgrade** it to a current plan before then; see [Budget+ plans](/plans/budget-plus-plans-and-prices).
+
+<Callout type="info">
+
+**Paid but the invoice still says unpaid?** Credit does not pay an open invoice by itself: open the invoice, click **Account Credits**, then **Apply Credits and Pay**. See [GCash](/billing/gcash).
+
+</Callout>
 
 <details>
 <summary>Questions this page answers</summary>
@@ -44,5 +52,8 @@ title: "Renewals, overdue invoices, suspension and deletion"
 - How long is the saved backup kept?
 - Can a deleted server be restored?
 - Maibabalik pa ba ang na-delete na server?
+- Paid but my server is still suspended
+- Bayad na pero suspended pa rin
+- Credit is there but the invoice is still unpaid
 
 </details>
