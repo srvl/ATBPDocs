@@ -1,18 +1,30 @@
 ---
 title: "Make Yourself an Operator"
-description: "Give yourself operator (OP) permissions from the panel console."
+description: "Give yourself or a friend operator (OP) permissions from the panel's Players page or the console."
 ---
 
-Operators can run admin commands such as `gamemode`, `time` and `ban`. Because you may not be an operator yet when you first join, use the panel console.
+Operators can run admin commands such as `gamemode`, `time` and `ban`. Only give OP to players you trust: an operator can ban players, op others and change almost anything on the server.
 
-1. Open your server in the [panel](https://panel.atbphosting.com) and go to the **Console** tab.
+## From the Players page (Java)
+
+1. Open your server in the [panel](https://panel.atbphosting.com) and go to **More > Players**.
+2. Stay on the **Opped** tab and click the **+** card.
+3. Type the player's exact Minecraft username and confirm.
+
+The panel saves the player in `ops.json` and, if the server is running, also runs the `op` command for you, so it works straight away. To remove someone, remove them from the same list.
+
+![The panel's More > Players page with the Opped, Whitelisted, Banned and Offline tabs, the Operators warning and the + card](/screenshots/panel-more-players.webp)
+
+The same page also manages the whitelist (**Whitelisted**), bans (**Banned**) and players who have joined before (**Offline**). On a Velocity or BungeeCord proxy there is no player list to manage, so use the servers behind it.
+
+## From the console
+
+1. Go to the **Console** tab.
 2. Type `op YourUsername` and press Enter. Do not add a `/` in the console.
 3. The console confirms the change. If it says the player does not exist, check your spelling.
-
-Adding someone as an operator from a player list in the panel may not take effect in game. If that happens, run the `op` command in the **Console** tab as above.
 
 To remove operator status, use `deop YourUsername`.
 
 On Bedrock servers, edit `permissions.json` or use the same console command if your server software supports it. On servers running a permissions plugin such as LuckPerms, grant permissions there instead of using vanilla OP.
 
-See also: [Basic Server Commands](/running_a_server/basic-server-commands).
+See also: [Basic Server Commands](/running_a_server/basic-server-commands) and [Setting Up Whitelist](/running_a_server/whitelist).
