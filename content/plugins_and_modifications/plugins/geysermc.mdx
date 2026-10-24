@@ -42,7 +42,7 @@ After that, restart the server. Bedrock players join with your server's IP addre
 
 ## Bedrock players cannot join
 
-- **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Geyser needs build 1237 or newer: if the console says NetherNet is not supported, update Geyser and Floodgate. On first join players may be asked to trust your server; they press trust once.
+- **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Geyser needs build 1237 or newer: if the console says NetherNet is not supported, update Geyser and Floodgate. Players who join with your server's subdomain are not asked to trust the server; players who join by IP are asked once.
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
 - **Port mix-up**: keep your Java port as the **primary** port in the **Network** tab. The Bedrock port is a separate port (do not make it primary) and must match the `port` in the Geyser `config.yml`. After changing it, restart the server.
 - **Voice chat stopped working for Bedrock players after a port change**: check that the voice chat port in its config is still listed in your **Network** tab, then restart. See [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat).
