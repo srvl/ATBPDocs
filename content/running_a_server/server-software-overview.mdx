@@ -23,7 +23,10 @@ Players usually need the same mods installed on their own game. See [Installing 
 
 - **Proxies** (Velocity, Velocity-CTD, BungeeCord): connect several servers together. See [Velocity](/running_a_server/velocity).
 - **Hybrids**: try to run mods and plugins together. See [Hybrid Servers](/running_a_server/hybrid-servers).
-- **Folia** and forks such as **Canvas**: split the world into regions that tick on separate CPU threads. They only help big servers with many players spread far apart, and need a lot of CPU: Folia's developers suggest 16 or more cores. On a smaller plan they are usually slower than Paper or Purpur, and many plugins do not support them. Lag after switching to Folia is a reason to switch back, not to raise thread settings. To find what lags, see [Spark Analyzer](/running_a_server/spark-analyzer).
+- **Folia** and forks such as **Canvas**: split the world into regions that tick on separate CPU threads. Every region thread is a tick loop of its own, so for the same players they use more CPU than Paper, Purpur or Leaf. They only help big servers with many players spread far apart: Folia's developers suggest 16 or more cores, and many plugins do not support them. On ATBP Hosting:
+  - **More > Software** offers Folia and Canvas only on plans with **8 vCPU or more**. On smaller plans pick Paper, Purpur or Leaf.
+  - `threaded-regions.threads` in `config/paper-global.yml` is set to **half your plan's vCPU** (at least 1), for example 4 on a 9 vCPU plan. The new value applies the next time your server starts, and it is set back if you raise it.
+  - Lag after switching to Folia or Canvas is a reason to switch back, not to raise thread settings. To find what lags, see [Spark Analyzer](/running_a_server/spark-analyzer).
 
 ## For Bedrock
 
