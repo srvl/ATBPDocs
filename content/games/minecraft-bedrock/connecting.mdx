@@ -26,7 +26,17 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 ## Bedrock players suddenly cannot join
 
 - Check https://status.atbphosting.com first. A network incident can stop players from joining even though your server is fine.
-- **Console mentions NetherNet?** Open **Files**, edit `server.properties` (for Geyser, the Geyser `config.yml`) and set the network transport to `raknet` instead of `nethernet`. Save and restart. NetherNet is new and not supported everywhere yet.
+- **A 6th player cannot join, or players time out right after connecting?** See [NetherNet](#nethernet) below: every player online needs a port.
+- **"Trust this server?" on first join?** That is normal on NetherNet, see below. Players press trust once.
 - **Stuck on the loading screen?** Remove addons one by one to find the one causing it, see [Bedrock Addons](/running_a_server/bedrock-addons).
 - **After changing or deleting a port?** Any subdomain still points at the old port. Delete the subdomain and create it again for the new port.
 - **Java and Bedrock on the same server?** Bedrock players join with the Bedrock port, which can differ from the Java port.
+
+## NetherNet
+
+Bedrock 26.60 and newer only connect with Bedrock's new network transport, NetherNet. Your Bedrock server is already set up for it: the panel picks it under **Startup**, **Network transport**, and fills in the ports and addresses Bedrock needs on every start. You don't need to change anything in `server.properties`.
+
+- **One port per player online.** NetherNet gives every player online their own port, so your Bedrock server comes with 5 ports, which is 5 players at the same time. For more, add ports on the **Network** tab, choosing **Other games** (see [Adding Ports](/using_the_panel/adding-ports)), then restart. Players still join with your main address and port.
+- **"Trust this server?"** The first time a player joins they may be asked to trust your server. They press trust once and are not asked again, even after restarts.
+- **RakNet** (the old transport) only works for players on Bedrock 26.50 or older. You can still pick it under **Network transport**, but newer players then cannot join.
+- Java servers with Geyser are set up for NetherNet too, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
