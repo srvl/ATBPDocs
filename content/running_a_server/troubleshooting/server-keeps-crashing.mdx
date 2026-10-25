@@ -1,0 +1,25 @@
+---
+title: "Server Keeps Crashing and Restarting"
+description: "What the panel does when your server crashes, why it waits before restarting, and when it stops trying."
+---
+
+When your server stops by itself (a crash, an out of memory kill, or the game closing on its own), the panel starts it again for you. The console shows a block that starts with `Detected server process in a crashed state!` and the exit code.
+
+## How automatic restarts work
+
+- **First crash:** the server is started again straight away.
+- **Crashes again within a minute of starting:** the panel waits before the next try, longer each time: 30 seconds, then 1 minute, 2 minutes, then 5 minutes. The console says how long it will wait and which attempt it is, for example `Restarting it in 30 seconds (attempt 1 of 6 in the last hour)`.
+- **Still crashing after 6 quick retries in an hour:** the panel stops restarting it so it does not loop forever. The console says `Automatic restarts are stopped`. Fix the cause, then press **Start** yourself. Starting it by hand gives it a fresh set of retries.
+- **A server that ran for a while and then crashed** is restarted at once, and the waiting starts over from 30 seconds.
+
+The panel never restarts a server that you stopped or killed, even while it is waiting to retry. Pressing **Stop** during the wait cancels the restart. Suspended servers, and servers that are installing or restoring a backup, are not restarted either.
+
+## Finding the cause
+
+Read the lines just above the crash block in the console, or `logs/latest.log` (and `crash-reports` for Minecraft) in the **Files** tab. Common causes:
+
+- Out of memory or exit code 137: see [Out of Memory Errors](/running_a_server/troubleshooting/out-of-memory).
+- A mod or plugin that does not match the game version, or a client-only mod: see [Client-Side Mods Crash the Server](/running_a_server/troubleshooting/client-side-mods) and [Binary Search](/running_a_server/binarysearch).
+- A world or config file damaged by the crash: restore a [backup](/plans/backups).
+
+Need help? Open a [support ticket](/general/getting-support) with the console lines from just before the crash.

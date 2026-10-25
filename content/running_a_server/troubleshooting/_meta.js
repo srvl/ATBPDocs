@@ -7,5 +7,6 @@ export default {
   "out-of-date-plugins": "Out of Date Plugin Errors",
   "out-of-memory": "Out of Memory Errors",
   "outdated-server-client": "Outdated Server or Outdated Client",
+  "server-keeps-crashing": "Server Keeps Crashing and Restarting",
   "understand-ram-usage": "Understand RAM Usage"
 }
