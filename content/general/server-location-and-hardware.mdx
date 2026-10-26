@@ -9,7 +9,7 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 - **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield.
 - There is no Philippines location. From Metro Manila, Singapore is usually 40 to 80 ms. Players in the US or Europe will see about 150 to 180 ms; a VPN or proxy will not lower that.
 - vCPU is capped, not burstable: 1 vCPU = 100% CPU in the panel (4 vCPU shows 400%).
-- CPU Guardian: a server that stays above its plan's CPU for about an hour is throttled automatically to half its CPU. Short spikes are not throttled. Full CPU is restored automatically later. If it keeps happening, find the cause with [Spark](/running_a_server/spark) or upgrade vCPU.
+- CPU Guardian: a server that stays above its plan's CPU for about an hour is throttled automatically to half its CPU. Short spikes are not throttled. Full CPU comes back automatically at 1:00 AM Philippine time, or right away when you upgrade the plan. If it keeps happening, find the cause with [Spark](/running_a_server/spark) or upgrade vCPU.
 - The panel shows which node your server is on under Settings. Whether each node is up is public at https://status.atbphosting.com, and https://atbphosting.com/network/ shows live whether lag comes from your ISP, our DDoS protection, the data centre or our servers.
 - Moving a server to another node changes its IP (and sometimes ports). Ask in a ticket.
 
@@ -32,5 +32,7 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 - Why is my CPU throttled to half?
 - What is CPU Guardian?
 - How long can my server go over its CPU limit?
+- When does my CPU come back after CPU Guardian?
+- Kailan babalik yung CPU ko?
 
 </details>
