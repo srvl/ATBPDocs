@@ -27,7 +27,8 @@ const SKIP = new Set(['mc-sgp-budget']);
 // Order on the Stock right now page; lines not listed follow in billing's order.
 const ORDER = [
   'mc-sgp-premium+', 'sgp-budget', 'hytale-sgp-premium+', 'hytale-sgp-budget+', 'palworld-sgp-premium+', 'palworld-sgp-budget+',
-  'fivem-sgp-premium+', 'fivem-sgp-budget+', 'terraria-sgp-premium+', 'terraria-sgp-budget+', 'discord-bots',
+  'fivem-sgp-premium+', 'fivem-sgp-budget+', 'terraria-sgp-premium+', 'terraria-sgp-budget+',
+  'valheim-sgp-premium+', 'valheim-sgp-budget+', 'project-zomboid-sgp-premium+', 'project-zomboid-sgp-budget+', 'discord-bots',
 ];
 
 async function load() {
