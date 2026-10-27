@@ -36,7 +36,7 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 
 Bedrock 26.60 and newer only connect with Bedrock's new network transport, NetherNet. Your Bedrock server is already set up for it: the panel picks it under **Startup**, **Network transport**, and fills in the ports and addresses Bedrock needs on every start. You don't need to change anything in `server.properties`.
 
-- **One port per player online.** NetherNet gives every player online their own port, so your Bedrock server comes with 5 ports, which is 5 players at the same time. For more, add ports on the **Network** tab, choosing **Other games** (see [Adding Ports](/using_the_panel/adding-ports)), then restart. Players still join with your main address and port.
+- **One port per player online.** NetherNet gives every player online their own port, so your Bedrock server comes with 5 ports, which is 5 players at the same time. For more, add ports on the **Network** tab, choosing **Bedrock players (NetherNet)**, or **Other games** if that choice isn't in your list (see [Adding Ports](/using_the_panel/adding-ports)), then restart. Players still join with your main address and port.
 - **"Trust this server?"** The first time a player joins they may be asked to trust your server. They press trust once and are not asked again, even after restarts.
 - **RakNet** (the old transport) only works for players on Bedrock 26.50 or older. You can still pick it under **Network transport**, but newer players then cannot join.
 - Java servers with Geyser are set up for NetherNet too, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
