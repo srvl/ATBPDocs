@@ -23,8 +23,10 @@ Auto-Crossplay is a switch on our Paper, Purpur and Leaf server type (**Paper/Pu
 
 1. Open the **Startup** tab and set **Minecraft Version** to the exact version you run.
 2. Turn on **Enable Auto-Crossplay** (and **Auto Update ViaVersion** if you want it).
-3. Go to **Settings** and press **Reinstall Server**. Geyser and Floodgate are installed for you.
+3. Go to **Settings** and press **Reinstall Server**. Geyser and Floodgate are installed for you. Reinstalling keeps your worlds and plugins, but make a backup first anyway.
 4. Add a Bedrock port as described below.
+
+Turn the switch on before you press **Reinstall Server**; the reinstall is what installs Geyser.
 
 After you change Minecraft version (for example with **More > Software**), Geyser is not set up again by itself: set the new version in **Startup**, check Auto-Crossplay is still on, and press **Reinstall Server** again.
 
@@ -40,9 +42,15 @@ With **Enable Auto-Crossplay** on in the server's **Startup** tab, the Geyser co
 
 After that, restart the server. Bedrock players join with your server's IP address and that port.
 
+## Joining from Bedrock
+
+In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or domain in **Server Address**, without `:` and the numbers after it, and put the Bedrock port from the **Network** tab in the separate **Port** box.
+
 ## Bedrock players cannot join
 
 - **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Geyser needs build 1237 or newer: if the console says NetherNet is not supported, update Geyser and Floodgate. On first join players may be asked to trust your server; they press trust once.
+- **Geyser stopped working after a plugin reload**: Geyser does not survive `/reload` or plugin manager tools such as PlugMan. Remove the plugin manager, then fully restart the server from the panel. If Bedrock still cannot join after you edited the Geyser config, stop the server, back up and delete `config.yml` in the Geyser folder, start the server once so a fresh one is made, then set only the Bedrock `port`, `clone-remote-port: false` and (with Floodgate) `auth-type: floodgate`. Always keep a copy before you edit the Geyser config.
+- **Some Bedrock players can join and others cannot**: when the server works for some players, the problem is usually the route from the other players' internet provider to Singapore. Ask each player who cannot join to try mobile data or a VPN for a few minutes. If that works, have them run an MTR or traceroute to your server's IP (see [Diagnosing Ping Issues](/extras/ping-issues), which also covers phones) and send the results with their public IPv4 address in a ticket, so we can check the route and our network protection.
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
 - **Port mix-up**: keep your Java port as the **primary** port in the **Network** tab. The Bedrock port is a separate port (do not make it primary) and must match the `port` in the Geyser `config.yml`. After changing it, restart the server.
 - **Voice chat stopped working for Bedrock players after a port change**: check that the voice chat port in its config is still listed in your **Network** tab, then restart. See [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat).
@@ -76,6 +84,10 @@ If you're also using Floodgate, you will have to set `auth-type` to `floodgate` 
 - Where is the Auto-Crossplay switch?
 - Is crossplay possible on Fabric or NeoForge?
 - What IP and port do Bedrock players use?
+- Do I type the colon and port in the Bedrock server address?
+- Will reinstalling for Auto-Crossplay reset my world?
+- Geyser broke after I reloaded plugins with PlugMan
+- Bakit yung iba nakaka join sa Bedrock pero yung iba hindi?
 - Java players time out after I changed the port for Geyser
 - Bedrock players get "Please log into Xbox to join this server"
 - AuthMe kicks Bedrock players because of the dot in their name
