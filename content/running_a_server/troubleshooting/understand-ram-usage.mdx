@@ -9,6 +9,12 @@ Many owners see the memory figure in the panel climb close to the limit and worr
 
 The panel shows how much memory Java has reserved, not how much is truly needed. Java holds on to memory and clears it later in a process called garbage collection. Some plugins and mods also grab as much as they can. A high number alone does not mean you need a bigger plan.
 
+## Why it went up without new plugins or players
+
+- **Exploring.** Every chunk a player loads sits in memory while it is in use, even on a pre-generated world. Players spread far apart, or flying into new areas, load many more chunks than a group playing in one spot. The memory is freed again once those chunks unload.
+- **View distance.** A higher `view-distance` (and `simulation-distance`) in `server.properties` keeps more chunks loaded around each player. Going from 6 to 15 loads several times as many chunks.
+- **Uptime.** A server that has run for days without a restart tends to hold more memory than a freshly started one. Restarting once a day keeps it low. Set it up with a [schedule](/using_the_panel/schedules) so it happens on its own, with a warning to players first.
+
 ## What to check instead
 
 - Does the server lag or crash? If not, it is fine.
@@ -21,4 +27,4 @@ If memory stays full and the server crashes, see [Out of Memory Errors](/running
 
 ## Reduce usage
 
-Lower view distance, trim heavy plugins and pre-generate worlds. See [Optimization](/running_a_server/optimization).
+Lower view distance (6 to 8 suits most servers), trim heavy plugins, pre-generate worlds and restart daily. See [Optimization](/running_a_server/optimization), or open a free **Server Optimization** ticket on [Discord](https://discord.atbphosting.com) with a Spark report.

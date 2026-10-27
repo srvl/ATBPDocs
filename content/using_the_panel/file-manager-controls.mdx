@@ -5,7 +5,7 @@ description: "The Files tab in the ATBP panel: simple and advanced views, the ed
 
 The **Files** tab of the [panel](https://panel.atbphosting.com) lets you browse, edit, upload and organise your server's files. For big uploads such as worlds or modpacks, [SFTP](/using_the_panel/sftp) is faster.
 
-## Simple and advanced view
+## Simple and advanced view
 
 ![The advanced file manager with the folder tree and file list](/screenshots/panel-files.webp)
 
@@ -54,7 +54,7 @@ Deleting with **Move to Trash** puts files in the **Trash Bin** instead of remov
 
 Choose **Share download link** on a file to get a link anyone can download it from, without a panel account.
 
-- Pick when it expires (1 hour, 1 day, 7 days, 30 days, a custom time, or never) and whether it allows unlimited or a set number of downloads.
+- Pick when it expires (1 hour, 1 day, 7 days, 30 days, a custom time, or never) and whether it allows any number of downloads or a set number.
 - **Your active shares** lists your links; press **Revoke** to stop one.
 - A link stops working if you lose access to the server's files or the server is suspended. The server owner can see and revoke every link on the server.
 
@@ -70,6 +70,13 @@ Where your server's node supports it, a file's history lists earlier saved versi
 
 Archiving, extracting, big uploads and downloads, and backups show in a small task box on the screen with their progress. You can keep working while they run, and press **Cancel task** to stop one.
 
+## Uploading a world or server zip
+
+To move a world or a whole server from another host, upload the `.zip` as one file in the **Files** tab, then right-click it and choose **Unarchive**. This is much faster than extracting it on your computer and uploading thousands of small files.
+
+- Wait until the upload shows as finished in the task box before you unarchive or leave the page. A zip that is still uploading, or whose upload was cut off, cannot be opened.
+- If **Unarchive** says the file is not a valid archive, the zip is incomplete or damaged. Delete it and upload it again. If it still fails, download it again from the old host, or upload it over [SFTP](/using_the_panel/sftp), which handles very large files better.
+
 <details>
 <summary>Questions this page answers</summary>
 
@@ -82,5 +89,8 @@ Archiving, extracting, big uploads and downloads, and backups show in a small ta
 - How do I share a file download link?
 - How do I download a file from a URL to my server?
 - How do I extract a zip?
+- Unarchive says not a valid zip file
+- How do I upload my world from another host?
+- Paano mag upload ng world galing ibang host?
 
 </details>

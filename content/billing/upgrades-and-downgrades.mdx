@@ -9,17 +9,26 @@ Your service page on https://billing.atbphosting.com (Services > your server) gr
 
 The **Plan** row has two buttons:
 
-- **Upgrade** shows bigger plans in your line, plus plans on another line that cost more (for example Budget+ to Premium+). On the next step, Splits and Extra Backups can stay the same or go up.
-- **Downgrade** shows smaller plans in your line, plus plans on another line that cost less (for example Premium+ to Budget+). On the next step, Splits and Extra Backups can stay the same or go down.
+- **Upgrade** shows bigger plans in your line, plus plans on the other line (Budget+ or Premium+) that cost more and have at least your RAM. On the next step, Splits and Extra Backups can stay the same or go up.
+- **Downgrade** shows smaller plans in your line, plus plans on the other line that cost less. A cheaper Budget+ plan can have more RAM than your Premium+ plan; it still shows here, because it costs less. On the next step, Splits and Extra Backups can stay the same or go down.
 
-A button only appears when there is somewhere to go, and only while the service is paid up: if your server has an unpaid invoice, pay it first and then upgrade. Plans on another line are marked with that line's name and "Moves your server to ... nodes".
+A plan of the same size that costs less (for example an old Starter Bot to Bot 1 GB) shows under **Downgrade**, and one that costs more under **Upgrade**.
+
+A button only appears when there is somewhere to go, and only while the service is paid up: if your server has an unpaid invoice, pay it first and then upgrade.
+
+How the page is laid out:
+
+- **Your plan** is at the top with what you pay today. Pick it to keep your plan and only change Splits or Extra Backups.
+- Plans are grouped by line, one row each. Your own line comes first, then any other line (for example **Move to Premium+**), cheapest first. Each group shows its lowest price per GB of RAM, so you can compare Budget+ and Premium+ at a glance, and a group on another line says once that your server moves there.
+- Each row shows the plan's price and the difference from what you pay for your plan now, for example **+₱130.00 per month** or **−₱150.00 per month**. Splits and Extra Backups are not in that difference, because they stay as they are.
+- The summary on the right shows what you pay today (or get back as credit) for the days left.
 
 To upgrade:
 
 1. Go to Services > your server > **Upgrade**.
 2. Pick the plan and press **Next Step**.
 
-   ![The Upgrade page listing bigger Premium+ plans next to the current plan, with the upgrade summary on the right](/screenshots/billing-upgrade.webp)
+   ![The Upgrade page: Your plan at the top, then a Move to Budget+ group of plan rows with each price and its difference per month, one plan picked, and the upgrade summary with Total Today on the right](/screenshots/billing-upgrade.webp)
 
 3. Choose your Splits and Extra Backups. The summary shows what you pay today; press **Upgrade**.
 
@@ -33,7 +42,7 @@ To downgrade:
 1. Make sure your files fit the smaller storage first.
 2. Go to Services > your server > **Downgrade**, pick the plan, press **Next Step** and confirm.
 
-   ![The Downgrade page listing a smaller Premium+ plan next to the current plan, with the downgrade summary showing the credit back](/screenshots/billing-downgrade.webp)
+   ![The Downgrade page: Your plan at the top, a smaller Premium+ plan picked showing −₱150.00 per month, and the downgrade summary showing the credit back](/screenshots/billing-downgrade.webp)
 
 3. The change applies right away and the unused difference goes to your account credit. Restart the server in the panel.
 
@@ -45,7 +54,9 @@ How the credit is worked out:
 
 ## Moving between Budget+ and Premium+
 
-Budget+ and Premium+ run on different machines. When you pick a plan on the other line, your server moves there by itself: after the invoice is paid for an upgrade, or straight away for a downgrade.
+Every game (Minecraft, Hytale, Palworld, FiveM, Terraria and Valheim) can move between Budget+ and Premium+ in both directions. Budget+ and Premium+ run on different machines. When you pick a plan on the other line, your server moves there by itself: after the invoice is paid for an upgrade, or straight away for a downgrade.
+
+A server with Splits stays on its line for now, because its split servers cannot move with it yet. The Upgrade and Downgrade pages then only show plans on your own line and say why; open a ticket if you want to change line.
 
 - Your files, worlds and settings come with it.
 - It gets a new address and port. The new ones show in the panel once the move is done. A subdomain you made in the panel moves with it, so players can keep using that.
@@ -90,11 +101,12 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 - A change made on your due date costs nothing today; the new price starts with the next invoice.
 - An unpaid upgrade invoice is re-priced every day, so it always matches the days still left when you pay.
 - An upgrade on the same tier grows your server on the machine it is already on, so the Upgrade page offers a bigger plan only when that machine has room for it. Stock on the order page is for new servers on any machine, so a plan can show in stock there and still be missing from your Upgrade page while your machine is full. It also works the other way: some servers can move up to a size that is sold out for new orders, depending on what the server really uses and how much room its machine has (for example, a bigger plan with the same vCPU). What the Upgrade page offers can change from day to day. A smaller plan on the same machines is always offered on the Downgrade page.
-- While an upgrade invoice is unpaid you cannot start another change. Pay or cancel that invoice first.
+- While an upgrade invoice is unpaid you cannot start another change, and the Upgrade page will not open. Pay that invoice first. If you picked the wrong plan and the invoice has no cancel option, open a ticket on our [Discord](https://discord.atbphosting.com) and staff will remove it so you can choose again.
 
 <details>
 <summary>Questions this page answers</summary>
 
+- Can I move to a cheaper plan of the same size (old Starter Bot to Bot 1 GB)?
 - How do I upgrade so I can switch to another game?
 - Why can't I downgrade my Hytale server to 4 GB?
 - How do I upgrade my server?
@@ -110,10 +122,14 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 - Does upgrading change my due date?
 - Upgrade from budget to premium
 - Pwede ba lumipat from Budget+ to Premium+?
+- Can I move from Premium+ to Budget+?
+- Why can't I move my server with splits to Premium+?
 - Will my IP change if I move to Premium+?
 - Will Bedrock / Geyser still work after moving?
 - Does my subdomain still work after the move?
 - Mawawala ba files ko pag lumipat ng plan?
+- I picked the wrong upgrade and now I can't upgrade again
+- How do I cancel an upgrade invoice?
 - How is the upgrade price calculated?
 - I upgraded but nothing changed
 - I have an old Premium+ plan, how do I add RAM?
@@ -121,6 +137,9 @@ Example: a Budget+ 6 GB server at ₱210 a month, due on 31 October, moves to Pr
 - Lumang Premium+ plan, paano mag upgrade?
 - Bakit di ko makita yung GB at CPU pag nag upgrade ako?
 - The Upgrade page only shows the egg and splits, where is RAM?
+- How much more will I pay per month after upgrading?
+- Magkano dagdag kada buwan pag nag upgrade?
+- Which is cheaper per GB, Budget+ or Premium+?
 - When can I upgrade my plan?
 - Do I need to pay my renewal before I can upgrade?
 - Kailangan bang bayad muna bago mag upgrade?

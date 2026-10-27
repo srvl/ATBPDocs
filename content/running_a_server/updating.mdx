@@ -11,7 +11,7 @@ Read the precautions below first, then make a backup.
 
 1. In the [panel](https://panel.atbphosting.com), open your server and stop it.
 2. Go to **More > Software**.
-3. Pick the software (for example Paper, Purpur, Leaf, Fabric, Forge or NeoForge) and an exact version, then install it.
+3. Pick the software (for example Paper, Purpur, Leaf, Fabric, Forge or NeoForge) and an exact version, then install it. Folia and Canvas are listed only on plans with 8 vCPU or more; see [Server Software](/running_a_server/server-software-overview).
 4. Start the server and check the **Console**.
 
 ![The panel's More > Software page: Java and Bedrock tabs, a category filter and software such as Paper, Purpur, Fabric and Forge with their version counts](/screenshots/panel-more-software.webp)
@@ -64,6 +64,18 @@ The modpack source box only changes the modpack. Setting it to nothing does not 
 4. Start the server. Re-upload the world and any plugins or mods you want to keep.
 
 Paper does not run mods. If you need a mod loader, pick Fabric, Forge or NeoForge instead.
+
+## Switching to a different modpack (for example Forge to Fabric)
+
+A new modpack does not replace the old one's files by itself, so mods from the old loader stay behind and stop the server from starting. Start clean:
+
+1. Make a [backup](/using_the_panel/backups/guide), and download any world you want to keep.
+2. Stop the server, open **Files**, select everything and delete it.
+3. In **More > Software** (or **Change Server Type**), pick the loader the new pack needs, such as Fabric, at the pack's exact Minecraft version. Then press **Reinstall Server** in **Settings**.
+4. Install the pack from **More > Modpacks**. If the pack is on Modrinth, install it from there.
+5. Start the server and read the **Console**. If it stops with errors, the log names the mod: a missing dependency to add (often a library mod at a specific version), or a client-only mod to remove. See [Client-side mods](/running_a_server/troubleshooting/client-side-mods).
+
+Players must use the same modpack and version as the server. If they still cannot join, copy the server's `mods` folder list and compare it with theirs.
 
 ## Updating the server manually
 

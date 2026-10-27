@@ -32,4 +32,15 @@ Command blocks run commands as the server. Only enable them if you trust everyon
 
 </Callout>
 
+## "No player was found" in a command block
+
+A command block is not a player, so `@s` (yourself) matches nobody when redstone or a button runs the block. Use a selector that finds players instead:
+
+- Nearest player: `tp @p 0 64 0`
+- Every player: `execute as @a run tp @s 0 64 0`
+
+Leave out the leading `/` or keep it; both work in a command block. If `@p` still finds nobody, check that a player is online, in the same world, and that the block's area is loaded.
+
+Commands such as extra homes or `/tpa` are not part of Minecraft; they come from plugins such as EssentialsX. See [Installing Plugins](/plugins_and_modifications/installing-plugins).
+
 To make yourself an operator first, see [Make Yourself an Operator](/running_a_server/op-yourself).
