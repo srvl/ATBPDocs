@@ -1,6 +1,6 @@
 ---
 title: "Project Zomboid builds and common errors"
-description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, and the Port Closed warning."
+description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning and Getting Server Info."
 ---
 
 All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
@@ -60,4 +60,12 @@ This warning means the player is connected through Steam Relay instead of direct
 - Join from **Multiplayer**, **Favorites** with the IP and port from the panel, with **Use Steam Relay** unticked. Joining from a Steam invite always uses the relay.
 - If you uploaded your own `.ini`, its `DefaultPort=` and `UDPPort=` must match the ports your server has in the panel, not the game's defaults of 16261 and 16262. Fix them and restart.
 
-There is no router setup to do on our side; your server's ports are already open.
+There is no router setup to do on our side: every port listed on your server's **Network** tab is already open.
+
+## Stuck on "Getting Server Info"
+
+The game port answers but the second port the game needs does not. Project Zomboid uses two ports, and both must be ports your server has on the **Network** tab. A port number you type into **Startup** or the `.ini` yourself is closed on purpose, even if the server starts on it.
+
+1. Open **Network** and check which ports your server has. If it has only one, add one from the **Other games** range (see [Adding ports](/using_the_panel/adding-ports)).
+2. On **Startup**, or in the settings file as `DefaultPort=` and `UDPPort=`, use only those port numbers. Leave out the game's defaults (16261 and 16262) and any number that is not on the **Network** tab.
+3. Restart the server and join again with the IP and main port from the panel.
