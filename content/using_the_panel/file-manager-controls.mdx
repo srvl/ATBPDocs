@@ -25,7 +25,7 @@ The simple view has a row of buttons above the file list, on phones and computer
 ![The simple view's Move window with a folder picked as the destination](/screenshots/panel-files-simple-move.webp)
 
 - **Select all** ticks every file in the folder; press it again (**Clear selection**) to untick them.
-- **Move** opens the same folder picker as the advanced view. Tap the arrow next to a folder to open it, tap a folder to pick it, then press **Move Here**. Files and folders can both be moved. If the destination already has an item with the same name, the move fails and nothing is replaced.
+- **Move** opens the same folder picker as the advanced view. Tap the arrow next to a folder to open it, tap a folder to pick it, then press **Move Here**. Files and folders can both be moved. If the destination already has an item with the same name, the move fails and nothing is replaced. **Move** in a file's menu (right-click or the `...` button) and the move button on the bar that appears when files are ticked open the same picker.
 - **Copy** remembers the ticked files. Open the folder you want them in and press **Paste**. Pasting into the same folder makes a copy named like `config copy.yml`. If a file with the same name is already in the new folder, the pasted one keeps the `copy` name instead of replacing it.
 - **Delete** removes the ticked files for good after you confirm. The simple view has no trash bin.
 - **Clear clipboard** forgets the copied files without pasting.
@@ -52,6 +52,10 @@ Open a text file to edit it in the built-in code editor. It has syntax colours, 
 - Open Minecraft `.dat` files (player data, level data) in an **NBT editor**.
 - Open small SQLite databases (up to 32 MB) to view and edit rows. Changes are only saved while the server is stopped.
 - Preview images, audio, video and PDFs, and look inside archives to **Extract Selected** files or a whole folder.
+
+In the simple view's editor, and in the editor on a phone, a row of buttons above the text works on it: **Select all**, **Copy**, **Cut**, **Paste**, **Delete** (removes the selected text), **Undo** and **Redo**. They are handy on a phone, where selecting a long file by touch is hard. If your browser blocks clipboard access, **Paste** still inserts text you copied with these buttons in the same tab.
+
+![The file editor with its Select all, Copy, Cut, Paste, Delete, Undo and Redo buttons above the text](/screenshots/panel-files-editor-buttons.webp)
 
 Stop the server before editing a plugin or game config, or the server may overwrite your changes when it saves.
 
@@ -100,6 +104,8 @@ To move a world or a whole server from another host, upload the `.zip` as one fi
 - Na-delete ko file, paano ibalik?
 - How do I switch to the simple file manager?
 - How do I copy and paste files on my phone?
+- How do I select all text in a file on my phone?
+- Paano i-select all ang text sa file?
 - How do I move files to another folder in the simple view?
 - Paano mag move ng files sa ibang folder?
 - Paano mag copy paste ng files sa phone?
