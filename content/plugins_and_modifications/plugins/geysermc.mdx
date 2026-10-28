@@ -48,7 +48,7 @@ In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or do
 
 ## Bedrock players cannot join
 
-- **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Geyser needs build 1237 or newer: if the console says NetherNet is not supported, update Geyser and Floodgate. On first join players may be asked to trust your server; they press trust once.
+- **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Geyser needs build 1237 or newer: if the console says NetherNet is not supported, update Geyser and Floodgate. On first join players may be asked to trust your server; they press trust once. If Bedrock players get "Connection Failed" and the console shows Geyser still listening on `19132` or still using `raknet`, the panel did not set it: stop the server, open `plugins/Geyser-Spigot/config.yml`, set `port` under `bedrock` to your Bedrock port from the **Network** tab, change `transport` from `raknet` to `nethernet`, save and start the server. Players then join with that Bedrock port.
 - **Geyser stopped working after a plugin reload**: Geyser does not survive `/reload` or plugin manager tools such as PlugMan. Remove the plugin manager, then fully restart the server from the panel. If Bedrock still cannot join after you edited the Geyser config, stop the server, back up and delete `config.yml` in the Geyser folder, start the server once so a fresh one is made, then set only the Bedrock `port`, `clone-remote-port: false` and (with Floodgate) `auth-type: floodgate`. Always keep a copy before you edit the Geyser config.
 - **Some Bedrock players can join and others cannot**: when the server works for some players, the problem is usually the route from the other players' internet provider to Singapore. Ask each player who cannot join to try mobile data or a VPN for a few minutes. If that works, have them run an MTR or traceroute to your server's IP (see [Diagnosing Ping Issues](/extras/ping-issues), which also covers phones) and send the results with their public IPv4 address in a ticket, so we can check the route and our network protection.
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
@@ -89,6 +89,8 @@ If you're also using Floodgate, you will have to set `auth-type` to `floodgate` 
 - Geyser broke after I reloaded plugins with PlugMan
 - Bakit yung iba nakaka join sa Bedrock pero yung iba hindi?
 - Java players time out after I changed the port for Geyser
+- Bedrock says Connection Failed after the NetherNet change
+- Ayaw maka join ng Bedrock players, naka raknet pa sa Geyser config
 - Bedrock players get "Please log into Xbox to join this server"
 - AuthMe kicks Bedrock players because of the dot in their name
 
