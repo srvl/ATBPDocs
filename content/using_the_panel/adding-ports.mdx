@@ -25,7 +25,8 @@ Each choice in the dropdown is a range of ports for one kind of use. The dropdow
 | Choose | Ports | Protocol | For |
 |---|---|---|---|
 | **Minecraft Java** | 25600 and up | TCP | Extra Java servers, for example behind Velocity |
-| **Minecraft Bedrock / Geyser** | 19200 and up | UDP | Bedrock players and Geyser |
+| **Minecraft Bedrock / Geyser** | 19200 and up | TCP + UDP | Bedrock players and Geyser |
+| **Bedrock players (NetherNet)** | 19400 and up | UDP | Extra player ports for a Bedrock server: one per player online at once |
 | **Simple Voice Chat** | 24500 and up | UDP | The Simple Voice Chat mod or plugin, and VCMC phone voice |
 | **Votifier** | 8200 and up | TCP | Server list voting |
 | **FiveM** | 30200 and up | TCP + UDP | FiveM servers |
@@ -43,9 +44,9 @@ Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799),
 
 Yes, UDP is supported. Every port you add is opened for both TCP and UDP on your server. The protocol in the table and the dropdown is what that kind of traffic uses, so pick the choice that matches what you are running:
 
-- Voice chat (Simple Voice Chat, VCMC), Bedrock and Geyser, ARK and Valheim use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
+- Voice chat (Simple Voice Chat, VCMC), ARK and Valheim use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
 - Minecraft Java, Votifier, bots, web maps and websites use **TCP**. Choose **Bots and websites** for anything web or bot related.
-- FiveM, Rust, Counter-Strike and TeamSpeak use both, and their entries are **TCP + UDP**.
+- FiveM, Rust, Counter-Strike, TeamSpeak, Bedrock and Geyser use both, and their entries are **TCP + UDP**. A Bedrock server needs one port per player online at once, see [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
 
 After you add the port, put its number in your plugin, mod or game config. Most plugins don't pick it up on their own.
 
