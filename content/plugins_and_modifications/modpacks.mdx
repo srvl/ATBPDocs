@@ -18,6 +18,12 @@ Ask in a Discord ticket if you want a modpack installed or have trouble with one
 
 </Callout>
 
+### What the installer does with client-only mods
+
+When a modpack has no server pack, the installer starts from the player version of the pack. That version includes mods that only work on a player's game, such as shaders, menu screens, minimaps and zoom mods, and they can stop a server from starting. After the install finishes, the installer moves those mods out of `mods` into a folder called `client-only-mods`. Nothing is deleted. If a mod you need ends up there, move it back into `mods` in the file manager and restart the server. The install log lists every mod it moved and why.
+
+If you reinstall a modpack without ticking **Delete existing files**, your old `mods` folder is renamed to `mods-before-modpack-` followed by the date and time, so mods from the old version don't clash with the new ones. Any mods you added yourself are still in that folder; copy the ones you want back into `mods`.
+
 <Callout type="warning">
 
 This tutorial can also be used to update your server modpack: just replace the old files with the newly generated files. Always take a backup before updating your server.
