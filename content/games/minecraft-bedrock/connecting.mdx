@@ -26,8 +26,8 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 ## Bedrock players suddenly cannot join
 
 - Check https://status.atbphosting.com first. A network incident can stop players from joining even though your server is fine.
-- **A 6th player cannot join, or players time out right after connecting?** See [NetherNet](#nethernet) below: every player online needs a port.
-- **"Trust this server?" on first join?** That is normal on NetherNet, see below. Players press trust once.
+- **Only one player can join after a restart, or an 11th player cannot join?** See [NetherNet](#nethernet) below: every player online needs a port from your server's player port block.
+- **"Trust this server?" on first join, or some players get stuck connecting?** Have players join with your server's subdomain instead of the IP, see [NetherNet](#nethernet) below.
 - **Stuck on the loading screen?** Remove addons one by one to find the one causing it, see [Bedrock Addons](/running_a_server/bedrock-addons).
 - **After changing or deleting a port?** Any subdomain still points at the old port. Delete the subdomain and create it again for the new port.
 - **Java and Bedrock on the same server?** Bedrock players join with the Bedrock port, which can differ from the Java port.
@@ -36,7 +36,7 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 
 Bedrock 26.60 and newer only connect with Bedrock's new network transport, NetherNet. Your Bedrock server is already set up for it: the panel picks it under **Startup**, **Network transport**, and fills in the ports and addresses Bedrock needs on every start. You don't need to change anything in `server.properties`.
 
-- **One port per player online.** NetherNet gives every player online their own port, so your Bedrock server comes with 10 ports, which is 10 players at the same time. For more, add ports on the **Network** tab, choosing **Minecraft Bedrock / Geyser**, not **Other games** (see [Adding Ports](/using_the_panel/adding-ports)), then restart. Players still join with your main address and port.
-- **"Trust this server?"** The first time a player joins they may be asked to trust your server. They press trust once and are not asked again, even after restarts.
+- **One port per player online.** NetherNet gives every player online their own port, so your Bedrock server comes with a block of 10 player ports in a row (for example 19300 to 19309) on top of its main port, which is 10 players at the same time. Bedrock only uses ports that follow on from each other, so keep the block as it is: deleting a port from it or adding a separate one does not add players. For more players, open a ticket and we make the block bigger for free. Players always join with your main address and port.
+- **Join with your subdomain.** Players who join with a subdomain from the panel (see [Custom domains and subdomains](/general/custom-domains-and-subdomains)) connect securely and are never asked to trust your server. Players who join with the IP address may be asked to trust it the first time, and some Bedrock versions don't connect by IP at all, so give players the subdomain. Your server picks this up at its next restart.
 - **RakNet** (the old transport) only works for players on Bedrock 26.50 or older. You can still pick it under **Network transport**, but newer players then cannot join.
 - Java servers with Geyser are set up for NetherNet too, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
