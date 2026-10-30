@@ -25,6 +25,24 @@ Here you will be able to see your server's SFTP host IP address and port as well
 
 *If you have WinSCP installed, you can launch straight away by clicking `Launch SFTP`.*
 
+### Filling in the login boxes
+
+The panel shows the address as `sftp://HOST:PORT`. Most apps want it split into separate boxes:
+
+| Box | What to enter |
+| --- | --- |
+| Host / Server | Only the host name, for example `shared1.atbphosting.com`. Leave out `sftp://` and `:PORT`. |
+| Port | The number after the `:` in the panel's address (not 21 or 22). |
+| Username | The full SFTP username from **Settings**, including the `.` and the server ID at the end. |
+| Password | Your **game panel** password. It is not your billing password. If you forgot it, reset it from the panel's login page. |
+| Protocol | SFTP, not FTP. |
+
+**Invalid credentials** or **authentication failed** almost always means a box is mixed up (for example the port typed into the username box), the billing password was used, or the username is missing its server ID. Each server has its own username, so check you copied it from the right server.
+
+### On a phone
+
+Android and iPhone SFTP apps work too. Create a new connection, set the type to **SFTP**, and fill in the boxes as in the table above. When you upload, the app first shows its own folder; go back to your phone's storage (on Android usually `Download`) to find the file you want to send. Upload one `.zip` and unarchive it in the panel's **Files** tab, which is much faster than many small files.
+
 ### SSH keys and the command line
 
 Game and bot servers give you **SFTP only**, for moving files. There is no SSH shell or terminal login to your server; to run commands, use the **Console** tab in the panel.
@@ -109,6 +127,10 @@ To do this, install the **SFTP** addon for Visual Studio Code for efficient file
 - What are the SSH keys in my account for?
 - Can I connect to my server from cmd or a terminal?
 - Pwede ba mag SSH sa server?
+- Why does SFTP say invalid credentials?
+- What do I put in the host and port boxes?
+- Can I use SFTP on my phone?
+- Is my SFTP password the same as my billing password?
 - How do I upload a big world or modpack?
 
 </details>

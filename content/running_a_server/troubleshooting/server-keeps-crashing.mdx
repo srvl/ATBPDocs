@@ -20,6 +20,8 @@ Read the lines just above the crash block in the console, or `logs/latest.log` (
 
 - Out of memory or exit code 137: see [Out of Memory Errors](/running_a_server/troubleshooting/out-of-memory).
 - A mod or plugin that does not match the game version, or a client-only mod: see [Client-Side Mods Crash the Server](/running_a_server/troubleshooting/client-side-mods) and [Binary Search](/running_a_server/binarysearch).
+- A mod that needs another mod (a library) that is not installed. The log says which one, with words like `requires` or `Missing or unsupported mandatory dependencies`: see [Mods that need other mods](/plugins_and_modifications/mods-install#mods-that-need-other-mods).
+- A config file with a mistake in it, often after editing it by hand. The error names the file and usually the line. Fix that line, or download a copy of the file and then delete it: most games and server software make a fresh default file on the next start.
 - A world or config file damaged by the crash: restore a [backup](/plans/backups).
 
 Need help? Open a [support ticket](/general/getting-support) with the console lines from just before the crash.
