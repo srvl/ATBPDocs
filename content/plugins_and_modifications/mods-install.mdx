@@ -1,26 +1,42 @@
 ---
 title: "Server Mods"
-description: "How to install minecraft mods on your forge/fabric server."
+description: "How to install Minecraft mods on your Forge, NeoForge or Fabric server, add the mods they depend on, and when players need the same mods."
 ---
 
 import { Callout } from 'nextra/components'
 
 ## Install guide
-You'll first need to find the mod that you wish to install. Downloads can be found on a variety of sites. Many mods can be found on [Modrinth](https://modrinth.com/mods) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods). You can also use our [Mods Installer](https://panel.atbphosting.com/) in our panel. Make sure you trust the source of your downloads.
+You'll first need to find the mod that you wish to install. Many mods can be found on [Modrinth](https://modrinth.com/mods) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods). You can also use the [Mods Installer](https://panel.atbphosting.com/) in our panel. Make sure you trust the source of your downloads.
 
 <Callout type="info">
 
-Make sure you are downloading the correct version of your mods. Unlike Spigot/Paper plugins, mods likely won't work across Minecraft versions. Forge and Fabric mods are most likely not cross compatible with each other unless stated so otherwise by the developer of those mods.
+Make sure you are downloading the correct version of your mods. Unlike Spigot/Paper plugins, mods usually won't work across Minecraft versions. Forge and Fabric mods are usually not compatible with each other unless the mod's developer says so.
 
 </Callout>
 
-You have two choices: save the mod to your local machine and then upload it to the panel or use our [Mods Installer](https://panel.atbphosting.com/) to install directly in your mods folder. Mods can either be uploaded via the [web panel](https://panel.atbphosting.com) or through [SFTP](/using_the_panel/sftp). If you're uploading in bulk, go with the latter. 
+You have two choices: save the mod to your computer and upload it, or use the [Mods Installer](https://panel.atbphosting.com/) (**More > Mods**) to install it straight into your `mods` folder. Uploads can go through the [web panel](https://panel.atbphosting.com) or through [SFTP](/using_the_panel/sftp). If you're uploading many files, use SFTP.
 
 ![The panel's More > Mods page, a Modrinth mod list for this server's loader and version, with the search box marked](/screenshots/panel-more-mods.webp)
 
 
-In your server's root directory, locate the `/mods` folder, if it's not there then create a new directory named `/mods`. Navigate into this folder, and upload your mods' files there! The vast majority of mods require you to restart your server to take effect.
+In your server's root directory, open the `mods` folder. If it's not there, create a folder named `mods`. Upload your mod files there, then restart the server. Almost every mod needs a restart to take effect.
 
-Additionally, many Fabric mods require the [Fabric-API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). Download the relevant Fabric API for your server version or use our [Mods Installer](https://panel.atbphosting.com/), and put this file in the `/mods` directory as well.
+## Mods that need other mods
 
-Some mods need players to install them locally as well. Consult the documentation of your mod to see if this is required. Some mods may provide a separate file for players and servers.
+Many mods need a library or "core" mod to run, and the server does not download those for you. Most Fabric mods need [Fabric API](https://modrinth.com/mod/fabric-api), and many others need a library made by the same author.
+
+If one is missing, the server crashes while starting. Open `logs/latest.log` in the **Files** tab and look for lines such as `requires`, `Missing or unsupported mandatory dependencies` or `depends on`. They name the missing mod and the version range it needs. Install that mod, in a version inside that range, for the same loader and Minecraft version, then start the server again. Repeat until the server starts.
+
+The mod's page on Modrinth or CurseForge lists its required dependencies, so you can add them before the first start.
+
+## Do players need the mods too?
+
+It depends on the mod:
+
+- **Server-only mods** (performance, admin and world tools) only go on the server.
+- **Mods that add blocks, items, mobs or dimensions** must be installed on the server **and** on every player's game, in the same version.
+- **Client-only mods** (shaders, minimaps, HUD and menu mods) only go on the player's game. On the server they cause crashes, see [Client-Side Mods](/running_a_server/troubleshooting/client-side-mods).
+
+If players are disconnected with a message like `Received X registry entries that are unknown to this client` or `mismatched mod set`, their game is missing mods the server has, or has different versions. The easiest fix is to give players the same modpack (the client version of the server pack) so everyone runs the same list. See [Installing Modpacks](/plugins_and_modifications/modpacks).
+
+Bedrock players joining through [GeyserMC](/plugins_and_modifications/plugins/geysermc) cannot install Java mods, so they cannot join a server whose mods must also be on the player's game.

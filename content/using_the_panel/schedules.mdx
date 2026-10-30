@@ -25,7 +25,22 @@ When presets are offered, **Start from a preset** gives you a ready-made schedul
 - **Delete files**, **Write to file**, **Copy files** and **Move or rename**: tidy up logs, reset a config, rotate a world.
 - **Discord webhook**: post a message to your Discord channel through a webhook link.
 
-Each step can have a delay, which is how you space out restart warnings (for example warn, wait 4 minutes, warn again, wait 1 minute, restart). Each step can also either stop the schedule or carry on if it fails.
+Steps run from top to bottom. Each step can have a delay (offset), counted in **seconds** from when the schedule starts, which is how you space out restart warnings. Put the warnings first and the restart last. For a 3 minute warning:
+
+| Step | Action | Delay |
+| --- | --- | --- |
+| 1 | Send command `say Restarting in 3 minutes` | 0 |
+| 2 | Send command `say Restarting in 2 minutes` | 60 |
+| 3 | Send command `say Restarting in 1 minute` | 120 |
+| 4 | Power action: Restart | 180 |
+
+So a restart 10 minutes after the warning needs a delay of `600`, not `10`. Press **Run now** on the schedule to test it once. Each step can also either stop the schedule or carry on if it fails.
+
+## Running at several times a day
+
+To restart at, say, 3 AM, 12 noon and 5 PM, either make one schedule per time, or type the hours together in the hour field of one schedule (`3,12,17`, with minute `0`).
+
+**Only When Server Is Online** makes the schedule run only while the server is running. Leave it on for restarts and in-game messages. Turn it off if the schedule should also run while the server is off, for example a daily **Start** that brings back a server that was stopped.
 
 ## Workflows with conditions
 
@@ -64,6 +79,9 @@ Press **Turn into a workflow** to use the visual builder. Steps stack from top t
 - Paano mag auto restart?
 - How do I make automatic backups?
 - Can I warn players before a restart?
+- Is the schedule delay in seconds or minutes?
+- How do I restart at several times a day?
+- Does a schedule run when the server is offline?
 - How do I post to Discord from a schedule?
 - What is a workflow in schedules?
 - Why did my schedule skip?

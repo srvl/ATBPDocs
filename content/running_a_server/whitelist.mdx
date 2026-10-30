@@ -1,6 +1,6 @@
 ---
 title: "Setting Up Whitelist"
-description: "How to setup Whitelist on Java/Bedrock"
+description: "How to set up a whitelist on Java and Bedrock servers, including offline (cracked) servers, and what to check when a whitelisted player still cannot join."
 ---
 
 import { Callout } from 'nextra/components'
@@ -19,6 +19,20 @@ Whitelisting stops unwanted guests from joining your server, but it does not sto
 
 ### From the panel
 On a Java server, open **More > Players** in the [panel](https://panel.atbphosting.com) and go to the **Whitelisted** tab. Add or remove players there; the panel keeps `whitelist.json` up to date for you. You still need whitelist turned on (`/whitelist on`, or `white-list=true` in `server.properties`) for it to keep others out. See [Make Yourself an Operator](/running_a_server/op-yourself) for a picture of the page.
+
+### Offline (cracked) servers
+On a server with `online-mode=false`, players are matched by their exact name, **including capital letters**. `Steve` and `steve` are two different players. Use the console instead of the Players page:
+
+1. Ask each player for their in-game name exactly as their launcher shows it.
+2. In the **Console** tab, run `whitelist add ExactName` for each one (no `/` in the console).
+3. If you added a name with the wrong capitals, run `whitelist remove WrongName` and add it again.
+
+Entries added on the Players page may not let cracked players in, because an offline server identifies players differently from a real Minecraft account. Adding them from the console avoids this. See [Offline Mode](/running_a_server/offline-mode).
+
+### Whitelisted but still cannot join
+- Check the kick message. "You are not whitelisted on this server" means the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`.
+- A player who switches accounts in their launcher joins with a different name. Whitelist the name they are using now.
+- After editing `whitelist.json` by hand, run `whitelist reload`.
 
 ### With commands
 To start off, here's a list of all the sub-commands under the whitelist command:
