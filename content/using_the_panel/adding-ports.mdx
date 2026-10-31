@@ -37,7 +37,7 @@ Each choice in the dropdown is a range of ports for one kind of use. The dropdow
 | **Bots and websites** | 40000 and up | TCP | Discord and Telegram bots, web maps (BlueMap, Dynmap, squaremap), Plan, dashboards |
 | **Other games** | 41000 and up | UDP | Any other game or service that uses UDP |
 
-Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799). **Minecraft Bedrock / Geyser** is bigger: 19200-19599 on Premium+ and 19200-19999 on those Budget+ servers. The choices are the same on Budget+ and Premium+. You get a free port from the range you choose; a specific or dedicated port number (for example `19132` or `24454`) is not sold. Not sure which one? Open a ticket on our [Discord](https://discord.atbphosting.com).
+Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799). **Minecraft Bedrock / Geyser** is bigger: 19200-19599 on Premium+ and 19200-19999 on those Budget+ servers. The choices are the same on Budget+ and Premium+. Always pick the range made for what you run: the Minecraft ranges are filtered by our network protection for Minecraft traffic, so another game (for example Project Zomboid) on a **Minecraft Bedrock / Geyser** or **Minecraft Java** port can start but nobody can join it. Your **primary** port follows the same rule: on a Java server with Geyser it is the Java port, and the Bedrock port is an extra one. You get a free port from the range you choose; a specific or dedicated port number (for example `19132` or `24454`) is not sold. Not sure which one? Open a ticket on our [Discord](https://discord.atbphosting.com).
 
 ## TCP or UDP?
 
@@ -84,6 +84,8 @@ Game servers come with 5 ports: your main port plus 4 you can add. Each split ad
 - Are the ports TCP or UDP?
 - Do you support UDP?
 - Which port range is for voice chat?
+- Can I use a Bedrock port for another game?
+- Nobody can join after I used a port from another range
 - How many ports do I get?
 - How do I add more Bedrock player ports?
 - Can I get several ports in a row?

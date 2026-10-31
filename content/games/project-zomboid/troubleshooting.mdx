@@ -1,6 +1,6 @@
 ---
 title: "Project Zomboid builds and common errors"
-description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning and Getting Server Info."
+description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
 ---
 
 All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
@@ -69,3 +69,17 @@ The game port answers but the second port the game needs does not. Project Zombo
 1. Open **Network** and check which ports your server has. If it has only one, add one from the **Other games** range (see [Adding ports](/using_the_panel/adding-ports)).
 2. On **Startup**, or in the settings file as `DefaultPort=` and `UDPPort=`, use only those port numbers. Leave out the game's defaults (16261 and 16262) and any number that is not on the **Network** tab.
 3. Restart the server and join again with the IP and main port from the panel.
+
+## Use ports from the Other games range
+
+Both of your Project Zomboid ports should come from the **Other games** range (41000 and up). Ports from the Minecraft ranges, such as **Minecraft Bedrock / Geyser** (19200 and up) or **Minecraft Java** (25600 and up), are filtered by our network protection for Minecraft traffic only. A Zomboid server on one of them starts fine, but players get stuck on **Getting Server Info** or cannot find it.
+
+If your main port is in a Minecraft range, add a port from **Other games**, click **Make Primary** on it, and use a second **Other games** port for `UDPPort=`. See [Moving an existing port](/using_the_panel/adding-ports#moving-an-existing-port).
+
+## "Connection Startup Failed. Code: 5" on startup
+
+The server stops right after start with `java.net.ConnectException: Connection Startup Failed. Code: 5` and `UdpEngine` in the error. The game could not open its network port, almost always because the main port and the second port are set to the same number.
+
+1. Stop the server.
+2. On **Startup** (or in the settings file), set the main port and the second (Steam or UDP) port to two **different** ports from your **Network** tab.
+3. Start the server again.
