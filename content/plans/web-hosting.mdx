@@ -1,0 +1,45 @@
+---
+title: "Web hosting"
+description: "Website, database and email hosting on our Singapore web server: Web Starter, Plus and Pro."
+---
+
+We host websites, databases and email on our AMD EPYC 7B13 web server in Singapore, with the HestiaCP control panel. Your account backs up every night; the plan sets how many backups are kept. Order at https://billing.atbphosting.com under **Web Hosting**.
+
+| Plan | Storage | Websites | Databases | Mailboxes | Cron jobs | Nightly backups kept | Monthly |
+|---|---|---|---|---|---|---|---|
+| Web Starter | 5 GB | no cap | no cap | no cap | 5 | 1 | ₱49 |
+| Web Plus | 20 GB | no cap | no cap | no cap | 20 | 3 | ₱129 |
+| Web Pro | 50 GB | no cap | no cap | no cap | 50 | 7 | ₱249 |
+
+- Storage is the plan's limit. Websites, databases and mailboxes have no cap of their own, as long as they fit in your storage and follow the acceptable use policy.
+- At checkout you type the domain for your first website. We set up the website and email for that domain and request a free Let's Encrypt SSL certificate.
+- A domain is not included. Bring your own or register one with us.
+- **Domain registered with us:** we point it at your hosting for you (website, www and email records), so the site and SSL work without touching DNS. Records you already have for email elsewhere are kept.
+- **Domain from another registrar:** point the domain and www to the web server (A records; the address is on your service page). Until it points, SSL shows as Pending on your service page; we retry every hour for two days, or press **Install SSL** once the domain points.
+- Your service page in billing shows the control panel address, your panel user name, domain, plan and SSL status.
+- Open the control panel with the **Open control panel** button. It signs you in once, without a password. To log in directly or from an app, press **Generate new password**: the new password shows on your service page for 10 minutes, so save it then. We never email it.
+- Each site runs on nginx with Apache and PHP-FPM, with MariaDB databases, so .htaccess files and common apps like WordPress work.
+- Email: create mailboxes for your domain in the panel and read mail in webmail or any mail app. For a domain from another registrar, the panel shows the DNS records (MX, SPF, DKIM, DMARC) to add at your DNS host so your mail is delivered.
+- Change plan any time from your service page. Moving to a smaller plan never deletes anything; the panel only stops new items (files, cron jobs, backups) until you are under the new plan's limits.
+- If a service is suspended for an unpaid invoice, your sites show a suspended page until it is paid. Nothing is deleted while suspended.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Do you have web hosting?
+- Web hosting magkano?
+- How much is website hosting?
+- Can I host WordPress?
+- Is email included with web hosting?
+- How many websites can I host?
+- Is SSL free?
+- Is a domain included?
+- How do I log in to the web hosting panel?
+- I forgot my web hosting panel password
+- Why does my web hosting SSL say Pending?
+- Do I need to change DNS if I bought my domain from you?
+- Can I upgrade or downgrade my web hosting plan?
+- Where is the web server?
+- Are my websites backed up?
+
+</details>
