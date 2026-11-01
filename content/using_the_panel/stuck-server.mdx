@@ -1,6 +1,6 @@
 ---
 title: "Server stuck starting, stopping or installing"
-description: "What to do when a server will not stop, will not start, shows empty files or a missing server.jar, or stays on installing."
+description: "What to do when a server will not stop, will not start, shows empty files or a missing server.jar, stays on installing, or the Console shows nothing."
 ---
 
 Most stuck servers come back with one of the steps below. Work through the section that matches what you see in the [panel](https://panel.atbphosting.com).
@@ -66,6 +66,17 @@ When the disk is at 100%, the server cannot save, so it may hang on stopping, an
 3. Delete what you can from the file manager, then empty the **Trash Bin**.
 4. If the panel still will not let you delete anything, open a Hosting Support ticket with your panel link and say the disk is full. Staff can free the space for you. Do not start a new pre-generation afterwards until you have checked it fits your disk.
 
+## Console is blank, keeps loading or shows an error
+
+If the panel opens but the **Console** shows nothing new, the problem is usually the route between your internet provider and the panel, not your server. Your server is probably still running: try joining it from the game. Do not reinstall or delete anything.
+
+1. Refresh the page, then try another browser.
+2. Try mobile data or another network. If the Console works there, your connection's route is the cause.
+3. Try a free VPN such as the **1.1.1.1** app (https://one.one.one.one/). If one VPN does not help, try another one.
+4. Check https://atbphosting.com/network/ to see whether your provider's route has a problem. It usually clears by itself.
+
+If nothing helps, open a ticket with your panel link and a screenshot of the error.
+
 ## Wipe everything and start over
 
 To start from nothing (a new modpack, a broken world, or just a fresh start), you can do it yourself in a few minutes. Staff do not need to do it for you.
@@ -79,6 +90,8 @@ Or do it by hand: in **Files**, tick the box at the top to select everything and
 A fresh install uses the version set in **Startup** or picked in **Change Server Type**. If that is "latest", you get the newest Minecraft version, which your plugins may not support yet. Set the version you want before you start the server, and before you upload an old world. A world that was opened on a newer version will not load on an older one; the server crashes or nobody can join. In that case restore a backup made before the change, or start with a new world. See [Updating or Changing Versions](/running_a_server/updating).
 
 Deleted files that went to the trash can be restored from the **Trash Bin** until it is emptied. **Delete Permanently** cannot be undone.
+
+Wiping does not touch your backups, because they are not stored with your server's files. To remove those as well, delete each one in the **Backups** tab, unlocking any locked backup first. See [Deleting backups](/using_the_panel/backups/guide#deleting-backups).
 
 ## Still stuck
 
