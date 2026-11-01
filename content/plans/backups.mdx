@@ -1,11 +1,12 @@
 ---
 title: "Backups"
-description: "How backups work on ATBP game servers: how many you get with each plan, how to make and restore one, and what is kept."
+description: "How backups work on ATBP game servers: how many you get with each plan, why they do not use your disk, how to make and restore one, and what is kept."
 ---
 
 - Every plan includes a set number of backup slots (see the plan tables: Budget+ and Premium+ 3 up to 6 GB, 4 for 8 to 12 GB, 5 for 16 to 24 GB, 6 from 32 GB; Terraria 3; bots 1 or 2). The free splits on 32 GB and larger plans do not add backups; each split you buy adds 3.
+- **Backups do not use your server's disk.** They are stored outside your server, so they never fill your disk, and deleting one frees a backup slot, not disk space. Your disk usage counts only what is on the **Files** page (including the **Trash Bin**). That includes any backup archive you keep there or a backup folder a plugin or game makes, because those are ordinary files. To free disk, see [disk full](/using_the_panel/stuck-server#disk-full).
 - Manage backups in the panel under **Backups**: create, download, restore or delete.
-- We also take an automatic backup of every server each night, shown in **Backups** as "Auto Backup" with its date. A server that is stopped and whose files have not changed since its last backup is skipped that night, because that backup already has everything; it still gets a fresh one at least once a week. To get your own schedule, see [automatic backup creation](/using_the_panel/backups/guide#automatic-backup-creation).
+- We also take an automatic backup of every server each night, shown in **Backups** as "Auto Backup" with its date. A server that is stopped and whose files have not changed since its last backup is skipped that night, because that backup already has everything; it still gets a fresh one at least once a week. Auto Backups do not take up your backup slots. We keep the newest 7 for each server and rotate older ones away by ourselves, so you cannot delete them, and your own schedules will not replace them. To get your own schedule, see [automatic backup creation](/using_the_panel/backups/guide#automatic-backup-creation).
 - Need more slots? Add **Extra Backups** (+2, +5 or +10) from billing > Services > your server > **Upgrade**. To remove them, use **Downgrade**.
 
 ![The second Upgrade step, Raise your options, with the Extra Backups and Splits choices marked and the upgrade summary on the right](/screenshots/billing-upgrade-addons.webp)
@@ -19,6 +20,11 @@ description: "How backups work on ATBP game servers: how many you get with each 
 <summary>Questions this page answers</summary>
 
 - How many backups do I get?
+- Do backups count toward my disk or storage?
+- Kasama ba ang backups sa storage ko?
+- Will deleting backups free up disk space?
+- Do Auto Backups use my backup slots?
+- Why can't I delete an Auto Backup?
 - Ilan backup?
 - How do I restore a backup?
 - Paano i-restore backup?
