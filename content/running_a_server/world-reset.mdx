@@ -29,8 +29,14 @@ After selecting your worlds, click the Delete button that appears and confirm. D
 
 Before deleting, you can archive your world by selecting the world folders first and clicking the Archive button at the bottom right of the file manager.
 
+## Keep the same seed
+
+If `level-seed` in `server.properties` has a value, the new world uses that same seed. If the line is blank, the new world gets a **random** seed. To get the same terrain again, run `seed` in the **Console** before you delete anything, then put that number on the `level-seed=` line while the server is stopped. To use a different seed, see [Change Your World Seed](/running_a_server/change-world-seed).
+
 ## Start the server
 
 Once you've completed these steps, start your server again. The first start will take longer than usual as it generates a fresh world and spawn area.
 
 If you wish to have multiple worlds on your server at once, add a suffix to the end of each world name (such as `_old`), or use a plugin such as [Multiverse](https://dev.bukkit.org/projects/multiverse-core).
+
+Want to reset the whole server and not just the worlds? See [Wipe everything and start over](/using_the_panel/stuck-server#wipe-everything-and-start-over).
