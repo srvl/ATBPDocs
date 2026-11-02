@@ -20,7 +20,7 @@ If you see **Create Allocation** instead of **Add port**, click it to get a free
 
 ## Which one to choose
 
-Each choice in the dropdown is a range of ports for one kind of use. The dropdown shows the protocol next to each name, for example **Rust (TCP + UDP)**, and once you pick one it shows the port numbers and how many are still free.
+Each choice in the dropdown is a range of ports for one kind of use. The dropdown shows the protocol next to each name, for example **FiveM (TCP + UDP)**, and once you pick one it shows the port numbers and how many are still free.
 
 | Choose | Ports | Protocol | For |
 |---|---|---|---|
@@ -29,12 +29,12 @@ Each choice in the dropdown is a range of ports for one kind of use. The dropdow
 | **Simple Voice Chat** | 24500 and up | UDP | The Simple Voice Chat mod or plugin, and VCMC phone voice |
 | **Votifier** | 8200 and up | TCP | Server list voting |
 | **FiveM** | 30200 and up | TCP + UDP | FiveM servers |
-| **Rust** | 28100 and up | TCP + UDP | Rust game, RCON and Rust+ |
+| **Rust** | 28100 and up | UDP | Rust game and query. RCON and Rust+ use TCP, so give them a **Bots and websites** port |
 | **ARK: Survival Evolved** | 7800 and up | UDP | ARK game and query |
-| **Counter-Strike** | 27100 and up | TCP + UDP | Counter-Strike 2 |
+| **Counter-Strike** | 27100 and up | UDP | Counter-Strike 2 game traffic. RCON uses TCP, so give it a **Bots and websites** port |
 | **Valheim** | 2500 and up | UDP | Valheim game and query |
-| **TeamSpeak** | 10000 and up | TCP + UDP | TeamSpeak voice, query and file transfer |
-| **Bots and websites** | 40000 and up | TCP | Discord and Telegram bots, web maps (BlueMap, Dynmap, squaremap), Plan, dashboards |
+| **TeamSpeak** | 10000 and up | UDP | TeamSpeak voice. Query and file transfer use TCP, so give them **Bots and websites** ports |
+| **Bots and websites** | 40000 and up | TCP | Discord and Telegram bots, web maps (BlueMap, Dynmap, squaremap), Plan, dashboards, and any game's RCON, query or app port that uses TCP |
 | **Other games** | 41000 and up | UDP | Any other game or service that uses UDP |
 
 Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799). **Minecraft Bedrock / Geyser** is bigger: 19200-19599 on Premium+ and 19200-19999 on those Budget+ servers. The choices are the same on Budget+ and Premium+. Always pick the range made for what you run: the Minecraft ranges are filtered by our network protection for Minecraft traffic, so another game (for example Project Zomboid) on a **Minecraft Bedrock / Geyser** or **Minecraft Java** port can start but nobody can join it. Your **primary** port follows the same rule: on a Java server with Geyser it is the Java port, and the Bedrock port is an extra one. You get a free port from the range you choose; a specific or dedicated port number (for example `19132` or `24454`) is not sold. Not sure which one? Open a ticket on our [Discord](https://discord.atbphosting.com).
@@ -43,9 +43,9 @@ Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799).
 
 Yes, UDP is supported. Every port you add is opened for both TCP and UDP on your server. The protocol in the table and the dropdown is what that kind of traffic uses, so pick the choice that matches what you are running:
 
-- Voice chat (Simple Voice Chat, VCMC), ARK and Valheim use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
-- Minecraft Java, Votifier, bots, web maps and websites use **TCP**. Choose **Bots and websites** for anything web or bot related.
-- FiveM, Rust, Counter-Strike, TeamSpeak, Bedrock and Geyser use both, and their entries are **TCP + UDP**. A Bedrock server needs one port per player online at once, as one block of ports in a row. It already comes with one, and ports you add from **Minecraft Bedrock / Geyser** join onto it; see [Ports in a row](#ports-in-a-row) and [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
+- Voice chat (Simple Voice Chat, VCMC), ARK, Valheim, Rust, Counter-Strike and TeamSpeak voice use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
+- Minecraft Java, Votifier, bots, web maps, websites, RCON, Rust+ and TeamSpeak query and file transfer use **TCP**. Choose **Bots and websites** for anything web or bot related, and for those game tools. The game's own range doesn't let TCP through, so RCON or Rust+ on a Rust port won't connect.
+- FiveM, Bedrock and Geyser use both, and their entries are **TCP + UDP**. A Bedrock server needs one port per player online at once, as one block of ports in a row. It already comes with one, and ports you add from **Minecraft Bedrock / Geyser** join onto it; see [Ports in a row](#ports-in-a-row) and [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
 
 After you add the port, put its number in your plugin, mod or game config. Most plugins don't pick it up on their own.
 
