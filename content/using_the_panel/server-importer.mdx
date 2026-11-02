@@ -1,45 +1,43 @@
 ---
 title: "Server Importer"
-description: "Copy your files from another host or another ATBP server into your server with the panel's importer: archive first, connect over SFTP or FTP, pick the archive and it unpacks itself."
+description: "Copy your files from another host or another ATBP server into your server: enter the address, username and password, choose what to bring, and watch it copy. A dropped connection resumes by itself."
 ---
 
-The Server Importer copies files from another server straight into your ATBP server over SFTP. Use it when you move from another host, or from one ATBP server to another (for example after changing plans), without downloading and uploading everything yourself.
+The Server Importer copies files from another server straight into your ATBP server. Use it when you move from another host, or from one ATBP server to another (for example after changing plans), without downloading and uploading everything yourself. Your old server is not changed.
 
-## Before you import
+Open your server and go to **More > Importer**. There are three steps: connect, choose files, import.
 
-1. [Make a backup](/using_the_panel/backups/guide) of the server you are importing into, and stop it.
-2. **Archive your files on the old server first.** On your old panel, compress the files you want (usually everything) into one `.zip` or `.tar.gz`. Copying one archive is far faster than copying a world file by file, and the importer unpacks it for you when it arrives.
-3. Get the SFTP (or FTP) details of the server you are copying **from**:
-   - **From another host:** their panel or support shows the SFTP host, port, username and password.
-   - **From another ATBP server:** open that server on the [panel](https://panel.atbphosting.com) and go to **Settings**. The SFTP host, port and username are listed there, see [Using SFTP](/using_the_panel/sftp).
+## Step 1: Connect
 
-Then open your server and go to **More > Importer**. Tick **I have archived my files on my old panel and will import only that archive.** The connection form appears once it is ticked.
+You need three things from the server you are copying **from**:
 
-![The panel's More > Importer page with the Before you import notice and its tick box](/screenshots/panel-more-importer.webp)
-
-## The fields
-
-| Field | What to enter |
+| Box | What to enter |
 |---|---|
-| **Host** | The SFTP address of the old server. You can paste a full address such as `sftp://user.1a2b3c4d@host:2022` and the port, protocol and username fill in by themselves. |
-| **Port** | The SFTP port of the old server. It is often `22`, but many game hosts use another port such as `2022`. Use the one you were given, not the game port. |
-| **Username** | The full SFTP username. On ATBP it is your panel username followed by a dot and the server ID, copied from **Settings**. |
-| **Password** | The password for that SFTP login. For an ATBP server this is your **game panel** password, not your email password and not your billing password. |
-| **Source Path** | The folder on the old server to look in. `/` is the top of the old server. |
-| **Destination Path** | The folder on this server to copy into. `/` is the top of your server's files. |
+| **Server address** | The SFTP address of the old server. Paste the whole thing, such as `sftp://user.1a2b3c4d@host:2022`, and the port, type and username are sorted out for you. A plain address such as `node.oldhost.com` works too: the panel finds the port by itself. |
+| **Username** | The full SFTP username. On ATBP it is your panel username followed by a dot and the server ID. |
+| **Password** | The password for that login. For an ATBP server this is your **game panel** password, not your email or billing password. |
 
-Next to **Connect** you can switch between **SFTP** and **FTP**. **Saved Profiles** keeps these details so you don't have to type them again: fill in the fields, then save them as a profile.
+- **From another host:** their panel or support shows these details, usually under **Settings** as SFTP Details.
+- **From another ATBP server:** open that server on the [panel](https://panel.atbphosting.com) and go to **Settings**, see [Using SFTP](/using_the_panel/sftp).
 
-## Running the import
+Click **Connect**. If something is wrong, the message appears right under the box to fix. **Set the port or type yourself** is there for the rare server the panel cannot work out. Tick **Remember this server** to skip the typing next time; the password is never saved.
 
-1. Fill in the fields and click **Connect**. The panel tells you whether the old server supports fast transfer (the whole server moves as one stream) or only file by file. Old game panels are almost always file by file, which is why the archive matters.
-2. A file list of the old server opens. Tick only your archive. If you tick other files or use **Select All** as well, the archive is copied but not unpacked, and the import takes much longer. (Without an archive, tick the files and folders you want; **Select All** takes everything in that folder.)
-3. Check the options:
-   - **Unpack Archive** (on by default): when you import a single archive, it is unpacked and the archive removed.
-   - **Delete Existing Files**: empties the destination folder first. With the destination `/` that is every file on your server, so make the backup first.
-   - **Skip during import**: click a suggested folder or type a pattern such as `*.log` to leave it behind.
-4. Click **Start Import** and wait. The page shows the progress, then **Unpacking archive** while a big archive is unpacked.
-5. Open **Files** and check that your world, configs and `plugins` or `mods` folders arrived where you expected.
+## Step 2: Choose files
+
+The panel looks for your server's files and opens that folder, with everything ticked. Untick anything you don't want, or open another folder: whatever you tick in the folder on screen goes to the top of your server, so nothing ends up inside an extra folder.
+
+- **Moving a big server from an old game panel?** Compress everything into one `.zip` or `.tar.gz` on the old panel first, then tick only that file. Copying file by file from a game panel can take hours; one archive takes minutes, and it is unpacked for you when it arrives.
+- **Delete the files on this server first** empties the destination before copying, once the old server is confirmed reachable. [Make a backup](/using_the_panel/backups/guide) first if there is anything to keep.
+- **More options** leaves out map renders, caches and logs if your server has them, turns off unpacking, or picks another destination folder.
+
+Click **Start import**. Your server stops while the import runs.
+
+## Step 3: Watch it copy
+
+The page shows what it is doing, the percent copied and about how long is left, and updates by itself. You can close the page and come back; the import keeps going. The [console](/using_the_panel/basic-controls) shows the same status above the live log.
+
+- If the connection drops, the import retries by itself and carries on from where it stopped.
+- If it stops for good, the page says why. Click **Retry** and it continues from there, keeping everything already copied.
 
 ## After the import
 
@@ -51,12 +49,10 @@ The importer copies files only, not the server's settings. Before you start the 
 
 ## Troubleshooting
 
-- **It cannot connect to the remote server, or says connection refused or timed out:**
-  - Check the port is the SFTP port, not the game port. If you typed the host by hand, leave out `sftp://` and `:port`, or paste the whole address so the fields fill in themselves.
-  - Use the full SFTP username, including the part after the dot.
-  - Set **Source Path** to `/`. A folder that does not exist on the old server makes the import fail.
-  - Some hosts only allow SFTP from certain places or turn it off for expired servers. If it still fails, download your files from the old server as a `.zip` or `.tar.gz` (or a backup), upload the archive in **Files** (or with [SFTP](/using_the_panel/sftp) for big files), then click **...** next to it and **Unarchive**.
-- **Authentication failed:** the username or password is wrong. Passwords are case-sensitive. For an ATBP server, reset your game panel password if you are not sure of it.
-- **Files went to the wrong place:** if everything ended up inside an extra folder, move the files up to the top level in **Files**, or run the import again with a different **Destination path**.
+- **"We could not reach" the address:** check the old server is online and the address has no typos. If it uses an unusual port, add it to the address, like `node.oldhost.com:2022`. Use the SFTP port, not the game port.
+- **"That username or password was not accepted":** passwords are case-sensitive, and the username needs the part after the dot. For an ATBP server, reset your game panel password if you are not sure of it.
+- **The import stops with "could not stay connected":** the old host may turn SFTP off for expired servers or block connections. Download your files from the old server as a `.zip` or `.tar.gz` instead, upload the archive in **Files** (or with [SFTP](/using_the_panel/sftp) for big files), then click **...** next to it and **Unarchive**.
+- **"Finished, with some files skipped":** the old server refused those files, usually because they were locked or removed during the copy. The page shows the last one. Stop the old server and run the import again to pick them up.
+- **It stopped at your disk limit:** an import cannot go past your plan's disk space. Import less, or see [Upgrades and Downgrades](/billing/upgrades-and-downgrades).
 
 Still stuck? Open a [support ticket](/general/getting-support) with the panel link of the server you are importing into.
