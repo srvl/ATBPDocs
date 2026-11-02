@@ -8,5 +8,6 @@ export default {
   "out-of-memory": "Out of Memory Errors",
   "outdated-server-client": "Outdated Server or Outdated Client",
   "server-keeps-crashing": "Server Keeps Crashing and Restarting",
-  "understand-ram-usage": "Understand RAM Usage"
+  "understand-ram-usage": "Understand RAM Usage",
+  "unrecognized-vm-option": "Unrecognized VM Option"
 }
