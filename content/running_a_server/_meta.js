@@ -22,7 +22,7 @@ export default {
   "exploitfix": "❗ Exploit Fix ❗",
   "anti-xray": "Enable Anti-Xray",
   "basic-server-commands": "Basic Server Commands",
-  "bedrock-addons": "Install Bedrock Add-ons",
+  "bedrock-addons": "Install Bedrock packs by hand",
   "change-world-seed": "Change Your World Seed",
   "check-ping": "How to check your Minecraft ping",
   "common-server-properties": "Common server.properties Settings",

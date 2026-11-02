@@ -31,7 +31,7 @@ Bedrock servers only accept Bedrock players. Java Edition players cannot join un
 - **Only one player can join after a restart, a player cannot rejoin, or an 11th player cannot join (often with a "Door" or NetherNet error)?** See [NetherNet](#nethernet) below: every player online needs a port from your server's player port block. This usually means ports were deleted from that block.
 - **"Terracotta" error (`InitialConnection-149`)?** The player's game could not finish the NetherNet connection. Restart your server once (it picks up secure joins at its next start), have the player update Minecraft, then try the subdomain instead of the IP, or the other way round (see [NetherNet](#nethernet) below), then mobile data. If it keeps happening, send the time, the address the player typed and the player's public IP in a ticket so we can trace the connection.
 - **"Trust this server?" on first join, or some players get stuck connecting?** Restart your server once, then have players join again. If they are still asked, have them use your server's subdomain, see [NetherNet](#nethernet) below.
-- **Stuck on the loading screen?** Remove addons one by one to find the one causing it, see [Bedrock Addons](/running_a_server/bedrock-addons).
+- **Stuck on the loading screen?** Remove addons one by one to find the one causing it, see [Bedrock Addons](/games/minecraft-bedrock/bedrock-addons).
 - **After changing or deleting a port?** Any subdomain still points at the old port. Delete the subdomain and create it again for the new port.
 - **Java and Bedrock on the same server?** Bedrock players join with the Bedrock port, which can differ from the Java port.
 

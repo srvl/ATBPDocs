@@ -1,0 +1,64 @@
+---
+title: "Using SFTP on your phone"
+description: "Upload files to your server from an Android phone or iPhone with an SFTP app, using the details from your panel's Settings page."
+---
+
+You can move files to your server from your phone with an SFTP app. For a small file, you may not need one: the **Files** tab in the [panel](https://panel.atbphosting.com) can upload from a phone browser too.
+
+## Get your details from the panel
+
+In the panel, open your server and go to **Settings**. Your details are in the **SFTP Details** box.
+
+![The panel's Settings page with the SFTP Details box marked](/screenshots/panel-sftp-settings.webp)
+
+Phone apps want these split into separate boxes. For the address `sftp://shared1.atbphosting.com:2325`:
+
+| Box | What to enter | Example |
+| --- | --- | --- |
+| Type or protocol | SFTP | `SFTP` |
+| Host | The address without `sftp://` and without the `:` and number at the end | `shared1.atbphosting.com` |
+| Port | The number after the `:` | `2325` |
+| Username | The whole username, including the `.` and the server ID at the end | `yourname.d3d7a6af` |
+| Password | Your **game panel** password | |
+
+Each server has its own username and may have a different host and port, so copy them from the server you want to reach.
+
+## Android: AndFTP
+
+1. Install **AndFTP** from the Google Play Store and open it.
+2. Tap the **+** icon at the top.
+3. Fill in the host, set the type to **SFTP**, then fill in the port, username and password.
+4. Tap **Save**, then tap your new connection to open it.
+5. Upload your files.
+
+## iPhone and iPad
+
+Search the App Store for an app that says it supports SFTP, then add a new connection using the details above. Check that the connection type is SFTP and not FTP. The buttons differ from app to app, but the details you enter are the same.
+
+## Upload tips
+
+- When you upload, the app may show its own folder first. Go back to your phone's storage to find your file. On Android, it's usually in `Download`.
+- Upload one `.zip` instead of many small files, then unarchive it in the panel's **Files** tab. See [File Manager](/using_the_panel/file-manager-controls).
+- Stay on good Wi-Fi and keep the app open, because phones can pause apps in the background. If an upload stops, compare the file size on the server with the one on your phone. If it's smaller, upload it again.
+
+## Access denied or invalid login
+
+- Check that the port isn't in the username box, and that the username has its server ID at the end.
+- Use your game panel password. It isn't your billing, Discord or Google password.
+- If it still says access denied, log out of the panel, press **Forgot password** on the login page, and set a new password from the email. Then try SFTP with the new password.
+
+For computer apps and big uploads, see [Using SFTP](/using_the_panel/sftp).
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Can I use SFTP on my phone?
+- How do I use SFTP on Android?
+- How do I use SFTP on iPhone?
+- Paano gamitin ang SFTP sa cellphone?
+- What do I put in AndFTP?
+- What is the host, port and username for SFTP on mobile?
+- Why does SFTP say access denied on my phone?
+- What is my SFTP password?
+
+</details>
