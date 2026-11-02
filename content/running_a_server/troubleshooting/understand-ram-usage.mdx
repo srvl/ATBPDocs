@@ -21,6 +21,10 @@ The panel shows how much memory Java has reserved, not how much is truly needed.
 - Run `spark health --memory` in the console to see real heap use. Paper includes Spark. See [Spark](/running_a_server/spark).
 - On Purpur, `/rambar` shows a live bar. It fills and empties constantly, which is normal.
 
+## Why Spark shows a heap smaller than your plan
+
+Spark may show a max heap well below your plan's RAM, for example 6 GB on a 20 GB plan, even with `-XX:MaxRAMPercentage=80.0` in your startup. That is not a wrong memory limit. Java takes more heap only when the server needs it, so if your server gets by with 6 GB, that is what you see, and it grows on its own when the server needs more. `-Xms` is fixed on our plans, so you cannot pin the heap at a set size, and you don't need to.
+
 ## When to worry
 
 If memory stays full and the server crashes, see [Out of Memory Errors](/running_a_server/troubleshooting/out-of-memory).

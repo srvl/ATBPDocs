@@ -1,0 +1,36 @@
+---
+title: "Bot Attacks and Anti-Bot Plugins"
+description: "Minecraft servers have no built-in anti-bot. How to spot a bot attack and which plugin to add to stop one."
+---
+
+ATBP servers do not come with a built-in anti-bot. Our network protection deals with DDoS floods, but bots that log in look like ordinary players joining, so they reach your server. On Minecraft Java, an anti-bot plugin on your server handles them.
+
+## Signs of a bot attack
+
+- The **Console** fills with strange or random names joining and leaving quickly.
+- CPU jumps or the server lags while few real players are online.
+- Real players cannot join, or get kicked, while this goes on.
+
+If the Console shows no joins like these, it is probably not bots. See [Troubleshooting Lag](/running_a_server/troubleshooting/lag-troubleshooting).
+
+## Stop an attack right now
+
+Turn on the whitelist with `whitelist on` in the **Console**, and add your real players. Only listed players can join until you turn it off. See [Whitelist](/running_a_server/whitelist).
+
+## Add an anti-bot plugin
+
+Staff usually suggest one of these:
+
+- **Sonar**: stops most bot attacks. Setup is in [its documentation](https://docs.jonesdev.xyz/).
+- **nAntiBot**: a paid plugin. Buy it from its official page. Cracked copies cause their own problems, such as stopping the server from shutting down cleanly.
+
+Install it like any other plugin, see [Installing Plugins](/plugins_and_modifications/installing-plugins), then restart the server.
+
+- **Using a proxy?** Put the plugin on the proxy, such as [Velocity](/running_a_server/velocity), since that is where bots arrive.
+- **Using offline mode?** Your server skips the account check, so bots get in more easily. Always use a login plugin too, see [Offline Mode](/running_a_server/offline-mode).
+
+## Real players are being blocked
+
+An anti-bot plugin can mistake many real players joining at once for an attack, for example at the start of an event. If a message from the plugin stops people joining, loosen its settings in the plugin's config, or let players in a few at a time. Check the message: if it names a plugin, the block comes from that plugin and not from ATBP.
+
+If bots keep coming with a plugin installed, open a [support ticket](/general/getting-support) with your panel link and your log, see [Share Your Server Logs](/running_a_server/share-logs).
