@@ -45,7 +45,7 @@ Yes, UDP is supported. Every port you add is opened for both TCP and UDP on your
 
 - Voice chat (Simple Voice Chat, VCMC), ARK, Valheim, Rust, Counter-Strike and TeamSpeak voice use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
 - Minecraft Java, Votifier, bots, web maps, websites, RCON, Rust+ and TeamSpeak query and file transfer use **TCP**. Choose **Bots and websites** for anything web or bot related, and for those game tools. The game's own range doesn't let TCP through, so RCON or Rust+ on a Rust port won't connect.
-- FiveM, Bedrock and Geyser use both, and their entries are **TCP + UDP**. A Bedrock server needs one port per player online at once, as one block of ports in a row. It already comes with one, and ports you add from **Minecraft Bedrock / Geyser** join onto it; see [Ports in a row](#ports-in-a-row) and [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
+- FiveM, Bedrock and Geyser use both, and their entries are **TCP + UDP**. A Vanilla Bedrock server needs one port per player online at once, as one block of ports in a row. It already comes with one, and ports you add from **Minecraft Bedrock / Geyser** join onto it; see [Ports in a row](#ports-in-a-row). An Endstone server shares its main port between all players and needs no extra ports; see [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
 
 After you add the port, put its number in your plugin, mod or game config. Most plugins don't pick it up on their own.
 
