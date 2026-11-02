@@ -32,21 +32,4 @@ A `.mcworld` file is a world exported from Bedrock (world list > edit > **Export
 
 ## Add a behavior or resource pack
 
-1. Download the pack. If it is a `.mcpack`, rename it to `.zip` and extract it. You need the folder that contains `manifest.json`.
-2. Stop the server. In **Files**, upload that whole folder into `behavior_packs` (behavior) or `resource_packs` (textures).
-3. Open the pack's `manifest.json` and copy the `uuid` and `version` from its `header` section.
-4. Open `worlds`, then your world's folder. Create or edit `world_behavior_packs.json` (or `world_resource_packs.json`) and add:
-
-```
-[
-  {
-    "pack_id": "PASTE_THE_UUID_HERE",
-    "version": [1, 0, 0]
-  }
-]
-```
-
-5. For more packs, add more objects separated by commas inside the square brackets.
-6. Save and start the server.
-
-If the server will not start, a missing comma or bracket in that JSON is the usual cause. Make sure the pack supports your current Bedrock version too.
+Use [Bedrock Addons in the panel](/games/minecraft-bedrock/bedrock-addons) to install or upload packs. To do it by hand, see [Install Bedrock packs by hand](/running_a_server/bedrock-addons).

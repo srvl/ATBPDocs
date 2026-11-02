@@ -1,0 +1,131 @@
+---
+title: "Bedrock Addons in the panel"
+description: "Install, upload, order and configure packs on a Vanilla Bedrock server from the panel's Bedrock Addons page, and manage worlds and experiments."
+---
+
+import { Callout } from 'nextra/components'
+
+**Bedrock Addons** is the panel's page for packs on Vanilla Bedrock servers. It installs addons, resource packs and behavior packs for you, so you don't have to edit any JSON files.
+
+To open it, go to your server in the [panel](https://panel.atbphosting.com), then **More** > **Bedrock Addons**.
+
+![The panel's More menu with Bedrock Addons marked](/screenshots/bedrock-more-menu.webp)
+
+Make a backup in the **Backups** tab before adding packs, because a broken pack can stop a world from loading.
+
+## Install from Browse
+
+1. Stay on the **Browse** view. Use the filters or **Search addons** to find a pack.
+2. Open the pack and choose a version that matches your server's Bedrock version.
+3. Install it, then restart your server.
+
+## Upload your own pack
+
+1. Press **Upload Custom Pack** at the top of the page.
+
+   ![The Bedrock Addons page with the Upload Custom Pack button marked](/screenshots/bedrock-addons-browse.webp)
+
+2. Click the gray box or drag your file onto it. You can use `.zip`, `.mcpack`, `.mcaddon`, `.mctemplate` or `.mcworld`.
+
+   ![The Upload Custom Pack window with the file box and Pack type menu](/screenshots/bedrock-upload-pack.webp)
+
+3. Leave **Pack type** on **Auto-detect (recommended)**. It reads the pack's manifest to tell behavior and resource packs apart. If a pack ends up in the wrong place, upload it again and choose **Addon**, **Map / World**, **Texture Pack**, **Script** or **Skin Pack**.
+4. Press **Upload & Install**. The pack is queued and installs in the background. Only one install can run at a time, so wait for it to finish before adding the next.
+5. Restart your server.
+
+A `.mcworld` or `.mctemplate` file installs as a new world. It does not replace the world you are playing on until you [make it the default](#worlds).
+
+## Installed packs
+
+Press **Installed** to see what is on your server. Packs are split into **Behavior Packs** and **Resource Packs** tabs. Each pack has these buttons:
+
+![Installed packs, with the settings button and the priority arrows marked](/screenshots/bedrock-installed-packs.webp)
+
+| Button | What it does |
+| --- | --- |
+| Gear | Opens the pack's settings. Only packs that have settings show it. |
+| Up arrow | Raises the pack's priority. |
+| Down arrow | Lowers the pack's priority. |
+| Trash | Deletes the pack right away, with no second question. |
+
+### Set pack priority
+
+When two packs change the same thing, the one with the higher priority wins.
+
+1. Use the arrows to put the packs in the order you want.
+2. Press **Apply order** at the top. The new order is not saved until you do this.
+3. Restart your server.
+
+### Change a pack's settings
+
+1. Press the gear on the pack.
+2. Change what you want. The options come from the pack itself, for example a slider or a dropdown.
+
+   ![A pack's settings window with a slider and two dropdowns](/screenshots/bedrock-pack-settings.webp)
+
+3. Press **Save**, then restart your server. **Reset to defaults** undoes your changes.
+
+Behavior pack settings apply to your current world. Resource pack settings apply to everyone on the server. You can save settings while the server is running, but they only load on the next start.
+
+## Worlds
+
+The **Worlds** tab in **Installed** lists every world on your server. The one your server runs is marked **Default**, and the others are marked **Available**.
+
+- The check mark makes a world the default. Restart your server to load it.
+- The trash icon deletes a world right away, with no second question. You can't delete the default world, so pick another default first.
+
+## World experiments
+
+Some addons only work with experiments turned on.
+
+1. On the Bedrock Addons page, press **World Experiments**.
+2. If the server is running, press **Stop** in that window. A running server rewrites the world when it shuts down, which would undo your change.
+3. Turn on what you need. Packs you have installed are checked for you, so an experiment may show **Needed** or **Likely needed** with the pack's name.
+4. Keep **Back up the server first** on. It uses one of your backup slots.
+5. Press **Apply**, then start your server.
+
+<Callout type="warning">
+
+Treat turning on an experiment as permanent for that world. Keep the backup in case you want to go back.
+
+</Callout>
+
+You can also change the same experiments in **More** > **Configs**. Stop your server first, open the menu that shows **Server Properties**, and choose **Experiments**.
+
+![The Experiments list in Configs, with Beta APIs turned on](/screenshots/bedrock-experiments.webp)
+
+## World settings
+
+**World Settings** holds the options you would see when creating a world in the game, such as game mode, difficulty, cheats and starting with a map.
+
+1. Stop your server.
+2. Go to **More** > **Configs**, open the menu that shows **Server Properties**, and choose **World Settings**.
+3. If you have more than one world, pick the right one in the world menu next to it.
+4. Change what you want, then start your server.
+
+![World Settings in Configs, showing world name, game mode and difficulty](/screenshots/bedrock-world-settings.webp)
+
+## If something goes wrong
+
+- **Players stuck on the loading screen**: remove packs one at a time to find the one causing it.
+- **A pack does nothing**: check it supports your Bedrock version, see if it needs an experiment, and restart the server. To update the server, see [Updating](/running_a_server/updating).
+- **You can see settings but not change them**: you are a sub-user without the file update permission. Ask the server owner.
+
+If you can't use this page, you can still [install packs by hand](/running_a_server/bedrock-addons).
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I install addons on my Bedrock server?
+- How do I upload a custom pack, resource pack or behavior pack?
+- Paano mag-upload ng addon sa Bedrock server?
+- How do I change an addon's settings?
+- Why is there no settings icon on my pack?
+- How do I set pack priority or change the pack order?
+- How do I turn on experiments like Beta APIs?
+- Paano i-on ang experimental sa Bedrock?
+- How do I change world settings on Vanilla Bedrock?
+- How do I upload a .mcworld and switch to that world?
+- How do I remove an addon or a world?
+
+</details>
