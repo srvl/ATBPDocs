@@ -12,6 +12,8 @@ The server software (the jar file) decides which features and mods your server s
 - **Paper**: the recommended choice for most servers. Faster than Spigot, fixes many exploits, runs Bukkit and Spigot plugins and has built-in anti-xray.
 - **Purpur**: a fork of Paper with many extra options you can toggle. Great if you want to tweak gameplay without extra plugins, though it takes more configuring.
 
+On ATBP Hosting, Paper and every server based on it (Purpur, Leaf, DivineMC, Folia, Canvas) has `chunk-system.worker-threads` in `config/paper-global.yml` set to **half your plan's vCPU** (at least 1), for example 1 on a 2 or 3 vCPU plan, 2 on a 4 vCPU plan and 4 on an 8 vCPU plan. Left on automatic, Paper sizes this from all the cores of the node rather than your plan. The new value applies the next time your server starts, and it is set back if you raise it. A lower value you choose yourself stays.
+
 ## For mods
 
 - **Fabric**: lightweight and quick to update. Good for performance mods and many modern mod packs.
