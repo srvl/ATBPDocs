@@ -89,6 +89,19 @@ Backups of big servers take a while, because every file is copied and compressed
 
 If the same backup still says "creating" after 30 minutes, open a **Hosting Support** ticket on [Discord](https://discord.atbphosting.com) with your panel link.
 
+## Files or plugins went missing
+
+We do not remove files from your server. When a folder such as `plugins` or your world is suddenly gone or smaller, the usual cause is a delete from the **Files** page by someone with access to the server, or a plugin. To find out and get them back:
+
+1. Stop the server, so nothing writes over what is left.
+2. Open the **Activity** tab and look for file deletes around the time it happened. Each entry shows the account, the time and the IP address. If you do not recognize it, change your password and check who has access in [Users](/using_the_panel/users).
+3. Look in the [Trash Bin](/using_the_panel/file-manager-controls#trash-bin) in **Files**. Files moved to the trash can be restored until it is emptied.
+4. Otherwise, [restore](#restoring-backups) the newest backup that still has the files. Check both your own backups and the Auto Backups.
+
+Those are the only copies. Staff have no older snapshot or other copy of your server, so a file that is not in the Trash Bin or in a backup cannot be recovered. Make a backup before any big change, and keep your own copy of work you cannot lose.
+
+---
+
 ## Deleting backups
 
 If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night, have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
@@ -111,5 +124,9 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - Paano burahin lahat ng backups pag magsisimula ulit?
 - My backup says "creating backup" for a long time, how do I stop it?
 - Paano i-restore ang backup?
+- My plugins or world files disappeared, can you get them back?
+- Who deleted my files?
+- Nawala mga files ko, paano ibalik?
+- Do you have another copy of my server?
 
 </details>
