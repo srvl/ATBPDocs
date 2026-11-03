@@ -36,7 +36,15 @@ Upload the file to the `plugins` folder (plugins) or `mods` folder (mods), then 
 
 With AuthMeReloaded and EasyAuth, players run `/register <password> <password>` the first time they join and `/login <password>` on every later visit. Check the tool's own page for commands if you use another one.
 
-Bedrock players joining through Geyser use Floodgate, which is a different setup. See [GeyserMC](/plugins_and_modifications/plugins/geysermc) and [Floodgate](/plugins_and_modifications/plugins/floodgate).
+Offline mode does not set up crossplay. Bedrock players joining a Java server through Geyser use Floodgate, which is a different setup. See [GeyserMC](/plugins_and_modifications/plugins/geysermc) and [Floodgate](/plugins_and_modifications/plugins/floodgate).
+
+## Players still get disconnected
+
+Open `server.properties` again and check that it still says `online-mode=false`. If you closed the editor without pressing **Save**, nothing changed. Save, then restart the server; the setting is only read when the server starts.
+
+## On a Bedrock server
+
+Bedrock players can join a Bedrock server as long as they have a Microsoft account, so most servers do not need this. To let players in without that check, stop the server, set `online-mode=false` in `server.properties`, save and start it again. There is no `enforce-secure-profile` line to change on Bedrock.
 
 ## If your server was raided
 
@@ -59,5 +67,9 @@ If players still cannot join or the login tool will not load, open a ticket on o
 - My server got raided, how do I fix it?
 - Can I use a whitelist with offline mode?
 - How do I make an offline-mode server safe?
+- Cracked players still get disconnected after I set online-mode to false
+- Can cracked players join a Bedrock server?
+- Paano ma allow ang cracked sa Bedrock?
+- Does offline mode make my server crossplay?
 
 </details>

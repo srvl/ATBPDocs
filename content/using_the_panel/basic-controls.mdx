@@ -27,6 +27,21 @@ The dot next to each server shows its status:
 
 A server that stays orange for a long time is stuck starting; see [Server stuck starting, stopping or installing](/using_the_panel/stuck-server).
 
+## When a status page shows instead
+
+While your server is busy or closed, every tab shows one status page instead of its usual content, so nothing can fail halfway. This happens while the server is:
+
+*   **Installing or reinstalling**: you see the current step, how long it has been running and the live install log.
+*   **Importing** with the [Server Importer](/using_the_panel/server-importer): you see the percent copied, about how long is left and the current step.
+*   **Restoring a backup**, **moving to another node**, or on a node under **maintenance**.
+*   **Suspended**: you see why and a button to pay. See [Suspensions and Terminations](/billing/suspensions_and_terminations).
+
+You do not need to refresh. The page checks by itself and your normal tabs come back when it finishes. You can also close it and come back later, as the work keeps going.
+
+![The status page while a server installs, with the live install log](/screenshots/panel-status-installing.webp)
+
+If the install fails, the page says so. See [Stuck on installing](/using_the_panel/stuck-server#stuck-on-installing).
+
 ## Console
 
 
@@ -158,6 +173,8 @@ This log provides an audit trail of actions performed on your server through the
 *   Who performed what action (e.g., server started, files uploaded, commands executed).
 *   When the action occurred.
 *   This is useful for troubleshooting and monitoring user activity.
+*   A file delete that fails partway still shows as a delete here, because some of the files may already be gone. Open the entry's details to see that it failed.
+*   Files gone? See [Files or plugins went missing](/using_the_panel/backups/guide#files-or-plugins-went-missing).
 
 Together, these tabs cover everything you need to manage a Minecraft server on the ATBP Hosting panel, from basic operations to advanced configuration and security.
 
