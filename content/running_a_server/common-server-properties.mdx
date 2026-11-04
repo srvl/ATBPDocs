@@ -1,6 +1,6 @@
 ---
 title: "Common server.properties Settings"
-description: "Change difficulty, gamemode, view distance, PvP, flight and more."
+description: "Change difficulty, gamemode, hardcore, view distance, PvP, flight and more."
 ---
 
 Most basic server options live in `server.properties`. To edit it:
@@ -14,6 +14,7 @@ Most basic server options live in `server.properties`. To edit it:
 | Setting | What it does | Example |
 |---|---|---|
 | `difficulty` | `peaceful`, `easy`, `normal` or `hard` | `difficulty=hard` |
+| `hardcore` | Permadeath for a new world, see [Turn on hardcore](#turn-on-hardcore) | `hardcore=true` |
 | `gamemode` | Default mode for new players: `survival`, `creative`, `adventure`, `spectator` | `gamemode=survival` |
 | `force-gamemode` | If `true`, players are set to the default gamemode on every join | `force-gamemode=true` |
 | `pvp` | Whether players can damage each other | `pvp=false` |
@@ -35,6 +36,23 @@ Difficulty and gamemode can also be changed in-game with `/difficulty` and `/gam
 
 Allow-flight only matters in survival. Anti-cheats usually need to be told separately that flying is allowed for certain ranks.
 
+## Turn on hardcore
+
+`hardcore=true` in `server.properties` is only used when a world is first made. An existing world keeps its own setting in `level.dat`, so changing the line and restarting does nothing to it. To test, die once: if you can still respawn, the world is not hardcore.
+
+**For a new world:**
+
+1. Stop the server and make a [backup](/using_the_panel/backups/guide) if you want to keep the old world.
+2. In `server.properties`, set `hardcore=true` and `difficulty=hard`, and save.
+3. In **Files**, delete the world folders (see [World Reset](/running_a_server/world-reset)), then start the server.
+
+**To keep your current world:**
+
+1. Stop the server and make a backup.
+2. In **Files**, open your world folder, then click `level.dat`. It opens in the panel's NBT editor.
+3. Under `Data`, set `hardcore` to `1` and `Difficulty` to `3` (Hard). On newer Minecraft versions these can sit in a group such as `difficulty_settings`, with `hard` written as a word.
+4. Save and start the server.
+
 <details>
 <summary>Questions this page answers</summary>
 
@@ -42,5 +60,8 @@ Allow-flight only matters in survival. Anti-cheats usually need to be told separ
 - How do I change the max players or player slots?
 - Paano dagdagan ang max players?
 - How do I change the view distance?
+- Why is my server not hardcore after I set `hardcore=true`?
+- Can I turn an existing world into hardcore?
+- Bakit nakaka respawn pa rin kahit naka hardcore?
 
 </details>
