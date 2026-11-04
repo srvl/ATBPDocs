@@ -58,7 +58,7 @@ Very frequent backup schedules (for example hourly on a big world) can cause lag
 
 Restoring overwrites files on your server with the files from the backup, so make a fresh backup of the current state first if you might need it. Restored files count toward your disk like any others, so check that they fit.
 
-To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again. Press **Restore** once: restores are queued, and pressing the button repeatedly causes a "too many attempts" error.
+To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again. Press **Restore** once: restores are queued, and pressing the button repeatedly causes a "too many attempts" error. If a backup is running on the node, the restore or download waits for that one to finish and then goes ahead of any queued backups. Your current files stay untouched until the backup can be read.
 
 If you only need a few files, you can [download](#downloading-backups) the backup, extract it on your computer, and upload just those files back with the [File Manager](/using_the_panel/file-manager-controls) or [SFTP](/using_the_panel/sftp).
 
@@ -69,6 +69,8 @@ If you only need a few files, you can [download](#downloading-backups) the backu
 Open the **Backups** tab, click the menu on a backup and choose **Download**. Your browser will download the backup as an archive. If a backup will not download, the archive may be very large; create a fresh backup that ignores folders you do not need, or download the files you need with [SFTP](/using_the_panel/sftp).
 
 Download links are private to your account and expire after a short time, so keep them to yourself.
+
+A download or restore has to wait for any backup that is running on the same machine, so it can take a few minutes to start. If it stops with an error, try again a few minutes later.
 
 ---
 

@@ -1,0 +1,67 @@
+---
+title: "Web hosting"
+description: "Website and database hosting on our Singapore server with the HestiaCP panel: Web Starter, Plus and Pro. Coming soon."
+---
+
+Web hosting is **coming soon**. It is not on sale yet, and prices are announced when it opens. This page shows what the plans will include.
+
+We host websites and databases on a server in Singapore, with the HestiaCP control panel. Your account backs up every night, with a copy kept off the server; the plan sets how many backups are kept.
+
+| Plan | Storage | Websites | Databases | Cron jobs | Nightly backups kept |
+|---|---|---|---|---|---|
+| Web Starter | 5 GB | no cap | no cap | 5 | 1 |
+| Web Plus | 20 GB | no cap | no cap | 20 | 3 |
+| Web Pro | 50 GB | no cap | no cap | 50 | 7 |
+
+- Storage is the plan's limit. Websites and databases have no cap of their own, as long as they fit in your storage and follow the acceptable use policy.
+- **Email is not included.** We do not run a mail server on this plan, and there are no mailboxes or webmail. To use email on your domain, use a mail provider and add its records at your DNS host.
+- A domain is not included. Bring your own or register one with us.
+
+## Pointing your domain
+
+At checkout you type the domain for your first website. We set up the website and request a free Let's Encrypt SSL certificate.
+
+- **Domain registered with us:** we point it at your hosting for you (website and www records), so the site and SSL work without touching DNS. Records you already have for email elsewhere are kept.
+- **Domain from another registrar:** point the domain and www to the web server with A records. The address is on your service page.
+
+## SSL
+
+Until your domain points at the server, SSL shows as **Pending** on your service page. We retry every hour for two days, or press **Install SSL** once the domain points.
+
+## Logging in
+
+- Your service page in billing shows the control panel address, your panel user name, domain, plan and SSL status.
+- Open the control panel with the **Open control panel** button. It signs you in once, without a password.
+- To log in directly or from an app, press **Generate new password**. The new password shows on your service page for 10 minutes, so save it then. We never email it.
+
+## Running your site
+
+- Sites run on nginx with PHP-FPM and MariaDB databases.
+- `.htaccess` files do nothing here, because there is no Apache. For WordPress and other common apps, pick the matching web template for your domain in the panel so their links work.
+- Change plan any time from your service page. Moving to a smaller plan never deletes anything; the panel only stops new items (files, cron jobs, backups) until you are under the new plan's limits.
+- If a service is suspended for an unpaid invoice, your sites show a suspended page until it is paid. Nothing is deleted while suspended.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Do you have web hosting?
+- Web hosting magkano?
+- How much is website hosting?
+- When can I order web hosting?
+- Can I host WordPress?
+- Is email included with web hosting?
+- May email ba yung web hosting?
+- Can I use .htaccess?
+- How many websites can I host?
+- Is SSL free?
+- Is a domain included?
+- How do I point my domain to the web hosting?
+- How do I log in to the web hosting panel?
+- I forgot my web hosting panel password
+- Why does my web hosting SSL say Pending?
+- Do I need to change DNS if I bought my domain from you?
+- Can I upgrade or downgrade my web hosting plan?
+- Where is the web server?
+- Are my websites backed up?
+
+</details>

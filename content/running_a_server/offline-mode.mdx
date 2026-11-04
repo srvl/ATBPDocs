@@ -46,6 +46,19 @@ Open `server.properties` again and check that it still says `online-mode=false`.
 
 Bedrock players can join a Bedrock server as long as they have a Microsoft account, so most servers do not need this. To let players in without that check, stop the server, set `online-mode=false` in `server.properties`, save and start it again. There is no `enforce-secure-profile` line to change on Bedrock.
 
+## A player changed their name and lost their things
+
+In offline mode a player's UUID is made from their username, so a new name counts as a brand new player with an empty inventory and a new spawn. Nothing was deleted: the old data is still on the server under the old name. In online mode the UUID belongs to the account, so a name change keeps everything.
+
+The easy fix is to join with the old name again. To move the data to the new name instead:
+
+1. Have the player join once with the new name, then stop the server and make a [backup](/using_the_panel/backups/guide).
+2. Open `usercache.json` in **Files** and note the UUIDs for the old name and the new name.
+3. In your world folder, open `playerdata`. Delete the new UUID's `.dat` file, then rename the old UUID's `.dat` file to the new UUID.
+4. Do the same in the `stats` and `advancements` folders, then start the server.
+
+Plugins and mods keep their own player data, such as homes, balances and login accounts, and it does not move with these steps. Check each plugin's own folder or its commands. Only do this for players you trust: anyone can pick any name in offline mode, which is why you need a login tool.
+
 ## If your server was raided
 
 Strangers joining a private offline-mode server, ops abused, players set to creative or the world changed: someone joined with a name your server trusted. Stop the server, restore a [backup](/using_the_panel/backups/guide) from before it happened, then install a login tool (above) or go back to online mode before you start again. [CoreProtect](/plugins_and_modifications/plugins/coreprotect) can roll back griefing, but only for changes made after it was installed. Moving your main port to a new one also helps, see [Moving an existing port](/using_the_panel/adding-ports#moving-an-existing-port).
@@ -71,5 +84,8 @@ If players still cannot join or the login tool will not load, open a ticket on o
 - Can cracked players join a Bedrock server?
 - Paano ma allow ang cracked sa Bedrock?
 - Does offline mode make my server crossplay?
+- A player changed their username and lost their inventory
+- How do I transfer player data to a new username?
+- Nawala ang items ko nung nagpalit ako ng username
 
 </details>
