@@ -9,14 +9,20 @@ The **Files** tab of the [panel](https://panel.atbphosting.com) lets you browse,
 
 ![The advanced file manager with the folder tree and file list](/screenshots/panel-files.webp)
 
-The file manager has two views. Your choice is saved in your browser, so another device or browser starts in the advanced view again.
+The file manager has two views. Phones open the simple view and computers open the advanced view, until you pick one yourself. Your choice is saved in your browser, so another device or browser starts on its own default again.
 
-- **Advanced** (the default): the full file manager with the code editor, search, the trash bin and the other tools on this page.
-- **Simple**: a plain list of files with a search row. It is lighter and easier on a phone.
+- **Advanced** (the default on a computer): the full file manager with the code editor, search, the trash bin and the other tools on this page.
+- **Simple** (the default on a phone): a plain list of files with a search row. It is lighter and easier on a small screen.
 
 To switch to simple, open **File Manager Settings** (the gear button in the file list), go to **File manager** and pick **Simple**. To go back, press **Switch to advanced** in the bar at the top of the simple view.
 
 In the simple view the search row can look in **This folder only** or **All folders**. Searching inside files (**File contents**) shows as greyed out when it is not available.
+
+### Moving files in the simple view
+
+Tick the files or folders, then press the move button on the bar that appears at the bottom, or choose **Move** in a file's menu (right-click or the `...` button). A folder picker opens: tap the arrow next to a folder to open it, tap a folder to pick it, then press **Move Here**. If the destination already has an item with the same name, the move fails and nothing is replaced.
+
+![The Move window with a folder picked as the destination](/screenshots/panel-files-simple-move.webp)
 
 ## Browsing and selecting
 
@@ -39,6 +45,10 @@ Open a text file to edit it in the built-in code editor. It has syntax colours, 
 - Open small SQLite databases (up to 32 MB) to view and edit rows. Changes are only saved while the server is stopped.
 - Preview images, audio, video and PDFs, and look inside archives to **Extract Selected** files or a whole folder.
 
+In the simple view's editor, and in the editor on a phone, a row of round icon buttons above the text works on it. From left to right they are **Select all**, **Copy**, **Cut**, **Paste**, **Delete** (removes the selected text), **Undo** and **Redo**; hold or hover a button to see its name. They are handy on a phone, where selecting a long file by touch is hard. If your browser blocks clipboard access, **Paste** still inserts text you copied with these buttons in the same tab.
+
+![The file editor with the Select all, Copy, Cut, Paste, Delete, Undo and Redo icon buttons above the text](/screenshots/panel-files-editor-buttons.webp)
+
 Stop the server before editing a plugin or game config, or the server may overwrite your changes when it saves.
 
 ## Trash bin
@@ -54,7 +64,7 @@ Deleting with **Move to Trash** puts files in the **Trash Bin** instead of remov
 
 Choose **Share download link** on a file to get a link anyone can download it from, without a panel account.
 
-- Pick when it expires (1 hour, 1 day, 7 days, 30 days, a custom time, or never) and whether it allows unlimited or a set number of downloads.
+- Pick when it expires (1 hour, 1 day, 7 days, 30 days, a custom time, or never) and whether it allows any number of downloads or a set number.
 - **Your active shares** lists your links; press **Revoke** to stop one.
 - A link stops working if you lose access to the server's files or the server is suspended. The server owner can see and revoke every link on the server.
 
@@ -85,6 +95,10 @@ To move a world or a whole server from another host, upload the `.zip` as one fi
 - I deleted a file, can I get it back?
 - Na-delete ko file, paano ibalik?
 - How do I switch to the simple file manager?
+- How do I select all text in a file on my phone?
+- Paano i-select all ang text sa file?
+- How do I move files to another folder in the simple view?
+- Paano mag move ng files sa ibang folder?
 - Where did the file editor go?
 - How do I share a file download link?
 - How do I download a file from a URL to my server?

@@ -27,6 +27,14 @@ Never move a world to an older version. A world saved on a newer version often c
 
 Install ViaVersion and ViaBackwards so players on other versions can connect. See [Let Players Join From Any Version](/running_a_server/join-from-any-version).
 
+## "Network Protocol Error" with ViaVersion installed
+
+A protocol error means the server and the player's game could not agree on the data they send, even though ViaVersion let the player through. Work through these in order, testing after each:
+
+1. Update ViaVersion and ViaBackwards to builds made for your server's Minecraft version, and update your other plugins too. An outdated plugin is a common cause, especially right after a new Minecraft version.
+2. Find out if a plugin causes it: take a backup, move every plugin except ViaVersion and ViaBackwards out of the `plugins` folder and restart. If you can join now, put the others back a few at a time.
+3. Check the player's game: try a new installation with no mods, or have someone else join. If they can join, the server is fine and the problem is on that player's side, often a mod on a Fabric or Forge client.
+
 ## Also check
 
 - Bedrock players need Geyser to join a Java server, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).

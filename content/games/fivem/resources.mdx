@@ -1,15 +1,25 @@
 ---
 title: "Add resources and frameworks"
-description: "Install scripts, cars and maps on your FiveM server and load them in server.cfg."
+description: "Install scripts, cars and maps on your FiveM server, switch them on and off from the panel's FiveM page, and load them in server.cfg."
 ---
 
-In FiveM everything you add is a **resource**: scripts, jobs, cars, maps and frameworks such as QBCore or ESX.
+In FiveM everything you add is a **resource**: scripts, jobs, cars, maps and frameworks such as QBCore or ESX. Each resource is a folder with an `fxmanifest.lua` inside, and it runs when `server.cfg` has an `ensure` line for it.
 
-## Install a resource
+## With the FiveM page
+
+Every FiveM server has a **FiveM** page (under **More**) in the [panel](https://panel.atbphosting.com). Under **Resources** it lists every resource in your server data folder, the one txAdmin created, including those inside `[category]` folders.
+
+- **Switch a resource on or off** with its toggle. The page edits its `ensure` line in `server.cfg` (or in the `.cfg` file that already lists it): off comments the line out, on uncomments it or adds `ensure name`. Resources started by a category line such as `ensure [qb]` show as on with that category.
+- **Add resource**: paste a GitHub link (the latest release is used, else the main branch) or a direct link to a `.zip`, and tick **Switch it on** if you want it running. Every resource in the download moves into `resources`. A folder that already exists is never overwritten.
+- **Delete** removes the resource folder and switches it off.
+
+Restart the server from txAdmin afterwards. Paid Tebex resources download from your Cfx.re account instead, so upload those yourself as below.
+
+## Upload it yourself
 
 1. Download the resource and unzip it on your computer. Check that the folder has an `fxmanifest.lua` file inside it.
-2. In the [panel](https://panel.atbphosting.com), open **Files**, go into the `txData` folder, then the server folder txAdmin created and its `resources` folder. Upload the resource folder there, or use SFTP for big uploads.
-3. Open `server.cfg` (in txAdmin under **CFG Editor**, or in **Files**) and add a line with the folder name:
+2. In the panel, open **Files**, go into the `txData` folder, then the server folder txAdmin created and its `resources` folder. Upload the resource folder there, or use SFTP for big uploads.
+3. Switch it on in the FiveM page, or add a line with the folder name to `server.cfg` (in txAdmin under **CFG Editor**, or in **Files**):
 
 ```
 ensure my_resource
@@ -23,5 +33,7 @@ Resources start in the order they appear in `server.cfg`, so put a framework (fo
 
 - Avoid spaces and capital letters in resource folder names.
 - Many scripts need a database. Create one on the panel's **Databases** tab and put its details in `server.cfg` (usually as `mysql_connection_string`).
-- If the server stops after you add something, read the console or txAdmin's **Live Console**: the last resource it loaded is usually the cause. Remove its `ensure` line and restart.
+- If the server stops after you add something, read the console or txAdmin's **Live Console**: the last resource it loaded is usually the cause. Switch it off and restart.
+- Resources that fail to load after an update often come back after **Clear cache** on the FiveM page's **Tools** tab (stop the server first).
+- Most frameworks need OneSync. The **Tools** tab shows whether `server.cfg` turns it on and can add the line for you.
 - Only use resources from sources you trust. Leaked or "cracked" paid scripts often contain backdoors.

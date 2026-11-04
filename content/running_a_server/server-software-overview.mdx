@@ -12,6 +12,8 @@ The server software (the jar file) decides which features and mods your server s
 - **Paper**: the recommended choice for most servers. Faster than Spigot, fixes many exploits, runs Bukkit and Spigot plugins and has built-in anti-xray.
 - **Purpur**: a fork of Paper with many extra options you can toggle. Great if you want to tweak gameplay without extra plugins, though it takes more configuring.
 
+On ATBP Hosting, Paper and every server based on it (Purpur, Leaf, DivineMC, Folia, Canvas) has `chunk-system.worker-threads` in `config/paper-global.yml` set to **half your plan's vCPU** (at least 1), for example 1 on a 2 or 3 vCPU plan, 2 on a 4 vCPU plan and 4 on an 8 vCPU plan. Left on automatic, Paper sizes this from all the cores of the node rather than your plan. The new value applies the next time your server starts, and it is set back if you raise it. A lower value you choose yourself stays.
+
 ## For mods
 
 - **Fabric**: lightweight and quick to update. Good for performance mods and many modern mod packs.
@@ -32,7 +34,7 @@ Players usually need the same mods installed on their own game. See [Installing 
 
 - **Vanilla Bedrock**: Mojang's official Bedrock Dedicated Server. Players join from phones, consoles, Windows and the other Bedrock apps.
 - **Vanilla Bedrock (Preview)**: Mojang's preview builds. Only players on the Minecraft Preview app can join, so use it for testing, not your main world.
-- **Endstone**: a Bedrock server that runs Python and C++ plugins. It installs the Bedrock version that matches the Endstone version you pick.
+- **Endstone**: a Bedrock server that runs Python and C++ plugins. It installs the Bedrock version that matches the Endstone version you pick. It is also our recommendation for Bedrock servers on Budget+ and Premium+, even without plugins, because it runs much lighter than plain Vanilla Bedrock.
 
 Java and Bedrock players can also share one Java server with Geyser, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 
@@ -43,6 +45,7 @@ Open your server on the [panel](https://panel.atbphosting.com) and go to **Softw
 - [Make a backup](/using_the_panel/backups/guide) first. Worlds do not carry over between Java and Bedrock.
 - Your files stay unless you turn on deleting server files. When you move between Java and Bedrock, the old `server.properties` is renamed (for example to `server.properties.java`) so the new software starts with its own.
 - Bedrock and Endstone install through the server installer, so the server shows as installing for a minute or two. Start it when that finishes.
+- Bedrock and Endstone need a Bedrock port as their main port. If yours is not one (for example after moving from Java), the panel gives your server a Bedrock port as its new main port, so the port players join with changes. Your old port stays in the **Network** tab. A subdomain still points at the old port, so delete it and create it again. Vanilla Bedrock also gets its block of player ports, see [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
 - Endstone is not available on every node. If it will not install on your server, open a ticket.
 
 ## Quick pick
@@ -54,5 +57,5 @@ Open your server on the [panel](https://panel.atbphosting.com) and go to **Softw
 | Light mods | Fabric |
 | Big modpacks | Forge or NeoForge, depending on the pack |
 | Unmodified game | Vanilla |
-| Bedrock players (phones, consoles) | Vanilla Bedrock |
+| Bedrock players (phones, consoles) | Endstone, or Vanilla Bedrock for the unmodified game |
 | Bedrock with plugins | Endstone |

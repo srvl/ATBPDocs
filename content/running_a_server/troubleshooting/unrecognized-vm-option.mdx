@@ -1,0 +1,27 @@
+---
+title: "Unrecognized VM option 'UseCompactObjectHeaders'"
+description: "Why a Minecraft server stops with Unrecognized VM option 'UseCompactObjectHeaders' or Could not create the Java Virtual Machine, and how to fix it."
+---
+
+Your server stops as soon as it starts, and the console shows:
+
+```
+Unrecognized VM option 'UseCompactObjectHeaders'
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+```
+
+The startup command has the flag `-XX:+UseCompactObjectHeaders`, and the Java version selected for the server is too old to know it. Java refuses to start when it sees a flag it does not recognise, so the server never loads.
+
+## How to fix it
+
+Do one of these on the **Startup** page in the [panel](https://panel.atbphosting.com):
+
+- **Switch to Java 25.** This is the fix for Minecraft 26.1 and newer, which need Java 25 anyway. See [Change Java Version](/running_a_server/java-version).
+- **Remove the flag.** On an older Minecraft version that stays on Java 21 or below, delete `-XX:+UseCompactObjectHeaders` from the Java flags. The server runs normally without it.
+
+Then press **Start** and check the console.
+
+## Other flags with the same error
+
+Any flag your Java version does not know gives the same `Unrecognized VM option` message, with that flag's name in it. The fix is the same: use a newer Java, or remove the flag named in the error.

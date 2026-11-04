@@ -1,0 +1,63 @@
+---
+title: "Server Keeps Crashing and Restarting"
+description: "What the panel does when your server crashes, why it waits before restarting, and when it stops trying."
+---
+
+When your server stops by itself (a crash, an out of memory kill, or the game closing on its own), the panel starts it again for you. The console shows a block that starts with `Detected server process in a crashed state!`, followed by the exit code, what it means and the last log lines.
+
+## How automatic restarts work
+
+- **First crash:** the server is started again straight away.
+- **Crashes again within a minute of starting:** the panel waits before the next try, longer each time: 30 seconds, then 1 minute, 2 minutes, then 5 minutes. The console says how long it will wait and which attempt it is, for example `Restarting it in 30 seconds (attempt 1 of 6 in the last hour)`.
+- **Still crashing after 6 quick retries in an hour:** the panel stops restarting it so it does not loop forever. The console says `Automatic restarts are stopped`. Fix the cause, then press **Start** yourself. Starting it by hand gives it a fresh set of retries.
+- **A server that ran for a while and then crashed** is restarted at once, and the waiting starts over from 30 seconds.
+
+The panel never restarts a server that you stopped or killed, even while it is waiting to retry. Pressing **Stop** during the wait cancels the restart. Suspended servers, and servers that are installing or restoring a backup, are not restarted either.
+
+## Reading the crash block
+
+```
+Exit code: 137
+Meaning: The server was force-killed (SIGKILL) from outside: a kill command, a host limit or memory pressure.
+Out of memory: false
+Last log lines before the crash:
+  | [12:00:01 INFO]: ...
+Crash report: crash-reports/crash-2026-11-02_12.00.01-server.txt
+Saved to .crash/last-crash-20261102-120001.log in your server files.
+```
+
+- **Last log lines** are the final 30 lines the server printed.
+- **Crash report** and **Native crash log** only appear when the server wrote a `crash-reports` file or an `hs_err_pid` file in the last 15 minutes. Those files hold the most detail.
+- **Saved to** is a copy of the block, so you can read it after the restart. Open the `.crash` folder in the **Files** tab. Times in the file name are UTC. The newest 5 crashes are kept, and you can delete the files.
+
+A server that closes cleanly (exit code 0, for example from a `stop` command or a plugin that restarts it) only gets the exit code and meaning, and no file is saved.
+
+### What the exit codes mean
+
+| Exit code | Meaning |
+|---|---|
+| 0 | The server closed itself with no error. |
+| 1 | A general error. The log lines name the cause. |
+| 2 | The startup command was used wrongly. |
+| 126 | The startup file could not be run (not executable or permission denied). |
+| 127 | The startup command or file was not found, often a wrong startup setting or a missing server jar. |
+| 130 | Interrupted (SIGINT). |
+| 134 | Aborted (SIGABRT), usually a crash in Java or native code. Look for an `hs_err_pid` file. |
+| 137 | Force-killed (SIGKILL). If `Out of memory` is `true`, it ran out of RAM. |
+| 139 | Segmentation fault (SIGSEGV), a crash in native code. |
+| 143 | Asked to shut down (SIGTERM). |
+| 255 | An unspecified error. The log lines name the cause. |
+
+If `Out of memory` is `true`, the server ran out of its memory limit, whatever the exit code. Other codes above 128 mean the server was killed by a signal, and the console names it.
+
+## Finding the cause
+
+Read the last log lines in the crash block, or `logs/latest.log` (and `crash-reports` for Minecraft) in the **Files** tab. Common causes:
+
+- Out of memory or exit code 137: see [Out of Memory Errors](/running_a_server/troubleshooting/out-of-memory).
+- A mod or plugin that does not match the game version, or a client-only mod: see [Client-Side Mods Crash the Server](/running_a_server/troubleshooting/client-side-mods) and [Binary Search](/running_a_server/binarysearch).
+- A mod that needs another mod (a library) that is not installed. The log says which one, with words like `requires` or `Missing or unsupported mandatory dependencies`: see [Mods that need other mods](/plugins_and_modifications/mods-install#mods-that-need-other-mods).
+- A config file with a mistake in it, often after editing it by hand. The error names the file and usually the line. Fix that line, or download a copy of the file and then delete it: most games and server software make a fresh default file on the next start.
+- A world or config file damaged by the crash: restore a [backup](/plans/backups).
+
+Need help? Open a [support ticket](/general/getting-support) with the newest file from the `.crash` folder, or the console lines from just before the crash.

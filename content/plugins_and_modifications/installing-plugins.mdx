@@ -24,7 +24,7 @@ Make sure you trust the source of your plugin. Plugins have full access to your 
 
 #### Automatic backdoor removal
 
-We check every server's plugins for a known backdoor that hides inside normal-looking plugins. If your server has it:
+We check every server's plugins for known backdoors that hide inside normal-looking plugins. The check also covers your server jar (`server.jar`) and spare copies with a changed name, such as `Geyser-Spigot.jar.pre-geyser-update`. If your server has one:
 
 - **A plugin you add is cleaned the moment it arrives.** This covers files uploaded in the panel or over SFTP, files downloaded from a link, renamed to `.jar`, or unpacked from an archive. Your console shows a line like `CPU Guardian: removed a backdoor from 1 new plugin file(s); 0 infected file(s) quarantined.`
 - **Plugins already on your server are cleaned while it starts.** Your plugins, their settings and your worlds are kept; only the hidden code is taken out. Your console shows a line like `CPU Guardian: removed a backdoor from 3 plugin(s); 1 infected file(s) quarantined.`
@@ -32,6 +32,8 @@ We check every server's plugins for a known backdoor that hides inside normal-lo
 - **Removing a plugin is the last resort.** We always try to take out only the hidden code first, including in spare copies kept in other folders. A plugin is removed only when the backdoor is wired into it in a way that cannot be cut out safely, which is rare. If that happens, download a fresh copy from the plugin's official page and upload it again. Uploading the same file again will not help, because it is removed again.
 
 If you see that console line, a plugin you installed came from an unsafe source. Replace your plugins with copies from their official pages, and check your server's operator list (`ops.json`) and permissions for anyone you do not recognise.
+
+Some plugins check themselves and warn when they have been changed. For example, nLogin and nAntiBot print `THE PLUGIN LOADER HAS BEEN COMPROMISED`. Our team is alerted automatically when a server logs a message like that. A plugin we cleaned can keep printing it, because it is no longer byte for byte the file its author shipped. Download a fresh copy from the official page to make the message go away.
 
 ---
 

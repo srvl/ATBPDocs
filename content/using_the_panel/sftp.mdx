@@ -18,9 +18,40 @@ There are several so-called *SFTP clients*. A few of the more popular ones are [
 
 To find the login details, navigate to the sidebar of the server, then open the 'Settings' section.
 
-Here you will be able to see your server's SFTP host IP address and port as well as your username! Your SFTP password is the same as your game panel password.
+Here you will be able to see your server's SFTP host IP address and port as well as your username!
+
+Your SFTP password is your **game panel** password. It is not your billing password, and not your Discord or Google password, even if you signed up with one of those. Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page to set a new one.
+
+![The panel's Settings page with the SFTP Details box and the Launch SFTP button marked](/screenshots/panel-sftp-settings.webp)
+
 
 *If you have WinSCP installed, you can launch straight away by clicking `Launch SFTP`.*
+
+### Filling in the login boxes
+
+The panel shows the address as `sftp://HOST:PORT`. Most apps want it split into separate boxes:
+
+| Box | What to enter |
+| --- | --- |
+| Host / Server | Only the host name, for example `shared1.atbphosting.com`. Leave out `sftp://` and `:PORT`. |
+| Port | The number after the `:` in the panel's address (not 21 or 22). |
+| Username | The full SFTP username from **Settings**, including the `.` and the server ID at the end. |
+| Password | Your **game panel** password. It is not your billing password. If you forgot it, reset it from the panel's login page. |
+| Protocol | SFTP, not FTP. |
+
+**Invalid credentials** or **authentication failed** almost always means a box is mixed up (for example the port typed into the username box), the billing password was used, or the username is missing its server ID. Each server has its own username, so check you copied it from the right server.
+
+### Big uploads that stop or ask for your password again
+
+If your app asks for the password partway through an upload, the connection dropped. This usually comes from an unstable internet connection, not from the server.
+
+- Let your app remember the password so it can reconnect by itself. FileZilla continues the file when it reconnects; if it asks what to do with the existing file, choose **Resume**.
+- When it finishes, compare the file's size on the server with the one on your computer. A ZIP that is much smaller did not finish uploading and will not unarchive. Upload it again.
+- If your connection keeps dropping, put the file on a site that gives a direct download link and use [Pull from URL](/using_the_panel/file-manager-controls#pull-a-file-from-a-url) in the **Files** tab, so your server downloads it itself. Very large files may be refused. If that does not work either, open a Hosting Support ticket with your panel link.
+
+### On a phone
+
+SFTP works from Android phones and iPhones too. See [Using SFTP on your phone](/using_the_panel/sftp-mobile).
 
 ### SSH keys and the command line
 
@@ -102,10 +133,18 @@ To do this, install the **SFTP** addon for Visual Studio Code for efficient file
 
 - How do I connect with SFTP?
 - Where are my SFTP login details?
+- What is my SFTP password?
+- Anong password sa SFTP?
+- I signed up with Discord, what is my SFTP password?
+- FileZilla keeps asking for my password during an upload
 - Does SSH work on my server?
 - What are the SSH keys in my account for?
 - Can I connect to my server from cmd or a terminal?
 - Pwede ba mag SSH sa server?
+- Why does SFTP say invalid credentials?
+- What do I put in the host and port boxes?
+- Can I use SFTP on my phone?
+- Is my SFTP password the same as my billing password?
 - How do I upload a big world or modpack?
 
 </details>

@@ -45,6 +45,15 @@ If you wish to pause or cancel pre-generation, you can run `chunky pause` or `ch
 
 If it is paused, you can run `chunky continue` to resume pre-generation.
 
+## Automatic pause during peak hours
+
+Pre-generation uses a lot of CPU, and our nodes are shared. So every evening from **7:00 PM to 1:00 AM (Philippine time)** a running Chunky task is paused automatically, and at 1:00 AM it continues by itself. You will see `Task paused for <world>` in the console when it pauses, and `Task continuing for <world>` when it resumes.
+
+- Nothing is lost. A pause keeps all progress, the same as running `chunky pause` yourself.
+- You can start Chunky at any time. If you start it during those hours, it is paused within a few minutes and runs after 1:00 AM.
+- If you resume it yourself during those hours, it may be paused again.
+- Chunky's `silent` option hides its progress from the console, which also makes a running task harder for us to see. Leave it off.
+
 ## File Size
 
 The table below can be used to estimate the file size of your world after you generate it. The values below are for 2k by 2k blocks (1k radius). Note that every time you double the radius, the area (and correspondingly the disk space / time taken) increases by 4x.

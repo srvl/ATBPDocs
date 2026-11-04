@@ -1,6 +1,6 @@
 ---
 title: "Worlds"
-description: "Learn how you can manage worlds for your Terraria server!"
+description: "Import, create and reset Terraria worlds, and get your world back if the server started a new one."
 ---
 
 
@@ -84,3 +84,18 @@ Once you are done, there are two ways to proceed:
    only backups created by the game, but it's best to remove them to avoid confusion)
 
 Lastly, start the server back up in the 'Console' tab!
+
+---
+
+## My world reset to a brand new one
+
+If the server suddenly loads an empty world with none of your builds, your old world is almost always still there. The server opens the world named in **World Name** on the **Startup** tab. When that name does not match a `.wld` file in `saves/Worlds/`, it quietly makes a new world with that name instead.
+
+1. Stop the server.
+2. Open `saves/Worlds/` in the File Manager and find your old world file. Note its name without `.wld`.
+3. On the **Startup** tab, set **World Name** back to that exact name. It is case-sensitive.
+4. Start the server. Your old world loads again.
+
+Restoring a backup does not help here, because a backup brings the files back but the server still opens the name set on the Startup tab. The new empty world stays in the folder; delete its files if you do not need it.
+
+If your old world file is missing or will not load, open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link.

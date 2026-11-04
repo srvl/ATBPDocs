@@ -1,6 +1,6 @@
 ---
 title: "Install Hytale mods and plugins"
-description: "Upload mods to the server and install them on your own PC."
+description: "Install CurseForge mods from the panel's Mods page, or upload them yourself, and install them on your own PC."
 ---
 
 import { Callout } from 'nextra/components'
@@ -11,12 +11,24 @@ Back up before adding anything new, see [backups](/plans/backups). Version misma
 
 </Callout>
 
-## On the server
+## With the Mods page
 
-1. Download the mod or plugin, usually a `.jar`, from a trusted source such as CurseForge.
-2. Stop the server in the [panel](https://panel.atbphosting.com).
-3. In **Files**, upload gameplay mods to the `mods` folder and server management plugins to `earlyplugins` (create the folder if it is missing).
-4. Start the server and check the startup log for a message that it loaded.
+Every Hytale server has a **Mods** page in the [panel](https://panel.atbphosting.com) that installs straight from CurseForge.
+
+1. Open your server and choose **More > Mods**.
+2. Pick **Mods** or **Early plugins**, then narrow the list by category, game version or name.
+3. Click a mod, choose a version (the newest is picked for you) and press **Install**. Mods it needs are installed with it.
+4. Restart the server to load it.
+
+Under **Installed** you see every mod with its version, which mods need it, and a badge when an update is out. Open a mod to switch to another version, or press **Remove** to delete its files. Files you uploaded yourself are listed under **Added by hand**.
+
+Early plugins only load when **Accept Early Plugins** is turned on in the **Startup** tab; the page reminds you when it is off. A few authors only allow downloads from the CurseForge site; those mods show a link there instead of an install button, so download them and upload them as below.
+
+## Upload it yourself
+
+1. Download the mod or plugin, usually a `.jar`, from a trusted source.
+2. Stop the server, open **Files** and upload gameplay mods to the `mods` folder and server management plugins to `earlyplugins` (create the folder if it is missing).
+3. Start the server and check the startup log for a message that it loaded.
 
 ## On your PC
 

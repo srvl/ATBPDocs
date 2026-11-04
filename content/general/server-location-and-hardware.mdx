@@ -1,16 +1,16 @@
 ---
 title: "Server location and hardware"
-description: "Where ATBP servers run (Singapore), the CPUs behind Budget+, Premium+ and web hosting, and the ping to expect from the Philippines."
+description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ and Premium+, web hosting, and the ping to expect from the Philippines."
 ---
 
 - **All servers are in Singapore.**
 - **Premium+:** AMD Ryzen 9 9950X (up to 5.7 GHz), DDR5, storage in RAID 1.
 - **Budget+:** AMD EPYC 7B13.
-- **Web hosting:** AMD EPYC 7B13, its own web server with the HestiaCP panel. See [web hosting](/plans/web-hosting).
-- **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield.
+- **Web hosting (coming soon):** in Singapore, with the HestiaCP panel. See [web hosting](/plans/web-hosting).
+- **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield. We do not give out an address that skips TCPShield.
 - There is no Philippines location. From Metro Manila, Singapore is usually 40 to 80 ms. Players in the US or Europe will see about 150 to 180 ms; a VPN or proxy will not lower that.
 - vCPU is capped, not burstable: 1 vCPU = 100% CPU in the panel (4 vCPU shows 400%).
-- CPU Guardian: a server that uses more CPU than its plan includes, even by a little, is throttled automatically to half its CPU. It is restored automatically. If it keeps happening, find the cause with [Spark](/running_a_server/spark) or upgrade vCPU.
+- CPU Guardian: a server that stays above its plan's CPU for about an hour is throttled automatically to half its CPU. Short spikes are not throttled. Full CPU comes back automatically at 1:00 AM Philippine time, or right away when you upgrade the plan. Fixed the cause? Ask in a ticket and staff can lift the limit early; your hour over the limit then starts again from zero. If the server still uses too much CPU after that, staff can put the limit back straight away. To find the cause, use [Spark](/running_a_server/spark), or upgrade vCPU.
 - The panel shows which node your server is on under Settings. Whether each node is up is public at https://status.atbphosting.com, and https://atbphosting.com/network/ shows live whether lag comes from your ISP, our DDoS protection, the data centre or our servers.
 - Moving a server to another node changes its IP (and sometimes ports). Ask in a ticket.
 
@@ -19,7 +19,6 @@ description: "Where ATBP servers run (Singapore), the CPUs behind Budget+, Premi
 
 - Where are your servers?
 - Saan location ng server?
-- Where is the web hosting server?
 - May Philippines server ba?
 - Ano CPU nyo?
 - What is the ping from the Philippines?
@@ -28,10 +27,16 @@ description: "Where ATBP servers run (Singapore), the CPUs behind Budget+, Premi
 - Is there a status page?
 - Do you have DDoS protection?
 - May anti-DDoS ba?
+- Can I get an IP without TCPShield?
 - Is Budget+ in Singapore?
 - Why is my CPU limit lower than I bought?
 - Bakit bumaba CPU ng server ko?
 - Why is my CPU throttled to half?
 - What is CPU Guardian?
+- How long can my server go over its CPU limit?
+- When does my CPU come back after CPU Guardian?
+- Kailan babalik yung CPU ko?
+- Can staff remove the CPU limit early?
+- Pwede bang tanggalin ng staff yung CPU limit?
 
 </details>

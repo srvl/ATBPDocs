@@ -1,6 +1,6 @@
 ---
 title: "Install mods on Palworld"
-description: "Add Steam Workshop mods to your server, turn them on in PalModSettings.ini, and remove them again."
+description: "Turn on Steam Workshop mods and install CurseForge pak mods from the panel's Mods page, or set them up by hand."
 ---
 
 import { Callout } from 'nextra/components'
@@ -11,42 +11,36 @@ Mods can crash the server or damage a save. Make a backup first, and add mods a 
 
 </Callout>
 
-Only mods made to run on a dedicated server work. Open the mod's `Info.json`: if its install rules do not include `"IsServer": true`, it will not load on a server. Some mods also have to be installed by every player, so read the mod page.
+Every Palworld server has a **Mods** page (under **More**) in the [panel](https://panel.atbphosting.com). It handles both kinds of Palworld mods: Steam Workshop mods (Palworld's own mod system) and pak mods from CurseForge.
 
-## Upload Workshop mods
+## Steam Workshop mods
+
+Only mods made to run on a dedicated server work. A mod's `Info.json` must include `"IsServer": true` in its install rules, and some mods also have to be installed by every player, so read the mod page.
+
+Steam only lets the owner of the game download Workshop files, so you upload them once:
 
 1. Subscribe to the mods on the Palworld Steam Workshop and launch the game once so Steam downloads them.
-2. On your PC, open `Steam\steamapps\workshop\content\1623730`. Each numbered folder is one mod and has an `Info.json` inside.
+2. On your PC, open `Steam\steamapps\workshop\content\1623730`. Each numbered folder is one mod with an `Info.json` inside.
 3. Select those folders and zip them together.
-4. In the [panel](https://panel.atbphosting.com), stop the server, open **Files**, and create the folders `Mods/Workshop` in the main folder.
-5. Upload the zip into `Mods/Workshop` and choose **Unarchive**. Each mod should end up as `Mods/Workshop/<folder>/Info.json`.
+4. In the panel, open **Files**, create the folders `Mods/Workshop` in the main folder, upload the zip into `Mods/Workshop` and choose **Unarchive**. Each mod should end up as `Mods/Workshop/<folder>/Info.json`.
+5. Open **Mods**, then the **Workshop** tab. Your mods are listed with their version; ones not made for servers are marked.
+6. Turn on **Load mods**, switch on the mods you want, use the arrows to set the load order, and press **Save**.
+7. Restart the server. Loaded mods appear under `Mods/ManagedMods`.
 
-## Turn them on
+The Workshop tab writes `bGlobalEnableMod` and the `ActiveModList` lines in `Mods/PalModSettings.ini` for you and leaves the rest of the file alone. To update a mod, upload the new version over its folder and restart. To start without any mods, turn off **Load mods**.
 
-The server loads nothing until mods are listed in its settings file.
+## Pak mods from CurseForge
 
-1. Start the server once so it creates `Mods/PalModSettings.ini`, then stop it.
-2. Edit `Mods/PalModSettings.ini`:
+1. In **Mods**, stay on **Browse** with **Pak mods** selected, and search by category, game version or name.
+2. Click a mod and pick a version. Versions made for an older Palworld are marked **Old**: old pak mods can stop the server from starting, so prefer one made for the current game version.
+3. Press **Install**, then restart the server. The page unpacks the download and puts the `.pak` files in `Pal/Content/Paks/~mods`.
 
-```ini
-[PalModSettings]
-bGlobalEnableMod=true
-ActiveModList=FirstModPackageName
-ActiveModList=SecondModPackageName
-```
+Most pak mods only change what players see, so each player needs them too. Mods that change rules, like rates or stack sizes, work from the server. **Installed** lists every mod with its version and updates, and **Remove** deletes all the files it placed.
 
-Use the `PackageName` from each mod's `Info.json`, not the folder name. Add one `ActiveModList=` line per mod.
-
-3. Start the server. Loaded mods appear under `Mods/ManagedMods`.
-
-## Update or remove
-
-- **Update:** upload the new version over the old folder and restart.
-- **Remove:** delete its `ActiveModList=` line (and its folder if you like) and restart.
-- **Start without any mods:** set `bGlobalEnableMod=false`.
+Lua, Blueprint and C++ mods on CurseForge need the UE4SS loader, which only runs on Windows servers. Our Palworld servers run on Linux, so the page says when a mod needs it. Ask in a ticket if a mod you need depends on UE4SS.
 
 ## Not loading?
 
-- Check the mod supports dedicated servers (`"IsServer": true`).
-- Check the `PackageName` is spelled exactly as in `Info.json`.
-- Mods that need the UE4SS loader are built for Windows servers and usually do not run on our Linux servers. Ask in a ticket if a mod you need depends on it.
+- For Workshop mods, check the mod supports dedicated servers (`"IsServer": true`) and that it is switched on in the Workshop tab.
+- If the server stopped starting after you added a pak mod, remove it under **Installed** and restart.
+- Check the console for errors after a restart.

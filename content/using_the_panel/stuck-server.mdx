@@ -1,6 +1,6 @@
 ---
 title: "Server stuck starting, stopping or installing"
-description: "What to do when a server will not stop, will not start, shows empty files or a missing server.jar, or stays on installing."
+description: "What to do when a server will not stop, will not start, shows empty files or a missing server.jar, stays on installing, or the Console shows nothing."
 ---
 
 Most stuck servers come back with one of the steps below. Work through the section that matches what you see in the [panel](https://panel.atbphosting.com).
@@ -36,8 +36,9 @@ A reinstall puts the game files back. It does not bring back a deleted world, so
 A new server or a reinstall usually finishes in a few minutes; big games can take longer the first time.
 
 - Leave it alone. Pressing Start or Reinstall again while it installs only makes it take longer.
-- Refresh the page after waiting.
-- If it still says installing after 30 minutes, open a ticket with your panel link. Staff can clear a stuck install.
+- Every tab shows a status page with the current step, how long it has been running and the live install log, and your tabs come back by themselves when it finishes. You do not need to refresh.
+- If a reinstall fails, the page offers **Continue to my server** so you can check your files or reinstall again from **Settings**.
+- If a new server's install fails, or it still says installing after 30 minutes, open a ticket with your panel link. Staff can clear a stuck install.
 
 ## Game update broke the server
 
@@ -51,7 +52,7 @@ Steam games (Palworld, Rust, Valheim, 7 Days to Die, Project Zomboid, DayZ and o
 
 If the console says there is no space left, or uploads fail with a disk error, your server is out of disk.
 
-- Delete old logs, old backups you downloaded to the server, and unused worlds.
+- Delete old logs, backup archives you keep on the **Files** page, and unused worlds. Deleting backups from the **Backups** tab does not help, because those are not stored on your server's disk.
 - Empty the **Trash Bin** in the file manager. Files in the trash still count against your disk.
 - Look for plugin data that grows on its own: CoreProtect's database (move it to a MySQL database from the **Databases** tab), WorldEdit or FastAsyncWorldEdit history and schematics, and old `logs` and `crash-reports` folders.
 - Check the world size. A world pre-generated far bigger than you need takes a lot of disk; set a world border, see [Limit world size](/running_a_server/limit-world-size).
@@ -66,6 +67,17 @@ When the disk is at 100%, the server cannot save, so it may hang on stopping, an
 3. Delete what you can from the file manager, then empty the **Trash Bin**.
 4. If the panel still will not let you delete anything, open a Hosting Support ticket with your panel link and say the disk is full. Staff can free the space for you. Do not start a new pre-generation afterwards until you have checked it fits your disk.
 
+## Console is blank, keeps loading or shows an error
+
+If the panel opens but the **Console** shows nothing new, the problem is usually the route between your internet provider and the panel, not your server. Your server is probably still running: try joining it from the game. Do not reinstall or delete anything.
+
+1. Refresh the page, then try another browser.
+2. Try mobile data or another network. If the Console works there, your connection's route is the cause.
+3. Try a free VPN such as the **1.1.1.1** app (https://one.one.one.one/), with **WARP** on rather than DNS only. If one VPN does not help, try another one.
+4. Check https://atbphosting.com/network/ to see whether your provider's route has a problem. It usually clears by itself.
+
+If nothing helps, open a ticket with your panel link and a screenshot of the error.
+
 ## Wipe everything and start over
 
 To start from nothing (a new modpack, a broken world, or just a fresh start), you can do it yourself in a few minutes. Staff do not need to do it for you.
@@ -79,6 +91,8 @@ Or do it by hand: in **Files**, tick the box at the top to select everything and
 A fresh install uses the version set in **Startup** or picked in **Change Server Type**. If that is "latest", you get the newest Minecraft version, which your plugins may not support yet. Set the version you want before you start the server, and before you upload an old world. A world that was opened on a newer version will not load on an older one; the server crashes or nobody can join. In that case restore a backup made before the change, or start with a new world. See [Updating or Changing Versions](/running_a_server/updating).
 
 Deleted files that went to the trash can be restored from the **Trash Bin** until it is emptied. **Delete Permanently** cannot be undone.
+
+Wiping does not touch your backups, because they are not stored with your server's files. To remove those as well, delete each one in the **Backups** tab, unlocking any locked backup first. Auto Backups, the ones we take each night, cannot be deleted. They stay in case of an emergency and use none of your disk, so you can ignore them on your new server. See [Deleting backups](/using_the_panel/backups/guide#deleting-backups).
 
 ## Still stuck
 

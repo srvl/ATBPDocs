@@ -41,6 +41,7 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 | --- | --- |
 | disconnect.spam / Kicked for spamming | Chat messages sent too fast |
 | Illegal characters in chat | The message had a blocked character such as `§` |
+| An error each time a player sends a chat message, such as chat validation failure or a missing or invalid signature | The server is enforcing signed chat. Stop the server, set `enforce-secure-profile=false` in `server.properties`, and start it again |
 | Flying is not enabled on this server | The server thinks the player is flying in Survival. Set `allow-flight=true` if you use flight plugins or mods |
 | Invalid move / moved too quickly | The anti-cheat thought the movement was impossible, often from lag or a mod |
 

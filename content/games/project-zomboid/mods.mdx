@@ -1,28 +1,48 @@
 ---
 title: "Install mods on Project Zomboid"
-description: "Add Steam Workshop mods using Workshop IDs and Mod IDs."
+description: "Add Steam Workshop mods from the panel's Mods page, pick which mod IDs load and set the load order."
 ---
 
-You need two IDs for each mod:
+Project Zomboid servers have a **Mods** page in the [panel](https://panel.atbphosting.com). It writes the server's mod list for you, so you never have to edit the `.ini` file by hand.
 
-- **Workshop ID**: the number at the end of the mod's Steam Workshop URL.
-- **Mod ID**: the mod's internal name, usually written in the mod description.
+## First start
 
-## Steps
+Project Zomboid creates its settings file the first time the server starts. On a brand new server, start it once and let it finish loading, then open **Mods**.
 
-1. Stop the server in the [panel](https://panel.atbphosting.com).
-2. In **Files**, open `.cache`, then `Server`, and edit the server's `.ini` file.
-3. Add the Workshop IDs to the `WorkshopItems=` line and the Mod IDs to the `Mods=` line. Separate entries with semicolons and no spaces:
+![The Mods page on a new server, asking you to start it once](/screenshots/pz-mods-first-start.webp)
 
-```
-WorkshopItems=2619072426;2392709985
-Mods=tsarslib;commonSense
-```
+## Add mods
 
-4. Click **Save Content**, then start the server. The mods download on startup.
+1. Open **Mods**, then **Find mods**.
+2. Paste the mod's Steam Workshop link under **Add by link** and click **Add to list**. You can paste several links at once, bare Workshop IDs, or a Workshop collection link to add every mod in it.
+3. Go back to **On this server** and click **Save** in the bar at the bottom.
+4. Restart the server. It downloads the new Workshop items while it starts.
+
+![Add by link on the Find mods tab](/screenshots/pz-mods-find.webp)
+
+If your panel shows a search box under **Find mods**, you can also search the Workshop there and click **Add** on a result.
+
+## Choose mods and set the load order
+
+**On this server** lists every Workshop item on the server and the mod IDs inside it.
+
+- Click a mod ID to turn it on or off. Many Workshop items ship several mods (optional add-ons or versions for different builds). The card is outlined in yellow until you pick at least one.
+- Before the server has downloaded an item, its mod IDs come from the mod's Workshop page. After the next start, the page reads them from the downloaded files. If a mod ID is missing, type it into the box on that card.
+- Map mods show their map folders. Turned-on maps are loaded in front of the base map automatically.
+- **Load order** lists the turned-on mods. The top one loads first. Use the arrows to move a mod; libraries and frameworks usually go near the top. A warning shows when a mod needs another mod that is turned off.
+- The bin icon removes a Workshop item and its mods from the server.
+
+![Load order and Workshop items on the Mods page](/screenshots/pz-mods-installed.webp)
+
+Nothing changes on the server until you click **Save**. You can save while the server is running; the new list loads on the next restart, and the page offers a **Restart now** button. The page also works on a phone.
+
+![Saving changes on a phone](/screenshots/pz-mods-phone-save.webp)
 
 ## Troubleshooting
 
-- A crash or players unable to join usually means the two lines do not match. Check for spaces and keep the mods in the same order on both lines.
-- Players need the same mods on their own game.
-- Some mods need other mods listed before them, so check each mod's page.
+- **Players get a mod mismatch:** players need the same mods. Joining through the in-game server browser downloads them automatically on Steam.
+- **The server stops while loading after you add a mod:** turn off the mods you added last, save and restart, then add them back one at a time. A mod made for a different game build is the usual cause.
+- **"The server settings file changed since you opened this page":** someone edited the `.ini` while you had the page open. Reload the page and make your changes again.
+- **A Workshop item says "Not on the Workshop":** the item was removed or made private by its author. Remove it from the list.
+
+Every save keeps a copy of the previous settings file as `.cache/Server/<server name>.ini.bak` in **Files**, in case you want to go back.

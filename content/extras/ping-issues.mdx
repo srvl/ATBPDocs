@@ -31,6 +31,14 @@ A traceroute is a single snapshot. MTR keeps pinging every hop, so it catches lo
 
 **Linux**: install `mtr` from your package manager and run `mtr 123.45.67.89`. **macOS**: install it with Homebrew (`brew install mtr`).
 
+## On a phone
+
+Phones have no built-in traceroute, so install a free traceroute or MTR app from Google Play (Android) or the App Store (iPhone). Enter your server's IP as the target (no port), run it on the same Wi-Fi or mobile data you play on, and take a screenshot of the full result.
+
+## When only some players cannot join or lag
+
+If the server works for some players but not others, the test has to come from the players who have the problem, not from the server owner. Each affected player runs one of the tests above against the server's IP and sends a screenshot. This usually turns out to be the route from their internet provider to Singapore; mobile data or a VPN works around it until the route is fixed, but we need their results to report or fix it.
+
 ## Reading the result
 
 - **Loss on one hop and every hop after it** points to a problem at that hop.

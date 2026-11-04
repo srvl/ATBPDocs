@@ -27,6 +27,7 @@ The panel's RAM graph often looks full. That is normal: Java reserves memory up 
    - **Unexplored world**: pre-generate with [Chunky](/plugins_and_modifications/multiplatform/chunky-multi), with nobody online.
    - **Distances too high**: view distance 6 to 8 and simulation distance 3 to 4 suit most servers. See [Common server.properties settings](/running_a_server/common-server-properties).
    - **Too many entities**: big mob and villager farms, item drops and hopper chains. See [Mob Spawn Limits](/running_a_server/mob-spawn-limits).
+   - **Raised `randomTickSpeed`**: anything above the default of `3` adds work on every loaded chunk, and a high value can lag a whole server. Run `/gamerule randomTickSpeed 3`. For faster crops, use the growth settings in `spigot.yml` instead, where `100` is normal speed and `200` is twice as fast, then restart.
    - **Heavy or broken plugins**: large Skript scripts, plugins spamming the console, outdated or leaked plugins. Update or remove them.
 4. For more, see [Optimization](/running_a_server/optimization) and [Server optimisation](/general/server-optimization).
 

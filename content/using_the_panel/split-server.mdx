@@ -26,3 +26,9 @@ You can interact and manage this new server in the same way as you would with yo
 When you log in to the game panel, you can see your new server in the list of servers you can manage.
 
 To put your servers in the order you like, drag them on the panel's server list. The order is saved in your browser, so set it again on another device or after clearing your browser data. You can rename servers in the **Settings** tab.
+
+## The ports box is red and will not take a number
+
+If the ports (allocations) box stays red when you make a split, your main server is probably holding ports it does not need. Stop the main server, open its **Network** tab, click **Show ports** on any line of ports in a row, and delete the ones you do not use. Then try the split again.
+
+A Java server with Geyser and an Endstone server each need only one Bedrock port. Only a Vanilla Bedrock server needs a block of ports, one per player online at once. See [Adding Ports](/using_the_panel/adding-ports).
