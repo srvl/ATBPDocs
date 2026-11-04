@@ -7,5 +7,5 @@ export default {
   "backups": "Backups",
   "dedicated-plans": "Dedicated plans",
   "discord-bot-hosting": "Discord bot hosting",
-  "web-hosting": "Web hosting (coming soon)"
+  "web-hosting": "Web hosting"
 }
