@@ -1,0 +1,104 @@
+---
+title: "Move an existing FiveM server to ATBP"
+description: "Bring a QBCore, Qbox or ESX server from your Windows PC or another host: what to upload, the database, the port, and the txAdmin Existing Server Data steps."
+---
+
+import { Callout } from 'nextra/components'
+
+These steps move your server from Windows or another host. You bring your server data folder and your database. You leave the server program behind, because ATBP runs the Linux version for you.
+
+## What to bring and what to leave
+
+**Bring:**
+
+- Your server data folder, the one with `server.cfg` and `resources` inside. On a txAdmin server it is usually `txData/<name>.base`.
+- A `.sql` export of your database.
+
+**Leave behind:**
+
+- The artifact folder with `FXServer.exe`, and any `.bat` start file. They only work on Windows.
+- XAMPP, MariaDB and HeidiSQL.
+- `txData/default`. It holds your old txAdmin settings with Windows paths.
+- The `cache` folder inside your server data folder. FiveM makes a new one.
+
+<Callout type="warning">
+
+Never delete the `alpine` folder on your ATBP server. It is the FiveM server program. If it is gone, see [Troubleshooting](/games/fivem/troubleshooting#the-server-crashes-straight-away-with-exit-code-127).
+
+</Callout>
+
+## 1. Upload your server data folder
+
+1. Stop the old server, and zip the server data folder on your computer.
+2. In the [panel](https://panel.atbphosting.com), open **Files**, then the `txData` folder, and upload the zip there. One upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. For bigger files use [SFTP](/using_the_panel/sftp). The login is on the **Settings** page and the password is your game panel password.
+3. Right-click the zip and choose **Unarchive**.
+4. Open the new folder and check that `server.cfg` and `resources` are directly inside it, for example `txData/MyServer.base/resources`. If there is an extra folder in between, move the files up one level.
+5. Delete the zip to free up disk.
+
+## 2. Create and import your database
+
+Follow [Set up your FiveM database](/games/fivem/database). It covers the import and the `mysql_connection_string` line you need in `server.cfg`.
+
+## 3. Fix server.cfg
+
+Open `server.cfg` in your uploaded folder from **Files**, and check these:
+
+- **Port:** change the port in both endpoint lines to your server's main port. It is on the **Network** tab. A home server usually has `30120`, which does not work here. For example, if your main port is 30202:
+
+```
+endpoint_add_tcp "0.0.0.0:30202"
+endpoint_add_udp "0.0.0.0:30202"
+```
+
+- **Database:** replace the old `mysql_connection_string` line.
+- **License key:** if the file has a `sv_licenseKey` line, FiveM uses that key. Make sure it is your own, and do not run your old server with the same key while this one is up.
+- **Windows paths:** change anything like `C:\...` to a path relative to the folder, for example `exec ox.cfg`.
+- **Names:** every `ensure` line must match its folder name exactly, including capital letters. Windows ignores this, Linux does not.
+
+ATBP only updates the port in the starter `server.cfg` in your main folder, never the one in your own folder, so you have to change this one by hand.
+
+## 4. Point txAdmin at it
+
+1. Start the server and open txAdmin. See [First login](/games/fivem/txadmin#first-login).
+2. Name the server and choose **Existing Server Data**.
+3. For the server data folder, enter the full path with `/home/container` in front:
+
+```
+/home/container/txData/MyServer.base
+```
+
+4. For the CFG file, enter `server.cfg`.
+5. Save and start. Watch txAdmin's **Live Console**.
+
+Already finished txAdmin's setup with a recipe? Change the same two paths in txAdmin under **Settings**, on the **FXServer** tab.
+
+The panel shows your server as **starting** until txAdmin's setup is done. That is normal.
+
+## 5. Join and check
+
+Press **F8** in FiveM and type `connect <ip>:<main port>`. See [Connect to your FiveM server](/games/fivem/connecting).
+
+Something failing? Most errors after a move are a load order, a capital letter or the database line. See [FiveM troubleshooting](/games/fivem/troubleshooting).
+
+## Good to know
+
+- Paid scripts protected by Cfx.re escrow only run with a license key from the Cfx.re account that bought them.
+- Scripts that come with a Windows-only `.exe` or `.dll` helper will not run on Linux. Ask the script's maker for a Linux version.
+- ATBP runs the server and its files. Errors inside your scripts or framework are for the script's maker or its community to fix.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I move my FiveM server from my PC to ATBP?
+- How do I migrate Qbox, QBCore or ESX from Windows?
+- Do I need to upload FXServer.exe or the artifact?
+- What do I enter for Existing Server Data in txAdmin?
+- What is the upload limit? My server is bigger than 1 GB
+- Why does my server.cfg still have port 30120?
+- Can I delete the FiveM folder or rar after moving?
+- Paano ilipat yung FiveM server ko galing Windows?
+- Ano ilalagay sa server data folder sa txAdmin?
+- Pwede ko ba burahin yung FiveM.rar?
+- May limit ba yung upload?
+
+</details>

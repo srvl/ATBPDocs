@@ -1,10 +1,10 @@
 ---
 title: "Databases"
-description: "Create a MySQL database for your game server in the ATBP panel and connect plugins to it."
+description: "Create a MySQL database for your game server in the ATBP panel and connect plugins or FiveM scripts to it."
 ---
 
 ### Overview
-Databases can be used by certain plugins to allow for a more efficient, organized method of storing large amounts of data. Common plugins that can utilize MySQL databases are Dynmap, CoreProtect, and LuckPerms.
+Databases can be used by certain plugins to allow for a more efficient, organized method of storing large amounts of data. Common Minecraft plugins that use MySQL are Dynmap, CoreProtect and LuckPerms. FiveM frameworks need one too, see [Set up your FiveM database](/games/fivem/database).
 
 ### Database Storage
 Please keep your database usage reasonable and in line with the Terms of Service at https://atbphosting.com/terms.
@@ -20,7 +20,9 @@ Click **New Database** to start the process.
 
 In the first box, you assign the database a name. In the second, you can specify what IP addresses can connect to the database. We recommend leaving it as the default wildcard of `%`.
 
-Panel databases can only be used by servers running on ATBP's own network, for example your plugins. They cannot be reached from the internet, so tools on your own computer or plugins on another host will be refused. To get your data out, use the export option in the panel.
+Click a database row to see its host, username and password.
+
+Panel databases can only be used by servers running on ATBP's own network, for example your plugins. They cannot be reached from the internet, so tools on your own computer such as HeidiSQL, or plugins on another host will be refused. To get your data out, use the export option in the panel.
 
 ---
 
@@ -36,17 +38,9 @@ To import a database you first have to create a new database in your server. Onc
 ---
 ### Importing an .SQL database dump through the file manager
 
-You can also upload an SQL file to import a database. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database**, then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format, and this option may not work if the file wasn't properly dumped from a MySQL server. If you get an error, try importing the .SQL dump through HeidiSQL instead.
+You can also upload an SQL file to import a database. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database**, then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format, and this option may not work if the file wasn't properly dumped from a MySQL server. The size on the database row can show 0 B for a few minutes after an import. If you get an error, check that the file really is a MySQL or MariaDB export; files from other database types, such as SQLite, usually will not work.
 
 ---
-### Importing an .SQL database dump through HeidiSQL
-
-Not every .SQL file can be imported into MySQL. Files from other database types, such as SQLite, usually will not work.
-
-To import an .SQL database dump through HeidiSQL first connect to your database, select your database then click on the **File** menu option and select **Run SQL file**, this will run your .SQL file in HeidiSQL and should import it into your database.
-
----
-
 The examples below use placeholders. Copy your real host, port, database name, username and password from the **Databases** tab (the details button) in the panel.
 
 ### Examples of how to configure a database in different plugins
