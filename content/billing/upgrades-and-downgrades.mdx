@@ -64,8 +64,10 @@ Split servers move with the main server, one after the other, so each is offline
 - It gets a new address and port. The new ones show in the panel once the move is done. A subdomain you made in the panel moves with it, so players can keep using that.
 - Extra ports get new numbers too. If a plugin or mod uses one (for example a voice chat), set its new port in that plugin's config.
 - Bedrock crossplay (GeyserMC) is set up for you: Geyser gets its own Bedrock port, which is a new one on Premium+, and its config is updated to use it. Bedrock players connect with your address and that port, which shows in the panel. It applies from the next start.
+- It stops first. A server still running about 4 minutes later is force stopped so the move can go ahead.
 - It is offline for a few minutes while the files are copied, longer for very large servers.
-- The new plan's limits apply as soon as it lands. Start it again from the panel if it does not come back on its own.
+- If the move fails, or cannot start because a reinstall or backup restore is running, it tries again by itself, up to three more times over about 2.5 hours.
+- The new plan's limits apply as soon as it lands. If the new plan has less RAM and the move has to wait, the smaller limits apply right away. Start the server again from the panel if it does not come back on its own.
 
 Old Budget Micro servers can move up to Budget+ or Premium+ (6 GB and bigger) from the Upgrade button, and they move to the new machines the same way. Budget Micro is retired and cannot be renewed, so this is the way to keep a Budget Micro server past the end of its term; the upgraded server renews as normal. No plan can move back to old Budget.
 
