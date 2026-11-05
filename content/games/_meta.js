@@ -9,5 +9,6 @@ export default {
   "hytale": "Hytale",
   "minecraft-bedrock": "Minecraft Bedrock",
   "project-zomboid": "Project Zomboid",
-  "valheim": "Valheim"
+  "valheim": "Valheim",
+  "vintage-story": "Vintage Story"
 }

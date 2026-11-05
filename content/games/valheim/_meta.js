@@ -1,4 +1,5 @@
 export default {
+  "start-here": "Start here: from zero",
   "admin": "Valheim admins and console commands",
   "connecting": "Join your Valheim server",
   "mods": "Install mods on Valheim",

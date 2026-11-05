@@ -1,0 +1,83 @@
+---
+title: "Start here: Vintage Story from zero"
+description: "Every step from a new Vintage Story server to playing on it: join, admin, password, whitelist, saves and mods."
+---
+
+Vintage Story is not a separate plan in our store. Switch a server to it yourself in **Settings**, **Change Game** if your plan is big enough, or open a ticket before you buy.
+
+**You need:** a Vintage Story account for each player, on the same game version as the server.
+
+## 1. Log in to the game panel
+
+Your server runs on the game panel at https://panel.atbphosting.com, not on the billing site. They are separate accounts with separate passwords.
+
+- Your panel login is the email in the **"Your server is ready"** message. Check spam if you cannot find it.
+- No panel password yet? Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page.
+- From billing you can also open **Services**, pick your server and press **Manage server**.
+
+Everything is in your browser. There is no remote desktop, and you do not install the server on your own computer.
+
+## 2. Start the server
+
+Press **Start** on the **Console** tab and wait until the console stops scrolling. This makes the `data` folder with your settings.
+
+## 3. Join
+
+1. Copy the IP address and port from the panel. Use the port the panel shows, not the game's default of 42420.
+2. In the game, open **Multiplayer**, then **Add new server**.
+3. Enter the IP and port as `ip:port`, then create it and join.
+
+## 4. Make yourself an operator
+
+In the **Console**, with your account name:
+
+```
+/op YourName
+```
+
+## 5. Password and whitelist
+
+Dedicated servers use a whitelist by default. Add each player:
+
+```
+/player TheirName whitelist on
+```
+
+To set a password, run `/serverconfig password yourpassword`. Passwords cannot have spaces.
+
+## 6. Settings
+
+Stop the server and edit `data/serverconfig.json` in **Files**. Keep the commas and quotes as they are, because one typo stops the server from starting.
+
+## 7. Bring your world
+
+1. Stop the server.
+2. Upload your `.vcdbs` save to `data/Saves`.
+3. Rename it to `default.vcdbs`, or set `"SaveFileLocation"` in `data/serverconfig.json` to your file.
+
+To choose a seed or custom settings, make the world in single player first, then upload it.
+
+## 8. Add mods
+
+With the server stopped, put mod zip files in `data/Mods`. Players download most mods when they join. Mods must match your game version. Change the version on the **Startup** tab with **Release Version**, then press **Reinstall Server** under **Settings** after a backup.
+
+## Keep it safe
+
+- Set a backup schedule in the **Backups** tab, and make a backup before any big change. See [Backups](/using_the_panel/backups/guide).
+- Big uploads: one upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger. Your SFTP password is your game panel password.
+- Wrong game or version? You can change it yourself in **Settings**, **Change Game**.
+
+## Still stuck?
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the error from the **Console**. See [How to get support](/general/getting-support). Never post your password in a ticket.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I set up a Vintage Story server from zero?
+- Do you host Vintage Story?
+- How do I whitelist players on Vintage Story?
+- Where is the Vintage Story server config?
+- Pano mag start ng Vintage Story server?
+
+</details>
