@@ -34,8 +34,9 @@ Resources start in the order they appear in `server.cfg`, so put a framework (fo
 ## Tips
 
 - Avoid spaces and capital letters in resource folder names.
-- Many scripts need a database. Create one on the panel's **Databases** tab and put its details in `server.cfg` (usually as `mysql_connection_string`).
+- Many scripts need a database. See [Set up your FiveM database](/games/fivem/database).
+- Linux is case-sensitive: the `ensure` name must match the folder name exactly.
 - If the server stops after you add something, read the console or txAdmin's **Live Console**: the last resource it loaded is usually the cause. Switch it off and restart.
 - Resources that fail to load after an update often come back after **Clear cache** on the FiveM page's **Tools** tab (stop the server first).
-- Most frameworks need OneSync. The **Tools** tab shows whether `server.cfg` turns it on and can add the line for you.
+- Most frameworks need OneSync. Turn it on in txAdmin under **Settings**, because txAdmin comments out any `onesync` line in `server.cfg`.
 - Only use resources from sources you trust. Leaked or "cracked" paid scripts often contain backdoors.

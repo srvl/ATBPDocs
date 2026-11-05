@@ -1,0 +1,98 @@
+---
+title: "FiveM troubleshooting"
+description: "Fixes for common FiveM errors on ATBP: exit code 127, cannot connect, port errors, oxmysql, missing exports, license key, lag and where to find logs."
+---
+
+Start with txAdmin's **Live Console**. Read upwards from the bottom for the first red line: later errors are often caused by that one.
+
+## Where to find logs
+
+- **Live Console** in txAdmin shows what FiveM is doing now.
+- `txData/default/logs/fxserver.log` in **Files** has the full log.
+- The panel's **Console** shows only part of it, and commands you type there do not reach FiveM while txAdmin runs it. Type commands in **Live Console**.
+
+Useful commands in **Live Console**: `refresh` finds new resource folders, `ensure name` starts or restarts one.
+
+## The panel says "starting"
+
+That is normal until you finish txAdmin's setup. Open txAdmin with the PIN from the console. See [Open txAdmin](/games/fivem/txadmin).
+
+## The server crashes straight away with exit code 127
+
+If the console says `ld-musl-x86_64.so.1: No such file or directory`, the `alpine` folder was deleted. It is the FiveM server program.
+
+Go to **Settings** and click **Reinstall**. It puts `alpine` back and keeps your `server.cfg`, `txData` and your own files. Default resources in the main `resources` folder are replaced.
+
+## Players cannot connect
+
+- Both `endpoint_add_tcp` and `endpoint_add_udp` in your `server.cfg` must use your main port from the **Network** tab. See [Move an existing server](/games/fivem/migrating-an-existing-server#3-fix-servercfg).
+- Join with the main port, not the txAdmin port.
+- Check that **Live Console** shows the server as running, with no red error at the end.
+
+## txAdmin rejects my server.cfg
+
+| Message | Fix |
+| --- | --- |
+| Port is dedicated to or used by txAdmin | The endpoint lines use the txAdmin port. Use the main port instead. |
+| No valid endpoints | Add the two endpoint lines at the top of the file. |
+| `onesync` lines get commented out | That is on purpose. Set OneSync in txAdmin under **Settings**. |
+| `ensure txadmin` lines get commented out | That is on purpose. Delete those lines. |
+
+## Couldn't find a resource
+
+- The name in `ensure` must match the folder name exactly, including capitals.
+- Check that the folder has `fxmanifest.lua` directly inside it. Zips often add an extra folder.
+- Keep it inside the `resources` folder of your server data folder.
+
+## No such export
+
+A resource called another resource that has not started. Put the one it needs higher in `server.cfg`, usually `oxmysql`, `ox_lib`, then the framework, then scripts. Check the resource's own instructions for its order.
+
+## Database errors
+
+See [Set up your FiveM database](/games/fivem/database#if-it-does-not-connect).
+
+## License key errors
+
+- Get a new key at [portal.cfx.re](https://portal.cfx.re).
+- If `server.cfg` has a `sv_licenseKey` line, FiveM uses that one, so change it there as well as on the **Startup** tab.
+- A key can only be used by one running server.
+- "You lack the required entitlement" on an escrowed script means the key is not from the account that bought it.
+
+## Cars or maps do not show or crash players
+
+Check `sv_enforceGameBuild` in `server.cfg`. Content from a newer GTA V update needs a build that includes that update. Too many or very large streamed files can also crash players' games.
+
+## Lag and hitches
+
+- `server thread hitch warning` in Live Console means a script took too long. A few at startup are normal.
+- Type `resmon 1` in your F8 console in game to see which resources use the most.
+- Watch RAM and CPU in the panel. See [How much RAM does a FiveM server need?](/games/fivem/ram).
+
+## Things FiveM does not include
+
+- **Anticheat:** FiveM and txAdmin come with bans and player tools, but not a full anticheat. Anticheats are resources you add yourself.
+- **Chat word filters:** blocking words in chat is done by your chat resource or framework, not by a server setting.
+
+## Script errors
+
+ATBP looks after the server, the panel and the network. Errors inside a script or framework are best asked in that script's Discord or forum. Paste them the red lines from Live Console.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- FiveM exit code 127 ld-musl-x86_64.so.1 No such file or directory
+- I deleted all my files and the server crashes
+- Why does the panel say starting forever?
+- Why do commands in the panel console do nothing?
+- Where are the FiveM logs?
+- Players can't connect to my FiveM server
+- No such export error
+- Couldn't find resource
+- Does FiveM have an anticheat?
+- How do I block words in chat?
+- Bakit ayaw mag start ng FiveM server ko?
+- Di makapasok yung players sa FiveM
+- May anticheat ba?
+
+</details>

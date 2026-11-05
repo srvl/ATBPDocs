@@ -19,12 +19,16 @@ The PIN only works once and changes when the server restarts. If it expired, res
 txAdmin asks how you want to set up FiveM:
 
 - **Popular recipes**: installs a ready server, for example QBCore or ESX for roleplay, or a plain CFX default server. This is the easiest start.
-- **Existing server data**: use this if you uploaded your own server files.
+- **Existing server data**: use this if you uploaded your own server files. The folder is the full path, such as `/home/container/txData/MyServer.base`, and it must have `resources` inside. The CFG file is `server.cfg`. See [Move an existing server](/games/fivem/migrating-an-existing-server#4-point-txadmin-at-it).
 
-Follow the steps, keep the suggested data folder, and let it finish. txAdmin then starts FiveM for you.
+For a recipe, follow the steps, keep the suggested data folder, and let it finish. txAdmin then starts FiveM for you. A recipe that asks for a database needs the details from the panel's **Databases** page.
+
+The panel shows **starting** until this setup is done. That is normal.
 
 ## Good to know
 
 - Start, stop and restart FiveM from txAdmin. Use the panel's buttons only for the whole server, for example after changing the license key.
+- The panel's console does not reach FiveM while txAdmin runs it. Type commands in txAdmin's **Live Console**.
+- txAdmin comments out `onesync` lines and any `ensure txadmin` line in `server.cfg`. Set OneSync in txAdmin under **Settings**.
 - Add other people as admins in txAdmin under **Admins**, so you never share your own login.
 - Set automatic restarts in txAdmin under **Settings**. A restart every 6 to 12 hours keeps busy roleplay servers running smoothly.

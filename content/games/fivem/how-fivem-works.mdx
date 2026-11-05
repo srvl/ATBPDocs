@@ -1,0 +1,63 @@
+---
+title: "How a FiveM server works"
+description: "The words you will meet running a FiveM server: FXServer, txAdmin, resources, frameworks, server.cfg, OneSync and game build, and where each one lives on ATBP."
+---
+
+New to FiveM, or used to running it on your own Windows PC? This page explains the parts and how they fit together.
+
+## The parts
+
+| Word | What it is |
+| --- | --- |
+| **FXServer** (or "artifact") | The server program itself. ATBP installs the Linux build for you in the `alpine` folder. |
+| **txAdmin** | The web page that starts FXServer, restarts it, and manages players, bans and settings. |
+| **Resource** | Anything you add: a script, car, map, job or framework. Each one is a folder with an `fxmanifest.lua` inside. |
+| **Framework** | A big set of resources that gives you jobs, money and inventory. Qbox, QBCore and ESX are the common ones. Most need a database. |
+| **`server.cfg`** | The settings file. It sets the ports, the database connection and which resources start. |
+| **Server data folder** | The folder that holds `server.cfg` and `resources`. txAdmin runs your server from it. |
+| **oxmysql** | The resource most frameworks use to talk to the database. |
+| **OneSync** | FiveM's player sync system. Most frameworks need it. With txAdmin you set it in txAdmin's **Settings**, not in `server.cfg`. |
+| **Game build** | Which GTA V update the server runs, set with `sv_enforceGameBuild` in `server.cfg`. Cars and maps from a newer GTA update need a build that includes that update. |
+| **Cfx.re license key** | The free `cfxk_` key every server needs. See [Set up your FiveM server](/games/fivem/getting-started). |
+
+## Your server on ATBP
+
+There is no remote desktop. The [panel](https://panel.atbphosting.com) in your browser does that job, and you do not install anything yourself: no XAMPP, MariaDB, Windows artifacts or `FXServer.exe`.
+
+| You want to | Use |
+| --- | --- |
+| Edit or upload files | **Files** in the panel, or [SFTP](/using_the_panel/sftp) for big uploads |
+| Start FiveM, read its console, restart it, manage players | txAdmin |
+| Turn resources on and off, change build, clear cache | The **FiveM** page (under **More**) in the panel |
+| Create or import a database | **Databases** in the panel. See [Set up your FiveM database](/games/fivem/database). |
+| Change the license key, or start or stop everything | **Startup** and the power buttons in the panel |
+
+The server runs Linux, so file names are case-sensitive: `qb-core` and `QB-Core` are two different names.
+
+## What is in your files
+
+```
+/home/container
+├── alpine/                  the FiveM server program. Never delete it.
+├── server.cfg               starter file, not used once txAdmin is set up
+├── resources/               starter resources, not used once txAdmin is set up
+└── txData/
+    ├── default/             txAdmin's own settings and logs
+    └── <name>.base/         your server data folder
+        ├── server.cfg       the one that counts
+        └── resources/       your scripts, cars, maps and framework
+```
+
+<details>
+<summary>Questions this page answers</summary>
+
+- What is txAdmin?
+- What is an artifact in FiveM?
+- What is a framework? Qbox vs QBCore vs ESX
+- Is there a remote desktop or RDP?
+- Do I need XAMPP or MariaDB on the server?
+- Which server.cfg do I edit?
+- Pano gamitin yung server, walang RDP?
+- Saan ko ilalagay yung scripts ko?
+
+</details>

@@ -21,6 +21,8 @@ Your server shows in the FiveM server list once it has a valid license key and i
 ## If you cannot join
 
 - Check that the server shows as running in txAdmin, not only in the panel.
+- Your `server.cfg` must use the same main port in `endpoint_add_tcp` and `endpoint_add_udp`. A server you moved from home usually still says `30120`. See [Move an existing server](/games/fivem/migrating-an-existing-server#3-fix-servercfg).
 - Make sure you used the main port. The txAdmin port opens a web page, not the game.
 - "Server is full" means you reached `MAX_PLAYERS` (48 with a free key).
 - If the console says the license key is invalid, create a new key and paste it on the **Startup** tab. See [Set up your FiveM server](/games/fivem/getting-started).
+- More fixes are on [FiveM troubleshooting](/games/fivem/troubleshooting).
