@@ -82,7 +82,15 @@ Archiving, extracting, big uploads and downloads, and backups show in a small ta
 
 ## Uploading a world or server zip
 
-To move a world or a whole server from another host, upload the `.zip` as one file in the **Files** tab, then right-click it and choose **Unarchive**. This is much faster than extracting it on your computer and uploading thousands of small files.
+To move a world or a whole server from your own computer or another host, upload the `.zip` as one file in the **Files** tab, then right-click it and choose **Unarchive**. This is much faster than extracting it on your computer and uploading thousands of small files.
+
+To move a whole Minecraft server folder:
+
+1. On your computer, open the server folder and zip everything **inside** it (the `plugins` or `mods` folder, the world folders, `server.properties` and the rest), not the folder itself.
+2. In the panel, stop the server. In **Startup**, set the same software and Minecraft version your server used, and a **Docker Image** that suits it. See [Changing Java Version](/running_a_server/java-version).
+3. In **Files**, select everything and delete it. The new server's default files are not needed, and leaving them can mix two setups.
+4. Upload your zip, right-click it and choose **Unarchive**. Check that `server.properties` and your folders sit directly in the main folder, not inside an extra folder. If they are inside one, move them up.
+5. Delete the zip, start the server and read the **Console**. Players join with the address shown in the panel, not your old one.
 
 - One upload through the panel can be up to 1 GB on Budget and Budget+, and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger.
 - Wait until the upload shows as finished in the task box before you unarchive or leave the page. A zip that is still uploading, or whose upload was cut off, cannot be opened.
@@ -107,5 +115,8 @@ To move a world or a whole server from another host, upload the `.zip` as one fi
 - Unarchive says not a valid zip file
 - How do I upload my world from another host?
 - Paano mag upload ng world galing ibang host?
+- How do I move my Minecraft server from my PC to ATBP?
+- Do I delete the default files before uploading my server?
+- Pano ilipat yung local server ko sa panel?
 
 </details>
