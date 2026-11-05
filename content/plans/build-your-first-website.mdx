@@ -1,0 +1,77 @@
+---
+title: "Build your first website"
+description: "Three ways to put a website on ATBP web hosting: install WordPress, upload HTML files, or run a Node.js app. All from your billing service page."
+---
+
+Order a [web hosting plan](/plans/web-hosting), then open the service in billing. Everything below starts from that service page.
+
+## Step 1: point your domain
+
+Look at **Domain pointing** on your service page.
+
+- If it says **Good**, go to step 2.
+- If it says **Not yet**, it tells you exactly which A record to add at your domain provider. The value is `213.35.96.233`. A domain you bought from us is done for you.
+
+Your site gets its free SSL certificate once the domain points. It is retried every hour, or press **Install SSL**.
+
+## Step 2: pick how you want to build it
+
+### WordPress, the easiest for most people
+
+1. Press **Install WordPress**. It takes under a minute.
+2. Your service page shows the address, user and password for 10 minutes. Save them.
+3. Open the address and log in.
+
+Install WordPress on a new website. If your website folder already has your own files, remove them first.
+
+### Your own HTML files
+
+1. Press **Open file manager**.
+2. Open `web`, then your domain, then `public_html`.
+3. Upload your files. The first page must be named `index.html`. Delete the sample `index.html` that is already there.
+
+To upload a whole folder, zip it, upload the zip, then right-click it and unzip it.
+
+### A Node.js app
+
+1. Press **Host a Node.js app**. A small sample app starts straight away.
+2. Press **Open file manager** and open `web`, your domain, `private`, then `nodeapp`.
+3. Upload your app and replace the sample `server.js`. Do not upload `node_modules`.
+4. Press **Install Node.js packages** if you have a `package.json`, and wait a few minutes.
+5. Press **Restart Node.js app**.
+
+Your app must listen on the port we give it:
+
+```js
+app.listen(process.env.PORT);
+```
+
+We start it with the `start` script in your `package.json`. Without one, we look for `server.js`, `index.js`, `app.js` or `main.js`. **Node.js app output** on your service page shows its latest messages if something goes wrong.
+
+Press **Switch back to a normal website** any time. Your `nodeapp` folder is kept.
+
+## Uploading with an SFTP app
+
+Apps like FileZilla or WinSCP are better for many files. Press **Generate new password**, then connect with:
+
+- Protocol: SFTP
+- Host: `web1.atbphosting.com`
+- Port: `22`
+- User: your panel user name, on your service page
+- Password: the one you just generated
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I make my first website?
+- How do I upload my website?
+- Paano mag upload ng website?
+- How do I install WordPress?
+- Where do I put my files?
+- Why does my site show the default page?
+- How do I run Node.js on web hosting?
+- What port should my Node.js app use?
+- What are the SFTP details for web hosting?
+- How do I unzip files in the file manager?
+
+</details>

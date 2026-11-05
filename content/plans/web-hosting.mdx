@@ -17,27 +17,38 @@ We host websites and databases on a server in Singapore, with the HestiaCP contr
 - A domain is not included. Bring your own or register one with us.
 - Plans are limited in number. If a plan shows out of stock, check back or ask in a ticket.
 
+New here? Start with [Build your first website](/plans/build-your-first-website). Coming from a game panel Node.js server? See [Moving your site from the game panel](/plans/moving-from-the-game-panel).
+
 ## Pointing your domain
 
 At checkout you type the domain for your first website. We set up the website and request a free Let's Encrypt SSL certificate.
 
 - **Domain registered with us:** we point it at your hosting for you (website and www records), so the site and SSL work without touching DNS. Records you already have for email elsewhere are kept.
-- **Domain from another registrar:** add A records at your DNS host pointing to `213.35.96.233`, one for the domain and one for www. A subdomain such as `blog.example.com` needs only its own A record. The address is also on your service page.
+- **Domain from another registrar:** add A records at your DNS host pointing to `213.35.96.233`, one for the domain and one for www. A subdomain such as `blog.example.com` needs only its own A record.
+- Your service page shows **Domain pointing**: it checks your domain and tells you exactly which record is still missing.
 
 ## SSL
 
 Until your domain points at the server, SSL shows as **Pending** on your service page. We retry every hour for two days, or press **Install SSL** once the domain points. A new certificate can take up to 2 minutes to appear on your site.
 
-## Logging in
+## Your service page does most of the work
 
-- Your service page in billing shows the control panel address, your panel user name, domain, plan and SSL status.
-- Open the control panel with the **Open control panel** button. It signs you in once, without a password.
-- To log in directly at https://web1.atbphosting.com:8087 or from an app, press **Generate new password**. The new password shows on your service page for 10 minutes, so save it then. We never email it.
+Everything common is a button on your service page in billing, without learning the control panel:
+
+- **Open file manager** signs you in and opens your files.
+- **Install WordPress** installs it on your domain and shows the login once, for 10 minutes.
+- **Host a Node.js app** runs a Node.js app on your domain.
+- **Install SSL** requests your certificate again.
+- **Open full control panel** signs you in to the rest of the tools: more websites, databases and cron jobs.
+- **Generate new password** sets a new password, shown for 10 minutes. Use it to log in directly at https://web1.atbphosting.com:8087 or with an SFTP app. We never email it.
+
+Uploading with an SFTP app: host `web1.atbphosting.com`, port `22`, your panel user name, and the password from **Generate new password**. Website files go in `web/your-domain/public_html`.
 
 ## Running your site
 
-- Sites run on nginx with PHP-FPM and MariaDB databases.
-- `.htaccess` files do nothing here, because there is no Apache. For WordPress and other common apps, pick the matching web template for your domain in the panel so their links work.
+- Sites run on nginx with PHP and MariaDB databases, or as a Node.js app (Node.js 22).
+- `.htaccess` files do nothing here, because there is no Apache. **Install WordPress** sets this up correctly by itself. For other apps, use **Quick install** in the panel or pick the matching web template for your domain.
+- A Node.js app gets 512 MB on Web Starter, 1 GB on Web Plus and 2 GB on Web Pro. One Node.js app per account. Discord bots belong on [bot hosting](/plans/discord-bot-hosting): web plans are for websites.
 - Change plan any time from your service page. Moving to a smaller plan never deletes anything; the panel only stops new items (files, cron jobs, backups) until you are under the new plan's limits.
 - If a service is suspended for an unpaid invoice, your sites show a suspended page until it is paid. Nothing is deleted while suspended.
 
@@ -50,6 +61,12 @@ Until your domain points at the server, SSL shows as **Pending** on your service
 - Where do I order web hosting?
 - Do you have 3, 6 or 12 month web hosting?
 - Can I host WordPress?
+- How do I install WordPress?
+- Can I host a Node.js website?
+- Pwede ba Node.js sa web hosting?
+- Can I run a Discord bot on web hosting?
+- How do I upload my files?
+- What are my SFTP details?
 - Is email included with web hosting?
 - May email ba yung web hosting?
 - Can I use .htaccess?
