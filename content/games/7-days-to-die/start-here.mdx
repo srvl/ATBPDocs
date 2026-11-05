@@ -1,0 +1,75 @@
+---
+title: "Start here: 7 Days to Die from zero"
+description: "Every step from a new 7 Days to Die server to playing on it, in order, for people who have never run a server."
+---
+
+Never run a server before? Follow this page from top to bottom.
+
+**You need:** 7 Days to Die on each player's PC, on the same version as the server.
+
+## 1. Log in to the game panel
+
+Your server runs on the game panel at https://panel.atbphosting.com, not on the billing site. They are separate accounts with separate passwords.
+
+- Your panel login is the email in the **"Your server is ready"** message. Check spam if you cannot find it.
+- No panel password yet? Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page.
+- From billing you can also open **Services**, pick your server and press **Manage server**.
+
+Everything is in your browser. There is no remote desktop, and you do not install the server on your own computer.
+
+## 2. Choose your world before the first start
+
+Stop the server, open `serverconfig.xml` in **Files**, and set `ServerName`, `GameWorld`, `WorldGenSeed` and `WorldGenSize`. These world settings only apply to a new world. See [7 Days to Die server settings](/games/7-days-to-die/config).
+
+## 3. Start the server
+
+Press **Start**. The first start downloads the game, and a random world can take a long time to make. Wait for it to finish in the **Console**.
+
+## 4. Join
+
+In the game, click **Join a Game**, then **Connect to IP**, and enter the IP and port from the panel. See [Join your 7 Days to Die server](/games/7-days-to-die/connecting).
+
+## 5. Make yourself admin
+
+With the server running and you connected, run this in the **Console** with your Steam64 ID:
+
+```
+admin add 76561198000000000 0
+```
+
+See [admin and console commands](/games/7-days-to-die/admin).
+
+## 6. Mods and crossplay
+
+- [Install mods](/games/7-days-to-die/mods). Every player needs the same mods.
+- [Crossplay](/games/7-days-to-die/crossplay). Easy Anti-Cheat must stay on for console players.
+- [Worlds: new, upload and more](/games/7-days-to-die/worlds)
+
+## Common problems
+
+See [Whitelist, remote admin and common problems](/games/7-days-to-die/troubleshooting).
+
+| Problem | Fix |
+| --- | --- |
+| Edits disappear | Stop the server before editing. The game rewrites the file when it shuts down. |
+| Mod does not show | `ModInfo.xml` is one folder too deep. |
+| Players get kicked | Usually Easy Anti-Cheat with a code-changing mod. |
+
+## Keep it safe
+
+- Set a backup schedule in the **Backups** tab, and make a backup before any big change. See [Backups](/using_the_panel/backups/guide).
+- Big uploads: one upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger. Your SFTP password is your game panel password.
+- Wrong game or version? You can change it yourself in **Settings**, **Change Game**.
+
+## Still stuck?
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the error from the **Console**. See [How to get support](/general/getting-support). Never post your password in a ticket.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I set up a 7 Days to Die server from zero?
+- I just bought a 7 Days to Die server, what do I do first?
+- Pano mag start ng 7 Days to Die server?
+
+</details>

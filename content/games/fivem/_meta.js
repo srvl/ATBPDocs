@@ -1,4 +1,5 @@
 export default {
+  "start-here": "Start here: from zero",
   "how-fivem-works": "How a FiveM server works",
   "getting-started": "Set up your FiveM server",
   "txadmin": "Open txAdmin",

@@ -1,0 +1,79 @@
+---
+title: "Start here: Valheim from zero"
+description: "Every step from a new Valheim server to playing on it, in order, for people who have never run a server."
+---
+
+import { Callout } from 'nextra/components'
+
+Never run a server before? Follow this page from top to bottom.
+
+**You need:** Valheim on each player's PC through Steam. Crossplay with Xbox, PlayStation and Game Pass is off on our servers.
+
+## 1. Log in to the game panel
+
+Your server runs on the game panel at https://panel.atbphosting.com, not on the billing site. They are separate accounts with separate passwords.
+
+- Your panel login is the email in the **"Your server is ready"** message. Check spam if you cannot find it.
+- No panel password yet? Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page.
+- From billing you can also open **Services**, pick your server and press **Manage server**.
+
+Everything is in your browser. There is no remote desktop, and you do not install the server on your own computer.
+
+## 2. Start the server
+
+Press **Start** on the **Console** tab. The first start downloads the game.
+
+<Callout type="warning">
+
+A new server only saves its world after the first autosave, about 20 minutes in. If you restart before that, you get a new blank world.
+
+</Callout>
+
+## 3. Join
+
+1. Copy the IP and port from the panel.
+2. In Valheim, press **Start Game** and pick a character.
+3. Open **Join Game**, choose **Add Server**, paste the IP and port and press **Connect**.
+4. Enter the password. It is the one you typed at checkout, and you can change it on the **Startup** tab. It cannot be part of the server name.
+
+See [Join your Valheim server](/games/valheim/connecting).
+
+## 4. Make yourself admin
+
+Stop the server, then add your ID to `.config/unity3d/IronGate/Valheim/adminlist.txt`. Use `-console` in Steam's launch options and press `F5` in game. See [Valheim admins](/games/valheim/admin).
+
+## 5. Bring your world
+
+Upload it to `worlds_local` and set **World Name** to match exactly. See [Valheim worlds](/games/valheim/worlds).
+
+## 6. Add mods
+
+Most mods need BepInEx on the server and on every player's game. See [Install mods on Valheim](/games/valheim/mods).
+
+## Common problems
+
+| Problem | Fix |
+| --- | --- |
+| I spawned in a brand-new world | The name or files do not match. See [Upload your own world](/games/valheim/worlds#upload-your-own-world). |
+| The world reset after a restart | See [New server resets to a blank world](/games/valheim/worlds#new-server-resets-to-a-blank-world). |
+| Lag or rubber-banding | See [Valheim lag and desync](/games/valheim/lag). |
+
+## Keep it safe
+
+- Set a backup schedule in the **Backups** tab, and make a backup before any big change. See [Backups](/using_the_panel/backups/guide).
+- Big uploads: one upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger. Your SFTP password is your game panel password.
+- Wrong game or version? You can change it yourself in **Settings**, **Change Game**.
+
+## Still stuck?
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the error from the **Console**. See [How to get support](/general/getting-support). Never post your password in a ticket.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I set up a Valheim server from zero?
+- I just bought a Valheim server, what do I do first?
+- Why did my Valheim world reset?
+- Pano mag start ng Valheim server?
+
+</details>
