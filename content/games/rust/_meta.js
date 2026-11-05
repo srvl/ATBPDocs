@@ -1,4 +1,5 @@
 export default {
+  "start-here": "Start here: from zero",
   "connecting": "Connecting To A Server",
   "admin": "Admins, bans and commands",
   "server-list": "Server list entry and visibility",

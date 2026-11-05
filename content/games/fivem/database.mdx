@@ -1,0 +1,67 @@
+---
+title: "Set up your FiveM database"
+description: "Create a database for Qbox, QBCore or ESX, import a .sql file, and write the mysql_connection_string line for oxmysql."
+---
+
+Most frameworks store players, money and inventories in a database. ATBP gives you one from the panel, so you do not install MariaDB or XAMPP. It runs MariaDB 10.11, which meets Qbox's minimum of 10.9.
+
+## Create the database
+
+1. Open **Databases** in the [panel](https://panel.atbphosting.com) and click **New Database**.
+2. Give it a name, and leave connections from as `%`.
+3. Click the database row to see its details: host, port, name, username and password.
+
+## Import a .sql file
+
+Moving from another server? Export your database to a `.sql` file first. Then use the import button on the database's row and choose **Import database from SQL file**. Files up to about 49 MB can be imported this way. For a bigger file, split it into parts or ask us in a ticket.
+
+The size on the row can show **0 B** for a few minutes after an import, because it updates slowly. Do not import again because of that.
+
+If the import stops at `Unknown collation: utf8mb4_0900_ai_ci`, your file came from MySQL 8. Open it in a text editor, replace `utf8mb4_0900_ai_ci` with `utf8mb4_unicode_ci` everywhere, and import it again.
+
+## Connect it in server.cfg
+
+Open `server.cfg` in your server data folder, inside `txData`. Replace the old `mysql_connection_string` line with this one, using the details from the panel:
+
+```
+set mysql_connection_string "mysql://USERNAME:PASSWORD@HOST:3306/DATABASE?charset=utf8mb4"
+```
+
+- Use this form with `mysql://`. The other form, with `user=...;password=...`, cuts your password off if it contains `=`, and panel passwords can contain `=`.
+- Paste the password exactly as the panel shows it, including symbols. Do not encode it.
+- `HOST` is the host from the panel. `localhost` and `127.0.0.1` do not work here, because the database is on a separate machine.
+- Keep the `set` line above your `ensure` lines, and put `ensure oxmysql` above the framework and scripts that use it.
+- If you rotate the database password in the panel, put the new one in this line.
+
+Restart the server from txAdmin after you change it.
+
+## Viewing your database
+
+The database cannot be reached from your own computer, so HeidiSQL, MySQL Workbench and a local website will be refused. Only servers on ATBP's network can connect. Use the panel's import and export buttons to move data in and out.
+
+## If it does not connect
+
+| Message in Live Console | What it means |
+| --- | --- |
+| `ECONNREFUSED` | The host is wrong, usually still `localhost` or `127.0.0.1`. |
+| `Access denied for user` | The username or password is wrong, or the line uses the `user=` form and your password has `=` in it. |
+| `Unknown database` | The database name is wrong. It looks like `s123_name`. |
+| `Table ... doesn't exist` | The connection works, but the framework's tables are not there. Import your `.sql` file. |
+
+<details>
+<summary>Questions this page answers</summary>
+
+- What is my mysql_connection_string?
+- How do I connect oxmysql to the ATBP database?
+- Where do I find my database password?
+- How do I import my FiveM database?
+- Why does my database show 0 B after importing?
+- Can I connect HeidiSQL to my database?
+- Do I need XAMPP?
+- oxmysql says Access denied or ECONNREFUSED
+- Saan makikita yung password ng database?
+- Pano i-import yung sql ko?
+- Bakit 0 B yung database ko?
+- Ano ilalagay sa connection string?
+
+</details>

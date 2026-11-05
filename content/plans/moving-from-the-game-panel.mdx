@@ -23,7 +23,7 @@ Your old server keeps running until you cancel it, so you can move without any d
 You do not need Node.js any more, which is simpler and faster.
 
 1. Download your HTML, CSS and image files from the game panel's file manager.
-2. On your web hosting service page, press **Open file manager** and open `web`, your domain, then `public_html`.
+2. On your web hosting service page, press **Open file manager**. It opens your website folder.
 3. Upload them. The first page must be named `index.html`.
 
 An Express app that only serves those files can be left behind.
@@ -32,7 +32,7 @@ An Express app that only serves those files can be left behind.
 
 1. In the game panel, download your files, without `node_modules`.
 2. On your web hosting service page, press **Host a Node.js app**.
-3. Press **Open file manager** and open `web`, your domain, `private`, then `nodeapp`. Upload your files there and replace the sample `server.js`.
+3. Press **Open file manager**. It opens your app folder (`web/your-domain/private/nodeapp`). Upload your files there and replace the sample `server.js`.
 4. Check your `package.json` has a `start` script, for example `"start": "node index.js"`.
 5. Press **Install Node.js packages**, wait a few minutes, then press **Restart Node.js app**.
 
@@ -46,7 +46,7 @@ Your domain only needs to point here once the app is ready.
 
 ## If your app uses a database
 
-A database on the game panel moves too. Export it from phpMyAdmin there. In the web hosting control panel, press **Open full control panel**, add a database under **DB**, import your export with phpMyAdmin, and update your app's database details.
+A database on the game panel moves too. Export it from phpMyAdmin there. On your web hosting service page, press **Databases and more websites**, then **Create a database**. Save the details it shows, press **Open phpMyAdmin**, import your export, and update your app's database details.
 
 <details>
 <summary>Questions this page answers</summary>

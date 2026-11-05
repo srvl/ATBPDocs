@@ -26,16 +26,15 @@ Install WordPress on a new website. If your website folder already has your own 
 
 ### Your own HTML files
 
-1. Press **Open file manager**.
-2. Open `web`, then your domain, then `public_html`.
-3. Upload your files. The first page must be named `index.html`. Delete the sample `index.html` that is already there.
+1. Press **Open file manager**. It opens your website folder, `public_html`.
+2. Upload your files. The first page must be named `index.html`. Delete the sample `index.html` that is already there.
 
 To upload a whole folder, zip it, upload the zip, then right-click it and unzip it.
 
 ### A Node.js app
 
 1. Press **Host a Node.js app**. A small sample app starts straight away.
-2. Press **Open file manager** and open `web`, your domain, `private`, then `nodeapp`.
+2. Press **Open file manager**. It opens your app folder, `nodeapp`.
 3. Upload your app and replace the sample `server.js`. Do not upload `node_modules`.
 4. Press **Install Node.js packages** if you have a `package.json`, and wait a few minutes.
 5. Press **Restart Node.js app**.
@@ -49,6 +48,10 @@ app.listen(process.env.PORT);
 We start it with the `start` script in your `package.json`. Without one, we look for `server.js`, `index.js`, `app.js` or `main.js`. **Node.js app output** on your service page shows its latest messages if something goes wrong.
 
 Press **Switch back to a normal website** any time. Your `nodeapp` folder is kept.
+
+## Databases and more websites
+
+Press **Databases and more websites** on your service page. That page shows your domain and SSL status and has **Create a database** (the details show once, so save them), **Open phpMyAdmin** and **Add another website**, as far as your plan allows. **All tools** there opens the full control panel for scheduled tasks and backups.
 
 ## Uploading with an SFTP app
 
@@ -73,5 +76,7 @@ Apps like FileZilla or WinSCP are better for many files. Press **Generate new pa
 - What port should my Node.js app use?
 - What are the SFTP details for web hosting?
 - How do I unzip files in the file manager?
+- How do I create a database?
+- How do I add a second website?
 
 </details>

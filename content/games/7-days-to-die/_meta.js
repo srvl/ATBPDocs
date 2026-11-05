@@ -1,4 +1,5 @@
 export default {
+  "start-here": "Start here: from zero",
   "admin": "7 Days to Die admin and console commands",
   "config": "7 Days to Die server settings",
   "connecting": "Join your 7 Days to Die server",

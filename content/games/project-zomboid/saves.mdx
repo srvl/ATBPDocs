@@ -1,33 +1,60 @@
 ---
-title: "Move a co-op save or reset your world"
-description: "Upload your co-op world to the server, or wipe the map to start fresh."
+title: "Move a save or reset your world"
+description: "Upload a co-op world, move a whole dedicated server with its accounts and settings, or wipe the map to start fresh."
 ---
 
 import { Callout } from 'nextra/components'
 
 <Callout type="warning">
 
-Stop the server before uploading or deleting anything. Both tasks below replace or erase your world, so download a backup first. See [backups](/plans/backups).
+Stop the server before uploading or deleting anything. These tasks replace or erase your world, so download a backup first. See [backups](/plans/backups).
 
 </Callout>
+
+Your server's name is the name of its `.ini` file in `.cache/Server`, `servertest` by default. Everything below is in **Files** in the [panel](https://panel.atbphosting.com). One upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger.
 
 ## Move a co-op save to the server
 
 1. On your PC, open `Zomboid/Saves/Multiplayer`. On Windows that is `C:\Users\YourName\Zomboid\Saves\Multiplayer`. Each world has a folder named after the name you gave it when hosting.
 2. Compress the **contents** of that world folder into one `.zip`. It includes files like `map_*.bin` and `players.db`.
-3. In the [panel](https://panel.atbphosting.com), open **Files**, then `Saves`, `Multiplayer`, and the folder named after your server (it matches the name of the server's `.ini` file).
+3. In **Files**, open `.cache`, `Saves`, `Multiplayer`, and the folder named after your server.
 4. Delete only the default `map_*.bin` files and `players.db` made on first boot, upload your zip, and extract it so the files sit directly in that folder.
 5. If you used mods, add the same ones on the **Mods** page, see [mods](/games/project-zomboid/mods).
 6. Start the server and join to check your world and character.
 
-Use [SFTP](/using_the_panel/sftp) for large saves.
-
 Troubleshooting: a brand-new empty world means the folder name does not match the server name. A crash on start usually means mods do not match. Missing character: check `players.db` was included.
+
+## Move a whole dedicated server
+
+Moving from another host or your own dedicated server? Bring these files from the old server's `Zomboid` folder. On ATBP they go in `.cache`, in the same folders:
+
+| File or folder | What it holds |
+| --- | --- |
+| `Saves/Multiplayer/<name>` | The world and characters |
+| `db/<name>.db` | Player accounts, passwords and admin roles |
+| `Server/<name>.ini` | Server settings and mod list |
+| `Server/<name>_SandboxVars.lua` | Sandbox settings such as zombie count and loot |
+| `Server/<name>_spawnregions.lua`, `Server/<name>_spawnpoints.lua` | Spawn settings |
+
+Keep the same `<name>`, or rename every file and the world folder to match your ATBP server name. Use the same game build as the old server. After you upload, open the `.ini` and check the ports match your **Network** tab. Start the server once and let it download the mods.
 
 ## Reset the map
 
 1. Stop the server.
-2. In **Files**, open `.cache`, then `Saves`, and delete the folder named after your server.
-3. Start the server. A fresh world is generated and your mods and settings stay.
+2. In **Files**, open `.cache`, then `Saves`, `Multiplayer`, and delete the folder named after your server.
+3. Start the server. A fresh world is generated and your mods and settings stay. Player accounts stay too, because they are in `.cache/db`.
 
 For a full reset that also removes settings and mods, open a ticket on our [Discord](https://discord.atbphosting.com) so we can reinstall the server for you.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I upload my Project Zomboid save?
+- How do I move my dedicated server to ATBP?
+- Where are player accounts stored?
+- Where are the save files on the server?
+- How do I reset my Zomboid map?
+- Paano i-upload yung save ko sa Zomboid?
+- Pano ilipat yung Zomboid server ko?
+
+</details>

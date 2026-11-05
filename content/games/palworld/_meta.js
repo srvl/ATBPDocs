@@ -1,4 +1,5 @@
 export default {
+  "start-here": "Start here: from zero",
   "connecting": "Join your Palworld server",
   "config": "Palworld server settings",
   "admin": "Palworld admins and commands",

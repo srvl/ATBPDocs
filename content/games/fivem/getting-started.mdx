@@ -21,7 +21,8 @@ You paste the key in the **Cfx.re License Key** field when you order. A free key
 
 1. Stop the server in the [panel](https://panel.atbphosting.com).
 2. Open the **Startup** tab and paste the new key into the license key variable (`FIVEM_LICENSE`).
-3. Start the server.
+3. If your `server.cfg` in `txData` has a `sv_licenseKey` line, change it there too, because FiveM uses that one. txAdmin recipes add this line.
+4. Start the server.
 
 <Callout type="warning">
 
@@ -36,5 +37,7 @@ Treat the key like a password. Anyone who has it can run a server under your Cfx
 - `FIVEM_VERSION`: `recommended` is the safe choice. Change it only if a resource asks for a newer build. The **Server build** tab on the panel's **FiveM** page shows the current recommended and latest build numbers and switches build for you; it reinstalls FXServer and keeps your resources, `server.cfg` and `txData`.
 
 Most server settings, such as the server name, tags and resources, are managed in txAdmin once it is set up. See [Open txAdmin](/games/fivem/txadmin).
+
+Moving a server you already run? See [Move an existing FiveM server to ATBP](/games/fivem/migrating-an-existing-server). New to all of this? See [How a FiveM server works](/games/fivem/how-fivem-works).
 
 No server yet? FiveM runs on our [Budget+ plans](https://billing.atbphosting.com/products/fivem-sgp-budget+?utm_source=docs&utm_campaign=fivem) in Singapore, from 4 GB.

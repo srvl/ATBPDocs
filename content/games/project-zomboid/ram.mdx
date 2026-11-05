@@ -1,0 +1,37 @@
+---
+title: "How much RAM does a Project Zomboid server need?"
+description: "Rough RAM guidance by mod count, why the game does not use many cores, startup time, and what players see when they first join a modded server."
+---
+
+Plans start at 6 GB, and we suggest 8 GB for most groups. These are rough estimates, not official numbers. Mods vary a lot, so watch usage in the [panel](https://panel.atbphosting.com).
+
+| Server | Approximate RAM |
+| --- | --- |
+| Vanilla or a few mods, small group | 6 GB |
+| Around 100 mods | 6 to 8 GB |
+| Around 200 mods or more players | 12 GB |
+| 300 mods | 16 GB or more |
+
+As a real example, a server with 86 mods on a 6 GB plan used 2.8 GB of RAM with a 1.2 GB mod folder, and took about 2 minutes to start with its mods already downloaded.
+
+## Things that surprise people
+
+- **RAM for the game is less than your plan.** The server gives the game about two thirds of your plan's RAM, so it has room for everything else.
+- **More cores do not fix lag much.** The game's main loop mostly runs on one core. For busy servers, a faster core on Premium+ helps more than extra vCPU.
+- **The first start is slow.** The server downloads every Workshop mod first. Large mod lists can take a long time, and restarts take longer as you add mods.
+- **Players download mods too.** On their first join, each player downloads all the mods, which can take a while on a big list. It looks stuck but is usually still working.
+
+See [Install mods on Project Zomboid](/games/project-zomboid/mods) and [Budget+ plans and prices](/plans/budget-plus-plans-and-prices).
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How much RAM for Project Zomboid?
+- How many mods can 6 GB or 8 GB run?
+- Why is my Zomboid server slow to start?
+- Will more vCPU fix Zomboid lag?
+- Why do players take so long to join?
+- Ilang GB para sa 300 mods?
+- Kaya ba ng 6 GB yung mods ko?
+
+</details>

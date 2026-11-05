@@ -1,0 +1,79 @@
+---
+title: "Start here: Hytale from zero"
+description: "Every step from a new Hytale server to playing on it, in order, for people who have never run a server."
+---
+
+Never run a server before? Follow this page from top to bottom.
+
+**You need:** A Hytale account that owns the game. You need it to approve the server, and each player needs their own.
+
+## 1. Log in to the game panel
+
+Your server runs on the game panel at https://panel.atbphosting.com, not on the billing site. They are separate accounts with separate passwords.
+
+- Your panel login is the email in the **"Your server is ready"** message. Check spam if you cannot find it.
+- No panel password yet? Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page.
+- From billing you can also open **Services**, pick your server and press **Manage server**.
+
+Everything is in your browser. There is no remote desktop, and you do not install the server on your own computer.
+
+## 2. Start and approve the server
+
+This step is the one people miss. The server does not work until you approve it.
+
+1. Press **Start** and watch the **Console**.
+2. It prints a link and a code after "Please visit the following URL to authenticate".
+3. Open the link, sign in with your Hytale account and press **Approve**.
+4. The console says authentication was successful.
+
+The code expires after about 10 minutes. Restart the server for a new one. Do not share the link. See [Hytale authentication](/games/hytale/access).
+
+## 3. Join
+
+Copy the IP address and port from the panel, and add the server in Hytale's server list.
+
+## 4. Make yourself an operator
+
+Even the owner has no admin rights at first. In the **Console**, with no slash:
+
+```
+op add YourName
+```
+
+The name is case-sensitive. See [Hytale operators and commands](/games/hytale/admin).
+
+## 5. Make it private
+
+Set a password in `config.json`, or use `whitelist on` and `whitelist add YourName`. See [Hytale authentication and private servers](/games/hytale/access).
+
+## 6. Add mods
+
+Open **More**, **Mods**, pick a mod and press **Install**, then restart. See [Install Hytale mods](/games/hytale/mods).
+
+## Common problems
+
+| Problem | Fix |
+| --- | --- |
+| Asked to authenticate again | Run `/auth login device` in the console and approve it again. |
+| "Permission Denied" | Check the name's capitals in `op add`, then reconnect. |
+| Crash after adding a mod | Remove the newest mod and check it matches your game version. |
+
+## Keep it safe
+
+- Set a backup schedule in the **Backups** tab, and make a backup before any big change. See [Backups](/using_the_panel/backups/guide).
+- Big uploads: one upload through the panel can be up to 1 GB on Budget+ and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger. Your SFTP password is your game panel password.
+- Wrong game or version? You can change it yourself in **Settings**, **Change Game**.
+
+## Still stuck?
+
+Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the error from the **Console**. See [How to get support](/general/getting-support). Never post your password in a ticket.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I set up a Hytale server from zero?
+- I just bought a Hytale server, what do I do first?
+- Why does my Hytale server ask me to authenticate?
+- Pano mag start ng Hytale server?
+
+</details>
