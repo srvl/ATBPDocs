@@ -41,6 +41,18 @@ To import a database you first have to create a new database in your server. Onc
 You can also upload an SQL file to import a database. A file import takes files up to about 49 MB; for a bigger one, split it into parts or ask us in a ticket. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database**, then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format, and this option may not work if the file wasn't properly dumped from a MySQL server. The size on the database row can show 0 B for a few minutes after an import. If you get an error, check that the file really is a MySQL or MariaDB export; files from other database types, such as SQLite, usually will not work.
 
 ---
+### If a plugin cannot connect
+
+Read the first error the plugin prints in the **Console**, not the long list of lines under it.
+
+| Error | What to do |
+| --- | --- |
+| `SSL Connection required, but not provided by server` | The plugin is set to use SSL, which panel databases do not use. Turn SSL off in the plugin's config and restart. In AuthMe that is `mySQLUseSSL: false` in `plugins/AuthMe/config.yml`. In plugins that take connection options, add `useSSL=false`, as in the examples below. |
+| `Communications link failure` or `Connect timed out` | Check the host and port are copied exactly from the panel. `localhost` and `127.0.0.1` do not work, because the database is on a separate machine. If they are right, the same message can come from the SSL setting above, so check that too. |
+| `Access denied for user` | The username or password is wrong. Copy them again from the database's details. |
+| `Unknown database` | The database name is wrong. It looks like `s123_name`. |
+
+---
 The examples below use placeholders. Copy your real host, port, database name, username and password from the **Databases** tab (the details button) in the panel.
 
 ### Examples of how to configure a database in different plugins

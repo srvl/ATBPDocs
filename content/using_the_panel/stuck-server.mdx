@@ -84,11 +84,13 @@ To start from nothing (a new modpack, a broken world, or just a fresh start), yo
 
 1. Make a backup of anything you want to keep, or download it.
 2. Stop the server.
-3. In **Settings**, open the **Change Server Type** box, pick your software (for example Paper or Purpur) and an **exact version**, turn on **Wipe Server Files**, and install. This deletes every file and installs a clean server in one step.
+3. Go to **More > Software**, pick your software (for example Paper or Purpur) and an **exact version**, turn on **Wipe Server Files**, and install. This deletes every file and installs a clean server in one step. The **Change Server Type** box in **Settings** does the same if you prefer it.
 
 Or do it by hand: in **Files**, tick the box at the top to select everything and delete it, then open **Settings** and press **Reinstall Server**.
 
-A fresh install uses the version set in **Startup** or picked in **Change Server Type**. If that is "latest", you get the newest Minecraft version, which your plugins may not support yet. Set the version you want before you start the server, and before you upload an old world. A world that was opened on a newer version will not load on an older one; the server crashes or nobody can join. In that case restore a backup made before the change, or start with a new world. See [Updating or Changing Versions](/running_a_server/updating).
+Wiping keeps your server's address. The IP cannot change, but you can get a new port: add one in the **Network** tab and click **Make Primary** on it. See [Moving an existing port](/using_the_panel/adding-ports#moving-an-existing-port).
+
+A fresh install uses the version set in **Startup** or picked in **More > Software**. If that is "latest", you get the newest Minecraft version, which your plugins may not support yet. Set the version you want before you start the server, and before you upload an old world. A world that was opened on a newer version will not load on an older one; the server crashes or nobody can join. In that case restore a backup made before the change, or start with a new world. See [Updating or Changing Versions](/running_a_server/updating).
 
 Deleted files that went to the trash can be restored from the **Trash Bin** until it is emptied. **Delete Permanently** cannot be undone.
 
