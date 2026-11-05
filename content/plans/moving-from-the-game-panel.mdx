@@ -1,0 +1,63 @@
+---
+title: "Moving your site from the game panel to web hosting"
+description: "Step by step: move a website from a Node.js server on the ATBP game panel to a web hosting plan, with your own domain and free SSL."
+---
+
+If you run a website on a **NodeJS Bot** server in the game panel, a [web hosting plan](/plans/web-hosting) gives it a proper domain, free SSL and the normal ports, with no port number in the address. Keep Discord bots on [bot hosting](/plans/discord-bot-hosting): only websites move.
+
+Your old server keeps running until you cancel it, so you can move without any downtime.
+
+## What is different
+
+| | Game panel | Web hosting |
+|---|---|---|
+| Address | IP and port, or a subdomain | Your own domain with SSL |
+| Where your files go | The server's main folder | `web/your-domain/private/nodeapp` |
+| Port | `SERVER_PORT` | `PORT`. `SERVER_PORT` also works, so your code can stay the same |
+| Start and stop | Console buttons | Buttons on your service page |
+| Install packages | On every start | **Install Node.js packages** button |
+| Console output | Console tab | **Node.js app output** on your service page |
+
+## If your site is only HTML, CSS and images
+
+You do not need Node.js any more, which is simpler and faster.
+
+1. Download your HTML, CSS and image files from the game panel's file manager.
+2. On your web hosting service page, press **Open file manager** and open `web`, your domain, then `public_html`.
+3. Upload them. The first page must be named `index.html`.
+
+An Express app that only serves those files can be left behind.
+
+## If your site is a real Node.js app
+
+1. In the game panel, download your files, without `node_modules`.
+2. On your web hosting service page, press **Host a Node.js app**.
+3. Press **Open file manager** and open `web`, your domain, `private`, then `nodeapp`. Upload your files there and replace the sample `server.js`.
+4. Check your `package.json` has a `start` script, for example `"start": "node index.js"`.
+5. Press **Install Node.js packages**, wait a few minutes, then press **Restart Node.js app**.
+
+Your domain only needs to point here once the app is ready.
+
+## Point your domain and finish
+
+1. Add the A records shown under **Domain pointing** on your service page, or change them if the domain pointed at your old server.
+2. Wait for it to say **Good**. SSL then installs by itself, or press **Install SSL**.
+3. Check your site, then cancel the old game panel server if you no longer need it.
+
+## If your app uses a database
+
+A database on the game panel moves too. Export it from phpMyAdmin there. In the web hosting control panel, press **Open full control panel**, add a database under **DB**, import your export with phpMyAdmin, and update your app's database details.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I move my website from the game panel?
+- Paano ilipat website ko from NodeJS server?
+- Do I need to change my code to move to web hosting?
+- Does SERVER_PORT work on web hosting?
+- Why is my Node.js site not starting on web hosting?
+- Do I still need Express for an HTML site?
+- Can I move my database to web hosting?
+- Should I move my Discord bot to web hosting?
+
+</details>
