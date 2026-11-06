@@ -1,0 +1,67 @@
+---
+title: "Endstone or Vanilla Bedrock?"
+description: "Compare Endstone and Vanilla Bedrock on ATBP: plugins, performance, ports, updates and add-ons, and how to switch."
+---
+
+import { Callout } from 'nextra/components'
+
+Both run Mojang's official Bedrock Dedicated Server, so the game, your worlds and players' devices work the same. Endstone adds a plugin loader on top. Pick it in the panel under **Software**.
+
+## Side by side
+
+| | Vanilla Bedrock | Endstone |
+| --- | --- | --- |
+| What it is | Mojang's server, unchanged | Mojang's server with a plugin loader |
+| Plugins | None, only behavior packs and scripts | Python and C++ plugins, plus behavior packs |
+| Performance | Heavier on Budget+ and Premium+ | Lighter, our recommendation for Bedrock |
+| Ports | One port per player online: a block of 10 player ports, up to 50 | One port for every player |
+| New Minecraft versions | Available as soon as Mojang releases them | Follows when a matching Endstone version is out, which can take a while |
+| Preview builds | Yes, as Vanilla Bedrock (Preview) | No |
+| Bedrock Addons page in the panel | Yes | No, add packs by hand |
+| Where it runs | Every node | Not every node |
+
+## Pick Endstone if
+
+- You want plugins, such as ranks, land claims, economy or anti-cheat.
+- You want the lighter server for more players on the same plan.
+- You want players to join through one port and keep your **Network** tab simple.
+
+## Pick Vanilla Bedrock if
+
+- Players must be able to join on the newest Minecraft the day it comes out. On Endstone, players who update before Endstone does may see "Outdated server" until a new Endstone version is installed.
+- You want to test Minecraft Preview.
+- You want to manage packs, worlds and experiments from the panel's **Bedrock Addons** page.
+
+## Things that work the same
+
+- Worlds, `server.properties`, the allowlist and operators.
+- Behavior and resource packs. On Endstone, add them by hand, see [Install Bedrock packs by hand](/running_a_server/bedrock-addons).
+- Joining with the IP or a subdomain, and joining from consoles. See [Join your Bedrock server](/games/minecraft-bedrock/connecting).
+- Resetting the world, see [Delete or reset your Bedrock world](/games/minecraft-bedrock/delete-world).
+
+## Switch between them
+
+<Callout type="warning">
+
+Make a [backup](/using_the_panel/backups/guide) first. Endstone installs the Bedrock version that matches the Endstone version you pick. A world opened on a newer Bedrock version may not load on an older one, so pick an Endstone version at least as new as your world.
+
+</Callout>
+
+1. Open your server in the [panel](https://panel.atbphosting.com) and go to **Software**.
+2. Choose **Bedrock**, then **Endstone** or **Vanilla Bedrock**, and pick the version.
+3. Install it and wait for the server to finish installing, then start it.
+
+Your world stays in the `worlds` folder. Ports are sorted out for you: Endstone uses your main port only, and Vanilla Bedrock gets its block of player ports. See [NetherNet](/games/minecraft-bedrock/connecting#nethernet) and [Server Software Overview](/running_a_server/server-software-overview). If Endstone will not install on your server, open a ticket.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Should I use Endstone or Vanilla Bedrock?
+- What is the difference between Endstone and Vanilla Bedrock?
+- Can I use plugins on a Bedrock server?
+- Why does my Endstone server say outdated after a Minecraft update?
+- Does Endstone need player ports?
+- How do I switch from Vanilla Bedrock to Endstone?
+- Alin ang mas maganda, Endstone o Vanilla Bedrock?
+
+</details>
