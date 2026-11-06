@@ -13,18 +13,17 @@ Create a [backup](/using_the_panel/backups/guide) and stop the server before del
 
 </Callout>
 
-## Paper and Spigot
+Stop the server and open the **Files** tab, then delete the folder for your software and version. Your main world folder is named after `level-name` in `server.properties` (usually `world`).
 
-1. Stop the server and open the **Files** tab.
-2. Delete the `world_nether` folder (Nether) or `world_the_end` folder (End).
-3. Start the server. A fresh dimension is generated.
+| Your server | Nether | End |
+| --- | --- | --- |
+| Paper, Purpur or Spigot on 1.21.11 or older | `world_nether` | `world_the_end` |
+| Paper or Purpur on 26.1 or newer | `world/dimensions/minecraft/the_nether` | `world/dimensions/minecraft/the_end` |
+| Vanilla, Fabric, Forge or NeoForge on 1.21.11 or older | `world/DIM-1` | `world/DIM1` |
+| Vanilla, Fabric, Forge or NeoForge on 26.1 or newer | `world/dimensions/minecraft/the_nether` | `world/dimensions/minecraft/the_end` |
 
-## Vanilla
+On Paper 26.1 or newer, also delete `world_nether` or `world_the_end` if one is still next to `world`, or Paper may move the old dimension back in on the next start.
 
-1. Stop the server and open your main world folder (usually `world`).
-2. Delete the `DIM-1` folder for the Nether or `DIM1` for the End.
-3. Start the server.
-
-If your world has a different folder name, check `level-name` in `server.properties`. Very new Minecraft releases may store dimensions in a different place inside the world folder, so look through the world folder for a folder named after the dimension if you cannot find these.
+Start the server. A fresh dimension is generated the first time someone enters it.
 
 To reset everything, see [Resetting your Worlds](/running_a_server/world-reset).
