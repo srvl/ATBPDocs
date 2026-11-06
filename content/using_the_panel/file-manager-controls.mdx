@@ -82,6 +82,8 @@ Choose **Share download link** on a file to get a link anyone can download it fr
 
 Only public repositories over HTTPS work. Private repositories, access tokens and SSH links are not supported, and you cannot commit or push from the panel. Cloning and pulling need both file and console permission on the server.
 
+Git works best for files you only ever change in the repository, such as a Discord bot or a website. We don't recommend it for a Minecraft server: the game and plugins rewrite their own config and data files while running, and any file changed on the server that the repository also changes makes the next pull stop. If you do use it, make every change in the repository, never in the panel.
+
 ## File history
 
 Where your server's node supports it, a file's history lists earlier saved versions. You can copy, download or **Restore** an older version.
