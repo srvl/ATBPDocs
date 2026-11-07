@@ -57,6 +57,20 @@ Open a ticket on our [Discord](https://discord.atbphosting.com) with:
 
 If only one player lags while everyone else is fine, the problem is almost always on that player's connection.
 
+## Minecraft: Bedrock players rubber-band but Java players are fine
+
+Bedrock players (on a Bedrock server or joining a Java server through Geyser) send their movement to the server every tick, and the server checks each step. When a player's connection stalls for a moment, those steps arrive late and all at once, and the server pulls the player back. Java players move on their own and only report where they ended up, so the same short stall barely shows for them. That is why the same server can feel smooth on Java and jumpy on Bedrock.
+
+This usually comes from the lagging player's own connection, not the server. On our servers, most Bedrock players hold a steady ping while one or two on the same server, at the same moment, get stalls of a few hundred milliseconds to several seconds. If every Bedrock and Java player lags together, the server itself is busy: check its TPS (`/tps`, or [spark](/games/Minecraft/Optimization/plugins)) instead.
+
+What helps the player who rubber-bands:
+
+- Use a cable or 5 GHz Wi-Fi, move closer to the router, and stop downloads, streams or updates on the same connection while playing.
+- Try mobile data instead of Wi-Fi (or the other way round) for a few minutes. If the lag goes away, the problem is that connection.
+- Run an MTR from the same device and network while it happens (see above, apps for phones too) and send it with the time in a ticket.
+
+Server owners: keep Geyser and Floodgate on their newest builds, since Geyser keeps improving Bedrock movement. A bigger plan does not fix rubber-banding that comes from a player's connection.
+
 ## Minecraft: Paper Anti-Xray
 
 On Paper servers, Anti-Xray engine mode 2 can cause lag for players on unstable connections or on busy servers. Try engine mode 1, restart, and see if the lag goes away. The setting (`anti-xray`, `engine-mode`) is in `config/paper-world-defaults.yml`. See [Anti-Xray](/running_a_server/anti-xray).
