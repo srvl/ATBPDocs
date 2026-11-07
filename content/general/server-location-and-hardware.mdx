@@ -4,10 +4,11 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 ---
 
 - **All servers are in Singapore.**
-- **Premium+:** AMD Ryzen 9 9950X (up to 5.7 GHz), DDR5, storage in RAID 1.
-- **Budget+:** AMD EPYC 7B13.
+- **Premium+:** AMD Ryzen 9 9950X (up to 5.7 GHz), DDR5 RAM at 3600 MHz (each machine holds four 64 GB sticks, so they run below their rated 5600 MHz), storage in RAID 1.
+- **Budget+:** AMD EPYC 7B13, DDR4 2666 MHz RAM.
+- **No VPS or VDS plans:** we do not sell VPS or VDS plans. Your server runs on hardware ATBP owns, split up with Proxmox, so strictly speaking it sits in a virtual dedicated space (VDS) on our machines. You manage it in your browser with the game panel (files, console, databases, SFTP). There is no remote desktop or root login, and you do not need one.
 - **Web hosting:** in Singapore, with the HestiaCP panel. See [web hosting](/plans/web-hosting).
-- **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield. We do not give out an address that skips TCPShield.
+- **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield, which uses GSL. Our network blend in the data centre is also GSL, which adds basic GSL protection. We do not give out an address that skips TCPShield.
 - There is no Philippines location. From Metro Manila, Singapore is usually 40 to 80 ms. Players in the US or Europe will see about 150 to 180 ms; a VPN or proxy will not lower that.
 - vCPU is capped, not burstable: 1 vCPU = 100% CPU in the panel (4 vCPU shows 400%).
 - CPU Guardian: a server that stays above its plan's CPU for about an hour is throttled automatically to half its CPU. Short spikes are not throttled. Full CPU comes back automatically at 1:00 AM Philippine time, or right away when you upgrade the plan. Fixed the cause? Ask in a ticket and staff can lift the limit early; your hour over the limit then starts again from zero. If the server still uses too much CPU after that, staff can put the limit back straight away. To find the cause, use [Spark](/running_a_server/spark), or upgrade vCPU.
@@ -21,12 +22,20 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 - Saan location ng server?
 - May Philippines server ba?
 - Ano CPU nyo?
+- What RAM do Budget+ and Premium+ use?
+- Is this a VPS or VDS?
+- VPS ba ito or VDS?
+- Do you sell VPS plans?
+- What runs my server, bare metal or a VDS?
+- Do I need remote desktop to manage my server?
 - What is the ping from the Philippines?
 - Mataas ping sa US players
 - Which node am I on?
 - Is there a status page?
 - Do you have DDoS protection?
 - May anti-DDoS ba?
+- Do you have GSL protection?
+- May GSL ba?
 - Can I get an IP without TCPShield?
 - Is Budget+ in Singapore?
 - Where is the web hosting server?
