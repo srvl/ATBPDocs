@@ -65,6 +65,7 @@ Press **Start** and read the **Console**. When it logs in, your bot shows as onl
 | `An invalid token was provided` or `Improper token` | Wrong token, or the `.env` file did not load. Reset it and try again. |
 | `Used disallowed intents` | Turn on the intent in the Developer Portal. |
 | `Cannot find module` or `ModuleNotFoundError` | The package is missing from `package.json` or `requirements.txt`, or the start file name is wrong. |
+| `can't open file '/home/container/app.py'` or `No such file or directory` on a new server | The start file on the **Startup** tab does not match your file. Upload your code first, then set `PY_FILE` or `MAIN_FILE` to its exact name, such as `bot.py`. |
 | `EADDRINUSE` or a dashboard that shows Error 522 | The app is on the wrong port. Use the port from **Network** and listen on `0.0.0.0`. |
 | Killed, or exit code 137 | Out of memory. Lower usage or upgrade your plan. |
 | `queryTxt ESERVFAIL` | See the MongoDB note on [Discord bot hosting](/plans/discord-bot-hosting). |
@@ -84,6 +85,7 @@ Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel 
 - Do you set up the bot for me?
 - Why does my bot say Cannot find module?
 - Why does my dashboard show Error 522?
+- Why does my new bot server crash saying it can't find app.py?
 - Pano i-host yung Discord bot ko?
 - Saan ilalagay yung token?
 - Kayo ba mag seset up ng bot?
