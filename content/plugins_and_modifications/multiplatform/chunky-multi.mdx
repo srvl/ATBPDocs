@@ -47,11 +47,18 @@ If it is paused, you can run `chunky continue` to resume pre-generation.
 
 ## Automatic pause during peak hours
 
-Pre-generation uses a lot of CPU, and our nodes are shared. So every evening from **7:00 PM to 1:00 AM (Philippine time)** a running Chunky task is paused automatically, and at 1:00 AM it continues by itself. You will see `Task paused for <world>` in the console when it pauses, and `Task continuing for <world>` when it resumes.
+Pre-generation uses a lot of CPU, and our nodes are shared. So during peak hours a running Chunky task is paused automatically, and at 1:00 AM it continues by itself. Peak hours, in Philippine time:
+
+| Days | Peak hours |
+|------|------------|
+| Monday to Friday | 7:00 PM to 1:00 AM |
+| Saturday and Sunday | 12:00 noon to 1:00 AM |
+
+You will see `Task paused for <world>` in the console when it pauses, and `Task continuing for <world>` when it resumes.
 
 - Nothing is lost. A pause keeps all progress, the same as running `chunky pause` yourself.
-- You can start Chunky at any time. If you start it during those hours, it is paused within a few minutes and runs after 1:00 AM.
-- If you resume it yourself during those hours, it may be paused again.
+- You can start Chunky at any time. If you start it during peak hours, it is paused within a few minutes and runs after 1:00 AM.
+- If you resume it yourself during peak hours, it may be paused again.
 - Chunky's `silent` option hides its progress from the console, which also makes a running task harder for us to see. Leave it off.
 
 ## File Size
