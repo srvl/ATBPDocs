@@ -7,6 +7,12 @@ import { Callout } from 'nextra/components'
 
 This guide shows you how to make your server go from lots of numbers (`203.0.113.10:25565`) to a domain name such as `play.example.com`.
 
+## Bought your domain from ATBP?
+
+You don't need Cloudflare or any manual records. Open [My domains](https://billing.atbphosting.com/domains/mine), tap your domain and open the **DNS records** tab. Use the Minecraft address setup, enter your server's IP and port exactly as the panel shows them, and create the records. Keep the Cloudflare proxy off on those records. Make sure your server is on, then give it about 5 minutes to start working.
+
+## Domains from anywhere else
+
 First, go to the [game panel](https://panel.atbphosting.com) and select your server. On the main page, above your console you will be able to find your IP. Use the IP shown there. If your server runs on the default port (`25565`), you only need the IP and not the port. 
 
 This guide uses Cloudflare to point our domain to the server. Simply register [here](https://dash.cloudflare.com/sign-up). After registration, they will guide you through the process of connecting your domain to Cloudflare.
