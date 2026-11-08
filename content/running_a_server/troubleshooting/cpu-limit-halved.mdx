@@ -13,7 +13,7 @@ In the panel, 100% CPU is one vCPU fully in use, so a 2 vCPU plan normally goes 
 
 ## What happened
 
-This is CPU Guardian. A server that runs at its full CPU limit for about an hour without a break is throttled automatically to half its CPU, so it cannot slow down the other servers on the node. Short spikes, such as the burst while a server starts or generates a few chunks, do not count.
+This is CPU Guardian. A server that uses more than its plan's CPU for over 60 minutes in a day is throttled automatically to half its CPU, so it cannot slow down the other servers on the node. Short spikes, such as the burst while a server starts or generates a few chunks, do not count.
 
 The full limit comes back by itself at 1:00 AM Philippine time, or straight away if you upgrade the plan. You do not need to do anything for that.
 
