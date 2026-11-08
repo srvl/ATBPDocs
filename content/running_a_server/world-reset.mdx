@@ -21,11 +21,25 @@ Opening it shows the files and folders of your server.
 
 ## Step 2: Find the worlds to delete
 
-On *most* Minecraft servers there are three world folders: Overworld (`world`), Nether (`world_nether`), and The End (`world_the_end`). If yours are named differently, check `level-name` in `server.properties`. Select the world(s) you want to delete with the checkbox on the left side of each folder.
+The main world folder is named after `level-name` in `server.properties` (usually `world`). Which folders to delete depends on your software and Minecraft version, which the **Software** page shows at the top.
+
+| Your server | Delete these folders |
+| --- | --- |
+| Paper, Purpur or Spigot on 1.21.11 or older | `world`, `world_nether` and `world_the_end` |
+| Paper or Purpur on 26.1 or newer | `world`, plus `world_nether` and `world_the_end` if they are still there |
+| Vanilla, Fabric, Forge or NeoForge (any version) | `world` |
+
+Why the difference:
+
+- **1.21.11 and older:** Paper and the other plugin servers keep the Nether and the End in their own folders next to `world`. Deleting only `world` resets the Overworld and keeps the other two.
+- **26.1 and newer:** Paper keeps all three dimensions inside `world`, in `world/dimensions/minecraft/overworld`, `the_nether` and `the_end`. Deleting `world` resets everything. When an older world is updated to 26.1, Paper moves `world_nether` and `world_the_end` into `world` on the first start. Delete any that are left over, or an old Nether or End can come back in the new world.
+- **Vanilla and modded:** the Nether and the End have always been inside `world`.
+
+Only want a new Nether or End? See [Reset the Nether or End](/running_a_server/reset-nether). Running Bedrock? See [Delete or reset your Bedrock world](/games/minecraft-bedrock/delete-world).
 
 ## Step 3: Delete them
 
-After selecting your worlds, click the Delete button that appears and confirm. Deleting these files should only take a few seconds at most.
+Tick the box on the left of each folder, click the **Delete** button that appears and confirm. Deleting these files should only take a few seconds at most.
 
 ## Optional step
 
@@ -47,6 +61,9 @@ If you wish to have multiple worlds on your server at once, add a suffix to the 
 - How do I reset my world?
 - How do I reset the world and everyone's inventory and stats?
 - How do I reset my whole server?
+- Which folders do I delete on Paper 1.21.11 or Paper 26?
+- Why is there no world_nether folder on Paper 26?
+- Paano mag delete ng world sa Paper?
 - Paano i-reset ang server?
 
 </details>

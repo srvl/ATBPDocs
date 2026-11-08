@@ -1,0 +1,58 @@
+---
+title: "Delete or reset your Bedrock world"
+description: "Delete your Minecraft Bedrock world on Vanilla Bedrock or Endstone so the server makes a fresh one."
+---
+
+import { Callout } from 'nextra/components'
+
+Deleting the world also resets every player's inventory, location and progress, because Bedrock saves player data inside the world. Your operators, allowlist and `server.properties` settings stay, since they live outside the world folder. On Endstone, plugins and their data in the `plugins` folder stay too.
+
+<Callout type="warning">
+
+Deleting a world cannot be undone. Make a [backup](/using_the_panel/backups/guide) first if there is any chance you want it back.
+
+</Callout>
+
+## Delete the world
+
+These steps are the same on Vanilla Bedrock and Endstone.
+
+1. Stop the server on the **Console** tab and wait until it shows as offline. A running server saves the world again when it shuts down.
+2. Open **Files** and open `server.properties`. Note the value of `level-name` (it is `Bedrock level` on a new server).
+3. Go back to **Files** and open the `worlds` folder.
+4. Tick the box next to the folder with that exact name and press **Delete**, then confirm.
+5. Start the server. It makes a new world with the same name. The first start takes a little longer.
+
+Want to keep the old world instead of deleting it? Rename its folder (for example to `Bedrock level_old`), or tick it and press **Archive** to zip it first.
+
+You can also delete a world in **More** > **Bedrock Addons** > **Installed** > **Worlds**, but it will not delete the default world. To reset the world you play on, use the steps above.
+
+## Choose the seed
+
+- If `level-seed` in `server.properties` has a value, the new world uses that seed.
+- If it is blank, the new world gets a **random** seed.
+- To get the same terrain again when `level-seed` was blank, find the old seed before you delete the world. Bedrock servers have no seed command, so download the world folder as a zip, open it in Minecraft on your own device ([upload steps](/games/minecraft-bedrock/worlds-and-packs) in reverse), and read the seed under **Edit** > **Game**. Then set `level-seed=` to it while the server is stopped.
+
+## After the reset
+
+- Packs you turned on for the old world were saved inside it. Open **Bedrock Addons** and install or turn them on again, and turn on any experiments they need under **World Experiments**, or add them again [by hand](/running_a_server/bedrock-addons).
+- Game rules, cheats and difficulty changed with commands were saved in the old world too. Set them again, see [Bedrock admin](/games/minecraft-bedrock/admin).
+
+## Start a second world instead
+
+To keep the old world and play on a new one, stop the server, change `level-name` in `server.properties` to a new name, and start it. The server makes a new world in `worlds` with that name. Set `level-name` back to switch to the old one.
+
+Running Java Edition? See [Resetting your worlds](/running_a_server/world-reset).
+
+<details>
+<summary>Questions this page answers</summary>
+
+- How do I delete my Bedrock world?
+- How do I reset my Bedrock server world?
+- How do I reset the world on Endstone?
+- Will deleting the world reset inventories?
+- How do I get a new seed on Bedrock?
+- Paano i-delete ang world sa Bedrock server?
+- Paano mag reset ng world sa Bedrock?
+
+</details>

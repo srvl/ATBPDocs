@@ -1,0 +1,57 @@
+---
+title: "CPU Limit Dropped to Half"
+description: "Why the panel's CPU maximum can show half of your plan (for example 100% instead of 200%), when it comes back, and what to do."
+---
+
+## How you notice it
+
+- A yellow notice appears at the top of your server's **Console** page. It shows your limited CPU next to your plan's CPU, the reason, and when your full CPU comes back in your own local time. It goes away by itself when the limit ends.
+- The CPU graph in the game panel tops out at half of what it used to. A 2 vCPU plan that showed `/200%` now shows `/100%`; a 2.5 vCPU plan shows about `/125%`.
+
+In the panel, 100% CPU is one vCPU fully in use, so a 2 vCPU plan normally goes up to 200%.
+
+## What happened
+
+Your plan's CPU is yours to use all day, including at busy times. Running at your full CPU never gets a server limited. CPU Guardian only halves a server's CPU in two cases:
+
+- **A flagged file.** A file on the server matches software known for heavy CPU use, such as a crypto miner, and the server is working hard.
+- **A staff limit.** A staff member limited the server and wrote the reason, which you see in the notice.
+
+The notice tells you which one it is, and when your full CPU comes back. You do not need to do anything for it to come back.
+
+## What to do
+
+If the notice mentions a file and you do not recognise it, check your plugins and mods folders and remove anything you did not add. See [Installing plugins](/plugins_and_modifications/installing-plugins). If you think it is wrong, or you have fixed it, open a ticket in our [Discord](https://discord.atbphosting.com) with your panel link and staff can lift the limit early.
+
+## If your server lags at its full CPU
+
+A server that keeps running at its CPU limit will lag at busy times, even though nothing limited it. To find what is using the CPU:
+
+**Minecraft Java (Paper, Purpur, Fabric and others):**
+
+1. While players are online and the lag is happening, type `spark profiler start --timeout 120` in the **Console** (no `/` in the console; in game it is `/spark`). See [Spark](/running_a_server/spark).
+2. Open the link it gives you, or paste it into the [Spark Analyzer](/running_a_server/spark-analyzer).
+3. The usual causes: view and simulation distance set too high, an unexplored world being generated as players walk, large mob or villager farms, and datapacks. Datapacks run much slower than a plugin or mod that does the same job, so swap them for one where you can. Take a backup before removing a datapack, because some leave the world broken without them.
+
+**Minecraft Bedrock:**
+
+Spark does not run on Bedrock. Lower `view-distance` and `tick-distance` in `server.properties`, and check heavy add-ons. If you run Vanilla Bedrock, switching to Endstone uses less CPU for the same players and keeps your world; see [Endstone or Vanilla Bedrock?](/games/minecraft-bedrock/endstone-vs-vanilla).
+
+**Other games:** lower the player count, view distance or tick rate in the game's own settings, and check mods you added recently.
+
+Tuning tips for Minecraft are on [Optimization](/running_a_server/optimization) and [Troubleshooting lag](/running_a_server/troubleshooting/lag-troubleshooting). If a tuned server still runs at its limit every evening, the plan has too few vCPU for the players and mods you run. See [Upgrades and downgrades](/billing/upgrades-and-downgrades) and [Choosing a plan](/general/choosing-a-plan).
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Why does my CPU show 100% instead of 200%?
+- Why did my server's CPU limit drop to half?
+- Bakit naging 100% na lang yung CPU ng server ko?
+- My plan has 2 vCPU but only 1 is used, why?
+- When does my full CPU come back?
+- Can staff remove the CPU limit early?
+- Will my server be limited for using all of its CPU?
+- How do I find what is using all my CPU?
+- Does Spark work on Bedrock?
+
+</details>

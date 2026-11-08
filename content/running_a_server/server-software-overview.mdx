@@ -34,7 +34,7 @@ Players usually need the same mods installed on their own game. See [Installing 
 
 - **Vanilla Bedrock**: Mojang's official Bedrock Dedicated Server. Players join from phones, consoles, Windows and the other Bedrock apps.
 - **Vanilla Bedrock (Preview)**: Mojang's preview builds. Only players on the Minecraft Preview app can join, so use it for testing, not your main world.
-- **Endstone**: a Bedrock server that runs Python and C++ plugins. It installs the Bedrock version that matches the Endstone version you pick. It is also our recommendation for Bedrock servers on Budget+ and Premium+, even without plugins, because it runs much lighter than plain Vanilla Bedrock.
+- **Endstone**: a Bedrock server that runs Python and C++ plugins. It installs the Bedrock version that matches the Endstone version you pick. It is also our recommendation for Bedrock servers on Budget+ and Premium+, even without plugins, because it runs much lighter than plain Vanilla Bedrock. See [Endstone or Vanilla Bedrock?](/games/minecraft-bedrock/endstone-vs-vanilla).
 
 Java and Bedrock players can also share one Java server with Geyser, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 
@@ -46,7 +46,7 @@ Open your server on the [panel](https://panel.atbphosting.com) and go to **Softw
 - Your files stay unless you turn on deleting server files. When you move between Java and Bedrock, the old `server.properties` is renamed (for example to `server.properties.java`) so the new software starts with its own.
 - Bedrock and Endstone install through the server installer, so the server shows as installing for a minute or two. Start it when that finishes.
 - Bedrock and Endstone need a Bedrock port as their main port. If yours is not one (for example after moving from Java), the panel gives your server a Bedrock port as its new main port, so the port players join with changes. Your old port stays in the **Network** tab. A subdomain still points at the old port, so delete it and create it again. Vanilla Bedrock also gets its block of player ports, see [NetherNet](/games/minecraft-bedrock/connecting#nethernet).
-- Endstone is not available on every node. If it will not install on your server, open a ticket.
+- Endstone runs on Budget+ and Premium+. It does not run on servers left on the old Budget plan, because Endstone has no build for their ARM processors. If it will not install on your server, open a ticket.
 
 ## Quick pick
 

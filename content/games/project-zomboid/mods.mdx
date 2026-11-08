@@ -41,6 +41,7 @@ Nothing changes on the server until you click **Save**. You can save while the s
 ## Troubleshooting
 
 - **Players get a mod mismatch:** players need the same mods. Joining through the in-game server browser downloads them automatically on Steam.
+- **Players get stuck repeating an action** (equipping, dropping items, getting out of a vehicle): some mods ship animation files with capital letters in their folder names, and the server, which runs on Linux, looks for them in lowercase. Your server fixes this by itself every time it starts, including for mods it downloads while starting. If the loop starts right after you add or update a mod, restart the server once more.
 - **The server stops while loading after you add a mod:** turn off the mods you added last, save and restart, then add them back one at a time. A mod made for a different game build is the usual cause.
 - **"The server settings file changed since you opened this page":** someone edited the `.ini` while you had the page open. Reload the page and make your changes again.
 - **A Workshop item says "Not on the Workshop":** the item was removed or made private by its author. Remove it from the list.

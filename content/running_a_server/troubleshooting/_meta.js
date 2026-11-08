@@ -2,6 +2,7 @@ export default {
   "bot-attacks": "Bot Attacks and Anti-Bot Plugins",
   "client-side-mods": "Client-Side Mods Crash the Server",
   "connection-timed-out": "Connection Timed Out or Refused",
+  "cpu-limit-halved": "CPU Limit Dropped to Half",
   "failed-to-verify-username": "Failed to Verify Username",
   "kick-messages": "Kick and Disconnect Messages",
   "lag-troubleshooting": "Troubleshooting Lag",

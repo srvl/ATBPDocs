@@ -1,6 +1,6 @@
 ---
 title: "File Manager Controls"
-description: "The Files tab in the ATBP panel: simple and advanced views, the editor, the trash bin, share links and other file tools."
+description: "The Files tab in the ATBP panel: simple and advanced views, the editor, the trash bin, share links, Git and other file tools."
 ---
 
 The **Files** tab of the [panel](https://panel.atbphosting.com) lets you browse, edit, upload and organise your server's files. For big uploads such as worlds or modpacks, [SFTP](/using_the_panel/sftp) is faster.
@@ -30,7 +30,7 @@ Tick the files or folders, then press the move button on the bar that appears at
 - In File Manager Settings you can switch between the **Browse** view and a **Tree** view, choose whether folders open on a double click, and turn file checkboxes on or off.
 - Tick the checkboxes to select several files, or use the box at the top to select everything in the folder. **Clear selection** unticks them.
 - Drag and drop files to move them, and drop files from your computer to upload them. You can ask to confirm before files are moved.
-- Right-click a file, or use its menu, for **Rename**, **Duplicate**, **Move**, **Download**, **Archive**, **Unarchive** (`.zip` and `.tar.gz` only; convert `.rar` files on your computer first; a file that was only renamed to `.zip` or a damaged archive fails with an extraction error, so create a fresh archive at the source), **Properties** and **Edit chmod values** (file permissions).
+- Right-click a file, or use its menu, for **Rename**, **Duplicate**, **Move**, **Download**, **Archive**, **Unarchive** (`.zip`, `.tar.gz` and `.rar`; a file that was only renamed, or an archive damaged by an interrupted upload, fails with an extraction error, so upload it again or create a fresh archive at the source), **Properties** and **Edit chmod values** (file permissions).
 - Use **New File**, **New Folder**, **Upload Files** or **Upload Folder** to add things. To use an SFTP program instead, press **Open in SFTP client**.
 - **Upload Folder** (or dropping a folder) takes up to 500 files and 100 folders. For anything bigger, such as a modpack or a world, zip the folder on your computer, upload the single `.zip`, then right-click it and choose **Unarchive**. It is much faster and keeps every folder in place.
 
@@ -72,6 +72,18 @@ Choose **Share download link** on a file to get a link anyone can download it fr
 
 **Pull from URL** downloads a file straight to your server, for example a plugin `.jar` or a modpack. Paste a direct link to the file, optionally give it a name and folder, and press **Pull File**. Very large files may be refused; use SFTP for those.
 
+## Git
+
+**Git** (in the file manager's tools menu, with the Trash Bin and File Manager Settings) connects a folder of your server to a public Git repository, for example on GitHub.
+
+- **Clone** copies a repository into your server. Paste its HTTPS link (such as `https://github.com/user/repo.git`) as the **Repository URL** and optionally a **Target Directory**. The target folder must be empty.
+- **Pull** brings in new commits from the repository. If you changed files on the server that the update also changes, the pull stops and nothing is overwritten. It never pulls by itself; press **Pull** when you want the update.
+- The panel shows the branch, **Remotes**, **Recent Commits** and the files you changed, with a before and after view of each change.
+
+Only public repositories over HTTPS work. Private repositories, access tokens and SSH links are not supported, and you cannot commit or push from the panel. Cloning and pulling need both file and console permission on the server.
+
+Git works best for files you only ever change in the repository, such as a Discord bot or a website. We don't recommend it for a Minecraft server: the game and plugins rewrite their own config and data files while running, and any file changed on the server that the repository also changes makes the next pull stop. If you do use it, make every change in the repository, never in the panel.
+
 ## File history
 
 Where your server's node supports it, a file's history lists earlier saved versions. You can copy, download or **Restore** an older version.
@@ -111,6 +123,9 @@ To move a whole Minecraft server folder:
 - Where did the file editor go?
 - How do I share a file download link?
 - How do I download a file from a URL to my server?
+- Can I connect my server files to GitHub?
+- How do I clone or pull a GitHub repo to my server?
+- Pwede ba i-pull yung GitHub repo ko sa server?
 - How do I extract a zip?
 - Unarchive says not a valid zip file
 - How do I upload my world from another host?

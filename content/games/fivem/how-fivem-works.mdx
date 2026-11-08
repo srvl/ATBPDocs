@@ -1,6 +1,6 @@
 ---
 title: "How a FiveM server works"
-description: "The words you will meet running a FiveM server: FXServer, txAdmin, resources, frameworks, server.cfg, OneSync and game build, and where each one lives on ATBP."
+description: "The words you will meet running a FiveM server: FXServer, txAdmin, resources, frameworks, server.cfg, OneSync, game build and player slots, and where each one lives on ATBP."
 ---
 
 New to FiveM, or used to running it on your own Windows PC? This page explains the parts and how they fit together.
@@ -19,6 +19,7 @@ New to FiveM, or used to running it on your own Windows PC? This page explains t
 | **OneSync** | FiveM's player sync system. Most frameworks need it. With txAdmin you set it in txAdmin's **Settings**, not in `server.cfg`. |
 | **Game build** | Which GTA V update the server runs, set with `sv_enforceGameBuild` in `server.cfg`. Cars and maps from a newer GTA update need a build that includes that update. |
 | **Cfx.re license key** | The free `cfxk_` key every server needs. See [Set up your FiveM server](/games/fivem/getting-started). |
+| **Player slots** | How many players can join, set with `sv_maxclients`. A free key allows 48. See [Player slots](#player-slots). |
 
 ## Your server on ATBP
 
@@ -48,6 +49,27 @@ The server runs Linux, so file names are case-sensitive: `qb-core` and `QB-Core`
         └── resources/       your scripts, cars, maps and framework
 ```
 
+## Player slots
+
+How many players can join is set by `sv_maxclients` in your `server.cfg`. Your Cfx.re license key decides the most you can use:
+
+| Your key | Most players |
+| --- | --- |
+| Free key | 48 |
+| Element Club Argentum | 64 |
+| Element Club Aurum | 128 |
+| Element Club Platinum | 2048 |
+
+More than 48 players needs an [Element Club](https://fivem.net/server-hosting) subscription on the Cfx.re account that owns your license key. ATBP cannot sell or add it for you. 32 or more players needs OneSync, and more than 64 needs it set to **on**, which is txAdmin's default.
+
+To change it:
+
+1. On the **Startup** tab, set **Max Players**. It accepts 1 to 2048, and the panel writes it into `/home/container/server.cfg` every time the server starts.
+2. If txAdmin runs your server from a `txData/<name>.base` folder, also change `sv_maxclients` in the `server.cfg` inside that folder, because that is the one FiveM reads.
+3. Restart the server from txAdmin.
+
+Use a number your key allows.
+
 <details>
 <summary>Questions this page answers</summary>
 
@@ -59,5 +81,8 @@ The server runs Linux, so file names are case-sensitive: `qb-core` and `QB-Core`
 - Which server.cfg do I edit?
 - Pano gamitin yung server, walang RDP?
 - Saan ko ilalagay yung scripts ko?
+- How do I get more than 48 player slots?
+- Why does Max Players stop at 48?
+- Paano dagdagan ang slots ng FiveM server ko?
 
 </details>
