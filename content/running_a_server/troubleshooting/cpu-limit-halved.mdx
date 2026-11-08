@@ -1,25 +1,31 @@
 ---
 title: "CPU Limit Dropped to Half"
-description: "Why the panel's CPU maximum suddenly shows half of your plan (for example 100% instead of 200%), when it comes back, and how to stop it happening again."
+description: "Why the panel's CPU maximum can show half of your plan (for example 100% instead of 200%), when it comes back, and what to do."
 ---
 
 ## How you notice it
 
 - A yellow notice appears at the top of your server's **Console** page. It shows your limited CPU next to your plan's CPU, the reason, and when your full CPU comes back in your own local time. It goes away by itself when the limit ends.
 - The CPU graph in the game panel tops out at half of what it used to. A 2 vCPU plan that showed `/200%` now shows `/100%`; a 2.5 vCPU plan shows about `/125%`.
-- TPS drops and players feel lag at busy times, even though nothing in the server changed today.
 
 In the panel, 100% CPU is one vCPU fully in use, so a 2 vCPU plan normally goes up to 200%.
 
 ## What happened
 
-This is CPU Guardian. A server that uses more than its plan's CPU for over 60 minutes in a day is throttled automatically to half its CPU, so it cannot slow down the other servers on the node. Short spikes, such as the burst while a server starts or generates a few chunks, do not count.
+Your plan's CPU is yours to use all day, including at busy times. Running at your full CPU never gets a server limited. CPU Guardian only halves a server's CPU in two cases:
 
-The full limit comes back by itself at 1:00 AM Philippine time, or straight away if you upgrade the plan. You do not need to do anything for that.
+- **A flagged file.** A file on the server matches software known for heavy CPU use, such as a crypto miner, and the server is working hard.
+- **A staff limit.** A staff member limited the server and wrote the reason, which you see in the notice.
 
-If the CPU graph was only reaching half of the limit and you still lag, the server was probably throttled earlier. A server that keeps hitting the limit will lag at busy times anyway, throttled or not.
+The notice tells you which one it is, and when your full CPU comes back. You do not need to do anything for it to come back.
 
-## Find what is using the CPU
+## What to do
+
+If the notice mentions a file and you do not recognise it, check your plugins and mods folders and remove anything you did not add. See [Installing plugins](/plugins_and_modifications/installing-plugins). If you think it is wrong, or you have fixed it, open a ticket in our [Discord](https://discord.atbphosting.com) with your panel link and staff can lift the limit early.
+
+## If your server lags at its full CPU
+
+A server that keeps running at its CPU limit will lag at busy times, even though nothing limited it. To find what is using the CPU:
 
 **Minecraft Java (Paper, Purpur, Fabric and others):**
 
@@ -33,15 +39,7 @@ Spark does not run on Bedrock. Lower `view-distance` and `tick-distance` in `ser
 
 **Other games:** lower the player count, view distance or tick rate in the game's own settings, and check mods you added recently.
 
-Tuning tips for Minecraft are on [Optimization](/running_a_server/optimization) and [Troubleshooting lag](/running_a_server/troubleshooting/lag-troubleshooting).
-
-## Get the limit lifted early
-
-Once you have fixed the cause, open a ticket in our [Discord](https://discord.atbphosting.com) with your panel link and staff can lift the limit before 1:00 AM. Your hour then starts again from zero, and if the server goes straight back to full CPU the limit can come back.
-
-## If it keeps happening
-
-If a tuned server still runs at its CPU limit every evening, the plan has too few vCPU for the players and mods you run. Upgrading gives the full limit back at once and keeps your files. See [Upgrades and downgrades](/billing/upgrades-and-downgrades) and [Choosing a plan](/general/choosing-a-plan). Staff can look at your server in a ticket and tell you whether tuning or a bigger plan will help more.
+Tuning tips for Minecraft are on [Optimization](/running_a_server/optimization) and [Troubleshooting lag](/running_a_server/troubleshooting/lag-troubleshooting). If a tuned server still runs at its limit every evening, the plan has too few vCPU for the players and mods you run. See [Upgrades and downgrades](/billing/upgrades-and-downgrades) and [Choosing a plan](/general/choosing-a-plan).
 
 <details>
 <summary>Questions this page answers</summary>
@@ -51,7 +49,8 @@ If a tuned server still runs at its CPU limit every evening, the plan has too fe
 - Bakit naging 100% na lang yung CPU ng server ko?
 - My plan has 2 vCPU but only 1 is used, why?
 - When does my full CPU come back?
-- Can staff remove the CPU throttle early?
+- Can staff remove the CPU limit early?
+- Will my server be limited for using all of its CPU?
 - How do I find what is using all my CPU?
 - Does Spark work on Bedrock?
 
