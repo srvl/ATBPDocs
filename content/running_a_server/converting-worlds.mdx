@@ -23,3 +23,13 @@ Now, return to the root folder, open the `world` folder and paste the `DIM-1` fo
 Return to the root folder once again and go into `world_the_end`. From here, copy the `DIM1` folder and paste it in the `world` folder, as we did with the `DIM-1` folder previously.
 
 By copying the DIM-1 and DIM1 folders into `world`, you have made a copy of all the data of the Nether and End dimensions available in the `world` folder, which means that it now contains all the required data to run all three dimensions successfully (it already has its own copies of `level.dat`, `session.lock` and `uid.dat`) and can be run without issue on vanilla, Fabric, Forge and other servers. 
+
+## Going back to Paper, Purpur or Spigot
+
+Moved a vanilla, Fabric or Forge world back to Paper on 1.21.11 or older and your Nether and End builds are missing? Paper is looking for them in their own folders. Make a [backup](/using_the_panel/backups/guide), stop the server, then:
+
+1. Move `world/DIM-1` into the `world_nether` folder, so you have `world_nether/DIM-1`.
+2. Move `world/DIM1` into the `world_the_end` folder, so you have `world_the_end/DIM1`.
+3. Start the server and check both dimensions.
+
+If you already deleted those folders, restore them from a backup with the server stopped, then put them back as above. Paper 26.1 and newer keeps every dimension inside `world`; see [World reset](/running_a_server/world-reset) for its layout.
