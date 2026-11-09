@@ -21,9 +21,26 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 ## What a backup includes
 
-A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore when creating it are left out. Backups are stored apart from your server's files, so they do not count toward your disk, and resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
+A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore are left out. Backups are stored apart from your server's files, so they do not count toward your disk, and resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
 
 Databases from the **Databases** tab are not part of a backup; export them separately if your plugins use one.
+
+### Leave files out of every backup
+
+Create a file named `.pteroignore` in the main folder of your server, with one rule per line. Every backup follows it, including scheduled backups and Auto Backups, so anything it lists cannot be restored from them. A list typed into **Create Backup** adds to these rules for that backup.
+
+The rules work like a `.gitignore` file:
+
+| Line | What it leaves out |
+|---|---|
+| `plugins.zip` | Every file or folder with that name, in any folder |
+| `archive-*.tar.gz` | Every matching file, in any folder. `*` stays inside one folder name |
+| `world/data` | That path, counted from the main folder |
+| `/old.zip` | Only the one in the main folder |
+| `schemtest/` | The contents of every folder with that name, not a file with that name |
+| `!plugins/keep.jar` | Nothing: it puts a file back that an earlier line left out |
+
+Blank lines and lines starting with `#` are skipped. A list can have up to 256 rules.
 
 ---
 
@@ -140,5 +157,7 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - Who deleted my files?
 - Nawala mga files ko, paano ibalik?
 - Do you have another copy of my server?
+- How do I leave files out of my backups with .pteroignore?
+- Why is a file I put in .pteroignore still in my backup?
 
 </details>
