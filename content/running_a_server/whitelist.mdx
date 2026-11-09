@@ -1,6 +1,6 @@
 ---
 title: "Setting Up Whitelist"
-description: "How to set up a whitelist on Java and Bedrock servers, including offline (cracked) servers, and what to check when a whitelisted player still cannot join."
+description: "How to set up a whitelist on Java and Bedrock servers, including offline (cracked) servers and Bedrock players joining through Geyser, and what to check when a whitelisted player still cannot join."
 ---
 
 import { Callout } from 'nextra/components'
@@ -33,6 +33,9 @@ Entries added on the Players page may not let cracked players in, because an off
 - Check the kick message. "You are not whitelisted on this server" means the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`.
 - A player who switches accounts in their launcher joins with a different name. Whitelist the name they are using now.
 - After editing `whitelist.json` by hand, run `whitelist reload`.
+
+### Bedrock players joining through Geyser
+On a Java server with Geyser and Floodgate, add Bedrock players with Floodgate's own command. In the **Console** tab, run `fwhitelist add BedrockName`, using the player's Bedrock name **without** the `.` that appears in front of it in game. `/allowlist` is only for Bedrock servers and does nothing here. See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 
 ### With commands
 To start off, here's a list of all the sub-commands under the whitelist command:

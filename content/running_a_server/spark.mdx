@@ -6,7 +6,9 @@ description: "Use the Spark profiler to find what is causing lag on your Minecra
 What does the plugin do?
 [Spark](https://www.spigotmc.org/resources/spark.57242/) is a performance profiling plugin (with limited availability for Forge and Fabric) that can display server information, such as TPS, memory, tick durations, CPU usage, and disk usage. More importantly, it can create a performance profile that can be viewed on a full-featured web interface. It does not require any configuration and is incredibly easy to install.
 
-Spark is for Minecraft Java servers (Paper, Purpur, Fabric, Forge and proxies). It does not run on Bedrock or Endstone.
+The Spark on this page is for Minecraft Java servers (Paper, Purpur, Fabric, Forge and proxies). It does not run on Vanilla Bedrock.
+
+Endstone has its own build, [Spark for Endstone](https://github.com/EndstoneMC/spark). Download `endstone_spark.so` from its latest release, put it directly in your `plugins` folder and fully restart the server. Then `/spark profiler start` and `/spark profiler stop` make a profile, `/spark tps` shows server speed and `/spark health show` shows memory and other resources. The Setup section below is for Java only.
 
 In game, commands start with `/`. In the panel **Console**, leave the `/` out, for example `spark profiler start`, or the console answers `Unknown command`.
 
