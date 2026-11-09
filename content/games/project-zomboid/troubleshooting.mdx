@@ -1,6 +1,6 @@
 ---
 title: "Project Zomboid builds and common errors"
-description: "Build 41 or 42, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
+description: "Build 41 or 42, updating the server when the client version does not match, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
 ---
 
 All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
@@ -18,6 +18,16 @@ Build 42 is the current version and what new servers run. Build 41 is still avai
 - Server and every player must be on the same build. Players switch in Steam: right-click Project Zomboid, **Properties**, **Betas**.
 - Build 41 and Build 42 worlds are not compatible. Back up before switching.
 - To run Build 41, set the Steam beta branch to `legacy41` on the **Startup** tab if your server shows that field, then press **Reinstall Server** under **Settings**. If there is no such field, open a ticket and we will set it.
+
+## "Client version does not match server version"
+
+Steam updates players' games as soon as a new Project Zomboid build is out, so the server can end up one build behind. To update the server:
+
+1. Make a backup in the **Backups** tab and wait for it to finish.
+2. On the **Startup** tab, change **Steam auto update** from `0` to `1`.
+3. Open **Settings** and press **Reinstall Server**.
+
+You do not need to change the setting back to `0` afterwards. If the server is on the right build and only one player gets the message, that player picks the matching build in Steam under **Properties**, **Betas**.
 
 ## Make the server private
 

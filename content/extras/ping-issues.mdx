@@ -26,8 +26,8 @@ A traceroute is a single snapshot. MTR keeps pinging every hop, so it catches lo
 
 1. Download [WinMTR](https://sourceforge.net/projects/winmtr/), extract it and open `WinMTR.exe`.
 2. Enter your server's IP in the **Host** field and press **Start**.
-3. Let it run for at least a minute (100 packets or more), then press **Stop**.
-4. Take a screenshot, or press **Copy Text to clipboard** and paste it in your ticket.
+3. Let it run for at least 1 to 2 minutes (100 packets or more), then press **Stop**.
+4. Press **Copy Text to clipboard** and paste it in your ticket as text. Screenshots often get cut off, and then we cannot read the whole route.
 
 **Linux**: install `mtr` from your package manager and run `mtr 123.45.67.89`. **macOS**: install it with Homebrew (`brew install mtr`).
 
@@ -37,7 +37,7 @@ Phones have no built-in traceroute, so install a free traceroute or MTR app from
 
 ## When only some players cannot join or lag
 
-If the server works for some players but not others, the test has to come from the players who have the problem, not from the server owner. Each affected player runs one of the tests above against the server's IP and sends a screenshot. This usually turns out to be the route from their internet provider to Singapore; mobile data or a VPN works around it until the route is fixed, but we need their results to report or fix it.
+If the server works for some players but not others, the test has to come from the players who have the problem, not from the server owner. Each affected player runs one of the tests above against the server's IP and sends the result together with their public IPv4 address (from any "what is my IP" site). We need both, and results from more players make the problem easier to find. This usually turns out to be the route from their internet provider to Singapore; mobile data or a VPN works around it until the route is fixed, but we need their results to report or fix it.
 
 ## Reading the result
 
@@ -51,7 +51,8 @@ If the server works for some players but not others, the test has to come from t
 
 Open a ticket on our [Discord](https://discord.atbphosting.com) with:
 
-- a full screenshot of the MTR or traceroute, not a summary
+- the full MTR or traceroute result as text (a full screenshot if you tested on a phone), not a summary
+- the public IPv4 address of each player who has the problem
 - the time the lag happened
 - whether it happens all the time or only sometimes, and whether other players see it too
 
