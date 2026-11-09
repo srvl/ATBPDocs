@@ -15,7 +15,7 @@ The Splitter page shows the CPU, memory and storage your server has, your main s
 
 ![The panel's More > Splitter page with the Assigned CPU, Memory and Disk cards, the main server and the Splits count](/screenshots/panel-more-splitter.webp)
 
-Now fill in the details of your new split, such as its name, the server type, and how much RAM and storage to give it.
+Now fill in the details of your new split, such as its name, the server type, and how much RAM and storage to give it. The ports (allocations) box is how many ports the split can have, and the minimum is 1. A normal Minecraft server only needs 1, or 2 with Geyser.
 
 The server type list has your main server's game in every version it supports, Discord bots and databases, plus every other game your main server's plan covers. What a split may run follows the main plan's size, not the split's: a 32 GB Minecraft plan can give a 4 GB split to Hytale. The rule is the same as for [switching games](/using_the_panel/basic-controls#switching-to-a-different-game). If the game needs its own port, add one in the split's **Network** tab.
 
@@ -23,9 +23,22 @@ Click on Split Server and you will see a window confirming whether you want to c
 
 You can interact and manage this new server in the same way as you would with your main server.
 
-When you log in to the game panel, you can see your new server in the list of servers you can manage.
+When you log in to the game panel, you can see your new server in the list of servers you can manage. To change a split's RAM, CPU or storage later, open **More > Splitter** on the main server and click the split. To work in the split itself, press its home button there or pick it from the server list.
 
 To put your servers in the order you like, drag them on the panel's server list. The order is saved in your browser, so set it again on another device or after clearing your browser data. You can rename servers in the **Settings** tab.
+
+## Copy plugins or files from your main server to a split
+
+Each split has its own files, so nothing is shared with the main server. To copy plugins, their config folders or anything else:
+
+1. On the main server, open **Files**, select what you want (for example the `plugins` folder) and choose **Archive**.
+2. Download the archive. Big archives are easier over [SFTP](/using_the_panel/sftp).
+3. Stop the split, open its **Files** tab and upload the archive.
+4. Choose **Unarchive** on it, then start the split.
+
+## Connect splits so players can move between them
+
+Splits are separate servers with separate addresses. To let players move between them with one address, run a [Velocity proxy](/running_a_server/velocity) on one split. If you only want several worlds on one server, you don't need a split: use [Multiverse](/plugins_and_modifications/plugins/multiverse).
 
 ## The ports box is red and will not take a number
 
