@@ -42,6 +42,8 @@ Splits are separate servers with separate addresses. To let players move between
 
 ## The ports box is red and will not take a number
 
-If the ports (allocations) box stays red when you make a split, your main server is probably holding ports it does not need. Stop the main server, open its **Network** tab, click **Show ports** on any line of ports in a row, and delete the ones you do not use. Then try the split again.
+A split's ports (allocations) come from your main server, so the box stays red when your main server has no spare ports to give. For example, you can't give a split 12 ports while your main server is using all of its ports. With enough spare ports, the split works fine.
+
+To free some, stop the main server, open its **Network** tab and delete the ports you do not use (on a line of ports in a row, click **Show ports** first). Then try the split again.
 
 A Java server with Geyser and an Endstone server each need only one Bedrock port. Only a Vanilla Bedrock server needs a block of ports, one per player online at once. See [Adding Ports](/using_the_panel/adding-ports).
