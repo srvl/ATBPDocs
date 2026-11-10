@@ -1,6 +1,6 @@
 ---
 title: "Project Zomboid builds and common errors"
-description: "Build 41 or 42, updating the server when the client version does not match, a private whitelisted server, Workshop version mismatch, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
+description: "Build 41 or 42, updating the server when the client version does not match, a private whitelisted server, Workshop version mismatch, the WorldDictionary error, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
 ---
 
 All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
@@ -52,6 +52,15 @@ The server has an older copy of a mod than the player, or the reverse.
 3. Start the server. It checks every Workshop mod for updates, which can take a few minutes with many mods.
 
 If one player still gets the error, they unsubscribe from all Project Zomboid Workshop items in Steam and join again; the game downloads the right versions.
+
+## "WorldDictionary: Cannot load world due to WorldDictionary error"
+
+The save was made with a different set of mods than the server has now, usually because mods were removed or the mod list was reset. The world still lists items from the missing mods, so it refuses to load.
+
+- To keep the world, put the same mods back on the **Mods** page and start the server. See [mods](/games/project-zomboid/mods).
+- To play with the new mod list, [reset the map](/games/project-zomboid/saves#reset-the-map) so a fresh world is made with it.
+
+After changing mods, each player closes Project Zomboid fully and opens it again before joining.
 
 ## "No space left on device" on startup
 
