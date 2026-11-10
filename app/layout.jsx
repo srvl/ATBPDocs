@@ -50,6 +50,7 @@ export default async function RootLayout({ children }) {
       <Head color={{ hue: 30, saturation: 95 }}>
         {/* cookieless visit counter (ATBP insights, self-hosted); counts page changes on its own */}
         <script defer src="https://insights.srvl.dev/a.js" data-website-id="d43fb674-5129-4fb0-8106-558c431ef1d5" data-domains="docs.atbphosting.com" data-atbp-insights></script>
+        <script defer src="/docs-events.js"></script>
       </Head>
       <body>
         <Layout
