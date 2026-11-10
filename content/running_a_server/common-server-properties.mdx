@@ -38,7 +38,11 @@ Allow-flight only matters in survival. Anti-cheats usually need to be told separ
 
 ## Turn on hardcore
 
-These steps are for Minecraft Java servers. `hardcore=true` in `server.properties` is only used when a world is first made. An existing world keeps its own setting in `level.dat`, so changing the line and restarting does nothing to it. To test, die once: if you can still respawn, the world is not hardcore.
+The steps depend on your edition. To test either one, die once: if you can still respawn, the world is not hardcore.
+
+### Minecraft Java
+
+`hardcore=true` in `server.properties` is only used when a world is first made. An existing world keeps its own setting in `level.dat`, so changing the line and restarting does nothing to it.
 
 **For a new world:**
 
@@ -53,6 +57,15 @@ These steps are for Minecraft Java servers. `hardcore=true` in `server.propertie
 3. Under `Data`, set `hardcore` to `1` and `Difficulty` to `3` (Hard). On newer Minecraft versions these can sit in a group such as `difficulty_settings`, with `hard` written as a word.
 4. Save and start the server.
 
+### Vanilla Bedrock and Endstone
+
+Hardcore works on both, but it has to be set when the world is created, so you make the world in the game and upload it. An existing Bedrock world can't be switched to hardcore.
+
+1. In Minecraft Bedrock, create a new world with **Hardcore** turned on.
+2. Export the world from your world list.
+3. Stop the server. In **Files**, upload the world folder into `worlds/`. See [Upload a .mcworld file](/games/minecraft-bedrock/worlds-and-packs#upload-a-mcworld-file-phone-tablet-or-exported-world) for how to turn the export into a folder.
+4. In `server.properties`, set `level-name` to that folder's exact name, save, and start the server.
+
 <details>
 <summary>Questions this page answers</summary>
 
@@ -63,5 +76,8 @@ These steps are for Minecraft Java servers. `hardcore=true` in `server.propertie
 - Why is my server not hardcore after I set `hardcore=true`?
 - Can I turn an existing world into hardcore?
 - Bakit nakaka respawn pa rin kahit naka hardcore?
+- Can I play hardcore on Bedrock or Endstone?
+- How do I make a hardcore world on Bedrock?
+- Pwede ba mag hardcore sa Bedrock o Endstone?
 
 </details>
