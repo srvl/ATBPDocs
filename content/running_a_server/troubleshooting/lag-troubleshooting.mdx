@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting Lag"
-description: "Work out whether lag is the server (TPS), your connection (ping) or your device (FPS), and what to send support."
+description: "Work out whether lag is the server (TPS), your connection (ping) or your device (FPS), what to check on a Bedrock server, and what to send support."
 ---
 
 "Lag" can mean three different things, and each has a different fix. Find out which one you have before changing anything.
@@ -10,6 +10,8 @@ description: "Work out whether lag is the server (TPS), your connection (ping) o
 | Blocks reappear, mobs freeze or teleport, everyone lags at once | Server lag (low TPS) | Step 1 and 2a |
 | Rubber-banding, high ping number, only some players affected | Network lag (ping) | Step 2b |
 | Choppy picture, low frame rate, only on one device | Your device (FPS) | Lower your render distance and graphics settings |
+
+The Spark steps below are for Java servers. On Vanilla Bedrock or Endstone, go to [Bedrock servers](#bedrock-servers) first.
 
 ## Step 1: Check server speed
 
@@ -33,6 +35,16 @@ The panel's RAM graph often looks full. That is normal: Java reserves memory up 
 4. For more, see [Optimization](/running_a_server/optimization) and [Server optimisation](/general/server-optimization).
 
 Plans have a set amount of CPU, and you can use all of it. If the panel's CPU maximum suddenly shows half of your plan, see [CPU limit dropped to half](/running_a_server/troubleshooting/cpu-limit-halved). A server that keeps running at its CPU limit will lag at busy times however it is tuned; the Spark report shows this, and staff can tell you if a bigger plan would help.
+
+## Bedrock servers
+
+Spark is a Java plugin, so it does not run on Vanilla Bedrock. Endstone has [its own Spark build](/running_a_server/spark). When everyone on a Bedrock server freezes or rubber-bands at once, check these three things first:
+
+1. **`randomtickspeed`**: the normal Bedrock value is `1`, not `3` as on Java. A high value makes the server do far more crop, leaf and grass updates in every loaded chunk, and a very high one slows the whole server even with one player online. Type `gamerule randomtickspeed 1` in the **Console**. It applies straight away, with no restart. For faster crops, stay at `2` or `3`.
+2. **Distances**: stop the server, open `server.properties` in **Files**, and set `view-distance` to around `8` and `tick-distance` to `4`. A view distance of `32` is far too high for a server with several players. Save and start the server.
+3. **Farms and redstone**: big mob farms, piles of dropped items and redstone clocks that never stop cost the most. Turn them off one at a time and see if the lag goes away.
+
+If the server still lags after that, open a [support ticket](/general/getting-support) with your panel link and the time the lag happened, so staff can look at the server directly. A bigger plan does not fix lag that comes from a world setting.
 
 ## Step 2b: Server is fine but you still lag
 
