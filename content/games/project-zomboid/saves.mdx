@@ -46,7 +46,7 @@ Keep the same `<name>`, or rename every file and the world folder to match your 
 
 The panel has no reset button, and deleting that one folder is all a map reset needs. Leave the files in `.cache/Server` alone: the `.ini` holds your mod list and `_SandboxVars.lua` holds your sandbox settings, so deleting them gives you a server with no mods and default settings. If the `.ini` was deleted, look for a `.ini.bak` next to it and copy its `Mods=`, `WorkshopItems=` and `Map=` lines into the new `.ini`, then save and start the server.
 
-Sandbox settings such as zombie count or when power and water shut off are read when the world is made. Change them in `_SandboxVars.lua` first, then reset the map so the new world starts with them.
+Change sandbox settings such as zombie count in `_SandboxVars.lua` first, then reset the map so the new world starts with them. The power and water days are the exception: the server checks them against the world's current day each time it starts, so a restart is enough for those.
 
 For a full reset that also removes settings and mods, open a ticket on our [Discord](https://discord.atbphosting.com) so we can reinstall the server for you.
 
