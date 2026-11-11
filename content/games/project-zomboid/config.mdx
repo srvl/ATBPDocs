@@ -29,8 +29,9 @@ Open each, edit, and use **Save Content**. Then start the server from the **Cons
 
 ## Common settings in the SandboxVars file
 
-- `Zombies =` population: 1 Insane, 2 High, 3 Normal, 4 Low
-- `WaterShutModifier =` and `ElecShutModifier =` days until water and power go off
+- `Zombies =` population: 1 Insane, 2 Very High, 3 High, 4 Normal, 5 Low, 6 None
+- `ElecShutModifier =` and `WaterShutModifier =` the in-game day power and water go off. Power is on while the world is on that day or earlier. `14` is the default, `-1` means no power from the first day, and a large number such as `100000` keeps it on.
+- `ElecShut =` and `WaterShut =` only matter when a world is made in the game's own menu. On your server they do nothing, so change the `Modifier` lines instead.
 - `XPMultiplier =` for example `2.0` is double XP
 - Loot options such as `FoodLoot=` and `WeaponLoot=`: 1 Extremely Rare, 2 Rare, 3 Normal, 4 Common
 
