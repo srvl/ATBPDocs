@@ -4,7 +4,9 @@ description: "Free help from ATBP staff to fix lag and tune your server settings
 ---
 
 - Optimisation help is **free** for all customers. There is no paid optimisation. Open a **Server Optimization** ticket and we look at your Spark report, tell you what is lagging and which settings to change.
-- Start with the **Auto Optimizer** egg (panel > Settings > change server type). It tunes Paper/Leaf settings on every start. After turning it on (or choosing it), go to Settings > Reinstall Server so it applies; make a backup first. Note: it rewrites view and simulation distance each start; switch to the plain LeafMC egg if you want to set these yourself.
+- Start with the **Auto Optimizer** egg (panel > Settings > change server type). It puts our tuned Paper, Purpur or Leaf config files on your server when the server is installed or reinstalled, so after turning it on (or choosing it), go to Settings > Reinstall Server; make a backup first.
+- A reinstall with Auto Optimizer on replaces `server.properties` too: view distance goes back to 8, simulation distance to 4, and settings such as the MOTD and whitelist go back to default. Note yours before you reinstall and set them again after. Switch to the plain LeafMC egg if you want to keep every setting yourself.
+- Each Minecraft version uses its own config set. A version without one (for example 1.21.10) gets the nearest older set of the same line. Older versions with no set at all, such as 1.21.1, install without it and the install summary says "Not available".
 - For lag, open a Hosting Support ticket with a Spark report: run `/spark profiler --timeout 120`, then share the link. For lag spikes use `/spark profiler --only-ticks-over 100 --timeout 120`.
 - Common fixes: lower view distance to 6 to 8, limit mob farms and entities, update plugins to versions made for your Minecraft version, and pre-generate your world with Chunky. Chunky pauses by itself during peak hours (evenings Philippine time, from the afternoon on weekends) and continues after, so you can start it any time. See [Chunky](/plugins_and_modifications/multiplatform/chunky-multi#automatic-pause-during-peak-hours).
 - Bedrock servers: Spark does not run on Vanilla Bedrock, so start with the [Bedrock lag checks](/running_a_server/troubleshooting/lag-troubleshooting#bedrock-servers): `gamerule randomtickspeed 1`, a lower `view-distance` and fewer farms.
@@ -27,6 +29,8 @@ description: "Free help from ATBP staff to fix lag and tune your server settings
 - How do I take a spark report?
 - Why does my view distance keep resetting?
 - Auto optimizer egg?
+- Does the Auto Optimizer run on every start?
+- Why did my MOTD reset after a reinstall?
 - Can I refund after you optimise my server?
 - Why did my Chunky pause by itself?
 - Bakit nag-pause ang Chunky ko?
