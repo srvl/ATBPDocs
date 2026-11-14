@@ -11,7 +11,13 @@ These errors all mean your game could not reach the server:
 ## Check the basics
 
 1. **Is the server online?** Open the [panel](https://panel.atbphosting.com) and confirm the status is running and the console shows the server has finished starting (for Minecraft Java, the `Done` line). If it is stopped, crashed or still starting, fix that first.
+
+   ![Game panel Console of a server that is offline: Uptime shows Offline, press the Start button](/screenshots/panel-console-offline-start.webp)
+
 2. **Use the full address with the port.** ATBP servers do not use the default port 25565, so the port is needed. Copy the IP and port exactly from the **Network** tab, in the form `IP:port`. An address without `:port` gives **Connection refused**. A subdomain from the panel already includes the port.
+
+   ![Game panel Network tab: the IP address and port of your server, with the Primary port marked](/screenshots/panel-network-tab-address.webp)
+
 3. **Use Direct Connection.** In Minecraft, choose **Direct Connection** instead of a saved server and paste the address. Saved entries keep an old port.
 4. **Did you change ports?** If you deleted your main port or made another port primary, the old address stops working. Players need the new one, and a subdomain must be made again on the new port, see [Adding Ports](/using_the_panel/adding-ports). For Geyser, Java and Bedrock players use different ports, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 5. **Restart the server** from the panel and try again after it fully starts.
@@ -24,6 +30,11 @@ If the console shows players connecting and then being kicked with a message, th
 Your own internet or route may be the problem. Signs: the server works on your phone but not on your computer, or the game panel itself will not load for you while it loads for others. On the panel this often looks like a Console and Files tab that never finish loading, with a red message saying **We're having some trouble connecting to your server, please wait...** Your server is usually running fine in that case. This is a routing problem between your internet provider and our DDoS protection, and it is usually temporary.
 
 - Open https://atbphosting.com/network/ to see live whether your ISP's route to our servers is slow or down.
+
+  ![Network Status, the path to your server: your internet (ISP), DDoS protection, data centre network and our game servers, with the ISP step marked](/screenshots/network-status-path.webp)
+
+  ![Network Status, Philippine ISPs table: status and typical ping now for PLDT, Globe, Converge, Smart and DITO](/screenshots/network-status-isp-ping.webp)
+
 - Restart your router or try mobile data.
 - Try a free VPN such as the **1.1.1.1** app (https://one.one.one.one/) on the device that cannot connect. Turn on **WARP** in the app (on a computer, the mode called **Traffic and DNS**). The DNS-only mode does not change your route, so it will not fix this. If it works with the VPN on, the route is the cause; use the VPN until it clears, usually a day or so. If you already use a VPN, turn it off or try another.
 - Ping is often higher on a VPN, because your traffic takes a longer path. That is expected while you use it as a workaround; turn the VPN off once the normal route works again.

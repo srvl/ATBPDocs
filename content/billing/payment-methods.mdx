@@ -7,11 +7,24 @@ import { Callout } from 'nextra/components'
 
 Pay at https://billing.atbphosting.com under Invoices, or add credit first under **Account > Credits**. We accept:
 
+![Billing: Account > Credits in the left menu opens the Credits page, with your balance at the top right](/screenshots/credits-open-page.webp)
+
 - **GCash**. Send from the number saved on your account and it is added automatically, or get an exact amount on the Credits page and send it from any GCash account. See [GCash](/billing/gcash).
+
+  ![Credits page, GCash tab: the GCash number to send to and the Show QR code link](/screenshots/credits-gcash-number.webp)
+
 - **Maya / PayMaya**. When you pay an invoice with Maya you get an exact amount to send, usually just the amount due, with a 15-minute timer. Send exactly that from any Maya account and it is added automatically, even if Maya shows your username (for example @juan) instead of your number. A payment from the number saved on your account is matched too. On the Credits page you can send from your saved number, or get an exact amount there (use that if Maya shows your username). Use Maya's normal **Send money**, not a **Money Card**: Maya does not show us the amount of a Money Card, so staff add it by hand after checking, which is not instant.
+
+  ![Credits page, Maya tab: the Maya number to send to and the number you send from](/screenshots/credits-maya.webp)
+
 - **Bank transfer** from any Philippine bank over InstaPay, to our Maya or our GCash, credited automatically. To Maya you send an exact amount we give you; to GCash you enter the last 4 digits of your bank account number (not your card). See [Bank transfer](/billing/bank).
+
+  ![Credits page, Bank transfer tab, To Maya: enter the pesos to add and press Get exact amount](/screenshots/credits-bank-transfer-to-maya.webp)
+
 - **PayPal** and **card (Stripe)** at checkout. You can save either one so renewals are charged automatically.
 - **Crypto**, when paying an invoice or on the Credits page. Choose **Crypto**, then pick the coin from the list; right now that is **Litecoin (LTC)**. You get an exact amount of that coin to send from any exchange or wallet; it is credited after the network confirms it. See [Paying with crypto](/billing/crypto).
+
+  ![Credits page, Crypto tab: Litecoin (LTC), enter the pesos to add and press Get exact amount](/screenshots/credits-crypto.webp)
 
 ## Auto and Manual
 
@@ -19,6 +32,8 @@ When you pay an invoice, PayPal, Stripe, GCash, Maya, Bank transfer and Crypto a
 
 - **Auto** (green): your credit is added automatically, usually within a minute.
 - **Manual** (yellow): staff confirm it. For GCash, upload your receipt on the payment screen or the Credits page after paying (see [When GCash shows Manual](/billing/gcash#when-gcash-shows-manual)). For other methods, open a **General Inquiry** ticket on [Discord](https://discord.atbphosting.com) with your receipt and account email.
+
+  ![Credits page when GCash shows Manual: enter the amount you sent and press Choose picture to upload your GCash receipt](/screenshots/credits-gcash-upload-receipt.webp)
 
 On the Credits page each method has its own tab, and only a method that staff confirm right now carries a yellow **Manual** tag. Bank transfer shows the tag per destination: a bank transfer to Maya or GCash is Manual whenever that wallet is. A method can switch to Manual for a while, for example if GCash notifications are delayed. GCash and Maya do this by themselves: if an automatic top-up is not matched within a few minutes, or the payment service stops answering, the method switches to Manual, and it switches back to Auto once automatic top-ups work again. The tag always shows the current state.
 
