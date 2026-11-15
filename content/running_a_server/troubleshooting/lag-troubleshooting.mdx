@@ -24,7 +24,7 @@ The panel's RAM graph often looks full. That is normal: Java reserves memory up 
 ## Step 2a: Server is slow
 
 1. Run `spark profiler start --timeout 120` while the lag is happening and players are online, wait for it to finish, and open the link. For short spikes, use `spark profiler start --only-ticks-over 100 --timeout 120`.
-2. Look at which plugins or tasks use the most time per tick.
+2. Look at which plugins or tasks use the most time per tick. To have it read for you, paste the link into our [Spark Analyzer](/running_a_server/spark-analyzer): it lists what is lagging the server and the settings to change.
 3. The usual causes and fixes:
    - **Unexplored world**: pre-generate with [Chunky](/plugins_and_modifications/multiplatform/chunky-multi), with nobody online.
    - **Distances too high**: view distance 6 to 8 and simulation distance 3 to 4 suit most servers. See [Common server.properties settings](/running_a_server/common-server-properties).
