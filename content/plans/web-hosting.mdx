@@ -42,7 +42,7 @@ Everything common is a button on your service page in billing, without learning 
 - **Databases and more websites** opens your simple control panel page: your domain and SSL status, your files, WordPress, Node.js, **Create a database** and **Add another website**. Scheduled tasks and backups are under **All tools** there.
 - **Generate new password** sets a new password, shown for 10 minutes. Use it to log in directly at https://web1.atbphosting.com:8087 or with an SFTP app. We never email it.
 
-Uploading with an SFTP app: host `web1.atbphosting.com`, port `22`, your panel user name, and the password from **Generate new password**. Website files go in `web/your-domain/public_html`.
+Uploading with an SFTP app: host `web1.atbphosting.com`, port `22`, your panel user name, and the password from **Generate new password**. An SSH key added in the panel works too. It is SFTP only, with no shell, so commands like `npm` or `git` can't run. Website files go in `web/your-domain/public_html`, a Node.js app in `web/your-domain/private/nodeapp`.
 
 ## Running your site
 
