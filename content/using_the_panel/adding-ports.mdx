@@ -44,7 +44,7 @@ Each range has 100 ports (200 on some Budget+ servers, for example 25600-25799).
 
 ## TCP or UDP?
 
-Yes, UDP is supported. Every port you add is opened for both TCP and UDP on your server. The protocol in the table and the dropdown is what that kind of traffic uses, so pick the choice that matches what you are running:
+Yes, UDP is supported. A port is not open for both TCP and UDP just because you added it: each range lets through the protocol shown next to it in the table and the dropdown. Pick the choice that matches what you are running:
 
 - Voice chat (Simple Voice Chat, VCMC), ARK, Valheim, Rust, Counter-Strike and TeamSpeak voice use **UDP**. Choose their own entry, or **Other games** for any other UDP game or service.
 - Minecraft Java, Votifier, bots, web maps, websites, RCON, Rust+ and TeamSpeak query and file transfer use **TCP**. Choose **Bots and websites** for anything web or bot related, and for those game tools. The game's own range doesn't let TCP through, so RCON or Rust+ on a Rust port won't connect.
@@ -86,6 +86,7 @@ Game servers come with 5 ports: your main port plus 4 you can add. Each split ad
 - I can't see the Add port button
 - Are the ports TCP or UDP?
 - Do you support UDP?
+- Is every port open for both TCP and UDP?
 - Which port range is for voice chat?
 - Can I use a Bedrock port for another game?
 - Nobody can join after I used a port from another range

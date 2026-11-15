@@ -9,6 +9,7 @@ export default {
   "suspensions_and_terminations": "Suspensions and Terminations",
   "discounts-and-coupons": "Discounts, coupons and promo codes",
   "current-promotions": "Current promotions",
+  "affiliate-program": "Affiliate program",
   "refund-policy": "Refund policy",
   "renewals-suspension-and-deletion": "Renewals, overdue invoices, suspension and deletion",
   "upgrades-and-downgrades": "Upgrading or downgrading a server"
