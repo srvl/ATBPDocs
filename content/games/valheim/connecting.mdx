@@ -10,12 +10,12 @@ import { Callout } from 'nextra/components'
 1. In the [panel](https://panel.atbphosting.com), copy your server's IP address and port.
 2. Start Valheim, press **Start Game**, and pick your character.
 3. Open the **Join Game** tab and choose **Add Server**.
-4. Paste the IP and port exactly as shown, with no extra spaces, and click **Connect**.
+4. Type the address and port together, for example `play.example.atbp.fun:2500`, with no extra spaces, and click **Connect**. Always add the `:port`. Valheim does not find the port by itself, and this applies to a subdomain too.
 5. Enter the server password if asked. Passwords are case-sensitive.
 
 ## Console and Game Pass (crossplay)
 
-Crossplay is **off** on our Valheim servers. Xbox, PlayStation, Switch 2 and PC Game Pass players join through Microsoft PlayFab, and PlayFab connections from our network do not work yet, so a server with crossplay on never finishes starting. Play on PC through Steam for now. We will update this page when crossplay works.
+Crossplay is **off** on our Valheim servers, and it should stay off in the **Startup** tab. With it on, joining by IP or subdomain does not work. Xbox, PlayStation, Switch 2 and PC Game Pass players join through Microsoft PlayFab, and PlayFab connections from our network do not work yet, so a server with crossplay on never finishes starting. Play on PC through Steam for now. We will update this page when crossplay works.
 
 <Callout type="info">
 
@@ -25,7 +25,8 @@ The server password is the one you typed at checkout (5 to 20 letters or numbers
 
 ## Troubleshooting
 
-- Make sure the server shows as online.
-- Check for typos in the IP and port.
+- Make sure the server shows as online, and check the **Console** for errors after you upload a world.
+- Use the port shown in the panel, written after the address with a colon. Leaving it out is the most common reason a join fails.
+- Check that **Crossplay** is still off in the **Startup** tab. If you turned it on, turn it off and restart.
 - Check the password.
 - Make sure your firewall or antivirus is not blocking Valheim.
