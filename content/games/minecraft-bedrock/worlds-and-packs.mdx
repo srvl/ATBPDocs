@@ -29,6 +29,9 @@ A new server makes its `worlds` folder the first time it starts. Start the serve
 
 A `.mcworld` file is a world exported from Bedrock (world list > edit > **Export World**). It is a zip file with a different ending.
 
+The easy way: upload the `.mcworld` file to your server in **Files**, then open the chat in the game panel and say you uploaded your world. Mari offers to unpack it, set `level-name` and start the server, and does it after you say yes. Your old world stays as it was, and **Undo** switches back to it. To do it yourself instead:
+
+
 1. Rename the file so it ends in `.zip` instead of `.mcworld`.
 2. Stop the server. In **Files**, open the `worlds` folder, create a new folder (for example `my-world`) and upload the zip into it.
 3. Unarchive the zip. `level.dat` and the `db` folder must sit directly in your new folder, not in another folder inside it.
