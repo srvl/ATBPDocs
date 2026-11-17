@@ -64,7 +64,9 @@ Some programs need several ports that follow on from each other, such as a Bedro
 
 Your server's IP address cannot be changed, only its port. If people you don't want have your address, move your main port to a new one (below), recreate your subdomain on the new port, and turn on a whitelist.
 
-Ports you already have keep working. To move one:
+Ports you already have keep working. Some older Java servers still have a main port from before the ranges above (not 25600 and up). If all your Java players get high ping, move your main port to a new **Minecraft Java** port; see [Ping issues](/extras/ping-issues#minecraft-every-java-player-has-high-ping).
+
+To move one:
 
 1. Add a new port, as above.
 2. Put the new port in your config. For your main game port, click **Make Primary** on the new port instead.
@@ -82,6 +84,7 @@ Game servers come with 5 ports: your main port plus 4 you can add. Each split ad
 - Can I change my server's IP?
 - My IP got leaked, what do I do?
 - How do I change my main port?
+- My server has an old port and everyone lags
 - Why is Add port greyed out?
 - I can't see the Add port button
 - Are the ports TCP or UDP?

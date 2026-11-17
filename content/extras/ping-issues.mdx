@@ -89,3 +89,9 @@ Looser values give movement cheats a little more room, so raise them only as far
 ## Minecraft: Paper Anti-Xray
 
 On Paper servers, Anti-Xray engine mode 2 can cause lag for players on unstable connections or on busy servers. Try engine mode 1, restart, and see if the lag goes away. The setting (`anti-xray`, `engine-mode`) is in `config/paper-world-defaults.yml`. See [Anti-Xray](/running_a_server/anti-xray).
+
+## Minecraft: every Java player has high ping
+
+If all your Java players get high ping at once while the status page shows nothing wrong, check your server's main port on the **Network** tab. Java players should join on a port from the **Minecraft Java** range (25600 and up), which is routed and protected for Minecraft traffic. Some older servers still have a main port from before these ranges, and players on it can get much higher ping.
+
+To fix it, add a port, choose **Minecraft Java**, and click **Make Primary** on it. Restart the server, give players the new address, and recreate your subdomain if you have one, since it still points at the old port. See [Moving an existing port](/using_the_panel/adding-ports#moving-an-existing-port).

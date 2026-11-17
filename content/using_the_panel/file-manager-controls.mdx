@@ -105,7 +105,7 @@ To move a whole Minecraft server folder:
 1. On your computer, open the server folder and zip everything **inside** it (the `plugins` or `mods` folder, the world folders, `server.properties` and the rest), not the folder itself.
 2. In the panel, stop the server. In **Startup**, set the same software and Minecraft version your server used, and a **Docker Image** that suits it. See [Changing Java Version](/running_a_server/java-version).
 3. In **Files**, select everything and delete it. The new server's default files are not needed, and leaving them can mix two setups.
-4. Upload your zip, right-click it and choose **Unarchive**. Check that `server.properties` and your folders sit directly in the main folder, not inside an extra folder. If they are inside one, move them up.
+4. Upload your zip, right-click it and choose **Unarchive**. Check that `server.properties` and your folders sit directly in the main folder, not inside an extra folder. If they are inside one, the server cannot find its jar and will not start: open that folder, select everything in it, choose **Move**, pick the main folder (`/`), then delete the empty folder.
 5. Delete the zip, start the server and read the **Console**. Players join with the address shown in the panel, not your old one.
 
 - One upload through the panel can be up to 1 GB on Budget and Budget+, and 100 GB on Premium+. Use [SFTP](/using_the_panel/sftp) for anything bigger.
@@ -137,5 +137,7 @@ To move a whole Minecraft server folder:
 - How do I move my Minecraft server from my PC to ATBP?
 - Do I delete the default files before uploading my server?
 - Pano ilipat yung local server ko sa panel?
+- My files ended up inside a folder after I unarchived, how do I move them out?
+- Server jar not found after uploading my server files
 
 </details>
