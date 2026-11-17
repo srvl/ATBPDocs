@@ -1,30 +1,33 @@
 ---
 title: "Hybrid Servers (Mods and Plugins)"
-description: "What hybrid servers are and the risks of running them."
+description: "How to run mods and plugins on the same server with a hybrid like Arclight or Mohist, and the risks."
 ---
 
 import { Callout } from 'nextra/components'
 
-A hybrid server tries to run both mods and plugins at the same time. It sounds ideal, but mods and plugins are built for different systems, so problems are common.
+A normal server runs plugins (Paper, Purpur) or mods (Forge, NeoForge, Fabric), not both. To have mods and plugins on the **same server**, you need a hybrid: server software that loads a mod loader and plugins together. The common ones are:
 
-<Callout type="warning">
+- **Arclight**: for Forge, NeoForge or Fabric mods.
+- **Mohist**: for Forge mods.
 
-Hybrid servers are not officially recommended. Expect crashes, odd behavior, and plugins that do not work with modded content. Some older projects also had serious security flaws, so research any hybrid before using it.
+Pick one that is still updated and has a build for your exact Minecraft version and mod loader.
+
+<Callout type="error">
+
+Hybrids are **highly unstable** and not officially supported. Mods and plugins are written for different systems, so expect crashes, lost or corrupted world data, plugins that break around modded blocks and items, and many plugins that do not work at all. Some older hybrids also had serious security flaws. Always keep backups, and if you only really need one side, use plain Paper (plugins) or plain Forge, NeoForge or Fabric (mods) instead.
 
 </Callout>
 
-## Better alternatives
+## Set up a hybrid
 
-- Want plugin features? Use [Paper](/running_a_server/server-software-overview) with plugins.
-- Want mods? Use Fabric, Forge or NeoForge with server-side mods, see [Installing Mods](/plugins_and_modifications/mods-install).
-- Want both for different purposes? Run two servers behind a proxy, see [Velocity](/running_a_server/velocity).
-
-## If you still want a hybrid
-
-1. Pick a hybrid that is actively maintained and supports your Minecraft version. Check recent security reports.
-2. Make a [backup](/using_the_panel/backups/guide) of your server.
+1. Make a [backup](/using_the_panel/backups/guide) of your server.
+2. Download the hybrid jar for your Minecraft version from the project's official site.
 3. Stop the server, rename your current `server.jar` to something else (for example `server-old.jar`), and upload the hybrid jar as `server.jar`. See [File Manager](/using_the_panel/file-manager-controls).
 4. Start the server and check the console for errors.
 5. Put plugins in `plugins` and mods in `mods`. Players need the matching mods on their game.
 
-Keep backups, update everything regularly, and test each new plugin or mod alone before adding more.
+Add plugins and mods a few at a time and restart after each batch, so you know which one breaks the server when something goes wrong. Update the hybrid, mods and plugins regularly.
+
+## Want them on separate servers instead?
+
+If you would rather keep a plugin server and a modded server apart, for example a Paper lobby and a modded survival world, you can link two servers behind a proxy so players move between them. See [Velocity](/running_a_server/velocity). This does not put mods and plugins on the same server.
