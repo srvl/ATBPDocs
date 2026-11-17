@@ -47,7 +47,8 @@ const footer = (
 export default async function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head color={{ hue: 30, saturation: 95 }}>
+      {/* Nextra builds its link, sidebar and focus colours from these; they match the site's --primary per theme. */}
+      <Head color={{ hue: { dark: 42, light: 30 }, saturation: { dark: 95, light: 94 }, lightness: { dark: 52, light: 45 } }} backgroundColor={{ dark: 'rgb(11,11,25)', light: 'rgb(255,245,224)' }}>
         {/* cookieless visit counter (ATBP insights, self-hosted); counts page changes on its own */}
         <script defer src="https://insights.srvl.dev/a.js" data-website-id="d43fb674-5129-4fb0-8106-558c431ef1d5" data-domains="docs.atbphosting.com" data-atbp-insights></script>
         <script defer src="/docs-events.js"></script>
