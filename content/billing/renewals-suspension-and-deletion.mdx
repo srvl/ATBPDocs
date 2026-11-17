@@ -8,11 +8,11 @@ import { Callout } from 'nextra/components'
 - To see when your server is due, open billing > Services > your server; the service page shows its due date.
 - A renewal invoice is created 7 days before your due date. If you link your Discord with `/billing link`, the bot also reminds you.
 - If your account credit covers the invoice when it is created, or you have a saved PayPal/Stripe payment method, the invoice is paid automatically. Credit you add after that does not pay it by itself: open the invoice and pay it from your credit.
-- **Renew early or in advance:** open billing > Services > your server and press **Renew**. Pick how long to renew for (one billing period, or several months at once with the same term discounts as new orders), enter a coupon code if you have one, and press **Create renewal invoice**. Your due date moves forward as soon as that invoice is paid.
+- **Renew early or in advance:** open billing > Services > your server and press **Renew**. Pick how long to renew for (one billing period, or several months at once with the same term discounts as new orders), press **Have a coupon?** to enter a coupon code if you have one, and press **Proceed to payment**, which creates the renewal invoice. Your due date moves forward as soon as that invoice is paid.
 
-![A billing service page with the Renew button under Billing circled](/screenshots/billing-service-renew.webp)
+![A billing service page with the Renew button at the top right circled](/screenshots/billing-service-renew.webp)
 
-![The Renew page: Renew now and Prepay 3, 6 and 12 month rows with their prices, Prepay 3 months marked, and the Renewal summary with the Coupon box and the Create renewal invoice button marked](/screenshots/billing-renew.webp)
+![The Renew page: Renew now and Prepay 3, 6 and 12 month cards with their prices, Prepay 3 months marked, and the Renewal summary with the Have a coupon? link and the Proceed to payment button marked](/screenshots/billing-renew.webp)
 
 - You can also just pay the renewal invoice before the due date. Once a renewal invoice exists, the **Renew** page works on that invoice instead of making a new one: it is where you add a coupon code to it (the invoice also has a **Have a coupon code?** link under **Pay**). See [coupons](/billing/discounts-and-coupons).
 - **If the invoice is still unpaid on the due date, the server is suspended** (it stops, and every tab of the server in the panel shows a suspended page with a button to pay). Billing runs on Canadian Mountain time, so suspensions happen around 2 PM to 3 PM Philippine time on the due date.
@@ -22,7 +22,7 @@ import { Callout } from 'nextra/components'
 - Paying the overdue invoice before deletion unsuspends the server automatically, with everything on it. This is always the best option if you want to keep playing.
 - **Need your files but cannot renew?** Open billing > Services > your server. The **Saved backup of your files** box has a **Download your files** button. It works while the server is suspended and for **30 days after it is deleted**. The suspension and deletion emails have the same button. The download is a `.tar` file of the server's files (worlds, configs, plugins); databases are not included. After those 30 days nothing is left to download.
 
-  ![Billing service page of a deleted server: Saved backup of your files, the date it is available until and the Download your files button](/screenshots/billing-saved-backup-download.webp)
+  ![Billing service page of a deleted server: Saved backup of your files, one card per saved server with the date it is available until and a Download your files button](/screenshots/billing-saved-backup-download.webp)
 
 - **Want the deleted server itself back?** Within the same 30 days, open a ticket in our [Discord server](https://discord.atbphosting.com) and staff can restore the server from its saved backup (files only, no databases).
 - **10 days after the due date, we email you once** to say the files of a deleted server are still saved and how to get them back. It only goes out if a saved backup exists and you have no other server with us. You can turn it off in your notification settings.
