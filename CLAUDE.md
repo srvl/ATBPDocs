@@ -29,7 +29,7 @@ Customer-facing docs for ATBP Hosting, live at https://docs.atbphosting.com. Nex
 ## Style
 
 - No em-dashes. Plain, friendly English; Filipino terms only in "Questions this page answers" blocks.
-- Region: Singapore only.
+- Region: Singapore, plus Budget+ PH (Philippines, partner WhiteFox Datacenter).
 - Keep panel wording generic where a feature is not confirmed on ATBP's panel.
 - Do not name competitor hosts. Original wording only when learning from other docs.
 - Pages under `plans/`, `billing/` and `general/` end with a collapsed "Questions this page answers" block that the bot uses; keep it in step with the page.
