@@ -1,159 +1,103 @@
-/* ATBP look on top of the Nextra docs theme. */
+/* ATBP look on top of the Nextra docs theme: the same tokens, fonts and components as atbphosting.com and billing. */
 
-.atbp-nav-link {
-  font-size: 0.8rem;
-  font-weight: 600;
-  opacity: 0.7;
-  white-space: nowrap;
-  transition: opacity 0.15s;
-}
-.atbp-nav-link:hover { opacity: 1; }
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat Variable";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/montserrat-latin-wght-normal.woff2) format("woff2-variations");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat Variable";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/montserrat-latin-ext-wght-normal.woff2) format("woff2-variations");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
-.atbp-nav-store {
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
-  padding: 0.35rem 0.85rem;
-  border-radius: 0.45rem;
-  color: #fff;
-  background: linear-gradient(135deg, #f7931e, #e8455a);
-  transition: filter 0.15s;
+/* Site tokens. Channels without hsl() so alpha variants work (hsl(var(--x) / .1)). The page background itself is set
+   through Head backgroundColor in layout.jsx, to the same colours as --background. */
+:root{
+  --primary:30 94% 55%;--neutral:36 40% 83%;--base:30 29% 13%;--muted:32 16% 36%;--inverted:208 25% 14%;
+  --background:40 100% 94%;--background-secondary:40 100% 97%;
+  --font-sans:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-display:"Montserrat Variable","Montserrat",ui-sans-serif,system-ui,sans-serif;
 }
-.atbp-nav-store:hover { filter: brightness(1.08); }
+html.dark{
+  --primary:42 95% 47%;--neutral:240 38% 13%;--base:60 100% 96%;--muted:0 0% 75%;
+  --background:240 40% 7%;--background-secondary:240 42% 5%;
+}
+body{font-family:var(--font-sans);color:hsl(var(--base))}
+:is(h1,h2,h3,h4,.nextra-navbar nav > a:first-child b){font-family:var(--font-display);letter-spacing:-.02em}
+article h1{font-weight:700;letter-spacing:-.035em}
+article :is(h2,h3){font-weight:700}
 
-@media (max-width: 640px) {
-  .atbp-nav-link { display: none; }
-}
+/* lines and panels in the site's colours instead of Nextra's greys */
+html.dark .nextra-navbar-blur,html.dark .nextra-sidebar,html.dark footer{border-color:hsl(var(--neutral)) !important}
+.nextra-navbar-blur{background:hsl(var(--background) / .82) !important;backdrop-filter:blur(14px)}
+footer{background:hsl(var(--background-secondary)) !important}
+article :is(table) :is(th,td){border-color:hsl(var(--neutral)) !important}
+article table tr{border-color:hsl(var(--neutral)) !important;background:transparent !important}
+article table thead tr,article table tr:first-child:has(th){background:hsl(var(--base) / .04) !important}
+article :is(pre){border:1px solid hsl(var(--neutral));border-radius:.75rem !important;background:hsl(var(--background-secondary)) !important}
+article :is(.nextra-callout){border-radius:.75rem}
+article img{border-radius:.75rem}
+article a:not(.atbp-card){text-underline-offset:3px}
+
+.atbp-nav-link{font-size:.8125rem;font-weight:600;color:hsl(var(--muted));white-space:nowrap;transition:color .15s}
+.atbp-nav-link:hover{color:hsl(var(--base))}
+/* the site's amber button (.btn-accent): 40px tall, 12px corners, dark text on amber */
+.atbp-nav-store{display:inline-flex;align-items:center;height:2.25rem;padding:0 1rem;border-radius:.75rem;white-space:nowrap;
+  font-family:var(--font-display);font-size:.8125rem;font-weight:600;color:hsl(var(--inverted));background:hsl(var(--primary));transition:filter .15s}
+.atbp-nav-store:hover{filter:brightness(1.08)}
+@media (max-width:640px){.atbp-nav-link{display:none}}
 
 /* Two-row navbar on desktop: logo and links on top, section tabs below. */
-@media (min-width: 768px) {
+@media (min-width:768px){
   /* Must be in px: Nextra passes it to IntersectionObserver as rootMargin. */
-  :root { --nextra-navbar-height: 108px; }
-  .nextra-navbar nav {
-    flex-wrap: wrap;
-    align-content: flex-start;
-    row-gap: 0;
-  }
-  .nextra-navbar nav > a:first-child { height: 4rem; }
-  .nextra-navbar nav > .nextra-scrollbar {
-    order: 99;
-    flex-basis: 100%;
-    gap: 1.5rem;
-    height: 2.75rem;
-    padding: 0;
-    align-items: stretch;
-  }
+  :root{--nextra-navbar-height:108px}
+  .nextra-navbar nav{flex-wrap:wrap;align-content:flex-start;row-gap:0}
+  .nextra-navbar nav > a:first-child{height:4rem}
+  .nextra-navbar nav > .nextra-scrollbar{order:99;flex-basis:100%;gap:1.5rem;height:2.75rem;padding:0;align-items:stretch}
   .nextra-navbar nav > .nextra-scrollbar > a,
-  .nextra-navbar nav > .nextra-scrollbar > button {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid transparent;
-  }
-  .nextra-navbar nav > .nextra-scrollbar > a[aria-current='true'] {
-    border-bottom-color: #f7931e;
-    font-weight: 600;
-  }
+  .nextra-navbar nav > .nextra-scrollbar > button{display:flex;align-items:center;border-bottom:2px solid transparent;font-family:var(--font-display);font-size:.8125rem;font-weight:600}
+  .nextra-navbar nav > .nextra-scrollbar > a[aria-current='true']{border-bottom-color:hsl(var(--primary));color:hsl(var(--base))}
   /* These sections live under the Guides menu instead of their own tabs. */
   .nextra-navbar nav > .nextra-scrollbar > a:is(
-    [href^='/running_a_server/'], [href^='/plugins_and_modifications/'],
-    [href^='/other-servers/'], [href^='/extras/']) {
-    display: none;
-  }
+    [href^='/running_a_server/'],[href^='/plugins_and_modifications/'],
+    [href^='/other-servers/'],[href^='/extras/']){display:none}
   .nextra-navbar nav > .nextra-scrollbar:has(> a[aria-current='true']:is(
-    [href^='/running_a_server/'], [href^='/plugins_and_modifications/'],
-    [href^='/other-servers/'], [href^='/extras/'])) > button {
-    border-bottom-color: #f7931e;
-    font-weight: 600;
-    color: inherit;
-  }
+    [href^='/running_a_server/'],[href^='/plugins_and_modifications/'],
+    [href^='/other-servers/'],[href^='/extras/'])) > button{border-bottom-color:hsl(var(--primary));color:inherit}
 }
 
-/* Landing page */
-.atbp-landing {
-  max-width: 44rem;
-  margin: 0 auto;
-  padding: 3.5rem 0 2rem;
-}
-.atbp-hero { text-align: center; }
-.atbp-hero-title {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-.atbp-hero-title span {
-  background: linear-gradient(90deg, #f7931e, #e8455a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.atbp-hero-sub {
-  margin-top: 0.75rem;
-  opacity: 0.65;
-}
-.atbp-hero-search {
-  max-width: 30rem;
-  margin: 1.75rem auto 0;
-}
-.atbp-hero-search .nextra-search input {
-  width: 100% !important;
-  height: 3rem;
-  font-size: 1rem;
-  padding-inline-start: 1rem;
-}
+/* Landing page: the home page's hero (eyebrow, big headline, globe) over the section cards */
+.atbp-landing{max-width:68rem;margin:0 auto;padding:2.5rem 0 2rem}
+.atbp-hero{position:relative;display:grid;gap:1.5rem;align-items:center}
+@media (min-width:64rem){.atbp-hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);min-height:24rem}}
+.atbp-eyebrow{display:inline-flex;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:hsl(var(--primary))}
+.atbp-hero-title{margin-top:.5rem;color:hsl(var(--base));font-family:var(--font-display);font-size:clamp(2.25rem,1.3rem + 3.6vw,4rem);font-weight:700;line-height:1.02;letter-spacing:-.04em}
+.atbp-hero-title span{color:hsl(var(--primary))}
+.atbp-hero-sub{max-width:34rem;margin-top:1rem;font-size:clamp(1rem,.9rem + .35vw,1.1875rem);line-height:1.6;color:hsl(var(--muted))}
+.atbp-hero-search{max-width:30rem;margin-top:1.75rem}
+.atbp-hero-search .nextra-search input{width:100% !important;height:3rem;padding-inline-start:1rem;font-size:1rem;border-radius:.75rem}
+.atbp-hero-globe{display:none}
+@media (min-width:64rem){.atbp-hero-globe{display:block;aspect-ratio:1;margin:-3rem -6rem -3rem 0}}
+.atbp-globe{display:block;width:100%;height:100%}
 
-.atbp-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 3rem;
-}
-@media (max-width: 640px) {
-  .atbp-grid { grid-template-columns: 1fr; }
-}
-.atbp-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(127, 127, 127, 0.22);
-  background: rgba(127, 127, 127, 0.05);
-  transition: border-color 0.15s, background 0.15s, transform 0.15s;
-}
-.atbp-card:hover {
-  border-color: #f7931e;
-  background: rgba(247, 147, 30, 0.07);
-  transform: translateY(-1px);
-}
-.atbp-card-icon { color: #f7931e; margin-bottom: 0.25rem; }
-.atbp-card-title { font-weight: 700; font-size: 1rem; }
-.atbp-card-desc { font-size: 0.85rem; opacity: 0.65; line-height: 1.45; }
-
-.atbp-help {
-  margin-top: 2.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.75;
-}
-.atbp-help a { text-decoration: underline; text-underline-offset: 3px; }
+.atbp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2.5rem}
+@media (max-width:1024px){.atbp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.atbp-grid{grid-template-columns:1fr}}
+.atbp-card{display:flex;flex-direction:column;gap:.5rem;padding:1.375rem;border:1px solid hsl(var(--neutral));border-radius:1rem;background:hsl(var(--background-secondary));transition:border-color .2s}
+.atbp-card:hover{border-color:hsl(var(--primary) / .55)}
+.atbp-card-icon{display:grid;place-items:center;width:2.5rem;height:2.5rem;margin-bottom:.25rem;border-radius:.75rem;background:hsl(var(--primary) / .12);color:hsl(var(--primary))}
+.atbp-card-title{font-family:var(--font-display);font-size:1.0625rem;font-weight:700}
+.atbp-card-desc{font-size:.9375rem;line-height:1.55;color:hsl(var(--muted))}
+.atbp-help{margin-top:2.5rem;font-size:.9375rem;color:hsl(var(--muted))}
+.atbp-help a{color:hsl(var(--base));text-decoration:underline;text-decoration-color:hsl(var(--primary) / .6);text-underline-offset:3px}
 
 /* Footer */
-.atbp-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-}
-.atbp-footer-links { display: flex; gap: 1rem; font-size: 0.85rem; }
-.atbp-footer-links a { opacity: 0.6; transition: opacity 0.15s; }
-.atbp-footer-links a:hover { opacity: 1; }
+.atbp-footer{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;width:100%;font-size:.875rem;color:hsl(var(--muted))}
+.atbp-footer-links{display:flex;gap:1rem;font-size:.875rem}
+.atbp-footer-links a{color:hsl(var(--base) / .85);transition:color .15s}
+.atbp-footer-links a:hover{color:hsl(var(--primary))}
 
 /* Live stock badges on the plan pages (components/Stock.jsx) */
-.atbp-stock { display: inline-block; padding: 0 0.5em; border-radius: 999px; font-size: 0.8em; font-weight: 600; white-space: nowrap; }
-.atbp-stock-in { background: rgba(34, 197, 94, 0.15); color: #15803d; }
-.atbp-stock-out { background: rgba(239, 68, 68, 0.12); color: #b91c1c; }
-html.dark .atbp-stock-in { color: #4ade80; }
-html.dark .atbp-stock-out { color: #f87171; }
+.atbp-stock{display:inline-block;padding:0 .5em;border-radius:999px;font-size:.8em;font-weight:600;white-space:nowrap}
+.atbp-stock-in{background:rgba(34,197,94,.15);color:#15803d}
+.atbp-stock-out{background:rgba(239,68,68,.12);color:#b91c1c}
+html.dark .atbp-stock-in{color:#4ade80}
+html.dark .atbp-stock-out{color:#f87171}

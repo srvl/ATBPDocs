@@ -1,4 +1,5 @@
 import { Search } from './Search'
+import { Globe } from './Globe'
 
 const icon = (d) => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -50,15 +51,19 @@ export function Landing() {
   return (
     <div className="atbp-landing" data-pagefind-ignore="all">
       <section className="atbp-hero">
-        <h1 className="atbp-hero-title">
-          What can we <span>help with?</span>
-        </h1>
-        <p className="atbp-hero-sub">
-          Guides and policies for ATBP Hosting game servers, hosted in Singapore.
-        </p>
-        <div className="atbp-hero-search">
-          <Search placeholder="Search the docs..." />
+        <div className="atbp-hero-copy">
+          <span className="atbp-eyebrow">ATBP Hosting Docs</span>
+          <h1 className="atbp-hero-title">
+            What can we <span>help with?</span>
+          </h1>
+          <p className="atbp-hero-sub">
+            Guides and policies for ATBP Hosting game servers, hosted in Singapore.
+          </p>
+          <div className="atbp-hero-search">
+            <Search placeholder="Search the docs..." />
+          </div>
         </div>
+        <div className="atbp-hero-globe"><Globe /></div>
       </section>
       <section className="atbp-grid">
         {sections.map((s) => (
