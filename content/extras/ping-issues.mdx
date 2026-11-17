@@ -5,13 +5,13 @@ description: "Run a traceroute or MTR to find where lag or packet loss starts, a
 
 Our servers are in Singapore. Players in the Philippines usually see low ping, so steady high ping, packet loss or random disconnects mean something along the route is struggling. These tests show where it starts: on your Wi-Fi, at your internet provider, somewhere in between, or at the server. Run one before opening a ticket and attach the result; it saves a lot of back and forth.
 
-**First, open https://atbphosting.com/network/.** It checks the whole path live: your ISP (PLDT, Globe, Converge, Smart, DITO), our DDoS protection, the data centre and our servers, and shows each ISP's typical ping right now. If it shows your ISP as slow, the problem is inside your ISP's network; another connection (mobile data or a different ISP) or a VPN usually works around it until they fix the route. If everything there is normal and only you lag, run the tests below.
+**First, open https://status.atbphosting.com/#network.** It checks the whole path live: your ISP (PLDT, Globe, Converge, Smart, DITO), our DDoS protection, the data centre and our servers, and shows each ISP's typical ping right now. If it shows your ISP as slow, the problem is inside your ISP's network; another connection (mobile data or a different ISP) or a VPN usually works around it until they fix the route. If everything there is normal and only you lag, run the tests below.
 
-![The Network Status page at atbphosting.com/network with the overall result marked: Everything looks normal](/screenshots/network-status-overall.webp)
+![The network section of status.atbphosting.com: the overall result, Everything looks normal, and the four steps from your ISP to our servers](/screenshots/network-status-overall.webp)
 
-![Network Status, Philippine ISPs table: status and typical ping now for PLDT, Globe, Converge, Smart and DITO](/screenshots/network-status-isp-ping.webp)
+![Philippine ISPs table on status.atbphosting.com: status and typical ping now for PLDT, Globe, Converge, Smart and DITO](/screenshots/network-status-isp-ping.webp)
 
-![Network Status, What to do: only your ISP shows a problem, or everything is normal but you still lag](/screenshots/network-status-what-to-do.webp)
+![What to do, on status.atbphosting.com: only your ISP shows a problem, or everything is normal but you still lag](/screenshots/network-status-what-to-do.webp)
 
 In every command below, use only your server's IP address, without the `:port` part.
 
