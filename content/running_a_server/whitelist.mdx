@@ -30,7 +30,8 @@ On a server with `online-mode=false`, players are matched by their exact name, *
 Entries added on the Players page may not let cracked players in, because an offline server identifies players differently from a real Minecraft account. Adding them from the console avoids this. See [Offline Mode](/running_a_server/offline-mode).
 
 ### Whitelisted but still cannot join
-- Check the kick message. "You are not whitelisted on this server" means the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`.
+- Check the kick message. "You are not whitelisted on this server" or "You are not authorized to join this server!" means the whitelist is on and the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`. Switching online mode does not change this; only the whitelist does.
+- Did not mean to have a whitelist at all? Run `whitelist off` in the **Console**. Check `white-list` in `server.properties` too, since a world or config you uploaded can switch it on.
 - A player who switches accounts in their launcher joins with a different name. Whitelist the name they are using now.
 - After editing `whitelist.json` by hand, run `whitelist reload`.
 

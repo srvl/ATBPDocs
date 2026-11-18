@@ -23,6 +23,7 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 | Outdated client / Outdated server | Game and server versions differ | See [Outdated Server or Outdated Client](/running_a_server/troubleshooting/outdated-server-client) or [join from any version](/running_a_server/join-from-any-version) |
 | Failed to verify username | Mojang login check failed | See [Failed to Verify Username](/running_a_server/troubleshooting/failed-to-verify-username) |
 | You are not whitelisted on this server | Whitelist is on and the player is not on it | Add them; see [whitelist](/running_a_server/whitelist) |
+| You are not authorized to join this server! (on the "Failed to connect to the server" screen) | Whitelist is on and the player is not on it. It has nothing to do with online or offline mode | Add them with `whitelist add <name>` in the **Console**, or turn the whitelist off with `whitelist off`; see [whitelist](/running_a_server/whitelist) |
 | The server is full | `max-players` reached | Raise it in `server.properties` |
 | You logged in from another location | The same account joined again | Close the other session |
 
