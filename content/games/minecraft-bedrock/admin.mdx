@@ -36,6 +36,18 @@ Enabling cheats permanently turns off achievements for that world.
 
 Both live in `server.properties` too: `difficulty` (peaceful, easy, normal, hard) and `level-seed`. The seed only affects a **new** world, so change `level-name` to a new name, or delete the old world, before it applies. Stop the server before editing.
 
+## New players join as Visitor instead of Member
+
+`default-player-permission-level` in `server.properties` sets the permission for new players, and on a fresh world `member` is the default. A world that already exists, for example one you made in Minecraft and uploaded, keeps its own setting for players who join, and Bedrock follows the world over `server.properties`. Changing the file then does nothing.
+
+To fix it:
+
+1. Make a [backup](/using_the_panel/backups/guide) and stop the server.
+2. Download the world folder from `worlds`, open it in Minecraft on your own device, and in the world's settings set the permission for players who join to **Member**.
+3. Upload the world again in its place and start the server.
+
+If you cannot open the world yourself, open a ticket on our [Discord](https://discord.atbphosting.com) and staff can change the world's setting for you. Players who already joined keep the level they had: change them with `permissions.json` or in game. Addons that manage ranks or spawn protection can also set permissions, so check them if new players still join as Visitor.
+
 ## Not working?
 
 Check the gamertag spelling, and that `allow-cheats=true` is saved. Still stuck? Open a ticket on our [Discord](https://discord.atbphosting.com).

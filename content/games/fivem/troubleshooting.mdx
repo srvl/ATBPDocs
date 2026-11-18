@@ -1,6 +1,6 @@
 ---
 title: "FiveM troubleshooting"
-description: "Fixes for common FiveM errors on ATBP: exit code 127, cannot connect, port errors, oxmysql, missing exports, license key, lag and where to find logs."
+description: "Fixes for common FiveM errors on ATBP: exit code 127, cannot connect, players kicked, port errors, oxmysql, missing exports, license key, lag and where to find logs."
 ---
 
 Start with txAdmin's **Live Console**. Read upwards from the bottom for the first red line: later errors are often caused by that one.
@@ -28,6 +28,12 @@ Go to **Settings** and click **Reinstall**. It puts `alpine` back and keeps your
 - Both `endpoint_add_tcp` and `endpoint_add_udp` in your `server.cfg` must use your main port from the **Network** tab. See [Move an existing server](/games/fivem/migrating-an-existing-server#3-fix-servercfg).
 - Join with the main port, not the txAdmin port.
 - Check that **Live Console** shows the server as running, with no red error at the end.
+
+## Players get kicked with "Obtaining configuration from server failed"
+
+This often happens right after a resource is restarted with `ensure` or `restart` while players are online. Every player then downloads that resource again, and anyone whose connection hiccups at that moment is kicked. It is not a server or network fault. Restart resources when few players are online, or restart the whole server at a quiet time with a schedule in txAdmin.
+
+When players drop and Live Console shows nothing, ask them for the exact message on their screen and the time it happened, then look at what ran in Live Console just before.
 
 ## txAdmin rejects my server.cfg
 
@@ -87,6 +93,9 @@ ATBP looks after the server, the panel and the network. Errors inside a script o
 - Why do commands in the panel console do nothing?
 - Where are the FiveM logs?
 - Players can't connect to my FiveM server
+- Obtaining configuration from server failed
+- Players get disconnected but the console shows no error
+- Bakit nadidisconnect yung players ko?
 - No such export error
 - Couldn't find resource
 - Does FiveM have an anticheat?
