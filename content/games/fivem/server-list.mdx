@@ -56,6 +56,7 @@ Keep it private, like a password.
 
 - **License key:** the key must be valid and used by this server only. One key on two servers makes both glitch in the list. Keys bought from resellers are often stolen or revoked; make your own for free (see [Set up your FiveM server](/games/fivem/getting-started)).
 - **sv_master1:** in `server.cfg`, the line `#sv_master1 ""` must stay commented out with the `#`. Removing the `#` hides your server from the list on purpose.
+- **"Cfx failed to reach the server"** with a hint about `sv_listingIpOverride` or `sv_listingHostOverride`: the list cannot reach the address in those lines. A `sv_listingHostOverride` domain must point straight at your server's IP, with no web proxy in between (a Cloudflare proxy blocks game queries). If you are not sure, put a `#` in front of that line. If you use `sv_listingIpOverride`, write it on its own line in `server.cfg` as `set sv_listingIpOverride "IP:port"`, with the IP and main port from the **Network** tab. Restart the server after the change.
 - **Name:** shorten it and remove odd symbols.
 - **Time:** after a restart, give it a few minutes to appear.
 
