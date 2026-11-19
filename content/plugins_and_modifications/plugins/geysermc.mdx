@@ -54,6 +54,14 @@ With **Enable Auto-Crossplay** on in the server's **Startup** tab, the Geyser co
 
 After that, restart the server. Bedrock players join with your server's IP address and that port.
 
+## Behind a Velocity proxy
+
+If players join through a Velocity proxy, install Geyser only once, on the proxy:
+
+- **On the proxy:** Geyser-Velocity and Floodgate-Velocity. The Bedrock port goes on the proxy server, as above.
+- **On every backend server:** Floodgate only. Do not install Geyser on the backend servers as well.
+- Floodgate on the proxy and on each backend needs the same `key.pem`: copy it from the proxy's Floodgate folder into each backend's Floodgate folder, then restart them.
+
 ## Joining from Bedrock
 
 In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or domain in **Server Address**, without `:` and the numbers after it, and put the Bedrock port from the **Network** tab in the separate **Port** box.
