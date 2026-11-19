@@ -15,6 +15,8 @@ Make a backup in the **Backups** tab before adding packs, because a broken pack 
 
 Resource packs on your server are sent to every player who joins, so only add packs from creators you trust, and ask your players to keep Minecraft updated to the newest version. Mojang fixes pack-related security bugs in the game itself, not on the server.
 
+The panel refuses any pack that contains a file named `content.zipe`, whether you upload it or install it from Browse. That file is used by a known attack on Minecraft Bedrock players, so the pack is removed and not installed.
+
 ## Install from Browse
 
 1. Stay on the **Browse** view. Use the filters or **Search addons** to find a pack.
