@@ -36,7 +36,16 @@ Entries added on the Players page may not let cracked players in, because an off
 - After editing `whitelist.json` by hand, run `whitelist reload`.
 
 ### Bedrock players joining through Geyser
-On a Java server with Geyser and Floodgate, add Bedrock players with Floodgate's own command. In the **Console** tab, run `fwhitelist add BedrockName`, using the player's Bedrock name **without** the `.` that appears in front of it in game. `/allowlist` is only for Bedrock servers and does nothing here. See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+On a Java server with Geyser and Floodgate, add Bedrock players with Floodgate's own command. `/allowlist` is only for Bedrock servers and does nothing here.
+
+1. Ask the player to try joining once, even though they are not on the list yet. They are turned away, but the **Console** now shows the exact name they joined with, in a line ending in "You are not whitelisted on this server!". It also lets Floodgate find their Bedrock account, which helps most when they changed their gamertag recently.
+2. Copy the name from that line, **without** the `.` that appears in front of it in game.
+3. In the **Console** tab, run `fwhitelist add BedrockName`.
+4. Ask them to join again.
+
+**Gamertags with a space** (for example `Steve Gamer`) must be put in quotes: `fwhitelist add "Steve Gamer"`. Do not swap the space for `_`, since that is a different name. The plain `whitelist add` command cannot take a name with a space (it answers "Incorrect argument for command"), so use `fwhitelist` for these players.
+
+See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 
 ### With commands
 To start off, here's a list of all the sub-commands under the whitelist command:
