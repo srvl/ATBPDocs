@@ -5,16 +5,18 @@ description: "Website and database hosting on our Singapore server with the Hest
 
 We host websites and databases on a server in Singapore, with the HestiaCP control panel. Your account backs up every night, with a copy kept off the server; the plan sets how many backups are kept. Order at https://billing.atbphosting.com/products/web-hosting.
 
-| Plan | Storage | Websites | Databases | Monthly traffic | Cron jobs | Nightly backups kept | Monthly |
+| Plan | Storage | Websites | Databases | Bandwidth | Cron jobs | Nightly backups kept | Monthly |
 |---|---|---|---|---|---|---|---|
-| Web Starter | 5 GB | 1 | 2 | 100 GB | 5 | 1 | ₱49 |
-| Web Plus | 20 GB | 5 | 10 | 300 GB | 20 | 3 | ₱129 |
-| Web Pro | 50 GB | 20 | 30 | 1 TB | 50 | 7 | ₱249 |
+| Web Starter | 5 GB | 1 | 2 | Unmetered | 5 | 1 | ₱49 |
+| Web Plus | 20 GB | 5 | 10 | Unmetered | 20 | 3 | ₱129 |
+| Web Pro | 50 GB | 20 | 30 | Unmetered | 50 | 7 | ₱249 |
 
 - Paying for 3, 6 or 12 months at once saves 5%, 7.5% or 10%.
-- Each plan has the limits in the table, under our acceptable use policy. Need more? Change plan from your service page.
+- Bandwidth is unmetered under fair use: there is no monthly traffic cap and no limit on requests or visitors. Only abuse or malicious traffic is stopped, under our acceptable use policy.
+- How fast a busy site runs depends on your plan's share of the server, the same as with any shared hosting. Our web hosting is still in beta, so there are no extra rules for high-traffic sites yet.
+- The other limits are in the table. Need more? Change plan from your service page.
 - **Email is not included.** Our host blocks outgoing mail on port 25, so we do not run a mail server here. There are no mailboxes or webmail. To use email on your domain, use a mail provider and add its records at your DNS host.
-- A domain is not included. Bring your own or register one with us.
+- **Free subdomain included:** every plan can use a free subdomain ending in `.atbphosting.com` or `.atbp.fun`. Ask in a Hosting Support ticket on our [Discord](https://discord.atbphosting.com) and we set it up. Your own domain (like `example.com`) is never free: bring one or register one with us.
 - Plans are limited in number. If a plan shows out of stock, check back or ask in a ticket.
 
 New here? Start with [Build your first website](/plans/build-your-first-website). Coming from a game panel Node.js server? See [Moving your site from the game panel](/plans/moving-from-the-game-panel).
@@ -46,7 +48,7 @@ Uploading with an SFTP app: host `web1.atbphosting.com`, port `22`, your panel u
 
 ## Running your site
 
-- Sites run on nginx with PHP and MariaDB databases, or as a Node.js app (Node.js 22).
+- Sites run on nginx with PHP and MariaDB (MySQL) databases, or as a Node.js app (Node.js 22).
 - `.htaccess` files do nothing here, because there is no Apache. **Install WordPress** sets this up correctly by itself. For other apps, use **Quick install** in the panel or pick the matching web template for your domain.
 - A Node.js app gets 512 MB on Web Starter, 1 GB on Web Plus and 2 GB on Web Pro. One Node.js app per account. Discord bots belong on [bot hosting](/plans/discord-bot-hosting): web plans are for websites.
 - Change plan any time from your service page. Moving to a smaller plan never deletes anything; the panel only stops new items (files, cron jobs, backups) until you are under the new plan's limits.
@@ -73,6 +75,10 @@ Uploading with an SFTP app: host `web1.atbphosting.com`, port `22`, your panel u
 - How many websites can I host?
 - Is SSL free?
 - Is a domain included?
+- Do I get a free subdomain with web hosting?
+- Is bandwidth unlimited?
+- Is there a monthly traffic or request limit?
+- Do you support PHP and MySQL?
 - What IP do I point my domain to?
 - How do I point my domain to the web hosting?
 - How do I log in to the web hosting panel?
