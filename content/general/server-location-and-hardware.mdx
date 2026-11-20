@@ -13,6 +13,7 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 - **Web hosting:** in Singapore, with the HestiaCP panel. See [web hosting](/plans/web-hosting).
 - **DDoS protection:** Budget+ and Premium+ servers are protected by TCPShield, which uses GSL. Our network blend in the data centre is also GSL, which adds basic GSL protection. We do not give out an address that skips TCPShield.
 - There is no Philippines location. From the Philippines, ping to Singapore varies, usually about 30 to 80 ms. Players in the US or Europe will see about 150 to 180 ms; a VPN or proxy will not lower that.
+- **Players in Europe or the US:** ping comes from the distance to the server that runs the game, and data can't travel faster than light through fibre. A proxy (Velocity, BungeeCord) or a subdomain like `eu.yourserver` in Europe, in front of a server in Singapore, does not lower their ping: their connection still goes all the way to Singapore, now with one more stop. Networks that give each region low ping run a full set of servers in each region (the game servers and a proxy in Europe, and another set in Asia), usually with separate worlds. We only have Singapore, so a European set would have to be hosted elsewhere.
 - vCPU is capped, not burstable: 1 vCPU = 100% CPU in the panel (4 vCPU shows 400%).
 - CPU Guardian: you can use your plan's full CPU at any time, and using all of it never gets a server limited. It halves a server's CPU only when a file on the server matches software known for heavy CPU use (such as a miner) while the server is working hard, or when staff limit it. A notice on the Console page says why and when your full CPU comes back. Fixed the cause? Ask in a ticket and staff can lift it early. Step by step: [CPU limit dropped to half](/running_a_server/troubleshooting/cpu-limit-halved).
 - The panel shows which node your server is on under Settings. Whether each node is up is public at https://status.atbphosting.com, and the same page shows live whether lag comes from your ISP, our DDoS protection, the data centre or our servers.
@@ -33,6 +34,8 @@ description: "Where ATBP game servers run (Singapore), the CPUs behind Budget+ a
 - Do I need remote desktop to manage my server?
 - What is the ping from the Philippines?
 - Mataas ping sa US players
+- Can I have eu. and as. regions like big servers?
+- Will a proxy in Europe lower ping for EU players?
 - Which node am I on?
 - Is there a status page?
 - Do you have DDoS protection?
