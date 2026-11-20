@@ -177,3 +177,11 @@ Notice the `,` after the `}` from the first user. Keep adding one after each pla
 
 * Step 4: The final step is to go into the console and type `/allowlist reload`. This will make the saved file take effect!
 * Step 5: Ensure that the list has been updated with `/allowlist list` and check to see that all the players you added are there!
+
+### Keeping a player out of a Bedrock server
+Vanilla Bedrock has no `ban` command, so `ban PlayerName` does not work there. To keep someone out:
+
+1. While they are online, run `kick PlayerName` in the **Console** to remove them now.
+2. Turn the allowlist on with `allowlist on` and add only the players you want (see above). Anyone not on the list cannot join again.
+
+If you would rather ban players one by one, switch the server to **Endstone** in **More > Software**. Endstone runs the same Bedrock server with a `ban` command and plugins. Make a backup of your world before you switch. See [Endstone vs Vanilla](/games/minecraft-bedrock/endstone-vs-vanilla).
