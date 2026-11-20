@@ -84,6 +84,16 @@ The VCMC plugin (VoiceChatMobileClient) lets players on a phone join Simple Voic
 - Make sure `voice_host=` is empty or holds your server's IP address, not an old address from a different server
 - Every player needs the Simple Voice Chat mod on their game client
 
+## Players can't join after adding the voice port
+
+If the voice chat port became your server's main address, the game itself now runs on that port and players can no longer connect. In the **Network** tab, the main address must be your game port, not the Simple Voice Chat one.
+
+1. In the **Network** tab, click **Make Primary** on your original game port
+2. Restart the server. The panel writes the main port into `server.properties` (`server-port=`) every time the server starts, so you don't need to edit that line yourself
+3. Check that `port=` in `voicechat-server.properties` is still the voice port
+
+Mari can do this for you in a ticket: she will ask you first, because it restarts the server.
+
 <details>
 <summary>Questions this page answers</summary>
 
@@ -93,5 +103,7 @@ The VCMC plugin (VoiceChatMobileClient) lets players on a phone join Simple Voic
 - Which port do I use for Simple Voice Chat?
 - Is voice chat UDP?
 - Voice chat says connecting but never connects
+- Players can't join after I added a voice chat port
+- I made the voice chat port primary by mistake
 
 </details>
