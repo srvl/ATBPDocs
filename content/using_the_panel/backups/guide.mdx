@@ -148,6 +148,8 @@ Those are the only copies. Staff have no older snapshot or other copy of your se
 
 If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night, have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
 
+Press **Delete** once. Deletes are queued on the node, so on a large backup or a busy node the page can show `Request failed with status code 504` while the delete still goes ahead. Do not press **Delete** again; pressing it repeatedly only adds to the queue. Wait a few minutes and refresh the page. If the backup is still listed after that, open a ticket and we remove it for you.
+
 <Callout type="warning">
 
 Deleting is irreversible. Deleted backups cannot be recovered. Backups are also deleted when a server is deleted, for example 3 days after an unpaid due date. Only the saved backup taken at suspension stays downloadable from billing for 30 days; see [suspensions and terminations](/billing/suspensions_and_terminations).
@@ -167,6 +169,8 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - My backup says "creating backup" for a long time, how do I stop it?
 - Paano i-restore ang backup?
 - Restore says Request failed with status code 504, did it fail?
+- Deleting a backup says error 504, what do I do?
+- Ayaw ma-delete ng backup, 504 error
 - Can I restore only some plugins or files from a backup?
 - How do I get one world or one folder back from a backup?
 - Paano ibalik ang isang file lang o isang world mula sa backup?
