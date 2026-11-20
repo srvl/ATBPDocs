@@ -1,6 +1,6 @@
 ---
 title: "Fix 'Failed to decode packet' in modpacks"
-description: "What causes packet size errors on modded Minecraft servers and how to fix them."
+description: "What causes packet errors on modded Minecraft servers, including players kicked while joining, and how to fix them."
 ---
 
 Modded servers sometimes kick players with errors about packets being too big. Minecraft limits how large a single packet can be, and some mods push past that limit.
@@ -31,5 +31,20 @@ Modded servers sometimes kick players with errors about packets being too big. M
 4. Restart the server and have everyone restart their game.
 
 Make sure the Packet Fixer version matches your Minecraft version and loader exactly. A wrong version is a common reason this fix seems to do nothing.
+
+## Only some players can join: "Index 23 out of bounds for length 5"
+
+If one or two players get in but everyone after them is kicked with an error like this, the cause is on the server, not on the players' computers:
+
+`Internal Exception: io.netty.handler.codec.DecoderException: java.lang.IndexOutOfBoundsException: Index 23 out of bounds for length 5`
+
+The `length 5` means the player was still logging in. A mod on the server sent a game packet to every connection, including players who had not finished joining yet, and their game could not read it. It usually happens while someone already online is using that mod's item, armor or ability, so joining sometimes works on a retry.
+
+1. Think of the last mod you added before the problem started. Mods made with MCreator are a common cause.
+2. Stop the server, move that mod's jar out of the `mods` folder with **Files**, and start the server.
+3. If the console now shows errors from other mods that name the removed mod's items (for example in a config that lists items), remove those lines from that config, then start again.
+4. If you want to keep the mod, have players avoid using its items while others are joining, and ask the mod's author for a fix.
+
+The player's mod list matching the server does not fix this one, so check the server's mods first.
 
 If the errors continue, open a ticket on our [Discord](https://discord.atbphosting.com) and include the full console log.
