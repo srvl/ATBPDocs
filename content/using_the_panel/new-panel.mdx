@@ -1,0 +1,45 @@
+---
+title: "New game panel: what changed"
+description: "ATBP moved to a new game panel on 21 November 2026 (PHT). What carried over, what you need to set up again, and what works differently."
+---
+
+On 21 November 2026 (PHT) the game panel moved to a new, faster panel with the ATBP look. It is at the same address, https://panel.atbphosting.com, and your game servers kept running through the switch.
+
+## What carried over
+
+- Your login: the **same email and password**.
+- Your servers, files, backups, subdomains, sub-users, schedules and share links.
+- 2FA: if it was on, it is still on, and your 2FA app keeps giving the right codes.
+- Google, Discord and billing sign-in on the panel login page.
+- The ATBP tools you used before, such as the billing card, changing your game, subdomains, Bedrock and crossplay settings, CPU Guardian and Free RAM.
+
+## What you need to set up again
+
+- **2FA recovery codes.** Old recovery codes do not work on the new panel. Open your account page and save the new ones somewhere safe. See [2-Factor Authentication](/using_the_panel/2fa).
+- **API keys.** Old API keys, both client and application keys, did not carry over. If a bot, script or tool used one, create a new key on your account page and put it in that tool.
+- **Google or Discord sign-in.** A Google or Discord login is never joined to an existing panel account by matching the email. To sign in with Google or Discord, log in with your email and password first and link Google or Discord from your account page. If you skip this, the Google or Discord button does not open your existing account and can leave you in an empty one with no servers.
+
+## What works differently
+
+- **2FA with Google or Discord sign-in.** With 2FA on, signing in with Google or Discord now asks for your 2FA code before it lets you in.
+- **Database backups.** You no longer see backups of your MySQL databases in the panel. We still back up every database each day; to get one back, open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) and staff restore it for you.
+- **Backups from before the switch.** They still restore and download as before, but you cannot open them with **Browse files** to pick single files. Restore the whole backup, or download it and take what you need. New backups can be browsed. See [Managing Backups](/using_the_panel/backups/guide).
+- **Trash bin.** Files that were in the old file manager's trash bin before the switch are not shown in the new panel.
+
+Something looks wrong on your server after the switch? Open a [support ticket](/general/getting-support) with your panel link.
+
+<details>
+<summary>Questions this page answers</summary>
+
+- Did the panel change?
+- Bakit iba na yung panel?
+- Do I need a new password for the new panel?
+- My 2FA recovery codes don't work anymore
+- My API key stopped working
+- Paano gumawa ng bagong API key?
+- Google or Discord login made a new account with no servers
+- Where are my database backups?
+- Why can't I browse an old backup?
+- Where did my trash bin files go?
+
+</details>

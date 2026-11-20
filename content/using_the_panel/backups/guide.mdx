@@ -23,7 +23,7 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore are left out. Backups are stored apart from your server's files, so they do not count toward your disk, and resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
 
-Databases from the **Databases** tab are not part of a backup; export them separately if your plugins use one.
+Databases from the **Databases** tab are not part of a backup, and the panel does not show database backups. We back up every database each day on our side; to get a database back, open a **Hosting Support** ticket on [Discord](https://discord.atbphosting.com) and staff restore it for you. Export a database yourself too if your plugins keep anything you cannot lose.
 
 ### Leave files out of every backup
 
@@ -86,7 +86,7 @@ A big backup can take 10 to 15 minutes or more to restore. If the page shows `Re
 
 You do not have to restore a whole backup to get one world, one plugin folder or one config file back.
 
-1. Open the **Backups** tab and click **Browse files** on the backup you want. It is on your own backups and on Auto Backups.
+1. Open the **Backups** tab and click **Browse files** on the backup you want. It is on your own backups and on Auto Backups made since the November 2026 panel switch.
 2. Click a folder to open it. The line at the top shows where you are, and each part of it is a link back.
 3. Tick the files or folders you want. Your ticks are kept while you move between folders. You can pick up to 200 at once; to bring back many files, tick the folder that holds them.
 4. Click **Restore selected** and confirm. The server has to be stopped while files are restored. If it is running, the button reads **Stop server and restore** and stops it for you.
@@ -97,6 +97,8 @@ Files from the backup replace files with the same name. Nothing else on your ser
 On Budget+ servers, where backups are kept on our off-site storage, opening a folder can take up to a minute, and it waits while a backup is running on the same machine. If it says the node did not answer in time, try again a little later.
 
 Subusers need the **Restore** permission for backups to see **Browse files**.
+
+Backups made before the [new panel](/using_the_panel/new-panel) (November 2026) cannot be browsed. They still [restore](#restoring-backups) and [download](#downloading-backups) as usual, so restore the whole backup, or download it and take the files you need.
 
 ### Plugins show red after a restore
 
@@ -140,7 +142,7 @@ We do not remove files from your server. When a folder such as `plugins` or your
 3. Look in the [Trash Bin](/using_the_panel/file-manager-controls#trash-bin) in **Files**. Files moved to the trash can be restored until it is emptied.
 4. Otherwise, [restore](#restoring-backups) the newest backup that still has the files. Check both your own backups and the Auto Backups.
 
-Those are the only copies. Staff have no older snapshot or other copy of your server, so a file that is not in the Trash Bin or in a backup cannot be recovered. Make a backup before any big change, and keep your own copy of work you cannot lose.
+Those are the only copies. Staff have no older snapshot or other copy of your server's files, so a file that is not in the Trash Bin or in a backup cannot be recovered. Make a backup before any big change, and keep your own copy of work you cannot lose.
 
 ---
 
@@ -175,6 +177,8 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - How do I get one world or one folder back from a backup?
 - Paano ibalik ang isang file lang o isang world mula sa backup?
 - What does Browse files on a backup do?
+- Why can't I browse an old backup?
+- Where are my database backups?
 - Why are my plugins red after restoring a backup?
 - Bakit hindi lahat ng plugins bumalik after restore?
 - My plugins or world files disappeared, can you get them back?
