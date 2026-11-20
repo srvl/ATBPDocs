@@ -10,6 +10,7 @@ export default {
   "discounts-and-coupons": "Discounts, coupons and promo codes",
   "current-promotions": "Current promotions",
   "affiliate-program": "Affiliate program",
+  "creator-partnership": "Creator Partnership Program",
   "refund-policy": "Refund policy",
   "renewals-suspension-and-deletion": "Renewals, overdue invoices, suspension and deletion",
   "upgrades-and-downgrades": "Upgrading or downgrading a server"
