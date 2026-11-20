@@ -23,7 +23,7 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore are left out. Backups are stored apart from your server's files, so they do not count toward your disk, and resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
 
-Databases from the **Databases** tab are not part of a backup, and the panel does not show database backups. We back up every database each day on our side; to get a database back, open a **Hosting Support** ticket on [Discord](https://discord.atbphosting.com) and staff restore it for you. Export a database yourself too if your plugins keep anything you cannot lose.
+Databases from the **Databases** tab are not part of a backup. We copy every database each night on our side and keep the last 7 copies, which you can download or restore from the **Databases** tab, see [Databases](/using_the_panel/databases#database-backups). Export a database yourself too if your plugins keep anything you cannot lose.
 
 ### Leave files out of every backup
 
@@ -51,10 +51,11 @@ Blank lines and lines starting with `#` are skipped. A list can have up to 256 r
 1. Open your server in the panel and go to the **Backups** tab.
 2. Click **Create Backup**.
 3. Optionally give it a name, and optionally list files or folders to ignore.
-
-   ![The Create server backup dialog: backup name, Stop server before backup and the Start Backup button](/screenshots/panel-backups-create-dialog.webp)
-
 4. Confirm. The backup runs in the background with a progress bar and may take a while on large servers.
+
+### Stop the server first
+
+A backup of a running server can catch a world file halfway through a save. For a clean copy, click **Stop and back up** next to **Create Backup** instead. It stops the server, makes the backup while the server is off, and, if you leave **Start the server again when the backup is done** ticked, starts it again once the backup has finished, even if you close the page after the backup has started. A server that was already off stays off. This needs the permissions to create backups and to stop the server (and to start it, for the restart).
 
 If all your backup slots are used, you need to delete or [unlock](#locking) an old backup before creating a new one. If you need more slots, you can add **Extra Backups** from billing, see [Backups](/plans/backups).
 

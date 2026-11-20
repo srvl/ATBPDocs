@@ -13,7 +13,12 @@ Each server starts with 1 database, and every split adds 1 more. Need more? Open
 Please keep your database usage reasonable and in line with the Terms of Service at https://atbphosting.com/terms.
 
 ### Database backups
-We back up every database each day. These backups are not shown in the panel and are not part of your server's backups. If you need a database put back, open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the database name, and staff restore it for you.
+We copy every MySQL database each night and keep the last 7 copies. They are not part of your server's backups and do not use your backup slots. You find them on the **Databases** tab, under your databases, in **Database backups**:
+
+- **Download** saves a copy as a `.sql` file.
+- **Restore** loads a copy back into the database. Every table in the copy is replaced with its contents from that night; tables made since then stay as they are. Download a copy first if you might need what is there now.
+
+Download needs the permission to see the database password; Restore also needs the permission to update databases. A locked database cannot be restored into. A copy larger than 512 MB, or one that takes more than 15 minutes to load, is restored by staff: open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the database name.
 
 ### Adding MySQL Databases
 

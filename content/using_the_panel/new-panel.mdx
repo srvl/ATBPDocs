@@ -22,8 +22,11 @@ On 21 November 2026 (PHT) the game panel moved to a new, faster panel with the A
 ## What works differently
 
 - **2FA with Google or Discord sign-in.** With 2FA on, signing in with Google or Discord now asks for your 2FA code before it lets you in.
-- **Database backups.** You no longer see backups of your MySQL databases in the panel. We still back up every database each day; to get one back, open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) and staff restore it for you.
+- **Database backups.** We copy every MySQL database each night and keep 7 copies, which you can download or restore from the **Databases** tab. Copies made on the old panel did not carry over; the first ones on the new panel were made on the night of 21 November 2026. See [Databases](/using_the_panel/databases#database-backups).
 - **Backups from before the switch.** They still restore and download as before, but you cannot open them with **Browse files** to pick single files. Restore the whole backup, or download it and take what you need. New backups can be browsed. See [Managing Backups](/using_the_panel/backups/guide).
+- **Stop before a backup.** The option to stop the server before a backup is now its own button, **Stop and back up**, next to **Create Backup**. See [Managing Backups](/using_the_panel/backups/guide#stop-the-server-first).
+- **Schedule history.** Past runs from the old panel did not carry over. The **Schedules** tab shows a run history again for runs since the switch. See [Schedules](/using_the_panel/schedules#run-history).
+- **Activity.** Your server's and account's **Activity** tabs also show what happened on the old panel, back to August 2026.
 - **Trash bin.** Files that were in the old file manager's trash bin before the switch are not shown in the new panel.
 
 Something looks wrong on your server after the switch? Open a [support ticket](/general/getting-support) with your panel link.
@@ -39,6 +42,8 @@ Something looks wrong on your server after the switch? Open a [support ticket](/
 - Paano gumawa ng bagong API key?
 - Google or Discord login made a new account with no servers
 - Where are my database backups?
+- How do I stop my server before a backup?
+- Where is my schedule history?
 - Why can't I browse an old backup?
 - Where did my trash bin files go?
 
