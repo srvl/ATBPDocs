@@ -1,6 +1,6 @@
 ---
 title: "Scheduling Actions"
-description: "Automate restarts, commands, backups and file jobs with schedules and the visual workflow builder in the ATBP panel."
+description: "Automate restarts, commands, backups and file jobs with schedules, conditions and run history in the ATBP panel."
 ---
 
 Schedules run tasks for you at set times: restart the server, send a command, make a backup, clean up files or post to Discord. Open your server in the [panel](https://panel.atbphosting.com) and go to the **Schedules** tab.
@@ -42,18 +42,24 @@ To restart at, say, 3 AM, 12 noon and 5 PM, either make one schedule per time, o
 
 **Only When Server Is Online** makes the schedule run only while the server is running. Leave it on for restarts and in-game messages. Turn it off if the schedule should also run while the server is off, for example a daily **Start** that brings back a server that was stopped.
 
-## Workflows with conditions
+## Conditions
 
-Press **Turn into a workflow** to use the visual builder. Steps stack from top to bottom, and you can drag a step by its handle to reorder it or click a gap between steps to add one there.
+A schedule can run some steps only when something is true. Inside a schedule, an **If** step opens a block and **End if** closes it; an **Else** step in between starts the steps that run when the condition is false. The panel's own conditions check whether the server is running, how long it has been up, CPU, memory or disk use, and whether a file exists.
 
-- **Add condition** splits the workflow into a "true" lane and a "false" lane. A condition can check whether the server is running, whether a file exists or how big it is, CPU, memory or disk use, how many backups you have, whether the previous step worked, the time of day, or the day of the week.
-- **Run only when** checks happen before anything runs. Pick **Every check must pass** or **Any one check must pass**. When they fail, the run is recorded as skipped.
-- **Run history** shows every run and the result of each step. **Cancel this run** stops a workflow that is running.
-- **Back to a plain schedule** removes the conditions and keeps the steps in their order.
+For the other checks, press **Add condition** on the Schedules page:
+
+- **File size**: a file or folder is over, under or exactly a size (for example `logs/latest.log` over 100 MB).
+- **Backup count**: how many finished backups the server has.
+- **Time window**: the time is between two times, for example `22:00` to `06:00`. Your browser's time zone is used.
+- **Day of the week**: today is one of the days you tick.
+
+Pick the schedule, the condition, and which of its steps should run when it is true (or none, and move steps into the block later). Tick the "otherwise" option to also get an **Else** lane. The helper adds two steps: an HTTP request that asks the panel the question, and an **If** on its answer. A check that cannot be answered, for example because the file is missing, counts as false.
+
+HTTP request steps can only call Discord webhooks (and these panel checks).
 
 ## Run history
 
-Under the list of schedules, **Run history** shows the last runs of all your schedules, newest first: which schedule ran, when, and whether it finished. A failed run lists the steps that failed and the reason, for example that the server was offline. The last 100 runs of each schedule are kept.
+Under the list of schedules, **Run history** shows the runs of all your schedules, newest first, and you can filter it by schedule. Click a run to see every step: whether it ran, failed or was skipped by a condition, which way each condition went, how long each step took, and what each panel check found (for example "logs/latest.log is 12.4 MiB"). The last 200 runs of each schedule are kept. Runs from the old panel (before November 2026) are listed too.
 
 ## Copy a schedule
 
@@ -87,7 +93,8 @@ Under the list of schedules, **Run history** shows the last runs of all your sch
 - How do I restart at several times a day?
 - Does a schedule run when the server is offline?
 - How do I post to Discord from a schedule?
-- What is a workflow in schedules?
+- How do I run a step only on weekends or at night?
+- Can a schedule check a file size or backup count?
 - Why did my schedule skip?
 
 </details>

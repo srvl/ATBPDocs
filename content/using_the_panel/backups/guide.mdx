@@ -77,7 +77,7 @@ Very frequent backup schedules (for example hourly on a big world) can cause lag
 
 ## Restoring backups
 
-A restore puts back every file in the backup and overwrites the same files on your server. To bring back only some files or folders, use [Browse files](#restoring-single-files-or-folders) instead. Make a fresh backup of the current state first if you might need it. Restored files count toward your disk like any others, so check that they fit.
+A restore puts back every file in the backup and overwrites the same files on your server. To bring back only some files or folders, use [Restore files](#restoring-single-files-or-folders) instead. Make a fresh backup of the current state first if you might need it. Restored files count toward your disk like any others, so check that they fit.
 
 To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again. Press **Restore** once: restores are queued, and pressing the button repeatedly causes a "too many attempts" error. If a backup is running on the node, the restore or download waits for that one to finish and then goes ahead of any queued backups. When the restore deletes your current files first, it reads the whole backup before it deletes anything, so if a restore fails your server is left exactly as it was.
 
@@ -87,19 +87,19 @@ A big backup can take 10 to 15 minutes or more to restore. If the page shows `Re
 
 You do not have to restore a whole backup to get one world, one plugin folder or one config file back.
 
-1. Open the **Backups** tab and click **Browse files** on the backup you want. It is on your own backups and on Auto Backups made since the November 2026 panel switch.
-2. Click a folder to open it. The line at the top shows where you are, and each part of it is a link back.
+1. Open the **Backups** tab, click the menu on the backup you want and choose **Restore files**. It is there for your own backups and for the System backups (Auto Backups).
+2. Click a folder to open it. The path at the top shows where you are; **Up** goes back one folder.
 3. Tick the files or folders you want. Your ticks are kept while you move between folders. You can pick up to 200 at once; to bring back many files, tick the folder that holds them.
-4. Click **Restore selected** and confirm. The server has to be stopped while files are restored. If it is running, the button reads **Stop server and restore** and stops it for you.
-5. Wait for the message that says how many files were restored, then start the server.
+4. Click **Restore selected**. The server has to be stopped while files are restored. If it is running, the button reads **Stop server and restore** and stops it for you.
+5. The files are copied back in the background; the progress shows with your file operations. Start the server once it is done.
 
 Files from the backup replace files with the same name. Nothing else on your server is deleted or changed, so a world or plugin that was added after the backup stays where it is. Restored files count toward your disk.
 
 On Budget+ servers, where backups are kept on our off-site storage, opening a folder can take up to a minute, and it waits while a backup is running on the same machine. If it says the node did not answer in time, try again a little later.
 
-Subusers need the **Restore** permission for backups to see **Browse files**.
+Subusers need the **Restore** permission for backups to use **Restore files**.
 
-Backups made before the [new panel](/using_the_panel/new-panel) (November 2026) cannot be browsed. They still [restore](#restoring-backups) and [download](#downloading-backups) as usual, so restore the whole backup, or download it and take the files you need.
+Backups made before the [new panel](/using_the_panel/new-panel) (November 2026) may not open in **Restore files**. They still [restore](#restoring-backups) and [download](#downloading-backups) as usual, so restore the whole backup, or download it and take the files you need.
 
 ### Plugins show red after a restore
 
@@ -177,7 +177,7 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - Can I restore only some plugins or files from a backup?
 - How do I get one world or one folder back from a backup?
 - Paano ibalik ang isang file lang o isang world mula sa backup?
-- What does Browse files on a backup do?
+- What does Restore files on a backup do?
 - Why can't I browse an old backup?
 - Where are my database backups?
 - Why are my plugins red after restoring a backup?
