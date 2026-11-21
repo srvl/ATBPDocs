@@ -149,7 +149,7 @@ Those are the only copies. Staff have no older snapshot or other copy of your se
 
 ## Deleting backups
 
-If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night, have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
+If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night (a server that has been stopped and unchanged since its last one is skipped, but never for more than 7 days), have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
 
 Press **Delete** once. Deletes are queued on the node, so on a large backup or a busy node the page can show `Request failed with status code 504` while the delete still goes ahead. Do not press **Delete** again; pressing it repeatedly only adds to the queue. Wait a few minutes and refresh the page. If the backup is still listed after that, open a ticket and we remove it for you.
 
