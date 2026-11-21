@@ -29,6 +29,7 @@ Tick the files or folders, then press the move button on the bar that appears at
 - Click a folder to open it. Your current path is shown at the top; click any part of it to go back up.
 - The `..` row at the top of a folder stands for the folder you are in. Deleting it deletes that whole folder and everything in it, and the list may keep showing the old files until you go back up or refresh. If you then upload into it, the folder is made again with only the new files. If a whole folder went missing, check the **Activity** tab for the delete and restore it from the **Trash Bin** (below) if it is there, or from a [backup](/using_the_panel/backups/guide).
 - In File Manager Settings you can switch between the **Browse** view and a **Tree** view, choose whether folders open on a double click, and turn file checkboxes on or off.
+- The grid button next to **Git** above the file list shows the files as a grid of tiles instead of a list. Your choice is saved in your browser; press the button again to go back to the list.
 - Tick the checkboxes to select several files, or use the box at the top to select everything in the folder. **Clear selection** unticks them.
 - Drag and drop files to move them, and drop files from your computer to upload them. You can ask to confirm before files are moved.
 - Right-click a file, or use its menu, for **Rename**, **Duplicate**, **Move**, **Download**, **Archive**, **Unarchive** (`.zip`, `.tar.gz` and `.rar`; a file that was only renamed, or an archive damaged by an interrupted upload, fails with an extraction error, so upload it again or create a fresh archive at the source), **Properties** and **Edit chmod values** (file permissions).
@@ -42,12 +43,14 @@ Tick the files or folders, then press the move button on the bar that appears at
 
 Open a text file to edit it in the built-in code editor. It has syntax colours, tabs for several open files, find and replace, and a **Show changes** view so you can check your edits before you save. Other things it can do:
 
-- **Format** a config file to tidy its layout, and show a **Markdown preview**.
+- **Beautify** a config or script file (JSON, YAML, XML, HTML, CSS, SQL or JavaScript) to tidy its layout. JavaScript needs the Monaco editor, which you pick in the editor settings.
+- **Preview** a Markdown (`.md`) file beside the editor; it follows your typing.
 - **Find in Open Files**, and a **Recent and Modified** list of files you touched.
-- **Pop Out Editor** to edit in its own window.
+- **Pop out** opens the file in its own window.
 - Open Minecraft `.dat` files (player data, level data) in an **NBT editor**.
 - Open small SQLite databases (up to 32 MB) to view and edit rows. Changes are only saved while the server is stopped.
-- Preview images, audio, video and PDFs, and look inside archives to **Extract Selected** files or a whole folder.
+- Preview images, audio (with the song's title, artist, cover and a waveform you can click to jump), video and PDFs. Videos and PDFs over 200 MB play in a window that streams them, so they start right away.
+- Look inside archives and extract only what you need. `.zip` and `.7z` files open like folders: tick files or folders inside and press the extract button on the bar at the bottom. `.tar`, `.tar.gz` and other tar archives open in an archive viewer (double-click, or **Browse archive** in the file's menu) where you tick files or folders and press **Extract**. Either way the files keep their folders from inside the archive, under the folder you pick.
 
 In the simple view's editor, and in the editor on a phone, a row of round icon buttons above the text works on it. From left to right they are **Select all**, **Copy**, **Cut**, **Paste**, **Delete** (removes the selected text), **Undo** and **Redo**; hold or hover a button to see its name. They are handy on a phone, where selecting a long file by touch is hard. If your browser blocks clipboard access, **Paste** still inserts text you copied with these buttons in the same tab.
 
@@ -76,7 +79,7 @@ Choose **Share download link** on a file to get a link anyone can download it fr
 
 ## Git
 
-**Git** (in the file manager's tools menu, with the Trash Bin and File Manager Settings) connects a folder of your server to a public Git repository, for example on GitHub.
+**Git** (the Git button above the file list) connects a folder of your server to a public Git repository, for example on GitHub.
 
 - **Clone** copies a repository into your server. Paste its HTTPS link (such as `https://github.com/user/repo.git`) as the **Repository URL** and optionally a **Target Directory**. The target folder must be empty.
 - **Pull** brings in new commits from the repository. If you changed files on the server that the update also changes, the pull stops and nothing is overwritten. It never pulls by itself; press **Pull** when you want the update.
@@ -97,7 +100,7 @@ Where your server's node supports it, a file's history lists earlier saved versi
 
 ## Long tasks
 
-Archiving, extracting, big uploads and downloads, and backups show in a small task box on the screen with their progress. You can keep working while they run, and press **Cancel task** to stop one.
+Archiving, extracting, uploads, downloads, backups, restores and reinstalls show in a small task box on the screen with their progress, on every page of the server. You can keep working while they run, and the box still shows them after you reload the page. Press **Cancel task** to stop an archive, an extraction, a download, an upload or a reinstall. A backup or a restore runs to the end once started.
 
 ## Uploading a world or server zip
 
