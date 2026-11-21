@@ -18,16 +18,13 @@ If you wish to archive, unarchive or mass delete files, please check out our [gu
 
 There are several so-called *SFTP clients*. A few of the more popular ones are [WinSCP](https://winscp.net/), [MobaXTerm](https://mobaxterm.mobatek.net/) or [FileZilla](https://filezilla-project.org/). 
 
-To find the login details, navigate to the sidebar of the server, then open the 'Settings' section.
+To find the login details, open your server, go to **Files** > **Connect** > **via SFTP**. The **SFTP Details** window shows your server's SFTP host, port and username, with a **Launch** button.
 
-Here you will be able to see your server's SFTP host IP address and port as well as your username!
+The new game panel has no SFTP box on the **Settings** page, and the port can differ from the old panel's, so copy the details again from **Files** > **Connect** > **via SFTP**.
 
 Your SFTP password is your **game panel** password. It is not your billing password, and not your Discord or Google password, even if you signed up with one of those. Look for the email titled **Panel password inside**, or press **Forgot password** on the panel login page to set a new one.
 
-![The panel's Settings page with the SFTP Details box and the Launch SFTP button marked](/screenshots/panel-sftp-settings.webp)
-
-
-*If you have WinSCP installed, you can launch straight away by clicking `Launch SFTP`.*
+*If you have WinSCP installed, you can launch straight away by clicking **Launch** in the SFTP Details window.*
 
 *In **Files**, the **SFTP** button next to Connect opens your SFTP app at this server in one click.*
 
@@ -39,7 +36,7 @@ The panel shows the address as `sftp://HOST:PORT`. Most apps want it split into 
 | --- | --- |
 | Host / Server | Only the host name, for example `shared1.atbphosting.com`. Leave out `sftp://` and `:PORT`. |
 | Port | The number after the `:` in the panel's address (not 21 or 22). |
-| Username | The full SFTP username from **Settings**, including the `.` and the server ID at the end. |
+| Username | The full SFTP username from the SFTP Details window, including the `.` and the server ID at the end. |
 | Password | Your **game panel** password. It is not your billing password. If you forgot it, reset it from the panel's login page. |
 | Protocol | SFTP, not FTP. |
 
@@ -62,12 +59,12 @@ SFTP works from Android phones and iPhones too. See [Using SFTP on your phone](/
 Game and bot servers give you **SFTP only**, for moving files. There is no SSH shell or terminal login to your server; to run commands, use the **Console** tab in the panel.
 
 - **SSH Keys** in your panel account settings are for SFTP: add your public key there and SFTP clients can log in with that key instead of your panel password. They do not open a shell.
-- From Windows Command Prompt, PowerShell, macOS or Linux you can connect with the built-in `sftp` command, using the host, port and username from **Settings**: `sftp -P PORT USERNAME@HOST`. Enter your panel password when asked (or nothing, if you added an SSH key). Then use `ls`, `get FILE`, `put FILE` and `exit`.
+- From Windows Command Prompt, PowerShell, macOS or Linux you can connect with the built-in `sftp` command, using the host, port and username from the SFTP Details window: `sftp -P PORT USERNAME@HOST`. Enter your panel password when asked (or nothing, if you added an SSH key). Then use `ls`, `get FILE`, `put FILE` and `exit`.
 
 ### Using WinSCP (Recommended, available only on Windows)
 Firstly, you'll have to download [WinSCP](https://winscp.net/eng/download.php) to your computer. Their installation wizard makes this simple.
 
-With our new panel, you can simply head over to the [panel](https://panel.atbphosting.com) and click 'Launch SFTP' under 'Settings' on the left side of the screen. You'll simply need to enter your panel password and you are good to go!
+With our new panel, you can simply head over to the [panel](https://panel.atbphosting.com) open **Files** > **Connect** > **via SFTP**, then click **Launch**. You'll simply need to enter your panel password and you are good to go!
 
 WinSCP is very similar to your basic Windows Explorer. However, on the left side of the screen you can see your local files and on the right side you can see the remote server's files.
 You can drag, drop, rename and delete files as you wish. 
@@ -96,7 +93,7 @@ Firstly, you'll have to download [MobaXTerm](https://mobaxterm.mobatek.net/downl
 
 Once installed, launch the application. Right-click on the left side of the screen and click 'New Session'. Select 'SFTP' in the middle.  
 
-Enter your host's IP, port, and SFTP username (which can be found in the panel server settings tab). Then click 'Ok'.  
+Enter your host's IP, port, and SFTP username (in the panel under **Files** > **Connect** > **via SFTP**). Then click 'Ok'.  
 You will be asked for your panel password, which will be stored by default.  
 
 On the left side you can see your local files, and on the right side you can see the remote server's files. You can drag, drop, rename, and delete files as needed.  
@@ -136,6 +133,9 @@ To do this, install the **SFTP** addon for Visual Studio Code for efficient file
 <summary>Questions this page answers</summary>
 
 - How do I connect with SFTP?
+- Where are the SFTP details on the new panel?
+- Did the SFTP details change with the new panel?
+- Same ba ang SFTP details sa bagong panel?
 - Where are my SFTP login details?
 - What is my SFTP password?
 - Anong password sa SFTP?

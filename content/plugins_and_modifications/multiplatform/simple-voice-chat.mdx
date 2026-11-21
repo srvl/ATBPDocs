@@ -78,6 +78,8 @@ The VCMC plugin (VoiceChatMobileClient) lets players on a phone join Simple Voic
 3. Under `direct-voice:`, set `port:` to that second port (the default `24455` won't connect). Leave `advertised-host:` empty or set it to your server's IP address
 4. Start the server again
 
+Proximity voice on a **Vanilla Bedrock** server runs on a voice server of its own, next to your game server. Host that voice server on a [server split](/plans/server-splits).
+
 ## Voice chat doesn't connect
 
 - Check that `port=` in `voicechat-server.properties` is a port listed in your **Network** tab, added with **Simple Voice Chat**. Not `24454`, and not your main game port. Restart after any change
