@@ -1,6 +1,6 @@
 ---
 title: "Project Zomboid builds and common errors"
-description: "Build 41 or 42, updating the server when the client version does not match, a private whitelisted server, Workshop version mismatch, the WorldDictionary error, No space left on device, the Port Closed warning, Getting Server Info, which ports to use and Connection Startup Failed."
+description: "Build 41 or 42, updating the server when the client version does not match, a private whitelisted server, Workshop version mismatch, the WorldDictionary error, No space left on device, the Port Closed warning, Getting Server Info, which ports to use, Connection Startup Failed, and all players dropping at once."
 ---
 
 All the files below are in **Files**, `.cache`, `Server` in the [panel](https://panel.atbphosting.com). The settings file is named after your server, `servertest.ini` by default. Stop the server before editing it.
@@ -102,3 +102,11 @@ The server stops right after start with `java.net.ConnectException: Connection S
 1. Stop the server.
 2. On **Startup** (or in the settings file), set the main port and the second (Steam or UDP) port to two **different** ports from your **Network** tab.
 3. Start the server again.
+
+## Everyone was disconnected at the same moment
+
+If every player drops at the same second and the server itself did not crash or restart, it is usually a short network break between our Singapore location and the Philippines, around 10 to 30 seconds. It hits players on many servers at once, and they can join again right after.
+
+The Console warning `Packets limit has exceeded for State` is harmless: it does not disconnect anyone, so it is not the cause.
+
+If it keeps happening, open a ticket with the times it happened (and your time zone) so we can check them against our network logs.
