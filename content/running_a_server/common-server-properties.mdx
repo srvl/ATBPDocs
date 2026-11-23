@@ -39,6 +39,8 @@ Lowering `view-distance` and `simulation-distance` is the easiest way to cut lag
 
 Difficulty and gamemode can also be changed in-game with `/difficulty` and `/gamemode`. Changes to `server.properties` itself need a restart.
 
+The server sets the difficulty from `difficulty=` in `server.properties` every time it starts, so a `/difficulty` change goes back to that line after a restart. If your server keeps going back to easy, stop the server, set `difficulty=normal` (or `hard`) in `server.properties`, save, and start it again.
+
 Allow-flight only matters in survival. It does not let players fly: it only stops the server from kicking players who float or fly through a plugin, a mod or a glitch. To let players fly in survival, use a plugin or permission that grants flight, such as a `/fly` command. There is no setting that allows flight for only a few seconds. Anti-cheats usually need to be told separately that flying is allowed for certain ranks. Restart the server after changing it.
 
 ## Turn on hardcore
@@ -61,6 +63,10 @@ The steps depend on your edition. To test either one, die once: if you can still
 2. In **Files**, open your world folder, then click `level.dat`. It opens in the panel's NBT editor.
 3. Under `Data`, set `hardcore` to `1` and `Difficulty` to `3` (Hard). On newer Minecraft versions these can sit in a group such as `difficulty_settings`, with `hard` written as a word.
 4. Save and start the server.
+
+### Bring a player back in hardcore
+
+A player who dies in hardcore is put in spectator mode. To let them play again, run `gamemode survival <player name>` in the **Console** while they are online.
 
 ### Vanilla Bedrock and Endstone
 
@@ -85,6 +91,8 @@ Hardcore works on both, but it has to be set when the world is created, so you m
 - How do I make a hardcore world on Bedrock?
 - Pwede ba mag hardcore sa Bedrock o Endstone?
 - Does allow-flight let players fly in survival?
+- Why does my server keep going back to easy mode after a restart?
+- How do I bring a friend back after they died in hardcore?
 - Can I allow flying for only a few seconds?
 - Paano i-enable ang fly sa survival?
 
