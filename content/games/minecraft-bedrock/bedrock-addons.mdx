@@ -120,7 +120,17 @@ If you can't use this page, you can still [install packs by hand](/running_a_ser
 
 ## Voice chat add-ons
 
-Proximity voice chat add-ons for Bedrock need a separate voice server next to your game server. On ATBP that voice server runs on a [server split](/plans/server-splits) with about 0.5 GB of RAM. Make sure your plan has a split to spare (or add one), then open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) and staff will help you set it up. Once it works, leave the voice split's settings and address as they are; changing them, even adding a different subdomain, stops players from connecting. A Java server with Geyser uses [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat) instead.
+**VCMC (Voice Chat Minecraft) needs no split.** It runs on your game server itself:
+
+1. Install the VCMC **SERVER** pack (behavior and resource pack) on the server. Not the World or Realms version: those only work in a world hosted from a player's own game. Enable only one VCMC behavior pack.
+2. Restart the server from the panel.
+3. Each player opens the VCMC app, goes to the **Server** tab and chooses to join a server.
+4. They join your server with the same gamertag that is linked in the app, and paste the command the app gives them in chat, for example `/vcmc:verify "code"` (with the quotes).
+5. Keep the VCMC app open while playing.
+
+If players see "Your identity couldn't be verified", the wrong VCMC pack is installed: open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com).
+
+Other proximity voice chat add-ons for Bedrock need a separate voice server next to your game server. On ATBP that voice server runs on a [server split](/plans/server-splits) with about 0.5 GB of RAM. Make sure your plan has a split to spare (or add one), then open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) and staff will help you set it up. Once it works, leave the voice split's settings and address as they are; changing them, even adding a different subdomain, stops players from connecting. A Java server with Geyser uses [Simple Voice Chat](/plugins_and_modifications/multiplatform/simple-voice-chat) instead.
 
 <details>
 <summary>Questions this page answers</summary>
@@ -139,6 +149,8 @@ Proximity voice chat add-ons for Bedrock need a separate voice server next to yo
 - How do I remove an addon or a world?
 - Why does it say an install is already running on this server?
 - Can I use a voice chat add-on on my Bedrock server?
+- Does VCMC need a server split?
+- Why does VCMC say my identity couldn't be verified?
 - Pwede ba Bedrock Voice Chat sa server ko?
 
 </details>
