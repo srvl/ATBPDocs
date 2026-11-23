@@ -27,6 +27,20 @@ The dot next to each server shows its status:
 
 A server that stays orange for a long time is stuck starting; see [Server stuck starting, stopping or installing](/using_the_panel/stuck-server).
 
+To put your servers in your own order, drag a server card and drop it where you want it. The order is saved to your account, so it is the same on every device.
+
+### Keyboard shortcuts
+
+Inside a server:
+
+| Keys | What it does |
+|---|---|
+| **Ctrl+1** to **Ctrl+0** | Open the first to tenth tab in the server's menu |
+| **Alt+Z** | Start the server |
+| **Alt+X** | Stop the server |
+| **Alt+C** | Restart the server |
+| **Ctrl+Space** | Search for a page or action |
+
 ## When a status page shows instead
 
 While your server is busy or closed, every tab shows one status page instead of its usual content, so nothing can fail halfway. This happens while the server is:
@@ -59,6 +73,12 @@ The small buttons above the console:
 *   **Command history** (clock): the last 50 commands you sent on this server in this browser. Click the arrow next to one to send it again, or the copy button to copy it. The Up and Down arrow keys in the command box go through the same list.
 *   **Copy console**: copies everything the console is showing, up to its last 1,000 lines, as plain text. This is handy for pasting logs into a ticket.
 *   **Clear console**: clears the console on your screen only. Your server and its log files are not touched, and the recent log comes back when you reload the page.
+
+### Resource history
+
+**Resource History** (on the console page) shows how your server has been doing over the last hour, 6 hours, day, week, month or year: how long it was running, starting, stopping or off, its CPU and memory (average and peak, against your plan's limit), network traffic in and out, and disk use. Drag across a graph to zoom into that stretch of time. History starts on 21 November 2026, when the panel began recording it.
+
+When your server crashes, the panel notes it in the **Activity** tab as a detected crash, so you can see when crashes happened even after a restart.
 
 ## Files
 

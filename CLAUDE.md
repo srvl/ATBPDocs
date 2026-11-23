@@ -23,7 +23,7 @@ Customer-facing docs for ATBP Hosting, live at https://docs.atbphosting.com. Nex
 | Payment methods, credit, GCash/bank steps | Paymenter gateways | `content/billing/payment-methods`, `gcash`, `bank` |
 | Coupons, upgrades | Paymenter | `content/billing/discounts-and-coupons`, `upgrades-and-downgrades` |
 | Support channels, region, hardware, ToS summary, domains, optimization | Owner decisions, live ToS | `content/general/*` |
-| Panel features and addons | Pterodactyl panel + installed addons | `content/using_the_panel/*` |
+| Panel features and addons | Calagopus game panel (since 2026-11-21 PHT) + ATBP extensions | `content/using_the_panel/*` |
 | Supported games, versions, Java, plugins | Eggs and panel | `content/games/*`, `content/running_a_server/*`, `content/plugins_and_modifications/*` |
 
 ## Style

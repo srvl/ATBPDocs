@@ -1,4 +1,5 @@
 export default {
+  "new-panel": "New panel: what changed",
   "basic-controls": "Basic Controls",
   "file-manager-controls": "File Manager Controls",
   "server-importer": "Server Importer",

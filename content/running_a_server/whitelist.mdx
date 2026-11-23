@@ -30,12 +30,22 @@ On a server with `online-mode=false`, players are matched by their exact name, *
 Entries added on the Players page may not let cracked players in, because an offline server identifies players differently from a real Minecraft account. Adding them from the console avoids this. See [Offline Mode](/running_a_server/offline-mode).
 
 ### Whitelisted but still cannot join
-- Check the kick message. "You are not whitelisted on this server" means the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`.
+- Check the kick message. "You are not whitelisted on this server" or "You are not authorized to join this server!" means the whitelist is on and the name on the list does not match the name the player joined with. Compare the spelling and capitals with `whitelist list`. Switching online mode does not change this; only the whitelist does.
+- Did not mean to have a whitelist at all? Run `whitelist off` in the **Console**. Check `white-list` in `server.properties` too, since a world or config you uploaded can switch it on.
 - A player who switches accounts in their launcher joins with a different name. Whitelist the name they are using now.
 - After editing `whitelist.json` by hand, run `whitelist reload`.
 
 ### Bedrock players joining through Geyser
-On a Java server with Geyser and Floodgate, add Bedrock players with Floodgate's own command. In the **Console** tab, run `fwhitelist add BedrockName`, using the player's Bedrock name **without** the `.` that appears in front of it in game. `/allowlist` is only for Bedrock servers and does nothing here. See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
+On a Java server with Geyser and Floodgate, add Bedrock players with Floodgate's own command. `/allowlist` is only for Bedrock servers and does nothing here.
+
+1. Ask the player to try joining once, even though they are not on the list yet. They are turned away, but the **Console** now shows the exact name they joined with, in a line ending in "You are not whitelisted on this server!". It also lets Floodgate find their Bedrock account, which helps most when they changed their gamertag recently.
+2. Copy the name from that line, **without** the `.` that appears in front of it in game.
+3. In the **Console** tab, run `fwhitelist add BedrockName`.
+4. Ask them to join again.
+
+**Gamertags with a space** (for example `Steve Gamer`) must be put in quotes: `fwhitelist add "Steve Gamer"`. Do not swap the space for `_`, since that is a different name. The plain `whitelist add` command cannot take a name with a space (it answers "Incorrect argument for command"), so use `fwhitelist` for these players.
+
+See [GeyserMC](/plugins_and_modifications/plugins/geysermc).
 
 ### With commands
 To start off, here's a list of all the sub-commands under the whitelist command:
@@ -167,3 +177,11 @@ Notice the `,` after the `}` from the first user. Keep adding one after each pla
 
 * Step 4: The final step is to go into the console and type `/allowlist reload`. This will make the saved file take effect!
 * Step 5: Ensure that the list has been updated with `/allowlist list` and check to see that all the players you added are there!
+
+### Keeping a player out of a Bedrock server
+Vanilla Bedrock has no `ban` command, so `ban PlayerName` does not work there. To keep someone out:
+
+1. While they are online, run `kick PlayerName` in the **Console** to remove them now.
+2. Turn the allowlist on with `allowlist on` and add only the players you want (see above). Anyone not on the list cannot join again.
+
+If you would rather ban players one by one, switch the server to **Endstone** in **More > Software**. Endstone runs the same Bedrock server with a `ban` command and plugins. Make a backup of your world before you switch. See [Endstone vs Vanilla](/games/minecraft-bedrock/endstone-vs-vanilla).

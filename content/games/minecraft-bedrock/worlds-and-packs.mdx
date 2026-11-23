@@ -1,6 +1,6 @@
 ---
 title: "Bedrock worlds and behavior packs"
-description: "Upload your own Bedrock world and add behavior or resource packs."
+description: "Upload your own Bedrock world or move one from Realms, add behavior or resource packs, or use your own texture pack."
 ---
 
 import { Callout } from 'nextra/components'
@@ -37,6 +37,16 @@ The easy way: upload the `.mcworld` file to your server in **Files**, then open 
 3. Unarchive the zip. `level.dat` and the `db` folder must sit directly in your new folder, not in another folder inside it.
 4. Edit `server.properties` and set `level-name` to the name of your new folder. Save and start the server.
 
+## Move a world from Realms
+
+Your server must run Bedrock (Vanilla Bedrock or Endstone), not Java. If it is a Java server, switch it first, see [Endstone vs Vanilla Bedrock](/games/minecraft-bedrock/endstone-vs-vanilla).
+
+1. In Minecraft Bedrock, go to **Play > Realms**, open your Realm's settings (the pencil button) and choose **Download World**. The world is copied into your normal world list on that device.
+2. In your world list, edit the downloaded world and choose **Export World** to save it as a `.mcworld` file. On Windows you can also zip the world folder as in [Upload a world from Windows](#upload-a-world-from-windows).
+3. Upload it with the [.mcworld steps](#upload-a-mcworld-file-phone-tablet-or-exported-world) above.
+
+The Realm keeps its own copy, so nothing is lost if something goes wrong. Add-ons the Realm used have to be installed on the server too, see [Bedrock Addons in the panel](/games/minecraft-bedrock/bedrock-addons). A Java Realms world goes on a Java server instead, see [Worlds](/running_a_server/worlds).
+
 ## Play on a hardcore world
 
 Hardcore works on Vanilla Bedrock and Endstone, but it has to be set when the world is created. Create a new world in Minecraft Bedrock with **Hardcore** turned on, export it, then upload it with the steps above. An existing world can't be switched to hardcore.
@@ -44,3 +54,13 @@ Hardcore works on Vanilla Bedrock and Endstone, but it has to be set when the wo
 ## Add a behavior or resource pack
 
 Use [Bedrock Addons in the panel](/games/minecraft-bedrock/bedrock-addons) to install or upload packs. To do it by hand, see [Install Bedrock packs by hand](/running_a_server/bedrock-addons).
+
+## Use your own texture pack
+
+A texture pack that only changes how the game looks does not have to be on the server. Each player can use their own:
+
+1. In Minecraft, open **Settings** from the main menu (not the pause menu in game).
+2. Open **Global Resources**, find the pack under **My Packs** and activate it. Put it at the top of the **Active** list so it wins over other packs.
+3. Join the server.
+
+If the pack doesn't show, check that it is made for the Minecraft version you play.

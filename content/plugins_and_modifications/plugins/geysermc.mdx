@@ -30,7 +30,7 @@ Auto-Crossplay is a switch on our Paper, Purpur and Leaf server type (**Paper/Pu
    ![Game panel Startup tab, Variables: the Enable Auto-Crossplay switch that sets up Geyser and Floodgate](/screenshots/panel-startup-auto-crossplay.webp)
 
 3. Go to **Settings** and press **Reinstall Server**. Geyser and Floodgate are installed for you. Reinstalling keeps your worlds and plugins, but make a backup first anyway.
-4. Add a Bedrock port as described below.
+4. Add one Bedrock port as described below (one is enough for every Bedrock player).
 
 Turn the switch on before you press **Reinstall Server**; the reinstall is what installs Geyser.
 
@@ -54,6 +54,14 @@ With **Enable Auto-Crossplay** on in the server's **Startup** tab, the Geyser co
 
 After that, restart the server. Bedrock players join with your server's IP address and that port.
 
+## Behind a Velocity proxy
+
+If players join through a Velocity proxy, install Geyser only once, on the proxy:
+
+- **On the proxy:** Geyser-Velocity and Floodgate-Velocity. The Bedrock port goes on the proxy server, as above.
+- **On every backend server:** Floodgate only. Do not install Geyser on the backend servers as well.
+- Floodgate on the proxy and on each backend needs the same `key.pem`: copy it from the proxy's Floodgate folder into each backend's Floodgate folder, then restart them.
+
 ## Joining from Bedrock
 
 In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or domain in **Server Address**, without `:` and the numbers after it, and put the Bedrock port from the **Network** tab in the separate **Port** box.
@@ -64,12 +72,13 @@ In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or do
 
 ## Bedrock players cannot join
 
+- **No Bedrock port yet**: if you added Geyser yourself and never added a **Minecraft Bedrock / Geyser** port, Geyser stays on its default `19132`, which your server does not own, and Bedrock players get "An error occurred", the Terracotta error or a time-out. Open the **Network** tab, add a **Minecraft Bedrock / Geyser** port, check that `port` under `bedrock` in the Geyser config (`plugins/Geyser-Spigot/config.yml`, or `config/Geyser-Fabric/config.yml` on Fabric) matches it, and restart. Players then join with your address and that port.
 - **NetherNet**: Bedrock 26.60 and newer only connect over NetherNet. The panel turns it on for Geyser and gives Geyser your public address, so you don't change `transport` yourself. Bedrock 26.60 players need Geyser build 1273 or newer: if the console says NetherNet is not enabled or not supported, or Geyser's build number is lower, download the newest Geyser and Floodgate for your platform from [geysermc.org](https://geysermc.org/download), replace the old jars and restart. Bedrock players join with your server's IP or subdomain and the Bedrock port. Both connect securely from the server's next restart, so players are not asked to trust it; if a player joining by IP still is, give them the subdomain. If Bedrock players get "Connection Failed" and the console shows Geyser still listening on `19132` or still using `raknet`, the panel did not set it: stop the server, open `plugins/Geyser-Spigot/config.yml`, set `port` under `bedrock` to your Bedrock port from the **Network** tab, change `transport` from `raknet` to `nethernet`, save and start the server. Players then join with that Bedrock port.
 - **You added `transport` to the startup command**: remove it. A setting such as `transport=both` in the **Startup** tab overrides what the panel sets, and Bedrock players get timed out even though the port and the Geyser config look right. Clear it, restart the server, and test with a Bedrock player.
 - **Geyser stopped working after a plugin reload**: Geyser does not survive `/reload` or plugin manager tools such as PlugMan. Remove the plugin manager, then fully restart the server from the panel. If Bedrock still cannot join after you edited the Geyser config, stop the server, back up and delete `config.yml` in the Geyser folder, start the server once so a fresh one is made, then set only the Bedrock `port`, `clone-remote-port: false` and (with Floodgate) `auth-type: floodgate`. Always keep a copy before you edit the Geyser config.
 - **Bedrock stopped working after you added a Geyser extension or pack**: an extension or a custom pack can break every Bedrock connection, while Java players and the console look fine. Make a [backup](/using_the_panel/backups/guide), stop the server, move the ones you added last out of the `extensions` and `packs` folders in your Geyser folder, then start the server and test. Deleting one only counts after a restart, because a running server keeps what it loaded. Add them back one at a time to find the one at fault, and check for a build made for your Geyser version.
 - **Some Bedrock players can join and others cannot**: first make sure the players who cannot join have updated Minecraft (Bedrock 26.50 and older cannot connect over NetherNet), that they join with the Bedrock port (see NetherNet above), and that the server was restarted since. If the IP doesn't work for them, try the subdomain. If it still works for some players only, the problem is usually the route from the other players' internet provider to Singapore. Ask each player who cannot join to try mobile data or a VPN for a few minutes. If that works, have them run an MTR or traceroute to your server's IP (see [Diagnosing Ping Issues](/extras/ping-issues), which also covers phones) and send the results with their public IPv4 address in a ticket, so we can check the route and our network protection.
-- **"Terracotta" error (`InitialConnection-149`)**: the player's game could not finish the NetherNet connection. Check the server is on Geyser build 1273 or newer and has its own Bedrock port (see above), that the player has updated Minecraft and joins with the Bedrock port, then restart the server. If it still fails by IP, try the subdomain. If it still happens for some players only, have them try mobile data, and send us the time it happened and the player's public IP in a ticket.
+- **"Terracotta" error (`InitialConnection-149`)**: the player's game could not finish the NetherNet connection. Check the server is on Geyser build 1273 or newer and has its own Bedrock port (see above). If you added Geyser yourself and `port` under `bedrock` in `plugins/Geyser-Spigot/config.yml` still says `19132`, stop the server, set it to your Bedrock port from the **Network** tab, save and start it again. Also check that the player has updated Minecraft and joins with the Bedrock port, and restart the server. If it still fails by IP, try the subdomain. If it still happens for some players only, have them try mobile data, and send us the time it happened and the player's public IP in a ticket.
 - **After a port change**: Bedrock players need the new Bedrock port, and any subdomain still points at the old one. Delete the subdomain and create it again.
 - **Port mix-up**: keep your Java port as the **primary** port in the **Network** tab. The Bedrock port is a separate port (do not make it primary) and must match the `port` in the Geyser `config.yml`. After changing it, restart the server.
 - **Another plugin uses the Bedrock port**: Geyser needs its port for itself, over both TCP and UDP. Voice chat, a web map (Dynmap, BlueMap), the query port or a website on the same port stops Bedrock players from finding the server. Give each of those its own port from the **Network** tab and restart.
@@ -83,7 +92,7 @@ In Bedrock, go to **Play > Servers > Add Server**. Put only the IP address or do
 - **Older Fabric server and the newest Bedrock version**: new Geyser builds follow the newest Minecraft Java version. On Paper, [ViaVersion](/running_a_server/join-from-any-version) lets the newest Geyser run on an older server, but on Fabric it does not, so you must use the Geyser build made for your Fabric version. If that build is too old for your players' Bedrock version, update the server to the newest Java version (back up first).
 - **Modded servers**: Bedrock players cannot install Java mods, so they cannot join a server whose mods must also be on the player's game. Server-only mods are fine.
 - **Bedrock players rubber-band or lag while Java players are fine**: first run `geyser version` in the console. If it says Geyser is behind, download the newest Geyser and Floodgate, replace the old jars in your `plugins` folder (`mods` on Fabric) and restart, because an old build often causes this. If Geyser is current, the cause is almost always the lagging player's connection, which Bedrock movement shows much more than Java. If `moved-wrongly-threshold` and `moved-too-quickly-multiplier` in `spigot.yml` are still at the Spigot defaults, raising them makes the server pull them back less often (Auto Optimization servers already have them raised). See [Bedrock players rubber-band](/extras/ping-issues#minecraft-bedrock-players-rubber-band-but-java-players-are-fine) for values and what else helps.
-- **Whitelist**: Bedrock names start with a `.` (for example `.Steve`). Add them with `fwhitelist add Steve` (Floodgate) or `whitelist add .Steve`, and op them with `op .Steve`.
+- **Whitelist**: Bedrock names start with a `.` (for example `.Steve`). Add them with `fwhitelist add Steve` (Floodgate) or `whitelist add .Steve`, and op them with `op .Steve`. A gamertag with a space goes in quotes, such as `fwhitelist add "Steve Gamer"`. If the player is not found, have them try joining once first, then copy their name from the console. See [Bedrock players joining through Geyser](/running_a_server/whitelist#bedrock-players-joining-through-geyser).
 
 Players who are using the console version of Bedrock Minecraft must follow the instructions listed on [this page](https://wiki.geysermc.org/geyser/using-geyser-with-consoles/), as the console version does not allow joining custom servers by default.
 
@@ -128,6 +137,8 @@ If something only goes wrong for Bedrock players, such as blocks that cannot be 
 - Java players time out after I changed the port for Geyser
 - Bedrock says Connection Failed after the NetherNet change
 - Bedrock players get the Terracotta error (InitialConnection-149)
+- Bedrock says "An error occurred" and Geyser is on port 19132
+- Where is the Geyser config on Fabric?
 - I used clone-remote-port, which port do Bedrock players use now?
 - Which Geyser build do I need for Bedrock 26.60?
 - Ayaw maka join ng Bedrock players, naka raknet pa sa Geyser config

@@ -7,8 +7,9 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 
   ![The panel's More > Subdomain page with the Create subdomain button and no subdomains yet](/screenshots/panel-more-subdomain.webp)
 
-- **When you order:** game server checkouts have an optional **Free subdomain** field. Type a name, pick `.atbphosting.com` or `.atbp.fun`, and it is created on your server's main port as soon as the server is ready. If someone took the name in the meantime, create one in the panel instead.
+- **When you order:** game server checkouts have an optional **Free subdomain** field. Type a name, pick `.atbphosting.com` or `.atbp.cc`, and it is created on your server's main port as soon as the server is ready. If someone took the name in the meantime, create one in the panel instead.
 
+- **atbp.fun:** new subdomains can no longer be made on `.atbp.fun` because that domain is full. Subdomains already on it keep working.
 - **Naming:** on our shared domains a subdomain is one word of lowercase letters, numbers and dashes, like `mysmp` (no dots). Names that look like ATBP's own addresses are reserved, for example `panel`, `billing`, `support`, `login`, `pay` or anything with `atbp` in it. On a domain you bought, you can use any name, dots included.
 - **How many:** up to 5 subdomains per server, and one subdomain per port. Delete one to free its slot.
 - **Removing a port:** a subdomain on a port you remove from the Network tab is deleted within about 30 minutes, so it can never point at whoever gets that port next.
@@ -16,7 +17,7 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - **Subdomain type:** pick **Game Servers** for players to join your server. Pick **Web App** for anything that opens in a browser, such as a web map or dashboard, and choose that plugin's port; a Web App subdomain gives you an `https://` address. See [Web addresses (HTTPS)](/using_the_panel/ports-and-proxies).
 - **Buying or transferring a domain:** search at https://billing.atbphosting.com/domains. See [Buying, transferring and managing domains](/general/domains) for the steps. Domains are sold for **one year** and are not renewed through us right now (see [Renewals](/general/domains#renewals)). A domain name cannot be changed after it is bought; a different spelling is a new domain.
 - Domains are **not refundable** once registered.
-- After buying, open a ticket with your server address (IP:port) so staff can set it up. If you bought a domain elsewhere, point it with an A record to your server IP and an SRV record (`_minecraft._tcp`) with your port, or move its nameservers to Cloudflare first.
+- After buying, you can point the domain at your server yourself in one step: open it under [My domains](https://billing.atbphosting.com/domains/mine), go to **DNS records**, press **Point a Minecraft server here**, enter your server IP and port and create the records. See [Buying, transferring and managing domains](/general/domains). You can also open a ticket with your server address (IP:port) and staff will set it up. If you bought a domain elsewhere, point it with an A record to your server IP and an SRV record (`_minecraft._tcp`) with your port, or move its nameservers to Cloudflare first.
 - Bedrock players still need to enter the port unless your server uses the default Bedrock port.
 
 <details>
@@ -28,6 +29,7 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - Can I renew my domain?
 - Can I change my domain name?
 - Free subdomain?
+- Which free subdomain domains can I use?
 - Can I choose a subdomain when ordering?
 - Why can't I use this subdomain name?
 - How many subdomains can I make?
@@ -37,6 +39,8 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - My subdomain only gives http, not https?
 - Web App or game server subdomain?
 - How do I connect my domain to my server?
+- Do you set up my domain for me?
+- Kayo ba mag setup ng domain ko?
 - SRV record?
 - Refund domain?
 

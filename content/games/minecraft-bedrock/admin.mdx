@@ -1,6 +1,6 @@
 ---
 title: "Bedrock admin, cheats and difficulty"
-description: "Make yourself operator and enable commands on your Bedrock server."
+description: "Make yourself operator, enable commands, and set difficulty and view distance on your Bedrock server."
 ---
 
 import { Callout } from 'nextra/components'
@@ -35,6 +35,27 @@ Enabling cheats permanently turns off achievements for that world.
 ## Difficulty and seed
 
 Both live in `server.properties` too: `difficulty` (peaceful, easy, normal, hard) and `level-seed`. The seed only affects a **new** world, so change `level-name` to a new name, or delete the old world, before it applies. Stop the server before editing.
+
+## View distance and simulation distance
+
+Two lines in `server.properties` control how far the world reaches around each player:
+
+- `view-distance`: how many chunks the server sends to players, so how far they can see. The lowest value is 5.
+- `tick-distance`: how many chunks around a player keep running (crops grow, mobs move, redstone works). It can be 4 to 12.
+
+The defaults suit most servers. Each player's own render distance (in Minecraft under **Settings > Video**) still applies, and they never see further than the server's `view-distance`. Raising either value uses more RAM and CPU, so go up in small steps. Stop the server, change the values, save and start it again.
+
+## New players join as Visitor instead of Member
+
+`default-player-permission-level` in `server.properties` sets the permission for new players, and on a fresh world `member` is the default. A world that already exists, for example one you made in Minecraft and uploaded, keeps its own setting for players who join, and Bedrock follows the world over `server.properties`. Changing the file then does nothing.
+
+To fix it:
+
+1. Make a [backup](/using_the_panel/backups/guide) and stop the server.
+2. Download the world folder from `worlds`, open it in Minecraft on your own device, and in the world's settings set the permission for players who join to **Member**.
+3. Upload the world again in its place and start the server.
+
+If you cannot open the world yourself, open a ticket on our [Discord](https://discord.atbphosting.com) and staff can change the world's setting for you. Players who already joined keep the level they had: change them with `permissions.json` or in game. Addons that manage ranks or spawn protection can also set permissions, so check them if new players still join as Visitor.
 
 ## Not working?
 

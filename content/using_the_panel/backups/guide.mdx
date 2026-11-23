@@ -23,7 +23,7 @@ Backups are provided but not guaranteed. Download a backup now and then and keep
 
 A backup is a copy of every file on your server's **Files** page: worlds, player data, plugins, mods and their configs, and `server.properties`. Only files or folders you list to ignore are left out. Backups are stored apart from your server's files, so they do not count toward your disk, and resetting your world, deleting files, reinstalling or changing the server software does not delete your backups.
 
-Databases from the **Databases** tab are not part of a backup; export them separately if your plugins use one.
+Databases from the **Databases** tab are not part of a backup. We copy every database each night on our side and keep the last 7 copies, which you can download or restore from the **Databases** tab, see [Databases](/using_the_panel/databases#database-backups). Export a database yourself too if your plugins keep anything you cannot lose.
 
 ### Leave files out of every backup
 
@@ -51,10 +51,11 @@ Blank lines and lines starting with `#` are skipped. A list can have up to 256 r
 1. Open your server in the panel and go to the **Backups** tab.
 2. Click **Create Backup**.
 3. Optionally give it a name, and optionally list files or folders to ignore.
-
-   ![The Create server backup dialog: backup name, Stop server before backup and the Start Backup button](/screenshots/panel-backups-create-dialog.webp)
-
 4. Confirm. The backup runs in the background with a progress bar and may take a while on large servers.
+
+### Stop the server first
+
+A backup of a running server can catch a world file halfway through a save. For a clean copy, click **Stop and back up** next to **Create Backup** instead. It stops the server, makes the backup while the server is off, and, if you leave **Start the server again when the backup is done** ticked, starts it again once the backup has finished, even if you close the page after the backup has started. A server that was already off stays off. This needs the permissions to create backups and to stop the server (and to start it, for the restart).
 
 If all your backup slots are used, you need to delete or [unlock](#locking) an old backup before creating a new one. If you need more slots, you can add **Extra Backups** from billing, see [Backups](/plans/backups).
 
@@ -76,7 +77,7 @@ Very frequent backup schedules (for example hourly on a big world) can cause lag
 
 ## Restoring backups
 
-A restore puts back every file in the backup and overwrites the same files on your server. To bring back only some files or folders, use [Browse files](#restoring-single-files-or-folders) instead. Make a fresh backup of the current state first if you might need it. Restored files count toward your disk like any others, so check that they fit.
+A restore puts back every file in the backup and overwrites the same files on your server. To bring back only some files or folders, use [Restore files](#restoring-single-files-or-folders) instead. Make a fresh backup of the current state first if you might need it. Restored files count toward your disk like any others, so check that they fit.
 
 To restore a backup, stop your server, open the **Backups** tab, click the menu on the backup you want, and choose **Restore**. Confirm the prompt and wait for the restore to finish before starting the server again. Press **Restore** once: restores are queued, and pressing the button repeatedly causes a "too many attempts" error. If a backup is running on the node, the restore or download waits for that one to finish and then goes ahead of any queued backups. When the restore deletes your current files first, it reads the whole backup before it deletes anything, so if a restore fails your server is left exactly as it was.
 
@@ -86,17 +87,19 @@ A big backup can take 10 to 15 minutes or more to restore. If the page shows `Re
 
 You do not have to restore a whole backup to get one world, one plugin folder or one config file back.
 
-1. Open the **Backups** tab and click **Browse files** on the backup you want. It is on your own backups and on Auto Backups.
-2. Click a folder to open it. The line at the top shows where you are, and each part of it is a link back.
+1. Open the **Backups** tab, click the menu on the backup you want and choose **Restore files**. It is there for every backup the panel can open file by file (the ones with **Browse**), your own and the System backups (Auto Backups).
+2. Click a folder to open it. The path at the top shows where you are; **Up** goes back one folder.
 3. Tick the files or folders you want. Your ticks are kept while you move between folders. You can pick up to 200 at once; to bring back many files, tick the folder that holds them.
-4. Click **Restore selected** and confirm. The server has to be stopped while files are restored. If it is running, the button reads **Stop server and restore** and stops it for you.
-5. Wait for the message that says how many files were restored, then start the server.
+4. Click **Restore selected**. The server has to be stopped while files are restored. If it is running, the button reads **Stop server and restore** and stops it for you.
+5. The files are copied back in the background; the progress shows with your file operations. Start the server once it is done.
 
 Files from the backup replace files with the same name. Nothing else on your server is deleted or changed, so a world or plugin that was added after the backup stays where it is. Restored files count toward your disk.
 
 On Budget+ servers, where backups are kept on our off-site storage, opening a folder can take up to a minute, and it waits while a backup is running on the same machine. If it says the node did not answer in time, try again a little later.
 
-Subusers need the **Restore** permission for backups to see **Browse files**.
+Subusers need the **Restore** permission for backups to use **Restore files**.
+
+Backups made before the [new panel](/using_the_panel/new-panel) (November 2026) cannot be opened file by file, so they have no **Restore files**. They still [restore](#restoring-backups) and [download](#downloading-backups) as usual, so restore the whole backup, or download it and take the files you need.
 
 ### Plugins show red after a restore
 
@@ -140,13 +143,15 @@ We do not remove files from your server. When a folder such as `plugins` or your
 3. Look in the [Trash Bin](/using_the_panel/file-manager-controls#trash-bin) in **Files**. Files moved to the trash can be restored until it is emptied.
 4. Otherwise, [restore](#restoring-backups) the newest backup that still has the files. Check both your own backups and the Auto Backups.
 
-Those are the only copies. Staff have no older snapshot or other copy of your server, so a file that is not in the Trash Bin or in a backup cannot be recovered. Make a backup before any big change, and keep your own copy of work you cannot lose.
+Those are the only copies. Staff have no older snapshot or other copy of your server's files, so a file that is not in the Trash Bin or in a backup cannot be recovered. Make a backup before any big change, and keep your own copy of work you cannot lose.
 
 ---
 
 ## Deleting backups
 
-If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night, have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
+If you no longer need a backup, use the menu on it and choose **Delete**. This frees up a backup slot. It does not free disk space, because backups are not stored on your server's disk. Auto Backups, the system backups we take each night (a server that has been stopped and unchanged since its last one is skipped, but never for more than 7 days), have no delete option, and staff cannot remove them for you either. They are kept in case of an emergency and replaced by themselves, and they use none of your disk or slots, so you can ignore them.
+
+Press **Delete** once. Deletes are queued on the node, so on a large backup or a busy node the page can show `Request failed with status code 504` while the delete still goes ahead. Do not press **Delete** again; pressing it repeatedly only adds to the queue. Wait a few minutes and refresh the page. If the backup is still listed after that, open a ticket and we remove it for you.
 
 <Callout type="warning">
 
@@ -167,10 +172,14 @@ Deleting is irreversible. Deleted backups cannot be recovered. Backups are also 
 - My backup says "creating backup" for a long time, how do I stop it?
 - Paano i-restore ang backup?
 - Restore says Request failed with status code 504, did it fail?
+- Deleting a backup says error 504, what do I do?
+- Ayaw ma-delete ng backup, 504 error
 - Can I restore only some plugins or files from a backup?
 - How do I get one world or one folder back from a backup?
 - Paano ibalik ang isang file lang o isang world mula sa backup?
-- What does Browse files on a backup do?
+- What does Restore files on a backup do?
+- Why can't I browse an old backup?
+- Where are my database backups?
 - Why are my plugins red after restoring a backup?
 - Bakit hindi lahat ng plugins bumalik after restore?
 - My plugins or world files disappeared, can you get them back?

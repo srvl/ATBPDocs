@@ -6,8 +6,21 @@ description: "Create a MySQL database for your game server in the ATBP panel and
 ### Overview
 Databases can be used by certain plugins to allow for a more efficient, organized method of storing large amounts of data. Common Minecraft plugins that use MySQL are Dynmap, CoreProtect and LuckPerms. FiveM frameworks need one too, see [Set up your FiveM database](/games/fivem/database).
 
+### How many databases
+Each server starts with 1 database, and every split adds 1 more. Need more? Open a Sales Inquiry ticket on our [Discord](https://discord.atbphosting.com) and we'll raise it. Extra databases are free.
+
 ### Database Storage
 Please keep your database usage reasonable and in line with the Terms of Service at https://atbphosting.com/terms.
+
+### Database backups
+We copy every MySQL database each night and keep the last 7 copies. They are not part of your server's backups and do not use your backup slots. You find them on the **Databases** tab, under your databases, in **Database backups**:
+
+- **Download** saves a copy as a `.sql` file.
+- **Restore** loads a copy back into the database. Every table in the copy is replaced with its contents from that night; tables made since then stay as they are.
+
+Before every restore the panel saves the database as it is at that moment. That copy shows in the list as **Before restore** (the last 3 are kept), so you can download it or restore it to undo the restore.
+
+Download needs the permission to see the database password; Restore also needs the permission to update databases. A locked database cannot be restored into. Copies of any size can be restored from the panel; a restore that takes more than an hour is stopped, and then staff can help: open a **Hosting Support** ticket on our [Discord](https://discord.atbphosting.com) with your panel link and the database name.
 
 ### Adding MySQL Databases
 
@@ -18,9 +31,11 @@ From the [panel](https://panel.atbphosting.com) select the **Databases** tab on 
 
 Click **New Database** to start the process.
 
-In the first box, you assign the database a name. In the second, you can specify what IP addresses can connect to the database. We recommend leaving it as the default wildcard of `%`.
+Give the database a name and create it. Click a database row to see its host, username and password.
 
-Click a database row to see its host, username and password.
+### Connections from
+
+By default a database accepts logins from anywhere (`%`). To limit it to one address, open the database's menu (the three dots) and choose **Connections from**. Enter an IP address such as `203.0.113.7`, a wildcard such as `203.0.113.%`, or `%` to allow anywhere again. Your game server connects from its node's address, so a limit to any other address locks your server's plugins out. The panel's own tools (export, import, database backups) keep working whatever you set. Changing it needs the permission to update databases.
 
 Panel databases can only be used by servers running on ATBP's own network, for example your plugins. They cannot be reached from the internet, so tools on your own computer such as HeidiSQL, or plugins on another host will be refused. To get your data out, use the export option in the panel.
 

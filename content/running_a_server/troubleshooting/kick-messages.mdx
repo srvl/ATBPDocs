@@ -23,6 +23,7 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 | Outdated client / Outdated server | Game and server versions differ | See [Outdated Server or Outdated Client](/running_a_server/troubleshooting/outdated-server-client) or [join from any version](/running_a_server/join-from-any-version) |
 | Failed to verify username | Mojang login check failed | See [Failed to Verify Username](/running_a_server/troubleshooting/failed-to-verify-username) |
 | You are not whitelisted on this server | Whitelist is on and the player is not on it | Add them; see [whitelist](/running_a_server/whitelist) |
+| You are not authorized to join this server! (on the "Failed to connect to the server" screen) | Whitelist is on and the player is not on it. It has nothing to do with online or offline mode | Add them with `whitelist add <name>` in the **Console**, or turn the whitelist off with `whitelist off`; see [whitelist](/running_a_server/whitelist) |
 | The server is full | `max-players` reached | Raise it in `server.properties` |
 | You logged in from another location | The same account joined again | Close the other session |
 
@@ -42,7 +43,7 @@ When a player is kicked or cannot stay connected, Minecraft shows a short messag
 | disconnect.spam / Kicked for spamming | Chat messages sent too fast |
 | Illegal characters in chat | The message had a blocked character such as `§` |
 | An error each time a player sends a chat message, such as chat validation failure or a missing or invalid signature | The server is enforcing signed chat. Stop the server, set `enforce-secure-profile=false` in `server.properties`, and start it again |
-| Flying is not enabled on this server | The server thinks the player is flying in Survival. Set `allow-flight=true` if you use flight plugins or mods |
+| Flying is not enabled on this server | The server thinks the player is flying in Survival. Set `allow-flight=true` in `server.properties` and restart. This stops the kick but does not give players flight; that needs a plugin or a `/fly` permission |
 | Invalid move / moved too quickly | The anti-cheat thought the movement was impossible, often from lag or a mod |
 
 Plugins such as anti-cheats and ban managers add their own messages. If a message names a plugin, look at that plugin's config or its page under Plugins and Mods.

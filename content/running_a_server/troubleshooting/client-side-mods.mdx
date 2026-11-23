@@ -1,6 +1,6 @@
 ---
 title: "Server Crashes Because of Client-Side Mods"
-description: "Why a modded server crashes on start when client-only mods are in the mods folder, and how to find and remove them."
+description: "Why a modded server crashes on start when client-only mods are in the mods folder, how to find and remove them, and how to use a client-only mod just for yourself."
 ---
 
 Many mods only work on the player's computer: shaders, minimaps, menu themes, texture tweaks and similar. If one of these is in your server's `mods` folder, the server usually crashes while starting, or keeps restarting in a loop.
@@ -18,6 +18,10 @@ Many mods only work on the player's computer: shaders, minimaps, menu themes, te
 4. If it crashes again with a different mod, repeat. A full modpack for players can contain a dozen or more client-only mods, so this can take a few rounds.
 
 Common client-only mods include Sodium, Iris or Oculus, Entity Texture Features, FancyMenu, Xaero's Minimap and World Map, Controlling, Skin Layers 3D and other shader, HUD, menu and texture mods. Some mods that look client-only also have a server version, so check the mod's page on [Modrinth](https://modrinth.com/mods) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods), which lists whether it runs on the client, the server or both.
+
+## Using a client-only mod just for yourself
+
+A client-only mod (for example a visual mod, a minimap or an animation mod) does not go on the server at all. Install it in your own game's `mods` folder, with the same mod loader and Minecraft version you play on. Only you see its effect, and your friends do not need it to join. If a mod changes gameplay, such as how blocks or combat work, it has to be on the server and on every player's game instead, so check the mod's page first.
 
 ## Tips
 

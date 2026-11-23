@@ -12,7 +12,11 @@ import { Callout } from 'nextra/components'
 3. Sign in with the Hytale account that owns the game and press **Approve**.
 4. The console should say authentication was successful.
 
-If it asks again later, run `/auth login device` in the console and repeat. The code expires after about 10 minutes, so restart the server to get a new one. One account can authenticate many servers, but each must be done separately.
+If it asks again later, run `/auth login device` in the console and repeat. Use `/auth login device` exactly: plain `/auth login` only lists the ways to sign in and does not finish. The code expires after about 10 minutes, so restart the server to get a new one. One account can authenticate many servers, but each must be done separately.
+
+### Players cannot connect to a new server
+
+A new Hytale server turns every player away until it is signed in. The **Console** then shows `No server tokens configured` and players are disconnected with `serverAuthUnavailable`. Run `/auth login device` in the console, open the link it prints and approve the code. The sign-in is saved, so it still works after restarts.
 
 <Callout type="warning">
 

@@ -8,13 +8,22 @@ import { Callout } from 'nextra/components'
 - To see when your server is due, open billing > Services > your server; the service page shows its due date.
 - A renewal invoice is created 7 days before your due date. If you link your Discord with `/billing link`, the bot also reminds you.
 - If your account credit covers the invoice when it is created, or you have a saved PayPal/Stripe payment method, the invoice is paid automatically. Credit you add after that does not pay it by itself: open the invoice and pay it from your credit.
-- **Renew early or in advance:** open billing > Services > your server and press **Renew**. Pick how long to renew for (one billing period, or several months at once with the same term discounts as new orders), press **Have a coupon?** to enter a coupon code if you have one, and press **Proceed to payment**, which creates the renewal invoice. Your due date moves forward as soon as that invoice is paid.
+- **Renew early or in advance:** open billing > Services > your server and press **Renew**.
 
-![A billing service page with the Renew button at the top right circled](/screenshots/billing-service-renew.webp)
+  ![A billing service page with the Renew button at the top right circled](/screenshots/billing-service-renew.webp)
 
-![The Renew page: Renew now and Prepay 3, 6 and 12 month cards with their prices, Prepay 3 months marked, and the Renewal summary with the Have a coupon? link and the Proceed to payment button marked](/screenshots/billing-renew.webp)
+  1. The top of the Renew page shows **Paid until** (your due date now) and **After this payment, paid until** (your due date once you pay).
+  2. Under **How long to renew for**, pick a card: **Renew now** (one billing period) or **Prepay 3 months**, **6 months** or **12 months** in one invoice. Prepay cards show how much you save, with the same term discounts as new orders.
+  3. Have a coupon code? Open **Have a coupon?**, enter it and press **Apply**.
+  4. The **Renewal summary** shows the term and the total. Press **Proceed to payment**, which creates the renewal invoice. On a phone, the total and the button sit in a bar at the bottom of the screen.
 
-- You can also just pay the renewal invoice before the due date. Once a renewal invoice exists, the **Renew** page works on that invoice instead of making a new one: it is where you add a coupon code to it (the invoice also has a **Have a coupon code?** link under **Pay**). See [coupons](/billing/discounts-and-coupons).
+  ![The Renew page: Paid until and After this payment, paid until at the top, the Renew now and Prepay 3, 6 and 12 months cards with their prices and savings, Have a coupon?, and the Renewal summary with the Proceed to payment button](/screenshots/billing-renew.webp)
+
+  Your due date moves forward as soon as that invoice is paid.
+- **Pay for several months of the server you have with Renew, not a new order.** Ordering the same plan again makes a second, empty server. If that already happened, open a **Server Renewal** ticket and staff will sort it out.
+- **Pressed Renew again after paying?** That makes another renewal invoice for the period after the one you already paid. Your server stays paid until its due date, so you can ignore that invoice or pay it to pay ahead. Your due date is on the service page in billing.
+- You can also just pay the renewal invoice before the due date. Once a renewal invoice exists, the **Renew** page shows **Your renewal invoice is ready** with the amount to pay and a **Go to invoice** button instead of making a new invoice. A coupon code you enter there goes on that invoice (the invoice also has a **Have a coupon code?** link under **Pay**). See [coupons](/billing/discounts-and-coupons).
+- A server with a cancellation pending cannot be renewed: the Renew page asks you to withdraw the cancellation first. Contact support before the cancellation date to keep the server.
 - **If the invoice is still unpaid on the due date, the server is suspended** (it stops, and every tab of the server in the panel shows a suspended page with a button to pay). Billing runs on Canadian Mountain time, so suspensions happen around 2 PM to 3 PM Philippine time on the due date.
 - **When a server is suspended, we save a backup of its files.** The server is stopped first, so worlds are saved in a clean state.
 - **3 days after the due date, an unpaid server is deleted**, together with its databases and the backups you made in the panel. The suspension email says how long you have, and a reminder is emailed about a day before.
@@ -27,7 +36,7 @@ import { Callout } from 'nextra/components'
 - **Want the deleted server itself back?** Within the same 30 days, open a ticket in our [Discord server](https://discord.atbphosting.com) and staff can restore the server from its saved backup (files only, no databases).
 - **10 days after the due date, we email you once** to say the files of a deleted server are still saved and how to get them back. It only goes out if a saved backup exists and you have no other server with us. You can turn it off in your notification settings.
 - Your billing account is not deleted when a server expires; only that server is.
-- **Older plans renew at the price you already pay.** When prices change, a server on an older plan that can still be renewed keeps its price for as long as you keep renewing it. Moving to a current plan uses the current price, and you cannot go back afterwards.
+- **Older plans renew at the price you already pay.** When prices change, a server on an older plan that can still be renewed keeps its price for as long as you keep renewing it. Moving to a current plan uses the current price, and you cannot go back afterwards. If you stop renewing an older plan that can no longer be bought, a new server has to be ordered on a current plan at its current price.
 - **Retired plans cannot be renewed.** Right now that is the old Budget Nano and Budget Micro. Their service page shows a notice instead of **Renew**, no renewal invoice is created, and the status reads **Cancellation pending** even though you did not cancel. The server runs until its due date, then it is suspended and deleted as above. To keep it, **Upgrade** it to a current plan before then; see [Budget+ plans](/plans/budget-plus-plans-and-prices).
 
 <Callout type="info">
@@ -55,9 +64,13 @@ import { Callout } from 'nextra/components'
 - How do I renew?
 - Paano mag renew?
 - Can I renew in advance?
+- I already renewed, why did I get another invoice?
+- Should I order the 3-month plan to pay 3 months for my server?
 - Can I prepay 6 or 12 months?
 - Can I use a coupon on a renewal?
 - Can I add a coupon to my renewal invoice?
+- Why can't I renew a server with a cancellation pending?
+- What does Paid until mean on the Renew page?
 - Pwede ba advance renewal?
 - Does auto renew work?
 - Will my old plan's price go up when I renew?

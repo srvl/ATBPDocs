@@ -24,6 +24,10 @@ When a modpack has no server pack, the installer starts from the player version 
 
 If you reinstall a modpack without ticking **Delete existing files**, your old `mods` folder is renamed to `mods-before-modpack-` followed by the date and time, so mods from the old version don't clash with the new ones. Any mods you added yourself are still in that folder; copy the ones you want back into `mods`.
 
+### If a modpack install fails
+
+If the install stops partway, the server's **Activity** page shows a `server:modpack.install-failed` entry, with the reason in its details, and your server stays usable. You can pick the modpack again and press **Install** straight away, or choose another version. You don't need to open a ticket unless it keeps failing.
+
 <Callout type="warning">
 
 This tutorial can also be used to update your server modpack: just replace the old files with the newly generated files. Always take a backup before updating your server.
