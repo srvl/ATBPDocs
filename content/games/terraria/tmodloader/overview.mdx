@@ -37,3 +37,22 @@ Once that's done, please wait a few minutes while the server is installing the l
 Once the server is ready, the 'Console' tab will show it as online and the server startup messages will stop scrolling.
 
 You can connect to the server using [these steps](/games/terraria/connecting)!
+
+---
+
+## Choosing a tModLoader version
+
+By default the server installs the newest tModLoader release, which can be a preview build. Players on the stable
+version then see a message like "You are on tModLoader v2026.9.3.1, server is on tModLoader v2026.10.2.3 Preview"
+and cannot join. To run a specific version:
+
+1. Find the exact version name on the [tModLoader tags page](https://github.com/tModLoader/tModLoader/tags), for example
+   `v2026.09.3.1`. Copy it exactly as written there, with the `v` and the leading zero in the month. The version tModLoader
+   shows in game (`v2026.9.3.1`) drops that zero and will not work.
+2. In the **Startup** tab, paste it into the tModLoader version field.
+3. Make a [backup](/using_the_panel/backups/guide), then press **Reinstall Server** in the **Settings** tab. The version is
+   only downloaded during an install, so changing the field alone does nothing. Reinstalling keeps your worlds and mods.
+4. Start the server and check the version in the **Console**.
+
+Every player must run the same tModLoader version as the server. To go back to the newest release, set the field to
+`latest` and reinstall again.
