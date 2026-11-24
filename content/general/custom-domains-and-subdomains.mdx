@@ -18,6 +18,7 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - **Buying or transferring a domain:** search at https://billing.atbphosting.com/domains. See [Buying, transferring and managing domains](/general/domains) for the steps. Domains are sold for **one year** and are not renewed through us right now (see [Renewals](/general/domains#renewals)). A domain name cannot be changed after it is bought; a different spelling is a new domain.
 - Domains are **not refundable** once registered.
 - After buying, you can point the domain at your server yourself in one step: open it under [My domains](https://billing.atbphosting.com/domains/mine), go to **DNS records**, press **Point a Minecraft server here**, enter your server IP and port and create the records. See [Buying, transferring and managing domains](/general/domains). You can also open a ticket with your server address (IP:port) and staff will set it up. If you bought a domain elsewhere, point it with an A record to your server IP and an SRV record (`_minecraft._tcp`) with your port, or move its nameservers to Cloudflare first.
+- **Domain moved out of ATBP's Cloudflare account:** if a custom domain's zone is no longer in ATBP's Cloudflare account (for example, after you move it to your own Cloudflare account), it is hidden from the subdomain list, no new subdomains can be created on it, and the panel leaves its DNS records alone.
 - Bedrock players still need to enter the port unless your server uses the default Bedrock port.
 
 <details>
@@ -43,5 +44,7 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - Kayo ba mag setup ng domain ko?
 - SRV record?
 - Refund domain?
+- Why did my custom domain disappear from the subdomain list after I moved it to Cloudflare?
+- Will the panel touch my DNS if I move my domain to my own Cloudflare account?
 
 </details>
