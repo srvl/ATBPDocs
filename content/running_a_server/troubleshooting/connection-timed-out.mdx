@@ -1,6 +1,6 @@
 ---
 title: "Connection Timed Out or Refused"
-description: "Fix Connection timed out, Connection refused and getsockopt errors when joining your server, and a game panel that says it is having trouble connecting."
+description: "Fix Connection timed out, Connection refused, Connection reset and getsockopt errors when joining your server, and a game panel that says it is having trouble connecting."
 ---
 
 These errors all mean your game could not reach the server:
@@ -22,7 +22,7 @@ These errors all mean your game could not reach the server:
 
 3. **Use Direct Connection.** In Minecraft, choose **Direct Connection** instead of a saved server and paste the address. Saved entries keep an old port.
 4. **Did you change ports?** If you deleted your main port or made another port primary, the old address stops working. Players need the new one, and a subdomain must be made again on the new port, see [Adding Ports](/using_the_panel/adding-ports). For Geyser, Java and Bedrock players use different ports, see [GeyserMC](/plugins_and_modifications/plugins/geysermc).
-5. **Is your main port in the right range?** A Minecraft Java server's **primary** port on the **Network** tab should be 25600 or higher. A Java server on a port from another range, for example one in the 2000s, starts fine but players time out. Add a **Minecraft Java** port and click **Make Primary** on it, then give players the new address, see [Adding Ports](/using_the_panel/adding-ports). Not sure? Open a ticket and we will check it.
+5. **Is your main port in the right range?** A Minecraft Java server's **primary** port on the **Network** tab should be 25600 or higher. A Java server on a port from another range, for example one in the 2000s, starts fine but players time out. A primary port from the **Minecraft Bedrock / Geyser** range (19200 to 19599) carries Bedrock traffic only, so Java players get **Connection reset** or time out on it. Add a **Minecraft Java** port and click **Make Primary** on it, then give players the new address, see [Adding Ports](/using_the_panel/adding-ports). Keep the Bedrock port as an extra port for Geyser. Not sure? Open a ticket and we will check it.
 6. **Restart the server** from the panel and try again after it fully starts.
 7. **Check your version.** See [Outdated Server or Client](/running_a_server/troubleshooting/outdated-server-client).
 
