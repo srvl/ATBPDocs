@@ -26,7 +26,9 @@ Never paste your token in a public channel or a ticket. If it leaks, reset it.
 
 ## 3. Upload your files
 
-Open **Files** and upload your bot, or use [SFTP](/using_the_panel/sftp). Zip it first and press **Unarchive** on the zip. Your start file must sit in the main folder.
+If your bot is in a public GitHub, GitLab, Bitbucket or Codeberg repository, the easiest way is the **Git** page in the panel: paste the `https://` address, press **Find branches**, pick a branch, press **Connect**, then **Deploy now**. Files not in the repository, like `.env`, stay untouched when you deploy updates. See [Deploy from a Git repository](/plans/discord-bot-hosting#deploy-from-a-git-repository).
+
+Otherwise, open **Files** and upload your bot, or use [SFTP](/using_the_panel/sftp). Zip it first and press **Unarchive** on the zip. Your start file must sit in the main folder.
 
 Do not upload `node_modules` or a virtual environment folder. The server installs packages itself when it starts, from the files below.
 
@@ -81,6 +83,8 @@ Open a ticket on our [Discord](https://discord.atbphosting.com) with your panel 
 
 - How do I host my Discord bot from zero?
 - How do I upload my Node.js or Python bot?
+- Can I deploy my Discord bot from GitHub instead of uploading files?
+- Pwede ba i-connect sa GitHub ang Discord bot ko?
 - Where do I put my bot token?
 - Do you set up the bot for me?
 - Why does my bot say Cannot find module?
