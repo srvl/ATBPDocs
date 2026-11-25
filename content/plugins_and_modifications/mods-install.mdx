@@ -25,6 +25,8 @@ You have two choices: save the mod to your computer and upload it, or use the [M
 
 In your server's root directory, open the `mods` folder. If it's not there, create a folder named `mods`. Upload your mod files there, then restart the server. Almost every mod needs a restart to take effect.
 
+**Got your mods as one `.zip`**, for example a folder a friend shared? Upload the `.zip` into your `mods` folder, right-click it and choose **Extract**, then delete the `.zip`. The `.jar` files must sit directly inside `mods`. If they landed in another folder inside it, open that folder, select every `.jar`, choose **Move**, pick `mods`, then delete the empty folder. Don't rename the `.zip` to `mods`: the server then finds a file called `mods` where it expects a folder and crashes on start with `FileAlreadyExistsException`. A mods folder copied from your own game also holds client-only mods (shaders, minimaps, HUD and performance mods such as Sodium), so take those out first, see [Do players need the mods too?](#do-players-need-the-mods-too).
+
 ## Mods that need other mods
 
 Many mods need a library or "core" mod to run. Most Fabric mods need [Fabric API](https://modrinth.com/mod/fabric-api), and many others need a library made by the same author.
