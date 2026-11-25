@@ -11,10 +11,12 @@ Updating keeps your worlds, plugins and settings, so it does not reset your prog
 
 Read the precautions below first, then make a backup.
 
-1. In the [panel](https://panel.atbphosting.com), open your server and stop it.
-2. Go to **More > Software**.
-3. Pick the software (for example Paper, Purpur, Leaf, Fabric, Forge or NeoForge) and an exact version, then install it. Folia and Canvas are listed only on plans with 8 vCPU or more; see [Server Software](/running_a_server/server-software-overview).
-4. Start the server and check the **Console**.
+1. In the [panel](https://panel.atbphosting.com), open your server and go to **More > Software**. The top of the page shows what the server runs now.
+2. Pick the software (for example Paper, Purpur, Leaf, Fabric, Forge or NeoForge) and an exact version, then install it. Folia and Canvas are listed only on plans with 8 vCPU or more; see [Server Software](/running_a_server/server-software-overview).
+3. The install runs in the background. If the server is running, the panel stops it first. An **Installing** box shows each step (stopping the server, preparing the files, downloading, setting the startup command). You can leave the page and come back; the install keeps going.
+4. When the box goes away and the page shows the new version, start the server and check the **Console**.
+
+Only one version change runs at a time on a server. If one is still running, the page says so and you wait for it to finish. If an install does not finish, the page shows **The install did not finish** with the reason. Read the message, check the server's files, then install again.
 
 Switching a fresh server to a mod loader such as Fabric, Forge or NeoForge? Turn on **Wipe Server Files** in the install window so nothing from the old software is left behind. It deletes everything on the server, worlds included, so only use it on a server you have nothing on yet or after a backup. Once the server has started once, add mods under **More > Mods**.
 

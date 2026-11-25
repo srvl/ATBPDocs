@@ -10,7 +10,18 @@ Or just look at it from far away to get an overview.
 
 It's an alternative to Dynmap or Squaremap, but unlike those, it is _fully_ 3D. You can orbit around everywhere, and fly through the world like spectator mode.
 
-## Usage
+## Set up from the World viewer page
+
+The panel can set BlueMap up for you on Paper, Spigot, Fabric, Forge and NeoForge servers.
+
+1. Open your server in the [panel](https://panel.atbphosting.com) and go to the **World viewer** page.
+2. Under **Set up the live map**, the page names the BlueMap build it found for your server software and Minecraft version and the folder it goes into. On Fabric it also adds Fabric API.
+3. Press **Set up the map**. The panel downloads BlueMap, gives the map a port of its own, writes that port into BlueMap's `webserver.conf` and accepts BlueMap's download notice in `core.conf`.
+4. Start or restart the server. The first render takes a while on a large world; the map then shows inside the **World viewer** page.
+
+If your server cannot add a port by itself, add one in the **Network** tab first (see [Adding Ports](/using_the_panel/adding-ports)), then pick it on the page. If the page says no BlueMap build fits this server, there is no BlueMap release for that software and Minecraft version yet. If the map stays empty after a few minutes, check the **Console** for BlueMap errors.
+
+## Manual install
 Download BlueMap for your platform and install it like any other plugin/mod.
 Config files for it will be generated in the `plugins/BlueMap` (plugin) directory or the `config/BlueMap` (modded) directory, depending on your platform.
 

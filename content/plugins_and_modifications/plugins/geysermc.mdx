@@ -17,7 +17,19 @@ Geyser follows the newest Minecraft versions. Right after a new Minecraft releas
 
 </Callout>
 
-## Easiest way: Auto-Crossplay
+## Set up from the Properties page
+
+On a Paper, Spigot, Fabric or NeoForge server, the **Properties** page in the [panel](https://panel.atbphosting.com) has a **Bedrock and Java together** card.
+
+1. Press **Install**. The panel downloads Geyser and Floodgate for your server software and Minecraft version, gives Bedrock a port of its own and points Geyser at it. It also turns off `enforce-secure-profile` in `server.properties`, which Bedrock players need to chat.
+2. Restart the server. Geyser loads on the next start.
+3. Bedrock players join with your server's IP address and the new Bedrock port, which is listed in the **Network** tab as **Geyser (Bedrock)**.
+
+The same button reads **Update** once Geyser is installed. Updating replaces the Geyser and Floodgate jars and keeps your Geyser and Floodgate config folders. If the card says Geyser's Bedrock port is not one of your server's ports, press **Update** and it claims a port and sets it.
+
+If no port can be added, the install stops and tells you; add a port in the **Network** tab (see [Adding Ports](/using_the_panel/adding-ports)) and press **Install** again. Geyser has no Forge build, so the card cannot install it on a Forge server. If the card says it cannot tell what your server runs, start the server once so it writes its files.
+
+## Auto-Crossplay
 
 Auto-Crossplay is a switch on our Paper, Purpur and Leaf server type (**Paper/Purpur & Leaf by ATBP**, marked Recommended), not a separate server type. If your server runs something else, change to that server type in **Settings** first (make a backup).
 
