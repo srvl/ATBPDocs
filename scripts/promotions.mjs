@@ -19,6 +19,16 @@ if (!Array.isArray(promos)) {
   process.exit(1);
 }
 
+// Announced by the owner before billing has its code: shown until the sale ends, so the page never loses it when
+// the feed is regenerated in between.
+const UPCOMING = [
+  {
+    until: '2027-01-01T00:00:00+08:00',
+    text: '**December sale:** 25% off for the whole of December 2026, from December 1 to December 31 (Philippine time). It starts on December 1 and cannot be used before then. Its code shows on this page and in the site banner once it starts.',
+  },
+];
+const upcoming = UPCOMING.filter((u) => Date.now() < Date.parse(u.until)).map((u) => u.text + '\n').join('\n');
+
 const date = (iso) =>
   new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Manila', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })
     .format(new Date(iso)) + ' (Philippine time)';
@@ -50,7 +60,7 @@ description: "Promo codes that work right now at ATBP Hosting, updated automatic
 
 This page is updated automatically from billing. The same codes show in the banner at the top of atbphosting.com and billing.atbphosting.com. Enter a code at checkout or on the Renew page; it comes off the price after any longer-term discount. Codes given to you privately, for example one made for your account, are not listed here.
 
-${body}
+${body}${upcoming ? '\n' + upcoming : ''}
 <details>
 <summary>Questions this page answers</summary>
 
@@ -60,6 +70,9 @@ ${body}
 - What coupon code can I use?
 - Ano yung code?
 - When does the promo end?
+- Is there a December sale?
+- When does the December sale start?
+- May sale ba sa December?
 - Hanggang kailan yung promo?
 - Does the code work on renewals?
 - Is the promo for new customers only?
