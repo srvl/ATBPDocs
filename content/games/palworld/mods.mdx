@@ -37,6 +37,10 @@ The Workshop tab writes `bGlobalEnableMod` and the `ActiveModList` lines in `Mod
 
 Most pak mods only change what players see, so each player needs them too. Mods that change rules, like rates or stack sizes, work from the server. **Installed** lists every mod with its version and updates, and **Remove** deletes all the files it placed.
 
+To switch a pak mod off without deleting it, press the pause button on it (**Disable**). All of the mod's files are switched off together and it shows a **Disabled** label; the play button (**Enable**) switches it back on. Files you uploaded to the pak folder yourself are listed too and can be switched the same way. Restart the server afterwards.
+
+If you downloaded a pak mod as a `.zip`, `.rar` or `.7z`, upload the archive into `Pal/Content/Paks/~mods` in **Files**, then press **Unpack** next to it on the Mods page. The page takes the `.pak`, `.utoc` and `.ucas` files out of the archive and puts them in place, the same way it does for a CurseForge download, and moves the archive to the trash (it stays where it is if your server's trash is switched off). An archive with more than 600 entries is refused, and only one install or unpack runs on a server at a time.
+
 Lua, Blueprint and C++ mods on CurseForge need the UE4SS loader, which only runs on Windows servers. Our Palworld servers run on Linux, so the page says when a mod needs it. Ask in a ticket if a mod you need depends on UE4SS.
 
 ## Not loading?

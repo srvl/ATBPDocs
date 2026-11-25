@@ -86,7 +86,7 @@ This is a crucial feature for server management. The terminal provides a command
 
 The small buttons above the console:
 
-*   **Command history** (clock): the last 50 commands you sent on this server in this browser. Click the arrow next to one to send it again, or the copy button to copy it. The Up and Down arrow keys in the command box go through the same list.
+*   **Command history** (clock): the commands you sent on this server, newest first, each one listed once. The history is saved to your panel account, so it is there on any device you sign in from. Only you see it: a subuser has their own list. The last 200 commands are kept for 90 days. Click the arrow next to one to send it again, the copy button to copy it, or **Clear history** to empty the list. The Up and Down arrow keys in the command box go through the same list.
 *   **Copy console**: copies everything the console is showing, up to its last 1,000 lines, as plain text. This is handy for pasting logs into a ticket.
 *   **Clear console**: clears the console on your screen only. Your server and its log files are not touched, and the recent log comes back when you reload the page.
 
@@ -156,6 +156,10 @@ This is where you configure how your Minecraft server starts up. You can:
 *   Add Java flags to the startup command. Memory follows your plan's RAM: `-Xms` is fixed, and flags that hold all RAM from the start, such as `-XX:+AlwaysPreTouch`, are blocked on our shared machines.
 *   Configure specific startup parameters for your Minecraft server (e.g., `nogui`, `online-mode`).
 
+### Startup presets
+
+The **Load a preset** list under the startup command holds ready-made commands: the ones your server type comes with (marked "(egg)") and the ones ATBP offers for it, such as our Java flag sets. Pick one and it replaces the startup command; restart the server for it to take effect. The list only shows presets that fit your server type, and leaves out the command you already use. A preset follows the same rules as a command you type yourself, so one that is not allowed on your server's machine is not offered. **Reset** goes back to your server type's own command.
+
 ### Console time in your own time zone
 
 The console shows times in UTC by default, so in the Philippines it is 8 hours behind. On a Minecraft Java server you can change this with a Java flag in the startup command:
@@ -202,6 +206,8 @@ Every game costs the same per GB, so what decides a switch is your plan's size. 
 *   Switching itself is free and there is no limit on how often you switch. You only pay when you upgrade your plan.
 
 Switching to another game reinstalls the server and **deletes all of its files**, so download anything you want to keep first. Your backups in the **Backups** section are kept. Your server's main port may change to one that fits the new game; a free subdomain follows it by itself.
+
+You cannot switch while the server is busy or suspended. The page then says why (the server is installing, restoring a backup, being moved to another machine, or suspended) and the **Switch** buttons are off until it is done. Before you confirm a switch, the dialog names the image the new game or software runs on; if it has more than one, you can pick another on the **Startup** page afterwards.
 
 Discord bots and databases stay what they are and cannot be switched to a game. Each split of a split server can run any game the main server's plan allows, see [Splitting servers](/using_the_panel/split-server).
 
