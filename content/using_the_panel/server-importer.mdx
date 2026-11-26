@@ -20,14 +20,20 @@ You need three things from the server you are copying **from**:
 - **From another host:** their panel or support shows these details, usually under **Settings** as SFTP Details.
 - **From another ATBP server:** open that server on the [panel](https://panel.atbphosting.com) and go to **Files** > **Connect** > **via SFTP**, see [Using SFTP](/using_the_panel/sftp).
 
-Click **Connect**. If something is wrong, the message appears right under the box to fix. **Set the port or type yourself** is there for the rare server the panel cannot work out. Tick **Remember this server** to skip the typing next time; the password is never saved.
+Under **Sign in with** you choose how to log in to the old server: **A password**, **An SSH private key** (paste the private key, and its passphrase if it has one), or a login you saved earlier. Tick **Save this login on my account too** to keep a login for next time: it is stored encrypted, only you can use it, and it works on every server you may import into.
+
+Click **Connect**. If something is wrong, the message appears right under the box to fix. **Set the port or type yourself** is there for the rare server the panel cannot work out. Tick **Remember this server** to skip the typing next time; that by itself does not save the password.
 
 ## Step 2: Choose files
 
 The panel looks for your server's files and opens that folder, with everything ticked. Untick anything you don't want, or open another folder: whatever you tick in the folder on screen goes to the top of your server, so nothing ends up inside an extra folder.
 
 - **Moving a big server from an old game panel?** Compress everything into one `.zip` or `.tar.gz` on the old panel first, then tick only that file. Copying file by file from a game panel can take hours; one archive takes minutes, and it is unpacked for you when it arrives.
-- **Delete the files on this server first** empties the destination before copying, once the old server is confirmed reachable. [Make a backup](/using_the_panel/backups/guide) first if there is anything to keep.
+- **Check the size of this folder** adds up what you ticked and tells you whether it fits your server's disk before you start.
+- **Files already on this server** has three choices:
+  - **Keep them, overwrite the ones that are also on the old server:** files with the same name are replaced, everything else stays.
+  - **Keep them, copy only what is missing:** nothing on this server is changed; only files it does not have yet are copied.
+  - **Delete them first:** empties this server before copying, once the old server is confirmed reachable. This cannot be undone, so [make a backup](/using_the_panel/backups/guide) first if there is anything to keep.
 - **More options** leaves out map renders, caches and logs if your server has them, turns off unpacking, or picks another destination folder.
 
 Click **Start import**. Your server stops while the import runs.
@@ -52,7 +58,7 @@ The importer copies files only, not the server's settings. Before you start the 
 
 - **"We could not reach" the address:** check the old server is online and the address has no typos. If it uses an unusual port, add it to the address, like `node.oldhost.com:2022`. Use the SFTP port, not the game port.
 - **"That username or password was not accepted":** passwords are case-sensitive, and the username needs the part after the dot. For an ATBP server, reset your game panel password if you are not sure of it.
-- **The import stops with "could not stay connected":** the old host may turn SFTP off for expired servers or block connections. Download your files from the old server as a `.zip` or `.tar.gz` instead, upload the archive in **Files** (or with [SFTP](/using_the_panel/sftp) for big files), then click **...** next to it and **Unarchive**.
+- **The import stops with "could not stay connected":** the old host may turn SFTP off for expired servers or block connections. Download your files from the old server as a `.zip` or `.tar.gz` instead, upload the archive in **Files** (or with [SFTP](/using_the_panel/sftp) for big files), then click **...** next to it and **Extract**.
 - **"Finished, with some files skipped":** the old server refused those files, usually because they were locked or removed during the copy. The page shows the last one. Stop the old server and run the import again to pick them up.
 - **It stopped at your disk limit:** an import cannot go past your plan's disk space. Import less, or see [Upgrades and Downgrades](/billing/upgrades-and-downgrades).
 

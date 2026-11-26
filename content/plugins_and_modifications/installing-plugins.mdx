@@ -9,7 +9,7 @@ This guide is for Bukkit/Spigot/Paper servers. If you are looking for instructio
 
 ### The Basics
 > #### Requirements
-> 
+>
 > In order to run plugins on your server, you have to be using a fork of Bukkit. (such as Spigot, Paper, Purpur, Pufferfish, etc. See our [guide on server jars](/running_a_server/jars) for more information.) If you wish to make client-side modifications (as well), see our guide on [installing server mods](/plugins_and_modifications/mods-install)!
 
 > #### What are plugins?
@@ -42,10 +42,14 @@ Some plugins check themselves and warn when they have been changed. For example,
 The quickest way is the panel's own plugin installer:
 
 1. In the [panel](https://panel.atbphosting.com), open your server and go to **More > Plugins**.
-2. Search for the plugin. The filters at the top pick the source (such as Modrinth), your Minecraft version and your server software.
+2. Search for the plugin. The filters at the top pick the source (such as Modrinth, Hangar or SpigotMC), your Minecraft version and your server software. The Minecraft version filter works on Modrinth, CurseForge and Hangar, and is not shown for SpigotMC.
 3. Install it, then restart your server. The **Installed** tab lists what you have.
 
 ![The panel's More > Plugins page: search, version and software filters, and a grid of Modrinth plugins to install](/screenshots/panel-more-plugins.webp)
+
+- **Already on your server:** plugins in your `plugins` folder (including ones you uploaded by hand) are identified and show as **Installed** across Modrinth, CurseForge and Hangar. When a file cannot be matched by hash but its plugin name matches, it shows as **Probably installed**.
+- **Dependencies:** when you install from Modrinth, CurseForge or Hangar, the dialog lists any dependencies the plugin needs. Required dependencies are ticked by default, optional ones are listed unticked, and any dependency you already have is skipped. If a required dependency is installed but turned off, it is ticked so it gets turned back on. If no file fits your server software and Minecraft version, the dialog shows **No compatible version** without blocking the rest of the install. SpigotMC does not provide dependency data.
+- **Updating and removing:** updating a plugin that exists as two copies replaces both so only one copy is left. Any removed or replaced jar is sent to the server's **trash** (`.trash`) instead of being deleted permanently.
 
 To install a plugin by hand instead:
 

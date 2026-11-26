@@ -22,7 +22,7 @@ Steam only lets the owner of the game download Workshop files, so you upload the
 1. Subscribe to the mods on the Palworld Steam Workshop and launch the game once so Steam downloads them.
 2. On your PC, open `Steam\steamapps\workshop\content\1623730`. Each numbered folder is one mod with an `Info.json` inside.
 3. Select those folders and zip them together.
-4. In the panel, open **Files**, create the folders `Mods/Workshop` in the main folder, upload the zip into `Mods/Workshop` and choose **Unarchive**. Each mod should end up as `Mods/Workshop/<folder>/Info.json`.
+4. In the panel, open **Files**, create the folders `Mods/Workshop` in the main folder, upload the zip into `Mods/Workshop` and choose **Extract**. Each mod should end up as `Mods/Workshop/<folder>/Info.json`.
 5. Open **Mods**, then the **Workshop** tab. Your mods are listed with their version; ones not made for servers are marked.
 6. Turn on **Load mods**, switch on the mods you want, use the arrows to set the load order, and press **Save**.
 7. Restart the server. Loaded mods appear under `Mods/ManagedMods`.
@@ -36,6 +36,10 @@ The Workshop tab writes `bGlobalEnableMod` and the `ActiveModList` lines in `Mod
 3. Press **Install**, then restart the server. The page unpacks the download and puts the `.pak` files in `Pal/Content/Paks/~mods`.
 
 Most pak mods only change what players see, so each player needs them too. Mods that change rules, like rates or stack sizes, work from the server. **Installed** lists every mod with its version and updates, and **Remove** deletes all the files it placed.
+
+To switch a pak mod off without deleting it, press the pause button on it (**Disable**). All of the mod's files are switched off together and it shows a **Disabled** label; the play button (**Enable**) switches it back on. Files you uploaded to the pak folder yourself are listed too and can be switched the same way. Restart the server afterwards.
+
+If you downloaded a pak mod as a `.zip`, `.rar` or `.7z`, upload the archive into `Pal/Content/Paks/~mods` in **Files**, then press **Unpack** next to it on the Mods page. The page takes the `.pak`, `.utoc` and `.ucas` files out of the archive and puts them in place, the same way it does for a CurseForge download, and moves the archive to the trash (it stays where it is if your server's trash is switched off). An archive with more than 600 entries is refused, and only one install or unpack runs on a server at a time.
 
 Lua, Blueprint and C++ mods on CurseForge need the UE4SS loader, which only runs on Windows servers. Our Palworld servers run on Linux, so the page says when a mod needs it. Ask in a ticket if a mod you need depends on UE4SS.
 

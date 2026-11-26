@@ -34,7 +34,7 @@ Each split has its own files, so nothing is shared with the main server. To copy
 1. On the main server, open **Files**, select what you want (for example the `plugins` folder) and choose **Archive**.
 2. Download the archive. Big archives are easier over [SFTP](/using_the_panel/sftp).
 3. Stop the split, open its **Files** tab and upload the archive.
-4. Choose **Unarchive** on it, then start the split.
+4. Choose **Extract** on it, then start the split.
 
 ## Connect splits so players can move between them
 
@@ -47,3 +47,13 @@ A split's ports (allocations) come from your main server, so the box stays red w
 To free some, stop the main server, open its **Network** tab and delete the ports you do not use (on a line of ports in a row, click **Show ports** first). Then try the split again.
 
 A Java server with Geyser and an Endstone server each need only one Bedrock port. Only a Vanilla Bedrock server needs a block of ports, one per player online at once. See [Adding Ports](/using_the_panel/adding-ports).
+
+## The split has no port left, or you deleted its Java port
+
+A split can only have as many ports as you gave it, so when its **Network** tab says it has reached its maximum, **Add** is greyed out or only offers the wrong kind of port. This often happens after deleting the split's Java port by mistake, leaving only the Geyser port.
+
+1. On the main server, open **More** > **Splitter** and click the split.
+2. Raise its ports (allocations) by 1 and save. If the box turns red, free a port on the main server first (see the section above).
+3. Open the split, go to its **Network** tab and add a Minecraft Java port.
+4. Click **Make Primary** on the new Java port, so it becomes the split's address. Keep the Bedrock port as an extra port for Geyser.
+5. Restart the split. Players join with its address and the new port, which show at the top of the **Network** tab.

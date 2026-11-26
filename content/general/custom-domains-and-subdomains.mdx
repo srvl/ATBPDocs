@@ -7,17 +7,19 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 
   ![The panel's More > Subdomain page with the Create subdomain button and no subdomains yet](/screenshots/panel-more-subdomain.webp)
 
-- **When you order:** game server checkouts have an optional **Free subdomain** field. Type a name, pick `.atbphosting.com` or `.atbp.cc`, and it is created on your server's main port as soon as the server is ready. If someone took the name in the meantime, create one in the panel instead.
+- **When you order:** game server checkouts have an optional **Free subdomain** field. Type a name, pick a domain from the list (`.atbp.cc` for now), and it is created on your server's main port as soon as the server is ready. If someone took the name in the meantime, create one in the panel instead.
 
-- **atbp.fun:** new subdomains can no longer be made on `.atbp.fun` because that domain is full. Subdomains already on it keep working.
+- **Full domains:** a domain only shows in the list while it has room for new names. `.atbp.fun` and `.atbphosting.com` are full or kept for ATBP's own use, so new subdomains go on `.atbp.cc`. Subdomains already on `.atbp.fun` or `.atbphosting.com` keep working.
 - **Naming:** on our shared domains a subdomain is one word of lowercase letters, numbers and dashes, like `mysmp` (no dots). Names that look like ATBP's own addresses are reserved, for example `panel`, `billing`, `support`, `login`, `pay` or anything with `atbp` in it. On a domain you bought, you can use any name, dots included.
 - **How many:** up to 5 subdomains per server, and one subdomain per port. Delete one to free its slot.
+- **Address with or without a port:** on most domains a Game Servers subdomain works by name alone, because the panel also creates the record that tells the game which port to use. A domain can instead be set up to give the address only. The panel then shows the subdomain with its port, like `mysmp.example.com:25565`, and players type it exactly as shown. A shared domain can also be limited to certain games; it then only shows in the list on servers running those games.
 - **Removing a port:** a subdomain on a port you remove from the Network tab is deleted within about 30 minutes, so it can never point at whoever gets that port next.
 - **Pick the right port:** a Game Servers subdomain must use your server's **primary** port, the main one in the **Network** tab. On a Java server with Geyser that is the Java port, not the Bedrock port. If the subdomain does not connect but the numeric IP and port do, it was most likely made on the wrong port: delete it and create it again on the primary port, then wait a few minutes.
 - **Subdomain type:** pick **Game Servers** for players to join your server. Pick **Web App** for anything that opens in a browser, such as a web map or dashboard, and choose that plugin's port; a Web App subdomain gives you an `https://` address. See [Web addresses (HTTPS)](/using_the_panel/ports-and-proxies).
 - **Buying or transferring a domain:** search at https://billing.atbphosting.com/domains. See [Buying, transferring and managing domains](/general/domains) for the steps. Domains are sold for **one year** and are not renewed through us right now (see [Renewals](/general/domains#renewals)). A domain name cannot be changed after it is bought; a different spelling is a new domain.
 - Domains are **not refundable** once registered.
 - After buying, you can point the domain at your server yourself in one step: open it under [My domains](https://billing.atbphosting.com/domains/mine), go to **DNS records**, press **Point a Minecraft server here**, enter your server IP and port and create the records. See [Buying, transferring and managing domains](/general/domains). You can also open a ticket with your server address (IP:port) and staff will set it up. If you bought a domain elsewhere, point it with an A record to your server IP and an SRV record (`_minecraft._tcp`) with your port, or move its nameservers to Cloudflare first.
+- **Domain moved out of ATBP's Cloudflare account:** if a custom domain's zone is no longer in ATBP's Cloudflare account (for example, after you move it to your own Cloudflare account), it is hidden from the subdomain list, no new subdomains can be created on it, and the panel leaves its DNS records alone.
 - Bedrock players still need to enter the port unless your server uses the default Bedrock port.
 
 <details>
@@ -43,5 +45,7 @@ description: "Give your game server an easy address: a free ATBP subdomain or yo
 - Kayo ba mag setup ng domain ko?
 - SRV record?
 - Refund domain?
+- Why did my custom domain disappear from the subdomain list after I moved it to Cloudflare?
+- Will the panel touch my DNS if I move my domain to my own Cloudflare account?
 
 </details>

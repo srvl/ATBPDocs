@@ -12,7 +12,7 @@ One upload through the panel can be up to 1 GB on Budget and Budget+, and 100 GB
 We recommend you zip the files you want to upload to your server, because uploading many individual files through SFTP can take a long time. Once you have uploaded the .zip file, go to the file manager in the panel, click on the three dots `...` to the right of the .zip and click on `Extract`.
 
 ### More Actions like compress, extract, rename, and others
-If you wish to archive, unarchive or mass delete files, please check out our [guide](/using_the_panel/file-manager-controls) on file management through the panel.
+If you wish to archive, extract or mass delete files, please check out our [guide](/using_the_panel/file-manager-controls) on file management through the panel.
 
 ### Using SFTP
 
@@ -47,7 +47,7 @@ The panel shows the address as `sftp://HOST:PORT`. Most apps want it split into 
 If your app asks for the password partway through an upload, the connection dropped. This usually comes from an unstable internet connection, not from the server.
 
 - Let your app remember the password so it can reconnect by itself. FileZilla continues the file when it reconnects; if it asks what to do with the existing file, choose **Resume**.
-- When it finishes, compare the file's size on the server with the one on your computer. A ZIP that is much smaller did not finish uploading and will not unarchive. Upload it again.
+- When it finishes, compare the file's size on the server with the one on your computer. A ZIP that is much smaller did not finish uploading and will not extract. Upload it again.
 - If your connection keeps dropping, put the file on a site that gives a direct download link and use [Pull from URL](/using_the_panel/file-manager-controls#pull-a-file-from-a-url) in the **Files** tab, so your server downloads it itself. Very large files may be refused. If that does not work either, open a Hosting Support ticket with your panel link.
 
 ### On a phone

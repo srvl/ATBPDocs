@@ -18,16 +18,27 @@ You have two choices: save the mod to your computer and upload it, or use the [M
 
 ![The panel's More > Mods page, a Modrinth mod list for this server's loader and version, with the search box marked](/screenshots/panel-more-mods.webp)
 
+- **Installed across sources:** mods already in your `mods` folder (including ones that came with a modpack or were uploaded by hand) are identified and show as **Installed** on both sources (Modrinth and CurseForge), with the Minecraft version filter working on each of them. When a jar cannot be matched by file hash but its mod id matches, it shows as **Probably installed**.
+- **Updating and removing:** updating a mod installed from another source replaces the existing jar. If two copies of the same mod are on the server, updating replaces both so only one copy is left. Removed or replaced jars go to the server's **trash** (`.trash`) instead of being deleted permanently.
 
 **The Mods page shows an error such as 404?** Check your server type first. A plugin server (Paper, Purpur, Spigot, or Paper with crossplay) has no mod loader, so it cannot use mods at all: use **More > Plugins** instead, see [Installing plugins](/plugins_and_modifications/installing-plugins). To run mods, make a backup, then go to **More > Software**, pick Fabric, Forge or NeoForge at your Minecraft version and install it, see [Server Jars](/running_a_server/jars). If the Software page says **Software not detected**, that only means it does not recognise what runs now; pick the loader from the list below it anyway. Most Fabric mods also need the **Fabric API** mod in your `mods` folder. A normal server runs plugins or mods, not both. Running both on one server needs a hybrid such as Arclight or Mohist, and **hybrids are highly unstable and not officially supported**, see [Hybrid Servers](/running_a_server/hybrid-servers).
 
 In your server's root directory, open the `mods` folder. If it's not there, create a folder named `mods`. Upload your mod files there, then restart the server. Almost every mod needs a restart to take effect.
 
+**Got your mods as one `.zip`**, for example a folder a friend shared? Upload the `.zip` into your `mods` folder, right-click it and choose **Extract**, then delete the `.zip`. The `.jar` files must sit directly inside `mods`. If they landed in another folder inside it, open that folder, select every `.jar`, choose **Move**, pick `mods`, then delete the empty folder. Don't rename the `.zip` to `mods`: the server then finds a file called `mods` where it expects a folder and crashes on start with `FileAlreadyExistsException`. A mods folder copied from your own game also holds client-only mods (shaders, minimaps, HUD and performance mods such as Sodium), so take those out first, see [Do players need the mods too?](#do-players-need-the-mods-too).
+
 ## Mods that need other mods
 
-Many mods need a library or "core" mod to run, and the server does not download those for you. Most Fabric mods need [Fabric API](https://modrinth.com/mod/fabric-api), and many others need a library made by the same author.
+Many mods need a library or "core" mod to run. Most Fabric mods need [Fabric API](https://modrinth.com/mod/fabric-api), and many others need a library made by the same author.
 
-If one is missing, the server crashes while starting. Open `logs/latest.log` in the **Files** tab and look for lines such as `requires`, `Missing or unsupported mandatory dependencies` or `depends on`. They name the missing mod and the version range it needs. Install that mod, in a version inside that range, for the same loader and Minecraft version, then start the server again. Repeat until the server starts.
+When you install a mod through **More > Mods**, the install dialog offers its dependencies:
+
+- **Required** dependencies are ticked by default and installed alongside the mod. If you untick one, only the main mod installs and a warning tells you it may not load without it.
+- **Optional** dependencies are listed unticked so you can choose whether to include them.
+- Dependencies **already installed** on the server (even from the other source) are skipped. If a required dependency is installed but turned off, it is ticked so it gets turned back on.
+- If no file fits your loader and Minecraft version, the dialog shows **No compatible version** and lets the rest of the install continue.
+
+If you upload mods by hand and a required mod is missing, the server crashes while starting. Open `logs/latest.log` in the **Files** tab and look for lines such as `requires`, `Missing or unsupported mandatory dependencies` or `depends on`. They name the missing mod and the version range it needs. Install that mod, in a version inside that range, for the same loader and Minecraft version, then start the server again. Repeat until the server starts.
 
 The mod's page on Modrinth or CurseForge lists its required dependencies, so you can add them before the first start.
 

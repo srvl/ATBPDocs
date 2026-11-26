@@ -51,9 +51,20 @@ Once you have created the database, it will appear in your database list. From h
 To import a database you first have to create a new database in your server. Once it is created, you can then click on the import button which will open a prompt. Fill in the form with the database connection details from the remote MySQL server. An import from another server copies at most 2 million rows or 512 MB and stops after 4 minutes; for anything bigger, export it to a .sql file and import that in parts. You can run 3 imports from another server and 10 file imports per server every 10 minutes. Importing needs the permission to see the database password, and replacing existing tables also needs the permission to delete databases.
 
 ---
-### Importing an .SQL database dump through the file manager
+### Importing a .sql file on the Databases page
 
-You can also upload an SQL file to import a database. A file import takes files up to about 49 MB; for a bigger one, split it into parts or ask us in a ticket. Once the file is uploaded, go to the file manager, click the three dots to the right of the .sql file and click on **Import Database**, then select the database you want to import it to. Keep in mind that not all .sql files are in the correct format, and this option may not work if the file wasn't properly dumped from a MySQL server. The size on the database row can show 0 B for a few minutes after an import. If you get an error, check that the file really is a MySQL or MariaDB export; files from other database types, such as SQLite, usually will not work.
+Open the database's menu and choose the import option, then pick a `.sql` file from your computer. The dialog first shows what the database holds now, for example "holds 12 tables now", so you know what you are importing into.
+
+The dialog accepts files up to 256 MB, but an upload larger than 100 MB does not get through to the panel, so split a bigger file into parts and import them one by one.
+
+Two options change how the file is run:
+
+- **Keep going when the database refuses a statement, and list what was skipped:** without it, the import stops at the first statement the database refuses. With it, every statement that works is run, and the result lists the first 5 that were skipped with the reason for each. A file with more than 200,000 statements cannot be imported this way.
+- **Delete every table in this database first:** drops every table and view before the file runs. You have to type the database's name to confirm. The panel saves a **Before restore** copy first (see [Database backups](#database-backups)), so you can undo it from that list. This option needs the "recreate database" permission and does not show without it. A locked database cannot be cleared.
+
+When it finishes, the panel says how many statements ran and how many tables were deleted first. An import that runs longer than 15 minutes is stopped.
+
+The file has to be a MySQL or MariaDB export. Files from other database types, such as SQLite, usually will not work, and neither will a file that was not dumped properly. The size on the database row can show 0 B for a few minutes after an import.
 
 ---
 ### If a plugin cannot connect

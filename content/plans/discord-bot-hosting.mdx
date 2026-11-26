@@ -31,6 +31,58 @@ Stock checked <StockTime>November 12, 2026 at 7:51 PM (Philippine time)</StockTi
 - MongoDB Atlas `mongodb+srv://` addresses work on every node. If your bot still fails with `queryTxt ESERVFAIL` or another DNS error, restart the server once, check that your Atlas network access list allows the connection, and open a ticket if it continues. The standard `mongodb://` connection string from Atlas (the one that lists every shard host and port) also works. You can also use the free MySQL database from the **Databases** tab if your bot supports it, see [MySQL Databases](/using_the_panel/databases).
 - Never paste your bot token in a public channel or ticket. If it leaks, reset it in the Discord Developer Portal.
 
+## Deploy from a Git repository
+
+Supported Discord bot servers (Node.js, Python and Drako Bot) include a **Git** page in the game panel for deploying public repositories from GitHub, GitLab, Bitbucket or Codeberg.
+
+### Connect and deploy
+
+1. Open **Git** on your bot server.
+2. Paste your public repository's `https://` address into **Repository address** (for example `https://github.com/you/your-bot`).
+3. Press **Find branches**, then pick the branch you want from **Branch** (the repository's default branch is selected automatically).
+4. Leave **Folder** blank to deploy into the main server folder, or enter a subfolder if your bot lives inside one.
+5. Press **Connect**.
+6. Press **Deploy now** to copy the newest commit of the branch into your server. On the first deploy, the panel asks you to confirm.
+7. Restart the server when the deploy finishes so it runs the new code.
+
+### What is replaced and what is kept
+
+- **Replaced:** files tracked in the repository (any file on the server with the same name as a file in the repository is overwritten with the repository's version).
+- **Kept:** files that are not in the repository, such as `.env`, local databases, JSON data files and logs.
+
+### Deploy history and changing branches
+
+- **Last deploys** lists recent deploys with their status (**Deploying**, **Deployed** or **Failed**), branch, who started them and when. Successful deploys also show the commit message and a link to the commit on the repository host. Click any row to read the git log; if the latest deploy fails, its log opens right away.
+- To switch branches later, pick another branch from **Branch** (press **Refresh branches** if you pushed a new branch), press **Save**, and then **Deploy now**. If you change **Repository address**, press **Find branches** again before saving.
+- **Disconnect** unlinks the repository, clears the deploy history and turns off **Pull on every start**. The files already on your server stay as they are.
+
+### Pull on every start
+
+Turn on **Pull on every start** and press **Save** if you want the server to fetch new commits from your branch before the bot starts each time.
+
+- This only works when **Folder** is blank (the main server folder).
+- Local edits to tracked files stop the automatic pull; pressing **Deploy now** always replaces tracked files with the repository's version.
+- If your server has an older or edited startup command that does not pull from Git, the page shows a link to the **Startup** page so you can reset it to the default command first.
+
+### Common Git messages
+
+| Message | What it means |
+|---|---|
+| `The repository was not found` | Check that the `https://` address is spelled right and that the repository is public. |
+| `Use the repository's https:// address.` | Use the `https://` address instead of `http://` or a `git@` SSH address. |
+| `Repositories on ... can't be used here.` | Only GitHub, GitLab, Bitbucket and Codeberg addresses are allowed. |
+| `That address has no valid host name.` or `The address can't have ? or # in it` | Use a plain host name with no IP address, `?` query or `#` anchor. |
+| `The repository has no branches yet. Push a commit first.` | The repository is empty. Push at least one commit and try again. |
+| `The saved branch ... no longer exists` or `That branch no longer exists` | That branch was renamed or deleted on the remote. Pick another branch, press **Save**, and deploy again. |
+
+### Sub-user permissions
+
+When sharing your bot server under **Users**, three Git permissions control what a sub-user can do:
+
+- **View (`git.read`):** open the **Git** page and see the repository settings and deploy history, with no edit or deploy buttons. Without this permission, the **Git** page is hidden.
+- **Deploy (`git.deploy`):** press **Deploy now** (not available to sub-users who have hidden files configured on the server).
+- **Manage (`git.manage`):** connect or disconnect a repository, change the address, branch, folder or **Pull on every start**, and save changes.
+
 ## Older bot plans
 
 Basic Bot, Starter Bot, Intermediate Bot and Advanced Bot are no longer sold. A bot on one of them keeps its plan and its price and renews as before; nothing changes unless you change plan yourself.
@@ -77,5 +129,11 @@ Bigger sizes, up to Bot 8 GB, are under Upgrade. A downgrade applies straight aw
 - Mawawala ba ang files ng bot ko pag nag restart?
 - My Python bot cannot read .env
 - My bot cannot connect to MongoDB (queryTxt ESERVFAIL)
+- Can I connect my Discord bot to GitHub?
+- How do I deploy my bot from a Git repository?
+- Pwede ba mag deploy ng Discord bot galing GitHub?
+- Will deploying from Git delete my .env file?
+- Can my bot pull updates from Git automatically on start?
+- What permissions do sub-users need for the Git page?
 
 </details>
