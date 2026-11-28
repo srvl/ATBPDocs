@@ -5,7 +5,7 @@ description: "Start here to stop lag on your Minecraft server: what TPS is, how 
 
 This guide helps you prevent lag (TPS issues) on your server by optimizing its configuration.
 
-If you are on vanilla, Fabric or Spigot (or anything below Paper), go to your `server.properties` and change `sync-chunk-writes` to `false`. This option is forcibly set to false on Paper and its forks, but on other server implementations you need to switch this to false manually. This allows the server to save chunks off the main thread, lessening the load on the main tick loop.
+`sync-chunk-writes` in `server.properties` should always be set to **`false`** to reduce server load. Turning it on forces chunk writes onto the main tick loop and causes lag. Paper and its forks force it to `false` automatically, and our Auto Optimizer sets it to `false`, but on Vanilla, Fabric, Forge, NeoForge, or Spigot you should make sure `sync-chunk-writes=false` is set manually so the server saves chunks off the main thread.
 
 Guide for version 1.21.5. Some things may still apply to 1.15 - 1.21.4.
 

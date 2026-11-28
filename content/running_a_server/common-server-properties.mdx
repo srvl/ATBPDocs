@@ -26,6 +26,7 @@ Most basic server options live in `server.properties`. To edit it:
 | `allow-flight` | Stops the server from kicking players for flying (needed for some mods and plugins) | `allow-flight=true` |
 | `view-distance` | How many chunks players can see (range 3 to 32, default 10) | `view-distance=8` |
 | `simulation-distance` | How far from a player the world is actively updated | `simulation-distance=6` |
+| `sync-chunk-writes` | Keep `false` so chunk saves run off the main thread and reduce server load (Paper and its forks force it off, and Auto Optimizer sets it to `false`) | `sync-chunk-writes=false` |
 | `max-players` | Player slot limit | `max-players=20` |
 | `motd` | The text shown in the server list | see [MOTD](/running_a_server/motd) |
 | `white-list` | Only allow listed players | see [Whitelist](/running_a_server/whitelist) |
@@ -33,7 +34,7 @@ Most basic server options live in `server.properties`. To edit it:
 | `level-seed` | Seed for new worlds | see [Change Your World Seed](/running_a_server/change-world-seed) |
 | `enable-command-block` | Allow command blocks on older versions | see [Command Blocks](/running_a_server/enable-command-blocks) |
 
-Lowering `view-distance` and `simulation-distance` is the easiest way to cut lag. Values of 6 to 8 are plenty for most servers.
+Lowering `view-distance` and `simulation-distance` is the easiest way to cut lag. Values of 6 to 8 are plenty for most servers. Keep `sync-chunk-writes=false` as well: turning it on forces chunk saves onto the main tick loop and increases server load (Paper, Purpur and Leaf force it to `false`, and our Auto Optimizer sets it to `false`).
 
 ## Changing things without restarting
 
@@ -84,6 +85,9 @@ Hardcore works on both, but it has to be set when the world is created, so you m
 - How do I change the max players or player slots?
 - Paano dagdagan ang max players?
 - How do I change the view distance?
+- Should `sync-chunk-writes` be true or false?
+- Why is `sync-chunk-writes` set to false?
+- Dapat ba naka off o false ang `sync-chunk-writes`?
 - Why is my server not hardcore after I set `hardcore=true`?
 - Can I turn an existing world into hardcore?
 - Bakit nakaka respawn pa rin kahit naka hardcore?
